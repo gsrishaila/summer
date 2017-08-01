@@ -1,0 +1,13 @@
+digraph "boolean onCreateOptionsMenu(android.view.Menu)" {
+    label="boolean onCreateOptionsMenu(android.view.Menu)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this",];
+    "1" [label="$r1 := @parameter0",];
+    "0"->"1";
+    "2" [label="$r2 = $r0.getMenuInflater()",];
+    "1"->"2";
+    "3" [label="$r2.inflate(2131623936, $r1)",];
+    "2"->"3";
+    "4" [style=filled,fillcolor=lightgray,label="return 1",];
+    "3"->"4";
+}

@@ -1,0 +1,9 @@
+digraph "android.os.IBinder onBind(android.content.Intent)" {
+    label="android.os.IBinder onBind(android.content.Intent)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this",];
+    "1" [label="$r1 := @parameter0",];
+    "0"->"1";
+    "2" [style=filled,fillcolor=lightgray,label="return null",];
+    "1"->"2";
+}

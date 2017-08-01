@@ -23,6 +23,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
@@ -43,6 +44,7 @@ import soot.PackManager;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
+import soot.Unit;
 import soot.jimple.Stmt;
 import soot.jimple.infoflow.InfoflowConfiguration.AliasingAlgorithm;
 import soot.jimple.infoflow.InfoflowConfiguration.CallgraphAlgorithm;
@@ -72,6 +74,8 @@ import soot.options.Options;
 import soot.toolkits.graph.Block;
 import soot.toolkits.graph.BlockGraph;
 import soot.toolkits.graph.BriefBlockGraph;
+import soot.toolkits.graph.DirectedGraph;
+import soot.toolkits.graph.ExceptionalUnitGraph;
 import soot.toolkits.graph.MHGDominatorsFinder;
 import soot.util.dot.DotGraph;
 import soot.util.queue.QueueReader;
@@ -173,7 +177,7 @@ public class Test {
 		return Test.ipcManager;
 	}
 	
-	//added in function
+	//added in function to get the call graph as dot file
 	public static File serializeCallGraph(CallGraph graph, String fileName) {
 		if (fileName == null) {
 			fileName = soot.SourceLocator.v().getOutputDir();
@@ -195,7 +199,7 @@ public class Test {
 		canvas.plot(fileName);
 		return new File(fileName);
 	}
-	 
+	
 	//Function added in to generate the CFG
 	public static void generateCFG (SootMethod entryPoint)
 	{
@@ -210,6 +214,12 @@ public class Test {
 		for (Block block:bg){
 			System.out.println("\n"+block.toString());
 		}//end for 
+		
+		DirectedGraph<Unit> x = new ExceptionalUnitGraph(entryPoint.getActiveBody());
+        CFGToDotGraph y = new CFGToDotGraph();
+        DotGraph a=y.drawCFG(x,entryPoint.getActiveBody());
+        
+        a.plot(entryPoint.getName()+".dot");
 		
 		System.out.println("***End of CFG Generation***" + entryPoint.getName()+"\n");
 	}
@@ -310,71 +320,62 @@ public class Test {
 			System.gc();
 		}
 		
-	   //*****added in code2*****
-	   System.out.println("done done done111...");
-	   String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
-	   //String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
-	   //String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
-	   String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
-	   SetupApplication app = new SetupApplication
-	                (androidPlatformPath,
-	                        appPath);
-	   //app.calculateSourcesSinksEntrypoints("D:\\Arbeit\\Android Analyse\\soot-infoflow-android\\SourcesAndSinks.txt");
-	   //app.calculateSourcesSinksEntrypoints("/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/SourcesAndSinks.txt");
-       try {
-		app.runInfoflow("/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/SourcesAndSinks.txt");
-	} catch (XmlPullParserException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	        soot.G.reset();
-       Options.v().set_src_prec(Options.src_prec_apk);
-	   Options.v().set_process_dir(Collections.singletonList(appPath));
-	   Options.v().set_android_jars(androidPlatformPath);
-	   Options.v().set_whole_program(true);
-	   Options.v().set_allow_phantom_refs(true);
-	   Options.v().setPhaseOption("cg.spark", "on");
-
-	   Scene.v().loadNecessaryClasses();
-
-	   //SootMethod entryPoint = app.getEntryPointCreator().createDummyMain();
-	   SootMethod entryPoint = app.getDummyMainMethod();
-	   Options.v().set_main_class(entryPoint.getSignature());
-	   Scene.v().setEntryPoints(Collections.singletonList(entryPoint));
-	   System.out.println("hhhh");
-	   System.out.println(entryPoint.getActiveBody());
-	   //***Testing...
-	   generateCFG (entryPoint);
-	 
-	   /*System.out.println("iiii");
-	   Body b = entryPoint.retrieveActiveBody();
-	   BlockGraph bg = new BriefBlockGraph(b);
-	   MHGDominatorsFinder<Block> domFinder = new MHGDominatorsFinder(bg); 
-	   //print basic block info 
-	   for (Block block:bg){
-			System.out.println("\n"+block.toString());
-	   }//end for */
-	   
-	   //***Testing...
-	   System.out.println("entrypoints");
-	   //get entrypointclasses first, then get the entrypoint methods
-	   Set <SootClass> entryPoint1 =  app.getEntrypointClasses();
-	   System.out.println(entryPoint1);
-	   for (SootClass eachentrypt:entryPoint1){
-		   List <SootMethod> mdtsInSootClass = eachentrypt.getMethods();
-		   System.out.println("\n"+eachentrypt.toString()+" "+eachentrypt.getMethods().toString());
-		   for(SootMethod  mdt : mdtsInSootClass)
-			   generateCFG (mdt);
-		   
-		}//end for 
-	   //***Testing...
-	   //System.out.println(entryPoint.);
-	   //PackManager.v().runPacks();
-	   PackManager.v().getPack("cg").apply(); //this works
-	   CallGraph appCallGraph = Scene.v().getCallGraph();
-	   File graph =serializeCallGraph(appCallGraph, "callgraph");
-	   
-	   //*****added in code2*****
+	   //*****added in code3*****
+		System.out.println("done done done111...");
+		String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
+	    //String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
+		//String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
+		String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
+		SetupApplication app = new SetupApplication(androidPlatformPath,appPath);
+		try {
+			app.runInfoflow("/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/SourcesAndSinks.txt");
+		} 
+		catch (XmlPullParserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    soot.G.reset();
+	    Options.v().set_src_prec(Options.src_prec_apk);
+		Options.v().set_process_dir(Collections.singletonList(appPath));
+		Options.v().set_android_jars(androidPlatformPath);
+		Options.v().set_whole_program(true);
+		Options.v().set_allow_phantom_refs(true);
+		Options.v().setPhaseOption("cg.spark", "on");
+        Scene.v().loadNecessaryClasses();
+        
+        SootMethod entryPoint = app.getDummyMainMethod();
+ 	    Options.v().set_main_class(entryPoint.getSignature());
+ 	    Scene.v().setEntryPoints(Collections.singletonList(entryPoint));
+ 	    System.out.println("hhhh");
+ 	    System.out.println(entryPoint.getActiveBody());
+ 	    
+ 	    //getting the CFG of the DummyMainMethod
+ 	    generateCFG (entryPoint);
+ 	    
+ 	    //getting the entrypoint classes from the DummyMainMethod
+ 	    Set <SootClass> entryPoint1 =  app.getEntrypointClasses();
+	    System.out.println(entryPoint1);
+	    for (SootClass eachentrypt:entryPoint1){
+		    List <SootMethod> mdtsInSootClass = eachentrypt.getMethods();
+		    System.out.println("\n"+eachentrypt.toString()+" "+eachentrypt.getMethods().toString());
+		    //get the all the methods in these classes, get the CFGs for those classes
+		    for(SootMethod  mdt : mdtsInSootClass)
+		    {    generateCFG (mdt);
+		         //trying to generate the ExceptionalUnitGraph
+		         /*DirectedGraph<Unit> x = new ExceptionalUnitGraph(mdt.getActiveBody());
+		         CFGToDotGraph y = new CFGToDotGraph();
+		         DotGraph a=y.drawCFG(x,mdt.getActiveBody());
+		         a.plot("cfg.dot");*/
+		         
+		    }
+	    }
+		//getting the callgraph
+		PackManager.v().getPack("cg").apply(); //this works
+	    CallGraph appCallGraph = Scene.v().getCallGraph();
+	    File graph =serializeCallGraph(appCallGraph, "callgraph");
+	   //*****added in code3*****
+		
+	    
       
 	}
 

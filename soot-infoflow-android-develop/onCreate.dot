@@ -1,0 +1,17 @@
+digraph "void onCreate(android.os.Bundle)" {
+    label="void onCreate(android.os.Bundle)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this",];
+    "1" [label="$r1 := @parameter0",];
+    "0"->"1";
+    "2" [label="specialinvoke $r0.onCreate($r1)",];
+    "1"->"2";
+    "3" [label="$r0.setContentView(2130968602)",];
+    "2"->"3";
+    "4" [label="$r2 = $r0.msg",];
+    "3"->"4";
+    "5" [label="android.util.Log.d($r2, \"The onCreate() event\")",];
+    "4"->"5";
+    "6" [style=filled,fillcolor=lightgray,label="return",];
+    "5"->"6";
+}
