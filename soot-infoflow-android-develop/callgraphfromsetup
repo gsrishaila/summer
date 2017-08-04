@@ -1,5 +1,7 @@
 digraph "call-graph" {
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"
+    "<android.app.Activity: void <clinit>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<android.app.Activity: void <clinit>()>";
     "<com.example.gsrishaila.myapplication.MyService: void <init>()>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: void <init>()>";
     "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"

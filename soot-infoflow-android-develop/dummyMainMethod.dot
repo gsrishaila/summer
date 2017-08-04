@@ -23,12 +23,12 @@ digraph "void dummyMainMethod(java.lang.String[])" {
     "7"->"8";
     "13" [label="label07: if $i0 == 7 goto label03",];
     "7"->"13";
-    "9" [label="$z0 = $r1.onCreateOptionsMenu(null)",];
+    "9" [label="$z0 = $r1.onOptionsItemSelected(null)",];
     "8"->"9";
     "10" [label="label05: if $i0 == 5 goto label06",];
     "8"->"10";
     "9"->"10";
-    "11" [label="$z1 = $r1.onOptionsItemSelected(null)",];
+    "11" [label="$z1 = $r1.onCreateOptionsMenu(null)",];
     "10"->"11";
     "12" [label="label06: if $i0 == 6 goto label04",];
     "10"->"12";

@@ -26,6 +26,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.Spliterator;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -41,6 +42,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import soot.Body;
 import soot.MethodOrMethodContext;
 import soot.PackManager;
+import soot.PatchingChain;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
@@ -77,6 +79,7 @@ import soot.toolkits.graph.BriefBlockGraph;
 import soot.toolkits.graph.DirectedGraph;
 import soot.toolkits.graph.ExceptionalUnitGraph;
 import soot.toolkits.graph.MHGDominatorsFinder;
+import soot.toolkits.graph.UnitGraph;
 import soot.util.dot.DotGraph;
 import soot.util.queue.QueueReader;
 //***
@@ -164,7 +167,12 @@ public class Test {
 	private static boolean noTaintWrapper = false;
 	private static String summaryPath = "";
 	private static String resultFilePath = "";
-
+	
+	//create a list of the soot methods name
+	static List<String> sootMethodsNameList = new ArrayList<String>();
+	static List<String> sootMethodsSignatureList = new ArrayList<String>();
+	static List<String> sootMethodsSubSignatureList = new ArrayList<String>();
+	static List<SootMethod> sootMethodsObjectList = new ArrayList<SootMethod>();
 
 	
 	private static IIPCManager ipcManager = null;
@@ -205,6 +213,8 @@ public class Test {
 	{
 		System.out.println("***CFG Generation***" + entryPoint.getName());
 		System.out.println("Method Name : " + entryPoint.getName());
+		System.out.println("Method Signature : " + entryPoint.getSignature());
+		
 		Body b = entryPoint.retrieveActiveBody();
 		
 		BlockGraph bg = new BriefBlockGraph(b);
@@ -216,6 +226,21 @@ public class Test {
 		}//end for 
 		
 		DirectedGraph<Unit> x = new ExceptionalUnitGraph(entryPoint.getActiveBody());
+		//***code to add the cfgs together***
+		//SootMethod m = c.getMethodByName(methodName);
+		/*if(entryPoint.getName() == "dummyMainMethod")
+		{
+			Body body = entryPoint.retrieveActiveBody();
+		    //Build CFG
+		    UnitGraph cfg = new ExceptionalUnitGraph(body);
+		    PatchingChain<Unit> allunits = body.getUnits();
+		    for (Unit eachunit:allunits) 
+		    {
+		    	
+		    	System.out.println("each unit to string: "+eachunit+"\n");
+			}
+		}*/
+		//***code to add the cfgs together***
         CFGToDotGraph y = new CFGToDotGraph();
         DotGraph a=y.drawCFG(x,entryPoint.getActiveBody());
         
@@ -223,11 +248,197 @@ public class Test {
 		
 		System.out.println("***End of CFG Generation***" + entryPoint.getName()+"\n");
 	}
+	
+	//Function added in to generate the CFG111
+		public static void generateCFG111 (SootMethod entryPoint)
+		{
+			System.out.println("***CFG Generation111***" + entryPoint.getName());
+			System.out.println("Method Name : " + entryPoint.getName());
+			System.out.println("Method Signature : " + entryPoint.getSignature());
+			
+			Body b = entryPoint.retrieveActiveBody();
+			
+			BlockGraph bg = new BriefBlockGraph(b);
+			
+			MHGDominatorsFinder<Block> domFinder = new MHGDominatorsFinder(bg); 
+			//print basic block info 
+			for (Block block:bg){
+				System.out.println("\n"+block.toString());
+			}//end for 
+			
+			DirectedGraph<Unit> x = new ExceptionalUnitGraph(entryPoint.getActiveBody());
+			//***code to add the cfgs together***
+			//SootMethod m = c.getMethodByName(methodName);
+			/*if(entryPoint.getName() == "dummyMainMethod")
+			{
+				Body body = entryPoint.retrieveActiveBody();
+			    //Build CFG
+			    UnitGraph cfg = new ExceptionalUnitGraph(body);
+			    PatchingChain<Unit> allunits = body.getUnits();
+			    for (Unit eachunit:allunits) 
+			    {
+			    	
+			    	System.out.println("each unit to string: "+eachunit+"\n");
+				}
+			}*/
+			//***code to add the cfgs together***
+	        CFGToDotGraph y = new CFGToDotGraph();
+	        DotGraph a=y.drawCFG(x,entryPoint.getActiveBody());
+	        
+	        a.plot(entryPoint.getName()+"111.dot");
+			
+			System.out.println("***End of CFG Generation***" + entryPoint.getName()+"\n");
+		}
+	
+	//Function added in to generate the CFG
+    public static void mergeCFG1s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+    {
+    	for (SootMethod mdt:entryPoint)
+    	{
+    		if(mdt.getName().contains("dummyMainMethod"))
+			{
+    			Body body = mdt.retrieveActiveBody();
+			    //Build CFG
+			    UnitGraph cfg = new ExceptionalUnitGraph(body);
+			    PatchingChain<Unit> allunits = body.getUnits();
+			    for (Unit eachunit:allunits) 
+			    {
+			    	//System.out.println("unitToString : "+eachunit.toString()+"\n");
+			    	if (eachunit.toString().contains("invoke") && (!eachunit.toString().contains("if")))
+			    	{
+			    		for (String mdtSig:sootMethodsSignatureList) 
+			    		{
+			    			if (eachunit.toString().contains(mdtSig))
+			    			{
+			    				//System.out.println("UnitToString  : " + eachunit.toString());
+			    				//System.out.println("Method Signature : " + mdtSig +"\n");
+			    				//look for the sootmethod cfg for this function
+			    				//then merge it with the unit that invokes this call
+			    				for (SootMethod mdt1:entryPoint) 
+			    				{
+			    					if (mdt1.getSignature().equals(mdtSig))
+			    					{
+			    						System.out.println("dummy UnitToString  : " + eachunit.toString());
+			    						System.out.println("Method unit to Signature : " + mdt1.getSignature() +"\n");
+			    						//***merge here... merge the unit - eachnuit and the mdt1 tog***
+			    						if(mdt1.getActiveBody().getAllUnitBoxes().size()>0)
+			    						{
+			    							//found the sootmdt
+			    							System.out.println("\n"+"*****unitboxes > 1*****");
+			    							System.out.println("dummy UnitToString  : " + eachunit.toString());
+				    						System.out.println("Method unit to Signature : " + mdt1.getSignature());
+				    						System.out.println("Mdt1.activebody to string : " + mdt1.getActiveBody().getAllUnitBoxes().get(0).toString());
+				    						//System.out.println("Mdt1.activebody to string : " + mdt1.getActiveBody().getUnits().);
+				    						System.out.println("*****unitboxes > 1*****"+"\n");
+			    							eachunit.addBoxPointingToThis(mdt1.getActiveBody().getAllUnitBoxes().get(0));
+			    							//mdt.getActiveBody().getUnits().insertAfter(mdt1.getActiveBody().getUnits(),eachunit); //error
+			    							mdt.getActiveBody().getUnits().insertAfter(mdt1.retrieveActiveBody().getUnits(),eachunit);
+			    							generateCFG111 (mdt);
+			    						}
+			    						
+			    					    //***merge here... merge the unit - eachnuit and the mdt1 tog***
+			    					}
+			    				}
+			    			}
+			    		}
+			    	}
+			    }
+			    generateCFG111 (mdt);
+			    break;
+			}//if cond ends here
+    	}//end of biggest for loop
+    	//construct the graph again for the changed body
+    }
+	
+	
+	//Function added in to generate the CFG
+	public static void mergeCFGs (List <SootMethod> entryPoint, List <String> sootMethodNames)
+	{
+		//look through the list of SootMethod objects and get the one with the dummymain as name
+		for (SootMethod mdt:entryPoint)
+		{
+			if(mdt.getName().contains("dummyMainMethod"))
+			{
+				Body body = mdt.retrieveActiveBody();
+			    //Build CFG
+			    UnitGraph cfg = new ExceptionalUnitGraph(body);
+			    PatchingChain<Unit> allunits = body.getUnits();
+			    for (Unit eachunit:allunits) 
+			    {
+			    	System.out.println("unitToString : "+eachunit.toString()+"\n");
+			    	if (eachunit.toString().contains("invoke") && (!eachunit.toString().contains("if")))
+			    	{
+				    	//find the exact mdt name
+				    	String array1[]= eachunit.toString().split(":");
+		    			String array2[]= array1[1].split(" ");
+		    			//continue here...
+		    			if (array2[2].contains("("))
+		    			{
+		    				//array1= array2[2].toString().split("(");
+		    				array1=array2[2].toString().split("\\(");
+		    				//System.out.println("string parts: "+ array1[0]+"\n");
+		    				
+		    			}
+		    			//System.out.println("string parts: "+ array2[2]+"\n");
+		    			//System.out.println("each unit to string: "+eachunit+"\n");
+		    			for (String mdtName:sootMethodNames)
+		    			{
+		    				if (array1[0].equals(mdtName))
+		    				{
+		    					//System.out.println("mdtNamelll : "+ mdtName+"\n");
+		    					System.out.println("eachunuitllll : "+eachunit.toString()+"\n");
+		    					//find the sootmethod with this name
+		    					for (SootMethod thismdt:entryPoint)
+		    					{
+		    						if (thismdt.getName().equals(mdtName))
+		    						{
+		    							System.out.println("mdtNamellllll : "+ thismdt.getName()+"\n");
+		    						}
+		    					}
+		    					
+		    				}
+		    			}
+		    			//System.out.println(mdtName+" merge CFG here..."+"\n");
+				    	
+				    	//find the exact mdt name
+			    	}
+			    	/*for (String mdtName:sootMethodNames)
+			    	{
+			    		
+			    		if (eachunit.toString().contains(mdtName) && (!eachunit.toString().contains("if")))
+			    		{
+			    			String array1[]= eachunit.toString().split(":");
+			    			String array2[]= array1[1].split(" ");
+			    			//continue here...
+			    			if (array2[2].contains("("))
+			    			{
+			    				//array1= array2[2].toString().split("(");
+			    				array1=array2[2].toString().split("\\(");
+			    				System.out.println("string parts: "+ array1[0]+"\n");
+			    				
+			    			}
+			    			//System.out.println("string parts: "+ array2[2]+"\n");
+			    			System.out.println("each unit to string: "+eachunit+"\n");
+			    			System.out.println(mdtName+" merge CFG here..."+"\n");
+			    		}
+			    	}*/
+				}
+			}
+			else
+			{
+				System.out.println("else path...mdt.getName() is "+mdt.getName()+"\n");
+			}
+		}
+		//look for the units inside this object
+		//if any of the units contain a call for any other sootMethod, thenmerge the unit with the entryPoint object
+	}
 	/**
 	 * @param args Program arguments. args[0] = path to apk-file,
 	 * args[1] = path to android-dir (path/android-platforms/)
 	 */
 	public static void main(final String[] args) throws IOException, InterruptedException {
+		
+
 		if (args.length < 2) {
 			printUsage();	
 			return;
@@ -344,6 +555,7 @@ public class Test {
         Scene.v().loadNecessaryClasses();
         
         SootMethod entryPoint = app.getDummyMainMethod();
+        sootMethodsObjectList.add(entryPoint);
  	    Options.v().set_main_class(entryPoint.getSignature());
  	    Scene.v().setEntryPoints(Collections.singletonList(entryPoint));
  	    System.out.println("hhhh");
@@ -360,23 +572,32 @@ public class Test {
 		    System.out.println("\n"+eachentrypt.toString()+" "+eachentrypt.getMethods().toString());
 		    //get the all the methods in these classes, get the CFGs for those classes
 		    for(SootMethod  mdt : mdtsInSootClass)
-		    {    generateCFG (mdt);
+		    {    
+		    	 generateCFG (mdt);
+		         sootMethodsNameList.add(mdt.getName());
+		         sootMethodsObjectList.add(mdt);
+		         sootMethodsSignatureList.add(mdt.getSignature());
+		     	 sootMethodsSubSignatureList.add(mdt.getSubSignature());
+		        
 		         //trying to generate the ExceptionalUnitGraph
 		         /*DirectedGraph<Unit> x = new ExceptionalUnitGraph(mdt.getActiveBody());
 		         CFGToDotGraph y = new CFGToDotGraph();
 		         DotGraph a=y.drawCFG(x,mdt.getActiveBody());
-		         a.plot("cfg.dot");*/
-		         
+		         a.plot("cfg.dot");*/ 
 		    }
 	    }
+	    System.out.println("mergeCFGs () function called No1 ....");
+	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
+	    mergeCFG1s (sootMethodsObjectList, sootMethodsSignatureList);
+	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
+	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
+	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
+	    //System.out.println("sootMethodsSubSignatureList: " + sootMethodsSubSignatureList);
 		//getting the callgraph
 		PackManager.v().getPack("cg").apply(); //this works
 	    CallGraph appCallGraph = Scene.v().getCallGraph();
 	    File graph =serializeCallGraph(appCallGraph, "callgraph");
-	   //*****added in code3*****
-		
-	    
-      
+	   //*****added in code3***** 
 	}
 
 	/**

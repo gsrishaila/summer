@@ -29,6 +29,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import heros.solver.Pair;
 import soot.G;
 import soot.Main;
+import soot.MethodOrMethodContext;
 import soot.PackManager;
 import soot.Scene;
 import soot.SootClass;
@@ -85,9 +86,13 @@ import soot.jimple.infoflow.source.data.ISourceSinkDefinitionProvider;
 import soot.jimple.infoflow.source.data.SourceSinkDefinition;
 import soot.jimple.infoflow.taintWrappers.ITaintPropagationWrapper;
 import soot.jimple.infoflow.util.SystemClassHandler;
+import soot.jimple.toolkits.callgraph.CallGraph;
+import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 import soot.util.HashMultiMap;
 import soot.util.MultiMap;
+import soot.util.dot.DotGraph;
+import soot.util.queue.QueueReader;
 
 public class SetupApplication {
 	
@@ -459,6 +464,28 @@ public class SetupApplication {
 		}
 	}
 
+	//added in function to get the call graph as dot file
+	public static File serializeCallGraph(CallGraph graph, String fileName) {
+		if (fileName == null) {
+			fileName = soot.SourceLocator.v().getOutputDir();
+			if (fileName.length() > 0) {
+				fileName = fileName + java.io.File.separator;
+			}
+			fileName = fileName + "call-graph" + DotGraph.DOT_EXTENSION;
+		}
+		DotGraph canvas = new DotGraph("call-graph");
+		QueueReader<Edge> listener = graph.listener();
+		while (listener.hasNext()) {
+			Edge next = listener.next();
+			MethodOrMethodContext src = next.getSrc();
+			MethodOrMethodContext tgt = next.getTgt();
+			canvas.drawNode(src.toString());
+			canvas.drawNode(tgt.toString());
+			canvas.drawEdge(src.toString(), tgt.toString());
+		}
+		canvas.plot(fileName);
+		return new File(fileName);
+	}
 	/**
 	 * Triggers the callgraph construction in Soot
 	 */
@@ -484,6 +511,10 @@ public class SetupApplication {
         // Construct the actual callgraph
         logger.info("Constructing the callgraph...");
         PackManager.v().getPack("cg").apply();
+        //***added in code***
+        CallGraph appCallGraph = Scene.v().getCallGraph();
+	    File graph =serializeCallGraph(appCallGraph, "callgraphfromsetup+");
+        //***added in code***
 
 		// ICC instrumentation
 		if (iccInstrumenter != null)

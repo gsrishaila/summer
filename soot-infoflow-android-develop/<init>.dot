@@ -4,6 +4,8 @@ digraph "void <init>()" {
     "0" [style=filled,fillcolor=gray,label="$r0 := @this",];
     "1" [label="specialinvoke $r0.<init>()",];
     "0"->"1";
-    "2" [style=filled,fillcolor=lightgray,label="return",];
+    "2" [label="$r0.msg = \"Android : \"",];
     "1"->"2";
+    "3" [style=filled,fillcolor=lightgray,label="return",];
+    "2"->"3";
 }

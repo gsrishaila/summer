@@ -1,0 +1,21 @@
+digraph "void fill_data()" {
+    label="void fill_data()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this",];
+    "1" [label="$r1 = $r0.getSharedPreferences(\"mySharedPreferences\", 0)",];
+    "0"->"1";
+    "2" [label="$r2 = $r1.getString(\"Username\", null)",];
+    "1"->"2";
+    "3" [label="$r3 = $r1.getString(\"Password\", null)",];
+    "2"->"3";
+    "4" [label="$r4 = $r0.Username_Text",];
+    "3"->"4";
+    "5" [label="$r4.setText($r2)",];
+    "4"->"5";
+    "6" [label="$r4 = $r0.Password_Text",];
+    "5"->"6";
+    "7" [label="$r4.setText($r3)",];
+    "6"->"7";
+    "8" [style=filled,fillcolor=lightgray,label="return",];
+    "7"->"8";
+}
