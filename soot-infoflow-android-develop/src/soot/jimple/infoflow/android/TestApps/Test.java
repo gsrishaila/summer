@@ -47,6 +47,8 @@ import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.Unit;
+import soot.UnitBox;
+import soot.jimple.Jimple;
 import soot.jimple.Stmt;
 import soot.jimple.infoflow.InfoflowConfiguration.AliasingAlgorithm;
 import soot.jimple.infoflow.InfoflowConfiguration.CallgraphAlgorithm;
@@ -226,26 +228,10 @@ public class Test {
 		}//end for 
 		
 		DirectedGraph<Unit> x = new ExceptionalUnitGraph(entryPoint.getActiveBody());
-		//***code to add the cfgs together***
-		//SootMethod m = c.getMethodByName(methodName);
-		/*if(entryPoint.getName() == "dummyMainMethod")
-		{
-			Body body = entryPoint.retrieveActiveBody();
-		    //Build CFG
-		    UnitGraph cfg = new ExceptionalUnitGraph(body);
-		    PatchingChain<Unit> allunits = body.getUnits();
-		    for (Unit eachunit:allunits) 
-		    {
-		    	
-		    	System.out.println("each unit to string: "+eachunit+"\n");
-			}
-		}*/
-		//***code to add the cfgs together***
         CFGToDotGraph y = new CFGToDotGraph();
-        DotGraph a=y.drawCFG(x,entryPoint.getActiveBody());
-        
+        //DotGraph a=y.drawCFG(x,entryPoint.getActiveBody()); //gives units in cfg
+        DotGraph a=y.drawCFG(bg,entryPoint.getActiveBody());
         a.plot(entryPoint.getName()+".dot");
-		
 		System.out.println("***End of CFG Generation***" + entryPoint.getName()+"\n");
 	}
 	
@@ -264,6 +250,13 @@ public class Test {
 			//print basic block info 
 			for (Block block:bg){
 				System.out.println("\n"+block.toString());
+				/*if (block.getIndexInMethod()==6)
+				{
+					List<Block> originalSuccessorList=new ArrayList();
+					originalSuccessorList.addAll(block.getSuccs());
+					originalSuccessorList.add(bg.getBlocks().get(9));
+					block.setSuccs(originalSuccessorList);
+				}*/
 			}//end for 
 			
 			DirectedGraph<Unit> x = new ExceptionalUnitGraph(entryPoint.getActiveBody());
@@ -283,17 +276,20 @@ public class Test {
 			}*/
 			//***code to add the cfgs together***
 	        CFGToDotGraph y = new CFGToDotGraph();
-	        DotGraph a=y.drawCFG(x,entryPoint.getActiveBody());
+	        //DotGraph a=y.drawCFG(x,entryPoint.getActiveBody());//gives units in cfg
+	        DotGraph a=y.drawCFG(bg,entryPoint.getActiveBody());
 	        
 	        a.plot(entryPoint.getName()+"111.dot");
 			
 			System.out.println("***End of CFG Generation***" + entryPoint.getName()+"\n");
 		}
 	
-	//Function added in to generate the CFG
-    public static void mergeCFG1s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
-    {
-    	for (SootMethod mdt:entryPoint)
+	
+	public static void mergeCFG2s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	{
+		Unit successor = null;
+		Unit predecessor = null;
+		for (SootMethod mdt:entryPoint)
     	{
     		if(mdt.getName().contains("dummyMainMethod"))
 			{
@@ -306,10 +302,233 @@ public class Test {
 			    	//System.out.println("unitToString : "+eachunit.toString()+"\n");
 			    	if (eachunit.toString().contains("invoke") && (!eachunit.toString().contains("if")))
 			    	{
+			    		
 			    		for (String mdtSig:sootMethodsSignatureList) 
 			    		{
 			    			if (eachunit.toString().contains(mdtSig))
 			    			{
+			    				//get successor of this unit
+			    				System.out.println("*****");
+			    				System.out.println("dummy UnitToString  : " + eachunit.toString());
+			    				System.out.println("mdt Name  : " + mdtSig.toString());
+			    				successor = mdt.retrieveActiveBody().getUnits().getSuccOf(eachunit);
+			    				predecessor = mdt.retrieveActiveBody().getUnits().getPredOf(eachunit);
+			    				System.out.println("successor  : " + successor.toString());
+			    				System.out.println("predecessor  : " + predecessor.toString());
+			    				System.out.println("*****");
+			    				
+			    				//eachunit.redirectJumpsToThisTo(successor);
+			    				List<UnitBox> before =successor.getBoxesPointingToThis();
+			    				for (UnitBox b4UnitBox:before)
+			    				{
+			    					System.out.println("successor units b4  : " + b4UnitBox.getUnit().toString());	
+			    				}
+			    				mdt.getActiveBody().getUnits().getSuccOf(predecessor).redirectJumpsToThisTo(successor);//not working
+			    				List<UnitBox> after =successor.getBoxesPointingToThis();
+			    				for (UnitBox afterUnitBox:before)
+			    				{
+			    					System.out.println("successor units b4  : " + afterUnitBox.getUnit().toString());	
+			    				}
+			    				generateCFG111 (mdt);
+			    				/*//look for the unit box with the successor and the predecessor
+			    				List<UnitBox> listOfUnitBoxes = mdt.getActiveBody().getAllUnitBoxes();
+			    				for (UnitBox currUnitBox:listOfUnitBoxes)
+			    				{
+			    					//if(currUnitBox.getUnit().toString().equals(successor.toString()))
+			    					if(currUnitBox.getUnit().equals(successor))
+			    						System.out.println("successor box found  : " + currUnitBox.getUnit().toString());
+			    					if(currUnitBox.getUnit().equals(predecessor))
+			    						System.out.println("predecessor box found  : " + currUnitBox.getUnit().toString());
+			    				}*/
+			    				return;
+			    			}
+			    		}
+			    	}
+			    }
+			}
+    	
+    	}
+	}
+	
+	public static void mergeCFG4s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	{
+		for (SootMethod mdt:entryPoint)
+		{
+			if(mdt.getName().contains("dummyMainMethod"))
+			{
+				Body body = mdt.retrieveActiveBody();
+				BlockGraph bg = new BriefBlockGraph(body);
+				for (Block block:bg)
+				{
+					System.out.println("\nblock content: "+block.toString());
+					//get the list of successors for this block
+					List<Block> succBlockList = block.getSuccs();
+					List<Integer>succBlockIdxList = new ArrayList();
+					
+					List<Block> succBlockListAfter = block.getSuccs();
+					List<Integer>succBlockIdxListAfter = new ArrayList();
+					for(Block eachSuccessor:succBlockList)
+					{
+						succBlockIdxList.add(eachSuccessor.getIndexInMethod());
+					}
+					
+					if (block.toString().contains("invoke") && (!block.toString().contains("if")))
+					{
+						for (String mdtSig:sootMethodsSignatureList) 
+						{
+							//find out the mdt name
+							if (block.toString().contains(mdtSig))
+							{
+								System.out.println("B4: index of this block : " + block.getIndexInMethod());
+								System.out.println("B4: successors : " + succBlockIdxList);
+								//get the cfg of the function to insert in unitchain
+								 for (SootMethod mdt1:entryPoint) 
+						    	 {
+									 if (mdt1.getSignature().equals(mdtSig))
+							    	 {
+							    		//get the blockgraph
+										System.out.println("mdtsig  : " + mdtSig.toString());
+										Body body1 = mdt1.retrieveActiveBody();
+										BlockGraph bg1 = new BriefBlockGraph(body1);
+										//bg.getBlocks().get(block.getIndexInMethod()).setSuccs(bg1.getBlocks());//setting allblocks of cfg as successors
+										//bg.getBlocks().get(block.getIndexInMethod()).getBody().getUnits().insertAfter(mdt1.getActiveBody().getUnits(), block.getTail());//cause error
+										//******//
+										//$$$$$$//
+										//look inside each of the units in the blocks
+										PatchingChain<Unit> unitsInBlock = block.getBody().getUnits();
+										Iterator<Unit> unitInBlk = block.iterator();
+										System.out.println("content in unit in block : "+ block.toString());
+										while(unitInBlk.hasNext())
+										{
+											Unit nextUnit = unitInBlk.next();
+											System.out.println("content in unit in block11111 : "+ nextUnit.toString());
+											if (nextUnit.toString().contains(mdtSig))
+											{
+												mdt.getActiveBody().getUnits().insertAfter(mdt1.getActiveBody().getUnits(),nextUnit);
+											}
+											break;
+										}
+										
+										/*for (Unit unitInBlk:unitsInBlock)
+										{
+											System.out.println("content in unit in block : "+ unitInBlk.toString());
+										}*/
+										//$$$$$$//
+										//the second arguement unit is wrong...
+										//mdt.getActiveBody().getUnits().insertAfter(mdt1.getActiveBody().getUnits(),block.getBody().getUnits().getFirst());
+										
+										Body newBody = mdt.retrieveActiveBody();
+										BlockGraph mdtBg = new BriefBlockGraph(newBody);
+										DirectedGraph<Unit> x = new ExceptionalUnitGraph(mdt.getActiveBody());
+										//System.out.println("first unit in block : " + block.getBody().getUnits().getFirst().toString());
+										//******//
+										CFGToDotGraph y = new CFGToDotGraph();
+								        //DotGraph a=y.drawCFG(x,entryPoint.getActiveBody()); //gives units in cfg
+								        DotGraph a=y.drawCFG(mdtBg,mdt.getActiveBody());
+								        a.plot(mdt.getName()+"222.dot");
+								        
+								        //find the successor blocks after the merger
+								        succBlockListAfter = block.getSuccs();
+								        for(Block eachSuccessorAfter:succBlockListAfter)
+										{
+								        	succBlockIdxListAfter.add(eachSuccessorAfter.getIndexInMethod());
+										}
+								        System.out.println("After: index of this block : " + block.getIndexInMethod());
+										System.out.println("After: successors : " + succBlockIdxListAfter);
+										System.out.println("Merging done");
+								        //return;
+							    	 }
+						    	 }
+								//add the cfg of the function after this block
+								//block.getBody().getUnits().insertAfter(toInsert, point);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public static void mergeCFG3s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	{
+		for (SootMethod mdt:entryPoint)
+		{
+			if(mdt.getName().contains("dummyMainMethod"))
+			{
+				Body body = mdt.retrieveActiveBody();
+				BlockGraph bg = new BriefBlockGraph(body);
+				for (Block block:bg)
+				{
+					 PatchingChain<Unit> allUnitsInBlock = body.getUnits();block.getBody().getUnits();
+					 for (Unit eachunit:allUnitsInBlock)
+					 {
+						 if (eachunit.toString().contains("invoke") && (!eachunit.toString().contains("if")))
+						 {
+							 for (String mdtSig:sootMethodsSignatureList) 
+							 {
+								 if (eachunit.toString().contains(mdtSig))
+					    		{
+									 List<Integer>successorBlksId =new ArrayList();
+									 //this block contains the unit that calls the function
+									 //so get the successors of this block
+									 List<Block> successorList = block.getSuccs();
+									 for (Block eachSuccBlk:successorList)
+									 {
+										 successorBlksId.add(eachSuccBlk.getIndexInMethod());
+									 }
+									 //add each of the id of the successors to the successor
+					    		}
+								 for (SootMethod mdt1:entryPoint) 
+					    		{
+									if(mdt1.getActiveBody().getAllUnitBoxes().size()>0)//remove later
+									{
+						    			if (mdt1.getSignature().equals(mdtSig))
+						    			{
+						    				System.out.println("dummy UnitToString  : " + eachunit.toString());
+				    						System.out.println("Method unit to Signature : " + mdt1.getSignature() +"\n");
+				    						mdt.getActiveBody().getUnits().insertAfter(mdt1.retrieveActiveBody().getUnits(),eachunit);
+						    			}
+						    			
+									}
+					    		}
+							 }//end of sootMethodsSignatureList
+							 //add in the cfg here
+							 
+						 }//
+					 }
+				}
+
+			}
+			generateCFG111 (mdt);//this works bt loop is stuck
+		}
+	}
+	
+	//Function added in to generate the CFG
+    public static void mergeCFG1s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+    {	
+    	for (SootMethod mdt:entryPoint)
+    	{
+    		if(mdt.getName().contains("dummyMainMethod"))
+			{
+    			Body body = mdt.retrieveActiveBody();
+    			
+    			
+			    //Build CFG
+			    UnitGraph cfg = new ExceptionalUnitGraph(body);
+			    PatchingChain<Unit> allunits = body.getUnits();
+			    for (Unit eachunit:allunits) 
+			    {
+			    	//System.out.println("unitToString : "+eachunit.toString()+"\n");
+			    	if (eachunit.toString().contains("invoke") && (!eachunit.toString().contains("if")))
+			    	{
+			    		
+			    		for (String mdtSig:sootMethodsSignatureList) 
+			    		{
+			    			if (eachunit.toString().contains(mdtSig))
+			    			{
+			    				//get successor of this unit
+			    				Unit successor = mdt.retrieveActiveBody().getUnits().getSuccOf(eachunit);
+			    				
 			    				//System.out.println("UnitToString  : " + eachunit.toString());
 			    				//System.out.println("Method Signature : " + mdtSig +"\n");
 			    				//look for the sootmethod cfg for this function
@@ -320,7 +539,12 @@ public class Test {
 			    					{
 			    						System.out.println("dummy UnitToString  : " + eachunit.toString());
 			    						System.out.println("Method unit to Signature : " + mdt1.getSignature() +"\n");
-			    						//***merge here... merge the unit - eachnuit and the mdt1 tog***
+			    						//***merge here... merge the unit - mdt(dummymain) and the mdt1 tog***
+			    						//***added in***
+			    						//mdt.getActiveBody().getUnits().insertAfter(mdt1.retrieveActiveBody().getUnits(),eachunit);//works
+			    						//generateCFG111 (mdt);
+			    						//break; //only do init mainActivity
+			    						//***added in***
 			    						if(mdt1.getActiveBody().getAllUnitBoxes().size()>0)
 			    						{
 			    							//found the sootmdt
@@ -332,11 +556,75 @@ public class Test {
 				    						System.out.println("*****unitboxes > 1*****"+"\n");
 			    							eachunit.addBoxPointingToThis(mdt1.getActiveBody().getAllUnitBoxes().get(0));
 			    							//mdt.getActiveBody().getUnits().insertAfter(mdt1.getActiveBody().getUnits(),eachunit); //error
-			    							mdt.getActiveBody().getUnits().insertAfter(mdt1.retrieveActiveBody().getUnits(),eachunit);
-			    							generateCFG111 (mdt);
+			    							List<Unit> lastUnitsList=getLastUnitsSootMethod (mdt1);
+			    							System.out.println("*last unit*  : " + lastUnitsList.toString());//last units in the function cfg
+			    							
+			    							Unit dupUnit = eachunit;
+			    							//mdt.getActiveBody().getUnits().insertOnEdge(mdt1.retrieveActiveBody().getUnits(), dupUnit, successor);
+			    							//make a link between block 6 and 7
+			    							
+			    							//mdt.getActiveBody().getUnits().insertAfter(mdt1.retrieveActiveBody().getUnits(),dupUnit);//works
+			    							
+			    							/*UnitBox predecessorUB = Jimple.v().newStmtBox(null);
+			    							if (predecessorUB.canContainUnit(dupUnit))
+	    						    		{
+	    						    			predecessorUB.setUnit(dupUnit);
+	    						    		}
+			    							UnitBox successorUB = Jimple.v().newStmtBox(null);
+			    							if (successorUB.canContainUnit(successor))
+	    						    		{
+			    								successorUB.setUnit(successor);
+	    						    		}
+			    							dupUnit.addBoxPointingToThis(successorUB);*/
+			    							
+			    							//mdt.getActiveBody().getUnits().insertOnEdge(mdt1.retrieveActiveBody().getUnits(),eachunit, successor);//same as above
+			    							//mdt.getActiveBody().getUnits().insertBefore(mdt1.retrieveActiveBody().getUnits(),successor);
+			    							
+			    							//look for the last units of mdt1(the inserted cfg) in the merged cfg
+			    							//PatchingChain<Unit> mergedCfgUnits = mdt.retrieveActiveBody().getUnits();
+			    						    /*for (Unit eachMergedUnit:mergedCfgUnits) 
+			    						    {
+			    						    	for (Unit initialLastUnit:lastUnitsList)
+			    						    	{
+			    						    		UnitBox lastUnitInMergedCFG = Jimple.v().newStmtBox(null);
+			    						    		if (lastUnitInMergedCFG.canContainUnit(initialLastUnit))
+			    						    		{
+			    						    			System.out.println("returns true...");
+			    						    			lastUnitInMergedCFG.setUnit(initialLastUnit);
+			    						    		}
+			    						    		if (eachMergedUnit.equals(initialLastUnit))
+			    						    		{
+			    						    			System.out.println("***"+eachMergedUnit.toString()+"***");
+			    						    			List <UnitBox> a=mdt.getActiveBody().getUnitBoxes(true);//gets unitbooxes
+			    						    			for (UnitBox newUnitBoxes:a)
+			    						    			{
+			    						    				System.out.println("*****newunitboxunit:"+newUnitBoxes.getUnit().toString()+"*****");
+			    						    				System.out.println("*****successor:"+successor.toString()+"*****");
+			    						    				
+			    						    				if(newUnitBoxes.getUnit().toString().equals(successor.toString()))
+			    						    				{
+			    						    					System.out.println("successor same content...");
+			    						    					//create link between each eachMergedUnit(initialLastUnit) and the unit in this newUnitBox
+			    						    					newUnitBoxes.getUnit().addBoxPointingToThis(lastUnitInMergedCFG);
+			    						    					
+			    						    		
+			    						    				}
+			    						    				//eachMergedUnit.addBoxPointingToThis(initialLastUnit1);
+			    						    				mdt.getActiveBody().getUnits().insertBefore(mdt1.retrieveActiveBody().getUnits(),initialLastUnit);//works
+			    						    			}
+			    						    			//System.out.println("***"+a.toString()+"***");
+			    						    			
+			    						    		}
+			    						    	}
+			    						    }*/
+			    							
+			    							
+			    							//then merge the successor to the two last units
+			    							
+			    							generateCFG111 (mdt);//this works bt loop is stuck
 			    						}
 			    						
-			    					    //***merge here... merge the unit - eachnuit and the mdt1 tog***
+			    					   //***merge here... merge the unit - eachnuit and the mdt1 tog***
 			    					}
 			    				}
 			    			}
@@ -350,6 +638,28 @@ public class Test {
     	//construct the graph again for the changed body
     }
 	
+    //Function added in to generate the CFG
+    //This function will return the list of units that have no successors
+    public static List<Unit> getLastUnitsSootMethod (SootMethod method)
+    {
+    	
+    	System.out.println("*****getLastUnitsSootMethod***** ");
+    	List<Unit> lastUnitsList =new ArrayList<Unit>();
+    	PatchingChain<Unit> allunits = method.retrieveActiveBody().getUnits();
+	    for (Unit eachunit:allunits) 
+	    {
+	    	//Unit successor = method.retrieveActiveBody().getUnits().getSuccOf(eachunit);
+	    	//if(eachunit.toString().contains("return") && successor!=null)
+	    	if(eachunit.toString().contains("return") )
+	    	{
+	    		//System.out.println("last unit: "+eachunit.toString());
+	    		lastUnitsList.add(eachunit);
+	    	}
+	    }
+	    //System.out.println("last units:"+lastUnitsList);
+	    System.out.println("*****getLastUnitsSootMethod***** ");
+	    return lastUnitsList;
+    }
 	
 	//Function added in to generate the CFG
 	public static void mergeCFGs (List <SootMethod> entryPoint, List <String> sootMethodNames)
@@ -532,6 +842,10 @@ public class Test {
 		}
 		
 	   //*****added in code3*****
+		PackManager.v().getPack("cg").apply(); //this works
+	    CallGraph appCallGraph = Scene.v().getCallGraph();
+	    File graph =serializeCallGraph(appCallGraph, "callgraph");//for CallGraph
+	    
 		System.out.println("done done done111...");
 		String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
 	    //String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
@@ -588,15 +902,13 @@ public class Test {
 	    }
 	    System.out.println("mergeCFGs () function called No1 ....");
 	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
-	    mergeCFG1s (sootMethodsObjectList, sootMethodsSignatureList);
+	    mergeCFG4s (sootMethodsObjectList, sootMethodsSignatureList);
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
 	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
 	    //System.out.println("sootMethodsSubSignatureList: " + sootMethodsSubSignatureList);
 		//getting the callgraph
-		PackManager.v().getPack("cg").apply(); //this works
-	    CallGraph appCallGraph = Scene.v().getCallGraph();
-	    File graph =serializeCallGraph(appCallGraph, "callgraph");
+		
 	   //*****added in code3***** 
 	}
 
