@@ -13,6 +13,8 @@ digraph "void dummyMainMethod(java.lang.String[])" {
     "2"->"14";
     "4" [label="label03:\nif $i0 == 3 goto label07\l",];
     "3"->"4";
+    "24" [label="$r0 := @this\lspecialinvoke $r0.<init>()\l$r0.msg = \"Android : \"\lreturn\l",];
+    "3"->"24";
     "5" [label="label04:\nif $i0 == 4 goto label05\l",];
     "4"->"5";
     "10" [label="label07:\nif $i0 == 7 goto label03\l",];
@@ -22,11 +24,15 @@ digraph "void dummyMainMethod(java.lang.String[])" {
     "7" [label="label05:\nif $i0 == 5 goto label06\l",];
     "5"->"7";
     "6"->"7";
+    "25" [label="$r0 := @this\lspecialinvoke $r0.<init>()\l$r0.msg = \"Android : \"\lreturn\l",];
+    "6"->"25";
     "8" [label="$z1 = $r1.onOptionsItemSelected(null)\l",];
     "7"->"8";
     "9" [label="label06:\nif $i0 == 6 goto label04\l",];
     "7"->"9";
     "8"->"9";
+    "26" [label="$r0 := @this\lspecialinvoke $r0.<init>()\l$r0.msg = \"Android : \"\lreturn\l",];
+    "8"->"26";
     "9"->"5";
     "9"->"10";
     "10"->"4";
@@ -46,6 +52,8 @@ digraph "void dummyMainMethod(java.lang.String[])" {
     "14"->"22";
     "16" [label="label10:\nif $i0 == 12 goto label11\l",];
     "15"->"16";
+    "27" [label="$r0 := @this\lspecialinvoke $r0.<init>()\l$r0.msg = \"Android : \"\lreturn\l",];
+    "15"->"27";
     "17" [label="$r2.onStartCommand(null, 0, 0)\lif $i0 == 13 goto label10\l",];
     "16"->"17";
     "18" [label="label11:\n$r3 = $r2.onBind(null)\l",];
@@ -54,6 +62,8 @@ digraph "void dummyMainMethod(java.lang.String[])" {
     "17"->"18";
     "19" [label="label12:\nif $i0 == 15 goto label13\l",];
     "18"->"19";
+    "28" [label="$r0 := @this\lspecialinvoke $r0.<init>()\l$r0.msg = \"Android : \"\lreturn\l",];
+    "18"->"28";
     "20" [label="if $i0 == 16 goto label12\l",];
     "19"->"20";
     "21" [label="label13:\n$r2.onDestroy()\l$r2 = null\l",];
@@ -61,6 +71,8 @@ digraph "void dummyMainMethod(java.lang.String[])" {
     "20"->"19";
     "20"->"21";
     "21"->"22";
+    "29" [label="$r0 := @this\lspecialinvoke $r0.<init>()\l$r0.msg = \"Android : \"\lreturn\l",];
+    "21"->"29";
     "22"->"1";
     "23" [style=filled,fillcolor=lightgray,label="return\l",];
     "22"->"23";
