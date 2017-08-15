@@ -18,6 +18,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.StringReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -349,6 +350,129 @@ public class Test {
     	
     	}
 	}
+	public static void mergeCFG8s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	{
+		for (SootMethod mdt:entryPoint)
+		{
+			System.out.println("again... ");//only once
+			if(mdt.getName().contains("dummyMainMethod"))
+			{
+				Body body = mdt.retrieveActiveBody();
+				BlockGraph bg = new BriefBlockGraph(body);
+				for (Block block:bg.getBlocks())
+				{
+					System.out.println("\nblock content: "+block.toString());
+					if (block.toString().contains("invoke"))
+					{
+						String blkContent = block.toString();
+						BufferedReader bufReader = new BufferedReader(new StringReader(blkContent));
+						String line=null;
+						try {
+							while( (line=bufReader.readLine()) != null )
+							{
+								System.out.println("\nblock content, line by line...: "+line);
+								if (line.contains("invoke") && (!line.contains("if")))
+								{
+									//thrs a function call in this block, find which one
+									for (SootMethod mdt1:entryPoint) 
+							    	 {
+										 if (line.contains(mdt1.getSignature()))
+										 {
+											 System.out.println("\nfunc call in line "+mdt1.getSignature());
+											 //attach the cfg of the function to the block
+											 BlockGraph bg1 = new BriefBlockGraph(mdt1.getActiveBody());
+											 List<Block> succBlockList = new ArrayList();
+											 for(Block blks:block.getSuccs())
+											 {
+												 succBlockList.add(blks);
+											 }
+											 succBlockList.add(bg1.getBlocks().get(0));
+											 block.setSuccs(succBlockList);
+											 
+											 CFGToDotGraph y = new CFGToDotGraph();
+										     DotGraph a=y.drawCFG(bg,mdt.getActiveBody());
+										     a.plot(mdt.getName()+"333.dot");
+										 }
+							    	 }
+									
+								}
+							}
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			
+					}
+				}
+				//we are done with dummymain mdt
+				System.out.println("done... ");//only once
+				break;
+			}
+		}
+	}
+	
+	public static void mergeCFG7s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	{
+		int done=0;
+		for (String mdtSig:sootMethodsSignatureList) 
+		{
+			System.out.println("\nmdtSig : "+mdtSig);
+			
+			for (SootMethod mdt:entryPoint)
+			{
+				if(mdt.getName().contains("dummyMainMethod"))
+				{
+					Body body = mdt.retrieveActiveBody();
+					BlockGraph bg = new BriefBlockGraph(body);
+					for (Block block:bg)
+					{
+						done=0;
+						System.out.println("\nblock content: "+block.toString());
+						if (block.toString().contains("invoke"))
+						{
+							for(Unit unitInBlk:block.getBody().getUnits())
+							{
+								if (unitInBlk.toString().contains("invoke") && (!unitInBlk.toString().contains("if")))
+								{
+									for (SootMethod mdt1:entryPoint) 
+							    	 {
+										 if (mdt1.getSignature().equals(mdtSig))
+								    	 {
+											 BlockGraph bg1 = new BriefBlockGraph(mdt1.getActiveBody());
+											 List<Block> succBlockList = new ArrayList();
+											 for(Block blks:block.getSuccs())
+											 {
+												 succBlockList.add(blks);
+											 }
+											 //***initial***
+											 succBlockList.add(bg1.getBlocks().get(0));
+											 block.setSuccs(succBlockList);
+											 done=1;
+											 break;
+											 //***initial***
+											 /*for (Block mdt1blk:bg1.getBlocks()) 
+											 {
+												 System.out.println("\nblks in mdt1:  "+mdt1blk.toString());
+											 }*/
+								    	 }
+							    	 }
+									CFGToDotGraph y = new CFGToDotGraph();
+							        //DotGraph a=y.drawCFG(x,entryPoint.getActiveBody());//gives units in cfg
+							        DotGraph a=y.drawCFG(bg,mdt.getActiveBody());
+							        a.plot(mdt.getName()+"333.dot");
+								}
+								if (done==1)
+									break;
+							}
+						}
+					}
+					
+				}
+			}
+			//break;
+		}
+		
+	}
 	
 	public static void mergeCFG6s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
 	{
@@ -361,7 +485,7 @@ public class Test {
 				for (Block block:bg)
 				{
 					System.out.println("\nblock content: "+block.toString());
-					if (block.toString().contains("invoke") && (!block.toString().contains("if")))
+					if (block.toString().contains("invoke"))
 					{
 						for (String mdtSig:sootMethodsSignatureList) 
 						{
@@ -373,10 +497,11 @@ public class Test {
 							{
 								if (unitInBlk.toString().contains("invoke") && (!block.toString().contains("if")))
 								{
+									System.out.println("\nUnit To String Content outside if: "+unitInBlk.toString());
 									//chk if any unit satisfies the condition
 									if (unitInBlk.toString().contains(mdtSig))
 									{
-										System.out.println("\nUnit To String Content: "+unitInBlk.toString());
+										System.out.println("\nUnit To String Content inside if: "+unitInBlk.toString());
 										//get the cfg of the function to insert in unitchain
 										 for (SootMethod mdt1:entryPoint) 
 								    	 {
@@ -388,9 +513,15 @@ public class Test {
 												 {
 													 succBlockList.add(blks);
 												 }
+												 //***initial***
 												 succBlockList.add(bg1.getBlocks().get(0));
 												 block.setSuccs(succBlockList);
 												 break;
+												 //***initial***
+												 /*for (Block mdt1blk:bg1.getBlocks()) 
+												 {
+													 System.out.println("\nblks in mdt1:  "+mdt1blk.toString());
+												 }*/
 									    	 }
 								    	 }
 									}
@@ -1048,7 +1179,7 @@ public class Test {
 	    }
 	    System.out.println("mergeCFGs () function called No1 ....");
 	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
-	    mergeCFG6s (sootMethodsObjectList, sootMethodsSignatureList);
+	    mergeCFG8s (sootMethodsObjectList, sootMethodsSignatureList);
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
 	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
