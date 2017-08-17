@@ -24,8 +24,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.Spliterator;
 import java.util.concurrent.Callable;
@@ -76,6 +78,7 @@ import soot.jimple.infoflow.util.SystemClassHandler;
 import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
+import soot.tagkit.Tag;
 import soot.toolkits.graph.Block;
 import soot.toolkits.graph.BlockGraph;
 import soot.toolkits.graph.BriefBlockGraph;
@@ -350,6 +353,282 @@ public class Test {
     	
     	}
 	}
+	
+	public static void mergeCFG11s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	{
+		Body body = null ;
+		//first get the dummy main mdt and its body
+		for (SootMethod eachMdt:entryPoint)
+		{
+			if (eachMdt.getName().contains("dummyMainMethod") )
+			{
+				body = eachMdt.retrieveActiveBody();
+			}
+		}
+		
+		for (SootMethod eachMdt:entryPoint)
+		{
+			//get the units frm dummy method
+			PatchingChain<Unit> unitsInDummyMdt = body.getUnits();
+			//get the dummymainmdt
+			if (eachMdt.getSignature() == "dummyMainMethod" )
+				continue;
+			if(unitsInDummyMdt == null)
+			{
+				System.out.println("unitsInDummyMdt is null");
+			}
+			else
+			{
+				for (Unit unitFrmMdt:unitsInDummyMdt)
+				{
+					if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")))
+					{
+						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
+						 {
+							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
+							 Unit successorSuccessor = body.getUnits().getSuccOf(successor);
+							 //eachMdt.retrieveActiveBody().getUnits().removeLast();
+							 //get the tail of the methods
+							 UnitGraph unitGrpOfNewFunc= new ExceptionalUnitGraph (eachMdt.getActiveBody());
+							
+							// newone.getTails();
+							 for (Unit tails:unitGrpOfNewFunc.getTails())
+							 {
+								 //clone the successor
+								 Unit clone= (Unit) successor.clone();
+								 System.out.println("Tail : "+tails.toString());
+								 System.out.println("unitFrmMdt : "+unitFrmMdt.toString());
+								 System.out.println("Successor : "+successor.toString());
+								 unitGrpOfNewFunc.getBody().getUnits().swapWith(tails, clone);
+								 
+				
+								 //BlockGraph bg = new BriefBlockGraph(unitGrpOfNewFunc.getBody());
+								 //CFGToDotGraph y = new CFGToDotGraph();
+							     //DotGraph a1=y.drawCFG(bg,body);
+							     //a1.plot(eachMdt.getName()+"444.dot");
+								 //break;
+							 }
+							 //remove the successor from the dummy
+							 body.getUnits().remove(successor);
+							 
+							 
+							 //merge it with successorSuccessor
+							 System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
+							 body.getUnits().insertOnEdge(eachMdt.retrieveActiveBody().getUnits(),unitFrmMdt, successorSuccessor);
+							 BlockGraph bg = new BriefBlockGraph(body);
+							 CFGToDotGraph y = new CFGToDotGraph();
+						     DotGraph a1=y.drawCFG(bg,body);
+						     a1.plot("dummyMainMethod333.dot");
+						     break;
+						     //original part
+						 }
+					}
+				}
+			}
+		}
+	}
+	
+	public static void mergeCFG10s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	{
+		Body body = null ;
+		//first get the dummy main mdt and its body
+		for (SootMethod eachMdt:entryPoint)
+		{
+			if (eachMdt.getName().contains("dummyMainMethod") )
+			{
+				body = eachMdt.retrieveActiveBody();
+			}
+		}
+		
+		for (SootMethod eachMdt:entryPoint)
+		{
+			//get the units frm dummy method
+			PatchingChain<Unit> unitsInDummyMdt = body.getUnits();
+			//get the dummymainmdt
+			if (eachMdt.getSignature() == "dummyMainMethod" )
+				continue;
+			if(unitsInDummyMdt == null)
+			{
+				System.out.println("unitsInDummyMdt is null");
+			}
+			else
+			{
+				for (Unit unitFrmMdt:unitsInDummyMdt)
+				{
+					if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")))
+					{
+						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
+						 {
+							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
+							 List<Unit> nonRetUnits = new ArrayList();
+							 /*if(!unitFrmMdt.toString().contains("return"))
+								 nonRetUnits.add(unitFrmMdt);*/ 
+							 //remove all units with return in it
+							 //eachMdt.retrieveActiveBody().getUnits().retainAll(nonRetUnits);
+							 eachMdt.retrieveActiveBody().getUnits().removeLast();
+							 System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
+							 body.getUnits().insertOnEdge(eachMdt.retrieveActiveBody().getUnits(),unitFrmMdt, successor);
+							 
+							 //added in part
+							 /*if(eachMdt.getName().contains("onOptionsItemSelected") )
+							 {
+								 UnitGraph newone= new ExceptionalUnitGraph (eachMdt.getActiveBody());
+								 newone.getBody()body.getUnits().
+								// newone.getTails();
+								 for (Unit tails:newone.getTails())
+								 {
+									 System.out.println("Tail : "+tails.toString());
+								 }
+							 }*/
+							 
+							 /*if(eachMdt.getName().contains("onOptionsItemSelected") )
+							 {
+								 Iterator it = eachMdt.getActiveBody().getUnits().snapshotIterator();
+								 while (it.hasNext())
+								 {
+									 Stmt u = (Stmt) it.next();
+									 System.out.println("Stmt : "+u.toString());
+									 u.
+								 }
+								
+							 }*/
+								 
+		
+							 
+							 /*if(eachMdt.getName().contains("onOptionsItemSelected") )
+							 {
+							 UnitGraph unitGrp = new ExceptionalUnitGraph(eachMdt.getActiveBody());
+							 Map<Unit, List<Unit>> unitToSuccs = new HashMap<>();
+							 Map<Unit, List<Unit>> unitToPreds = new HashMap<>();
+							 
+							 List<Unit> succList = new ArrayList();
+							 List<Unit> predList = new ArrayList();
+							 
+							 for (Unit eachunit:eachMdt.getActiveBody().getUnits())
+							 {
+								 succList.add(body.getUnits().getSuccOf(eachunit));
+								 unitToSuccs.put(eachunit, succList);
+								 
+								 predList.add(body.getUnits().getPredOf(eachunit));
+								 unitToSuccs.put(eachunit, predList);
+								 
+								 succList.clear();
+								 predList.clear();
+							 }
+							 unitGrp.addEdge(unitToSuccs,unitToPreds,unitGrp.getBody().getUnits().getFirst(),unitGrp.getBody().getUnits().getLast());
+							 
+							 BlockGraph bg = new BriefBlockGraph(unitGrp.getBody());
+							 CFGToDotGraph y = new CFGToDotGraph();
+						     DotGraph a1=y.drawCFG(bg,body);
+						     a1.plot(eachMdt.getName()+"444.dot");
+						     
+							 }
+							 break;*/
+							 //added in part
+							 
+							 //original part
+							 BlockGraph bg = new BriefBlockGraph(body);
+							 CFGToDotGraph y = new CFGToDotGraph();
+						     DotGraph a1=y.drawCFG(bg,body);
+						     a1.plot("dummyMainMethod333.dot");
+						     break;
+						     //original part
+						 }
+					}
+				}
+			}
+		}
+	}
+	public static PatchingChain<Unit> getDummyUnits (List <SootMethod> entryPoint)
+	{
+		PatchingChain<Unit> allunits = null;
+		for (SootMethod eachMdt:entryPoint)
+		{
+			System.out.println("Each Signature : "+ eachMdt.getSignature());//only once
+			//for each of the mdt look for the unit that calls this mdt
+			if(eachMdt.getName().contains("dummyMainMethod"))
+			{
+    			Body body = eachMdt.retrieveActiveBody();
+			    //Build CFG
+			    //UnitGraph cfg = new ExceptionalUnitGraph(body);
+			    allunits = body.getUnits();
+			}
+		}
+		return allunits;
+	}
+	public static void mergeCFG9s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	{
+		List<String> mergedFunctions = new ArrayList();
+		for (SootMethod mdt:entryPoint)
+		{
+			if(mdt.getName().contains("dummyMainMethod"))
+			{
+				Body body = mdt.retrieveActiveBody();
+				
+				BlockGraph bg = new BriefBlockGraph(body);
+				int currNoBlks = bg.getBlocks().size();
+				System.out.println("Curr No of Blks: "+currNoBlks);//only once
+				/*for (UnitBox unitInBlk:mdt.getActiveBody().getAllUnitBoxes())
+				{
+					System.out.println("unitInBlock : "+unitInBlk.getUnit().toString());//only once
+				}*/
+				for (Unit unitInBlk:mdt.getActiveBody().getUnits())
+				{
+					System.out.println("Content : "+unitInBlk.toString());
+					if (unitInBlk.toString().contains("invoke") && (!unitInBlk.toString().contains("if")))
+					{
+						for (SootMethod mdt1:entryPoint) 
+				    	 {
+							 if (unitInBlk.toString().contains(mdt1.getSignature()))
+							 {
+								 if (mergedFunctions.contains(mdt1.getSignature()))
+									 break;
+								 mergedFunctions.add(mdt1.getSignature());
+								 //we found the sootmdt that is being called
+								 //get the  successor to this unit //assuming its just one
+								 Unit successor = body.getUnits().getSuccOf(unitInBlk);
+								 //added in
+								 Unit predecessor = body.getUnits().getPredOf(unitInBlk);//predecessor of this unit
+								 Unit successorSuccessor = body.getUnits().getSuccOf(successor);
+								 //added in
+								 //add successor unit after the last unit of mdt1
+								 //mdt1.getActiveBody().getUnits().insertAfter(body.getUnits().getSuccOf(unitInBlk),mdt1.getActiveBody().getUnits().getLast());
+								 //redirect the jump
+								 //mdt1.getActiveBody().getUnits().getLast().redirectJumpsToThisTo(successor);
+								//redirect the jump
+								 //remove the successor
+								 //mdt.getActiveBody().getUnits().remove(successor);
+								 //mdt.getActiveBody().getUnits().insertAfter(mdt1.getActiveBody().getUnits(),unitInBlk);
+								 
+							
+								 
+								//added in
+								 //mdt.getActiveBody().getUnits().remove(successor);
+								 //mdt.getActiveBody().getUnits().insertAfter(successor,unitInBlk);
+								 //mdt.getActiveBody().getUnits().insertAfter(successorSuccessor,successor);
+								 //mdt.getActiveBody().getUnits().insertOnEdge(successor, unitInBlk,successorSuccessor);//not working
+								 //mdt.getActiveBody().getUnits().insertOnEdge(mdt1.getActiveBody().getUnits().getFirst(), unitInBlk, successor);
+								// Tag tagInfo ="kkk";
+								 //Tag example = tagInfo;
+								// mdt1.getActiveBody().getUnits().getLast().
+								 mdt1.getActiveBody().getUnits().removeLast();
+								 mdt.getActiveBody().getUnits().insertOnEdge(mdt1.getActiveBody().getUnits(), unitInBlk, successor);
+								//added in
+								 
+								 bg = new BriefBlockGraph(mdt.retrieveActiveBody());
+								 CFGToDotGraph y = new CFGToDotGraph();
+							     DotGraph a1=y.drawCFG(bg,mdt.getActiveBody());
+							     a1.plot(mdt.getName()+"333.dot");
+							 }
+				    	 }
+					}
+					//break because java.util.ConcurrentModificationException
+					//break;
+				}
+				
+			}
+		}
+	}
 	public static void mergeCFG8s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
 	{
 		for (SootMethod mdt:entryPoint)
@@ -359,6 +638,8 @@ public class Test {
 			{
 				Body body = mdt.retrieveActiveBody();
 				BlockGraph bg = new BriefBlockGraph(body);
+				int currNoBlks = bg.getBlocks().size();
+				System.out.println("Curr No of Blks: "+currNoBlks);//only once
 				for (Block block:bg.getBlocks())
 				{
 					System.out.println("\nblock content: "+block.toString());
@@ -379,19 +660,105 @@ public class Test {
 										 if (line.contains(mdt1.getSignature()))
 										 {
 											 System.out.println("\nfunc call in line "+mdt1.getSignature());
+											 //System.out.println("\nblock successor list b4 : "+ block.getSuccs());
 											 //attach the cfg of the function to the block
 											 BlockGraph bg1 = new BriefBlockGraph(mdt1.getActiveBody());
 											 List<Block> succBlockList = new ArrayList();
+											 List<Block> predBlockList = new ArrayList();
+											 predBlockList.add(block);
 											 for(Block blks:block.getSuccs())
 											 {
 												 succBlockList.add(blks);
 											 }
-											 succBlockList.add(bg1.getBlocks().get(0));
-											 block.setSuccs(succBlockList);
+											 System.out.println("\nblock successor list before : "+ succBlockList);
 											 
+										
+											 //succBlockList.add(bg1.getBlocks().get(0));   //ORIGINAL
+											 //block.setSuccs(succBlockList);               //ORIGINAL
+											 
+											 System.out.println("\nblock successor list after : "+ succBlockList);
+											 System.out.println("\n done...");
+											 /*for (Block block1:bg.getBlocks())
+											 {
+												 for (Block block2:bg1.getBlocks())
+												 {
+													 System.out.println("\nblock1 :  "+block1.toString());
+													 System.out.println("\nblock2 :  "+block2.toString());
+													 if(block1.toString().contains(block2.toString()))
+													 {
+														 System.out.println("\nblock equals : "+block1.toString());
+													 }
+												 }
+											 }*/
+											 //adding to the bg
+											 /*
+											  * public Block(Unit aHead,
+             									Unit aTail,
+             									Body aBody,
+             									int aIndexInMethod,
+             									int aBlockLength,
+             									BlockGraph aBlockGraph)
+
+    											Constructs a Block in the context of a BlockGraph, and enclosing Body instances.
+
+    											Parameters:
+        											aHead - The first unit ir this Block.
+        											aTail - The last unit in this Block.
+        											aBody - The Block's enclosing Body instance.
+        											aIndexInMethod - The index of this Block in the list of Blocks that partition it's enclosing Body instance.
+        											BlockLength - The number of units that makeup this block.
+        											aBlockGraph - The Graph of Blocks in which this block lives.
+											  */
+											 Unit aHead = bg1.getBlocks().get(0).getHead();
+											 Unit aTail = bg1.getBlocks().get(0).getTail();
+											 Body aBody = bg1.getBlocks().get(0).getBody();
+											 int aIndexInMethod =currNoBlks++;
+											 //currNoBlks = currNoBlks + 1;
+											 int aBlockLength = bg1.getBlocks().get(0).getBody().getUnits().size();
+											 Block a = new Block (aHead,aTail,aBody,aIndexInMethod,aBlockLength,bg);
+											 List <Block> blocksInBG = new ArrayList();
+											 for (Block blksInBG :bg.getBlocks() )
+											 {
+												 blocksInBG.add(blksInBG);
+											 }
+											 //bg.getBlocks().add(aIndexInMethod, a);
+											 succBlockList.add(a); 
+											 a.setPreds(predBlockList);
+											 System.out.println("\n block a contents : "+a.toString());
+											 block.setSuccs(succBlockList); 
+											 //bg.addBlocks(a);
+											 
+											 //*****
+											 //DummyBlock head = new DummyBlock(graph.getBody(), 0);
+											 a.getBody().getAllUnitBoxes().get(0);
+											 
+											 /*Iterator stmtIt = block..getUnits().snapshotIterator();
+											 stmtIt = bg1.getBody().getUnits().snapshotIterator();
+											 while (stmtIt.hasNext())
+											 {
+												 Stmt s = (Stmt) stmtIt.next();
+												 System.out.println("\n s:"+s.toString());
+												 s.addBoxPointingToThis(body.getAllUnitBoxes().get(0));
+												 break;
+											 }
+											 List<Block> oldTailList = new ArrayList();
+											 oldTailList.add(block);
+											 DummyBlock tail = new DummyBlock(bg.getBody(), bg.size());*/
+											 //bg.getBody().
+											 //*****
+											 
+											//adding to the bg
 											 CFGToDotGraph y = new CFGToDotGraph();
-										     DotGraph a=y.drawCFG(bg,mdt.getActiveBody());
-										     a.plot(mdt.getName()+"333.dot");
+										     DotGraph a1=y.drawCFG(bg,mdt.getActiveBody());
+										     a1.plot(mdt.getName()+"333.dot");
+										     
+										     System.out.println("\n ***Changed CFG***");
+										     for (Block blockaftChg:bg.getBlocks())
+										     {
+										    	 System.out.println(blockaftChg.toString());
+										     }
+										     System.out.println("\n ***Changed CFG***");
+										   
 										 }
 							    	 }
 									
@@ -409,7 +776,8 @@ public class Test {
 				break;
 			}
 		}
-	}
+		}
+		
 	
 	public static void mergeCFG7s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
 	{
@@ -1121,6 +1489,7 @@ public class Test {
 	   //*****added in code3*****
 		PackManager.v().getPack("cg").apply(); //this works
 	    CallGraph appCallGraph = Scene.v().getCallGraph();
+	   
 	    File graph =serializeCallGraph(appCallGraph, "callgraph");//for CallGraph
 	    
 		System.out.println("done done done111...");
@@ -1179,7 +1548,7 @@ public class Test {
 	    }
 	    System.out.println("mergeCFGs () function called No1 ....");
 	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
-	    mergeCFG8s (sootMethodsObjectList, sootMethodsSignatureList);
+	    mergeCFG11s (sootMethodsObjectList, sootMethodsSignatureList);
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
 	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
@@ -1905,3 +2274,58 @@ public class Test {
 	}
 
 }
+
+class DummyBlock extends Block
+{
+    DummyBlock(Body body, int indexInMethod)
+    {
+        super(null, null, body, indexInMethod, 0, null);
+    }
+
+    void makeHeadBlock(List<Block> oldHeads)
+    {
+        setPreds(new ArrayList<Block>());
+        setSuccs(new ArrayList<Block>(oldHeads));
+
+        Iterator<Block> headsIt = oldHeads.iterator();
+        while(headsIt.hasNext()){
+            Block oldHead = headsIt.next();
+
+            List<Block> newPreds = new ArrayList<Block>();
+            newPreds.add(this);
+
+            List<Block> oldPreds = oldHead.getPreds();
+            if(oldPreds != null)
+                newPreds.addAll(oldPreds);
+            
+            oldHead.setPreds(newPreds);
+        }
+    }
+
+    void makeTailBlock(List<Block> oldTails)
+    {
+        setSuccs(new ArrayList<Block>());
+        setPreds(new ArrayList<Block>(oldTails));
+
+        Iterator<Block> tailsIt = oldTails.iterator();
+        while(tailsIt.hasNext()){
+            Block oldTail = tailsIt.next();
+
+            List<Block> newSuccs = new ArrayList<Block>();
+            newSuccs.add(this);
+
+            List<Block> oldSuccs = oldTail.getSuccs();
+            if(oldSuccs != null)
+                newSuccs.addAll(oldSuccs);
+
+            oldTail.setSuccs(newSuccs);
+        }
+    }    
+    
+    public Iterator<Unit> iterator()
+    {
+        return Collections.emptyListIterator();
+    }
+}
+
+	

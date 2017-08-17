@@ -1,0 +1,9 @@
+digraph "void dummyMainMethod(java.lang.String[])" {
+    label="void dummyMainMethod(java.lang.String[])";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this\l$r1 := @parameter0\l$i0 = $r1.getItemId()\lif $i0 != 2131558552 goto label06\l",];
+    "1" [style=filled,fillcolor=lightgray,label="return 1\l",];
+    "0"->"1";
+    "2" [style=filled,fillcolor=lightgray,label="label06:\n$z0 = specialinvoke $r0.onOptionsItemSelected($r1)\l",];
+    "0"->"2";
+}

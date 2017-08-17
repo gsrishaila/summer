@@ -357,7 +357,25 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 	public List<Block> getBlocks() {
 		return mBlocks;
 	}
-
+	//added in
+	public List<Block> setBlocks (List<Block> a)
+	{
+		List<Block> mBlocksNew = new ArrayList();
+		//replace mBlocks
+		mBlocks.clear();
+		for (Block eachOne:a)
+		{
+			mBlocks.add(eachOne);
+		}
+		return mBlocksNew;
+	}
+	//added in
+	public List<Block> addBlocks (Block a)
+	{
+		//List<Block> mBlocksNew = new ArrayList();
+		mBlocks.add(a);
+		return mBlocks;
+	}
 	public String toString() {
 
 		Iterator<Block> it = mBlocks.iterator();

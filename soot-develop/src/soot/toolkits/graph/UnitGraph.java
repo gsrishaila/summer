@@ -274,7 +274,7 @@ public abstract class UnitGraph implements DirectedGraph<Unit> {
 	 * @param tail
 	 *            The {@link Unit} to which the edge flows.
 	 */
-	protected void addEdge(Map<Unit, List<Unit>> unitToSuccs,
+	public void addEdge(Map<Unit, List<Unit>> unitToSuccs,
 			Map<Unit, List<Unit>> unitToPreds, Unit head, Unit tail) {
 		List<Unit> headsSuccs = unitToSuccs.get(head);
 		if (headsSuccs == null) {
