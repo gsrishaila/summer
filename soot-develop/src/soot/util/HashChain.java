@@ -145,7 +145,8 @@ public class HashChain<E> extends AbstractCollection<E> implements Chain<E> {
 					+ " a null object into a Chain!");
 
 		//*****Added In ***** This if statement was originally there
-		//if (map.containsKey(toInsert))
+		if (map.containsKey(toInsert))
+			map.remove(toInsert);
 			//throw new RuntimeException("Chain already contains object.");
 		//*****Added In ***** This if statement was originally there
 
