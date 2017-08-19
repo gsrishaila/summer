@@ -42,6 +42,8 @@ import javax.xml.stream.XMLStreamException;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import com.sun.corba.se.impl.orbutil.graph.GraphImpl;
+
 import soot.Body;
 import soot.MethodOrMethodContext;
 import soot.PackManager;
@@ -81,10 +83,15 @@ import soot.options.Options;
 import soot.tagkit.Tag;
 import soot.toolkits.graph.Block;
 import soot.toolkits.graph.BlockGraph;
+import soot.toolkits.graph.BlockGraphConverter;
 import soot.toolkits.graph.BriefBlockGraph;
+import soot.toolkits.graph.CompleteBlockGraph;
 import soot.toolkits.graph.DirectedGraph;
+import soot.toolkits.graph.ExceptionalGraph;
 import soot.toolkits.graph.ExceptionalUnitGraph;
+import soot.toolkits.graph.HashMutableDirectedGraph;
 import soot.toolkits.graph.MHGDominatorsFinder;
+import soot.toolkits.graph.MutableDirectedGraph;
 import soot.toolkits.graph.UnitGraph;
 import soot.util.dot.DotGraph;
 import soot.util.queue.QueueReader;
@@ -235,7 +242,7 @@ public class Test {
         CFGToDotGraph y = new CFGToDotGraph();
         //DotGraph a=y.drawCFG(x,entryPoint.getActiveBody()); //gives units in cfg
         DotGraph a=y.drawCFG(bg,entryPoint.getActiveBody());
-        a.plot(entryPoint.getName()+".dot");
+        a.plot(entryPoint.getSignature()+".dot");
 		System.out.println("***End of CFG Generation***" + entryPoint.getName()+"\n");
 	}
 	
@@ -383,10 +390,12 @@ public class Test {
 				{
 					if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")))
 					{
+						 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
+						 Unit successorSuccessor = body.getUnits().getSuccOf(successor);
 						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
 						 {
-							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
-							 Unit successorSuccessor = body.getUnits().getSuccOf(successor);
+							
+							 
 							 //eachMdt.retrieveActiveBody().getUnits().removeLast();
 							 //get the tail of the methods
 							 UnitGraph unitGrpOfNewFunc= new ExceptionalUnitGraph (eachMdt.getActiveBody());
@@ -394,19 +403,22 @@ public class Test {
 							// newone.getTails();
 							 for (Unit tails:unitGrpOfNewFunc.getTails())
 							 {
+								 //tailclone
+								 Unit tailClone = (Unit) tails.clone();
 								 //clone the successor
 								 Unit clone= (Unit) successor.clone();
 								 System.out.println("Tail : "+tails.toString());
 								 System.out.println("unitFrmMdt : "+unitFrmMdt.toString());
 								 System.out.println("Successor : "+successor.toString());
 								 unitGrpOfNewFunc.getBody().getUnits().swapWith(tails, clone);
-								 
+								 //cannot insert the return anymore
+								 //unitGrpOfNewFunc.getBody().getUnits().insertBefore(tailClone, clone);
 				
 								 //BlockGraph bg = new BriefBlockGraph(unitGrpOfNewFunc.getBody());
 								 //CFGToDotGraph y = new CFGToDotGraph();
 							     //DotGraph a1=y.drawCFG(bg,body);
 							     //a1.plot(eachMdt.getName()+"444.dot");
-								 //break;
+								 break;
 							 }
 							 //remove the successor from the dummy
 							 body.getUnits().remove(successor);
@@ -428,15 +440,150 @@ public class Test {
 		}
 	}
 	
-	public static void mergeCFG10s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	public static void addingDummyTail (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
 	{
+		Stmt nop=Jimple.v().newNopStmt();
+		Stmt nop1=Jimple.v().newNopStmt();
+		Unit tailUnit1 = null;
+		//get all 
+		
+		for (SootMethod eachMdt:entryPoint)
+		{
+			if (eachMdt.getName().contains("dummyMainMethod") )
+				continue;
+			UnitGraph unitGrpOfNewFunc= new ExceptionalUnitGraph (eachMdt.getActiveBody());
+			//create MutableDirectedGraph ***** 
+			//create a map of units vs list of their successors
+			Map<Unit, List<Unit>> unitsSuccMap = new HashMap<Unit, List<Unit>>();
+			for (Unit inBodyUnit:eachMdt.getActiveBody().getUnits())
+			{
+				List<Unit> succUnitList = new ArrayList();
+				succUnitList=unitGrpOfNewFunc.getSuccsOf(inBodyUnit);
+				unitsSuccMap.put(inBodyUnit, succUnitList);
+			}
+			
+	        HashMutableDirectedGraph  mutablegraph = new HashMutableDirectedGraph  ();
+			
+			
+			//find out if the cfg has 2 tails
+			List<Unit> tailList1 = new ArrayList();
+			for (Unit tail:unitGrpOfNewFunc.getTails())
+			{
+				tailList1.add(tail);
+				tailUnit1 = (Unit) tail.clone();
+			}
+			if(unitGrpOfNewFunc.getTails().size()>1)
+			{
+				System.out.println("This function went through if statement : "+eachMdt.getSignature());
+				//first construct this graph inside the mutablegraph
+				for (Map.Entry<Unit, List<Unit>> entry : unitsSuccMap.entrySet() )
+				{
+					for (Unit succUnit:entry.getValue())
+					{
+						if(!mutablegraph.containsNode(entry.getKey()))
+							mutablegraph.addNode(entry.getKey());
+						if(!mutablegraph.containsNode(succUnit))
+							mutablegraph.addNode(succUnit);
+						mutablegraph.addEdge(entry.getKey(), succUnit);
+						
+					}
+				}
+				Body bi = eachMdt.retrieveActiveBody();
+		        CompleteBlockGraph cfg = new CompleteBlockGraph(bi);
+		        System.out.println(cfg);
+		        //*****
+		        BlockGraph newbg= new  BriefBlockGraph (eachMdt.retrieveActiveBody());
+		        /*Parameters:
+					aHead - The first unit ir this Block.
+					aTail - The last unit in this Block.
+					aBody - The Block's enclosing Body instance.
+					aIndexInMethod - The index of this Block in the list of Blocks that partition it's enclosing Body instance.
+					BlockLength - The number of units that makeup this block.
+					aBlockGraph - The Graph of Blocks in which this block lives.*/
+		        Block newtailblk = new Block (eachMdt.getActiveBody().getUnits().getFirst(),eachMdt.getActiveBody().getUnits().getFirst(),newbg.getBody(),newbg.getBlocks().size(),2,newbg);
+		        //DummyBlock tail = new DummyBlock(cfg.getBody(),cfg.getBlocks().size());
+		        
+
+		        List<Block> succUnitList = new ArrayList();
+		        List<Block> predUnitList = new ArrayList();
+		        succUnitList.add(newtailblk);
+		        for (Block incfg:cfg)
+		        {
+		        	for (Unit tailUnit:tailList1)
+		        	{
+		        		if (incfg.toString().contains(tailUnit.toString()))
+		        		{
+		        			System.out.println("TailUnit : "+tailUnit.toString());
+		        			System.out.println("Block : "+ incfg.toString());
+		        			incfg.remove(tailUnit);
+		        		    predUnitList.add(incfg);
+		        			incfg.setSuccs(succUnitList);
+		        			newtailblk.setPreds(predUnitList);
+		        			break;
+		        		}
+		        	}
+		        }
+		        cfg.getBody().getUnits().swapWith(cfg.getBody().getUnits().getLast(), tailUnit1);
+		        //System.out.println(cfg);
+		        //*******
+		        //BlockGraphConverter.addStartStopNodesTo(cfg);
+		        
+		        System.out.println("cfg.getBody().getlast : "+cfg.getBody().getUnits().getLast().toString());
+		        System.out.println("tailUnit1 : "+tailUnit1.toString());
+		        System.out.println("NewTail : "+newtailblk.toString());
+		        //System.out.println(cfg);
+		        
+		        BlockGraph bg1 = new BriefBlockGraph(cfg.getBody());
+				CFGToDotGraph y1 = new CFGToDotGraph();
+			    DotGraph a11=y1.drawCFG(bg1,cfg.getBody());
+			    a11.plot(eachMdt.getSignature()+"555.dot");
+			}
+			
+			//mutablegraph.printGraph();
+			//Body b=((ExceptionalGraph<Unit>) mutablegraph).getBody();
+			//BlockGraph bg1 = new BriefBlockGraph(b);
+			//CFGToDotGraph y1 = new CFGToDotGraph();
+		    //DotGraph a11=y1.drawCFG(bg1,b);
+		    //a11.plot(eachMdt.getSignature()+"555.dot");
+		    
+		    
+			
+			//create MutableDirectedGraph *****
+			//mutablegraph.addEdge(from, to);
+			
+			
+			List<Unit> tailList = new ArrayList();
+			tailList=unitGrpOfNewFunc.getTails();
+			//get the dummymainmdt
+			if (eachMdt.getSignature() == "dummyMainMethod" )
+				continue;
+			for (Unit tail:tailList)
+			{
+				Unit nopUnit = (Unit) nop.clone();
+				//eachMdt.getActiveBody().getUnits().remove(tail);
+				eachMdt.getActiveBody().getUnits().swapWith(tail, nopUnit);
+			}
+				
+			
+			BlockGraph bg = new BriefBlockGraph(eachMdt.getActiveBody());
+			CFGToDotGraph y = new CFGToDotGraph();
+		    DotGraph a1=y.drawCFG(bg,eachMdt.getActiveBody());
+		    a1.plot(eachMdt.getSignature()+"444.dot");
+		    //break;	
+		}
+	}
+	
+	public static void mergeCFG10s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	{	
 		Body body = null ;
+		SootMethod dummyMainMdt = null ;
 		//first get the dummy main mdt and its body
 		for (SootMethod eachMdt:entryPoint)
 		{
 			if (eachMdt.getName().contains("dummyMainMethod") )
 			{
 				body = eachMdt.retrieveActiveBody();
+				dummyMainMdt = eachMdt;
 			}
 		}
 		
@@ -455,8 +602,9 @@ public class Test {
 			{
 				for (Unit unitFrmMdt:unitsInDummyMdt)
 				{
-					if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")))
+					if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")) && (eachMdt.getSignature().contains("onOptionsItemSelected")))
 					{
+						
 						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
 						 {
 							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
@@ -465,10 +613,29 @@ public class Test {
 								 nonRetUnits.add(unitFrmMdt);*/ 
 							 //remove all units with return in it
 							 //eachMdt.retrieveActiveBody().getUnits().retainAll(nonRetUnits);
+							 
+							 //removing tails instead
+							 
+							 //removing tails instead
+							 
 							 eachMdt.retrieveActiveBody().getUnits().removeLast();
+							 //*****get the other tails*****
+							 Unit b4Tail = null;
+							 UnitGraph newone= new ExceptionalUnitGraph (eachMdt.getActiveBody());
+							 List<Unit> tailList = new ArrayList();
+							 for (Unit eachTailUnit:newone.getTails())
+							 {
+								 System.out.println("eachTailUnit : "+eachTailUnit.toString());
+								 b4Tail =newone.getBody().getUnits().getPredOf(eachTailUnit);
+								 System.out.println("eachTailUnit : "+b4Tail.toString());
+								 body.getUnits().remove(eachTailUnit); //added in *****get the other tails***** 
+								 //connect the b4Tail to the successor
+							 }
+							//*****get the other tails*****
 							 System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
 							 body.getUnits().insertOnEdge(eachMdt.retrieveActiveBody().getUnits(),unitFrmMdt, successor);
-							 
+							 body.getUnits().insertAfter(successor, b4Tail); //added in *****get the other tails***** 
+							
 							 //added in part
 							 /*if(eachMdt.getName().contains("onOptionsItemSelected") )
 							 {
@@ -528,9 +695,13 @@ public class Test {
 							 
 							 //original part
 							 BlockGraph bg = new BriefBlockGraph(body);
+							 //remove blocks with any of the tails we found earlier
+							 //To do:
+							 //remove blocks with any of the tails we found earlier
 							 CFGToDotGraph y = new CFGToDotGraph();
 						     DotGraph a1=y.drawCFG(bg,body);
 						     a1.plot("dummyMainMethod333.dot");
+						     generateCFG (dummyMainMdt);
 						     break;
 						     //original part
 						 }
@@ -1548,7 +1719,9 @@ public class Test {
 	    }
 	    System.out.println("mergeCFGs () function called No1 ....");
 	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
-	    mergeCFG11s (sootMethodsObjectList, sootMethodsSignatureList);
+	    //addingDummyTail(sootMethodsObjectList, sootMethodsSignatureList);
+	    mergeCFG10s (sootMethodsObjectList, sootMethodsSignatureList);
+	    
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
 	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
@@ -2328,4 +2501,3 @@ class DummyBlock extends Block
     }
 }
 
-	

@@ -185,7 +185,6 @@ public class PatchingChain<E extends Unit> extends AbstractCollection<E> impleme
 	 */
 	public void insertOnEdge(Chain<E> toInsert, E point_src, E point_tgt) {
 		innerChain.insertOnEdge(toInsert, point_src, point_tgt);
-		
 	}
 
     /** Returns true if object <code>a</code> follows object <code>b</code> in the Chain. */

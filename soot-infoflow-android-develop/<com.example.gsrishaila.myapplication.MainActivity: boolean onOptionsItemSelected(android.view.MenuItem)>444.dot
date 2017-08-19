@@ -1,0 +1,10 @@
+digraph "boolean onOptionsItemSelected(android.view.MenuItem)" {
+    label="boolean onOptionsItemSelected(android.view.MenuItem)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this\l$r1 := @parameter0\l$i0 = $r1.getItemId()\lif $i0 != 2131558552 goto label1\l",];
+    "1" [label="nop\l",];
+    "0"->"1";
+    "2" [style=filled,fillcolor=lightgray,label="label1:\n$z0 = specialinvoke $r0.onOptionsItemSelected($r1)\lnop\l",];
+    "0"->"2";
+    "1"->"2";
+}

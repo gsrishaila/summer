@@ -144,10 +144,8 @@ public class HashChain<E> extends AbstractCollection<E> implements Chain<E> {
 			throw new RuntimeException("Bad idea! You tried to insert "
 					+ " a null object into a Chain!");
 
-		//*****Added In ***** This if statement was originally there
-		//if (map.containsKey(toInsert))
-			//throw new RuntimeException("Chain already contains object.");
-		//*****Added In ***** This if statement was originally there
+		if (map.containsKey(toInsert))
+			throw new RuntimeException("Chain already contains object.");
 
 		Link<E> temp = map.get(point);
 		if (temp == null) {
@@ -169,10 +167,6 @@ public class HashChain<E> extends AbstractCollection<E> implements Chain<E> {
 		E previousPoint = point;
 		for (E o : toInsert) {
 			insertAfter(o, previousPoint);
-			//*****Added In *****
-			System.out.println("To Insert Point: "+o.toString());
-			System.out.println("To Previous Point: "+previousPoint.toString());
-			//*****Added In *****
 			previousPoint = o;
 		}
 	}
