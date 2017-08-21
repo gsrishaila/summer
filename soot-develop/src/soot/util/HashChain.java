@@ -33,6 +33,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -147,7 +148,8 @@ public class HashChain<E> extends AbstractCollection<E> implements Chain<E> {
 		//*****Added In ***** This if statement was originally there
 		if (map.containsKey(toInsert))
 			map.remove(toInsert);
-			//throw new RuntimeException("Chain already contains object.");
+		if (map.containsKey(toInsert))
+			throw new RuntimeException("Chain already contains object.");
 		//*****Added In ***** This if statement was originally there
 
 		Link<E> temp = map.get(point);
