@@ -173,8 +173,8 @@ public class HashChain<E> extends AbstractCollection<E> implements Chain<E> {
 		for (E o : toInsert) {
 			insertAfter(o, previousPoint);
 			//*****Added In *****
-			System.out.println("To Insert Point: "+o.toString());
-			System.out.println("To Previous Point: "+previousPoint.toString());
+			//System.out.println("To Insert Point: "+o.toString());
+			//System.out.println("To Previous Point: "+previousPoint.toString());
 			//*****Added In *****
 			previousPoint = o;
 		}

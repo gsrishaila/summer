@@ -342,7 +342,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 		//*****AddedIN*****
 		for (Block inBlkList:blockList)
 		{
-			System.out.println("Curr Blk : "+inBlkList.toString());
+			//System.out.println("Curr Blk : "+inBlkList.toString());
 			//if(block.toString().equals(inBlkList.toString()))
 			String blockStr = block.toString().substring(10);
 			String inBlkListStr = inBlkList.toString().substring(10);
@@ -350,7 +350,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 			//System.out.println("inBlkListStr : "+inBlkListStr.toString());
 			if(blockStr.toString().contains(inBlkListStr.toString()))
 			{
-				System.out.println("DUPLICATE BLOCK");
+				//System.out.println("DUPLICATE BLOCK");
 			
 				return 0;
 			}
