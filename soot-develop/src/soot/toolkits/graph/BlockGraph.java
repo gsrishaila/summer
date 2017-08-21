@@ -355,6 +355,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 				return 0;
 			}
 		}
+		//return value of this function has been changed from void to int
 		//*****AddedIN*****
 		blockList.add(block);
 		unitToBlock.put(tail, block);
