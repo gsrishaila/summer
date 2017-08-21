@@ -202,7 +202,13 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 		while (unitIt.hasNext()) {
 			Unit u = unitIt.next();
 			if (leaders.contains(u)) {
-				addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);
+				//addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);//original
+				//*****Added In*****
+				//If this blk was not added in then do not increase count
+				int added = addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);
+				if(added == 0 )
+					--indexInMethod;
+				//*****Added In*****
 				indexInMethod++;
 				blockHead = u;
 				blockLength = 0;
@@ -212,7 +218,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 		}
 		if (blockLength > 0) {
 			// Add final block.
-			addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);
+			addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock); 
 		}
 
 		// The underlying UnitGraph defines heads and tails.
@@ -330,7 +336,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 	 *            mappings from <code>head</code> and <code>tail</code> to the
 	 *            new block
 	 */
-	private void addBlock(Unit head, Unit tail, int index, int length, List<Block> blockList,
+	private int addBlock(Unit head, Unit tail, int index, int length, List<Block> blockList,
 			Map<Unit, Block> unitToBlock) {
 		Block block = new Block(head, tail, mBody, index, length, this);
 		//*****AddedIN*****
@@ -346,13 +352,14 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 			{
 				System.out.println("DUPLICATE BLOCK");
 			
-				return;
+				return 0;
 			}
 		}
 		//*****AddedIN*****
 		blockList.add(block);
 		unitToBlock.put(tail, block);
 		unitToBlock.put(head, block);
+		return 1;
 	}
 
 	/**
