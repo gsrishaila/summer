@@ -18,19 +18,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.io.StringReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.Spliterator;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -43,8 +37,6 @@ import javax.xml.stream.XMLStreamException;
 
 import org.xmlpull.v1.XmlPullParserException;
 
-import com.sun.corba.se.impl.orbutil.graph.GraphImpl;
-
 import soot.Body;
 import soot.MethodOrMethodContext;
 import soot.PackManager;
@@ -53,7 +45,6 @@ import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.Unit;
-import soot.UnitBox;
 import soot.jimple.Jimple;
 import soot.jimple.Stmt;
 import soot.jimple.infoflow.InfoflowConfiguration.AliasingAlgorithm;
@@ -81,18 +72,11 @@ import soot.jimple.infoflow.util.SystemClassHandler;
 import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
-import soot.tagkit.Tag;
 import soot.toolkits.graph.Block;
 import soot.toolkits.graph.BlockGraph;
-import soot.toolkits.graph.BlockGraphConverter;
 import soot.toolkits.graph.BriefBlockGraph;
-import soot.toolkits.graph.CompleteBlockGraph;
-import soot.toolkits.graph.DirectedGraph;
-import soot.toolkits.graph.ExceptionalGraph;
 import soot.toolkits.graph.ExceptionalUnitGraph;
-import soot.toolkits.graph.HashMutableDirectedGraph;
 import soot.toolkits.graph.MHGDominatorsFinder;
-import soot.toolkits.graph.MutableDirectedGraph;
 import soot.toolkits.graph.UnitGraph;
 import soot.util.dot.DotGraph;
 import soot.util.queue.QueueReader;
@@ -188,6 +172,7 @@ public class Test {
 	static List<String> sootMethodsSubSignatureList = new ArrayList<String>();
 	static List<SootMethod> sootMethodsObjectList = new ArrayList<SootMethod>();
 
+
 	
 	private static IIPCManager ipcManager = null;
 	public static void setIPCManager(IIPCManager ipcManager)
@@ -199,7 +184,7 @@ public class Test {
 		return Test.ipcManager;
 	}
 	
-	//added in function to get the call graph as dot file
+	//added in function
 	public static File serializeCallGraph(CallGraph graph, String fileName) {
 		if (fileName == null) {
 			fileName = soot.SourceLocator.v().getOutputDir();
@@ -221,14 +206,12 @@ public class Test {
 		canvas.plot(fileName);
 		return new File(fileName);
 	}
-	
+	 
 	//Function added in to generate the CFG
 	public static void generateCFG (SootMethod entryPoint)
 	{
 		System.out.println("***CFG Generation***" + entryPoint.getName());
 		System.out.println("Method Name : " + entryPoint.getName());
-		System.out.println("Method Signature : " + entryPoint.getSignature());
-		
 		Body b = entryPoint.retrieveActiveBody();
 		
 		BlockGraph bg = new BriefBlockGraph(b);
@@ -239,18 +222,10 @@ public class Test {
 			System.out.println("\n"+block.toString());
 		}//end for 
 		
-		DirectedGraph<Unit> x = new ExceptionalUnitGraph(entryPoint.getActiveBody());
-        CFGToDotGraph y = new CFGToDotGraph();
-        //DotGraph a=y.drawCFG(x,entryPoint.getActiveBody()); //gives units in cfg
-        DotGraph a=y.drawCFG(bg,entryPoint.getActiveBody());
-        a.plot(entryPoint.getSignature()+".dot");
 		System.out.println("***End of CFG Generation***" + entryPoint.getName()+"\n");
 	}
 	
-	
-	
-	
-	public static void mergeCFG102s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList)
+	public static void mergeCFG102s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
 	{
 		List<Unit> tailList = new ArrayList();
 		Body body = null ;
@@ -258,19 +233,33 @@ public class Test {
 		//first get the dummy main mdt and its body
 		for (SootMethod eachMdt:entryPoint)
 		{
-			if (eachMdt.getName().contains("dummyMainMethod") )
+			if (eachMdt.getName().contains(mainMdtName) )
 			{
 				body = eachMdt.retrieveActiveBody();
-				dummyMainMdt = eachMdt;
+				dummyMainMdt = eachMdt;//dummyMainMdt refer to the mainMdtName
 			}
 		}
 		
 		for (SootMethod eachMdt:entryPoint)
 		{
 			//get the units frm dummy method
-			PatchingChain<Unit> unitsInDummyMdt = body.getUnits();
+			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
+			//*****Recurse this function*****
+			/*System.out.println("mainMdtName : "+mainMdtName.ttoString());
+			Iterator statements = eachMdt.retrieveActiveBody().getUnits().snapshotIterator();
+		    while (statements.hasNext()) 
+		    {
+		        Stmt stmt = (Stmt) statements.next();
+		        if (stmt.containsInvokeExpr()) 
+		        {
+		            //IdentityHashSet<SootMethod> called = callGraph.get(method);
+		        	System.out.println("stmt with invoke exp : "+stmt.toString());
+		        }
+		    }*/
+			//*****Recurse this function*****
+			
 			//get the dummymainmdt
-			if (eachMdt.getSignature() == "dummyMainMethod" )
+			if (eachMdt.getSignature() == mainMdtName )
 				continue;
 			if(unitsInDummyMdt == null)
 			{
@@ -341,7 +330,7 @@ public class Test {
 							 BlockGraph bg = new BriefBlockGraph(body);
 							 CFGToDotGraph y = new CFGToDotGraph();
 						     DotGraph a1=y.drawCFG(bg,body);
-						     a1.plot("dummyMainMethod333.dot");
+						     a1.plot(mainMdtName +"333.dot");
 						     //generateCFG (dummyMainMdt);
 						     //System.out.println(body.getUnits().toString());
 						     //******BLOCKDETAILS******
@@ -363,58 +352,11 @@ public class Test {
 	}
 	
 	
-	public static PatchingChain<Unit> getDummyUnits (List <SootMethod> entryPoint)
-	{
-		PatchingChain<Unit> allunits = null;
-		for (SootMethod eachMdt:entryPoint)
-		{
-			System.out.println("Each Signature : "+ eachMdt.getSignature());//only once
-			//for each of the mdt look for the unit that calls this mdt
-			if(eachMdt.getName().contains("dummyMainMethod"))
-			{
-    			Body body = eachMdt.retrieveActiveBody();
-			    //Build CFG
-			    //UnitGraph cfg = new ExceptionalUnitGraph(body);
-			    allunits = body.getUnits();
-			}
-		}
-		return allunits;
-	}
-	
-	
-	
-	
-    //Function added in to generate the CFG
-    //This function will return the list of units that have no successors
-    public static List<Unit> getLastUnitsSootMethod (SootMethod method)
-    {
-    	
-    	System.out.println("*****getLastUnitsSootMethod***** ");
-    	List<Unit> lastUnitsList =new ArrayList<Unit>();
-    	PatchingChain<Unit> allunits = method.retrieveActiveBody().getUnits();
-	    for (Unit eachunit:allunits) 
-	    {
-	    	//Unit successor = method.retrieveActiveBody().getUnits().getSuccOf(eachunit);
-	    	//if(eachunit.toString().contains("return") && successor!=null)
-	    	if(eachunit.toString().contains("return") )
-	    	{
-	    		//System.out.println("last unit: "+eachunit.toString());
-	    		lastUnitsList.add(eachunit);
-	    	}
-	    }
-	    //System.out.println("last units:"+lastUnitsList);
-	    System.out.println("*****getLastUnitsSootMethod***** ");
-	    return lastUnitsList;
-    }
-	
-	
 	/**
 	 * @param args Program arguments. args[0] = path to apk-file,
 	 * args[1] = path to android-dir (path/android-platforms/)
 	 */
 	public static void main(final String[] args) throws IOException, InterruptedException {
-		
-
 		if (args.length < 2) {
 			printUsage();	
 			return;
@@ -507,50 +449,57 @@ public class Test {
 			System.gc();
 		}
 		
-	   //*****added in code3*****
-		PackManager.v().getPack("cg").apply(); //this works
-	    CallGraph appCallGraph = Scene.v().getCallGraph();
+	   //*****added in code2*****
+	   System.out.println("done done done111...");
+	   String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
+	   //String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
+	   //String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
+	   String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
+	   SetupApplication app = new SetupApplication
+	                (androidPlatformPath,
+	                        appPath);
+	   //app.calculateSourcesSinksEntrypoints("D:\\Arbeit\\Android Analyse\\soot-infoflow-android\\SourcesAndSinks.txt");
+	   //app.calculateSourcesSinksEntrypoints("/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/SourcesAndSinks.txt");
+       try {
+		app.runInfoflow("/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/SourcesAndSinks.txt");
+	} catch (XmlPullParserException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	        soot.G.reset();
+       Options.v().set_src_prec(Options.src_prec_apk);
+	   Options.v().set_process_dir(Collections.singletonList(appPath));
+	   Options.v().set_android_jars(androidPlatformPath);
+	   Options.v().set_whole_program(true);
+	   Options.v().set_allow_phantom_refs(true);
+	   Options.v().setPhaseOption("cg.spark", "on");
+
+	   Scene.v().loadNecessaryClasses();
 	   
-	    File graph =serializeCallGraph(appCallGraph, "callgraph");//for CallGraph
+	   
+
+	   //SootMethod entryPoint = app.getEntryPointCreator().createDummyMain();
+	   SootMethod entryPoint = app.getDummyMainMethod();
+	   sootMethodsObjectList.add(entryPoint);
+	   Options.v().set_main_class(entryPoint.getSignature());
+	   Scene.v().setEntryPoints(Collections.singletonList(entryPoint));
+	   
+	   PackManager.v().getPack("cg").apply(); //this works
+	   CallGraph appCallGraph = Scene.v().getCallGraph();
+	   File graph =serializeCallGraph(appCallGraph, "callgraph");
+	   
+	   System.out.println("hhhh");
+	    System.out.println(entryPoint.getActiveBody());
 	    
-		System.out.println("done done done111...");
-		String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
-	    //String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
-		//String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
-		String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
-		SetupApplication app = new SetupApplication(androidPlatformPath,appPath);
-		try {
-			app.runInfoflow("/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/SourcesAndSinks.txt");
-		} 
-		catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    soot.G.reset();
-	    Options.v().set_src_prec(Options.src_prec_apk);
-		Options.v().set_process_dir(Collections.singletonList(appPath));
-		Options.v().set_android_jars(androidPlatformPath);
-		Options.v().set_whole_program(true);
-		Options.v().set_allow_phantom_refs(true);
-		Options.v().setPhaseOption("cg.spark", "on");
-        Scene.v().loadNecessaryClasses();
-        
-        SootMethod entryPoint = app.getDummyMainMethod();
-        sootMethodsObjectList.add(entryPoint);
- 	    Options.v().set_main_class(entryPoint.getSignature());
- 	    Scene.v().setEntryPoints(Collections.singletonList(entryPoint));
- 	    System.out.println("hhhh");
- 	    System.out.println(entryPoint.getActiveBody());
- 	    
- 	    //getting the CFG of the DummyMainMethod
- 	    generateCFG (entryPoint);
- 	    
- 	    //getting the entrypoint classes from the DummyMainMethod
- 	    Set <SootClass> entryPoint1 =  app.getEntrypointClasses();
+	    //getting the CFG of the DummyMainMethod
+	    generateCFG (entryPoint);
+	    
+	    //getting the entrypoint classes from the DummyMainMethod
+	    Set <SootClass> entryPoint1 =  app.getEntrypointClasses();
 	    System.out.println(entryPoint1);
 	    for (SootClass eachentrypt:entryPoint1){
 		    List <SootMethod> mdtsInSootClass = eachentrypt.getMethods();
-		    System.out.println("\n"+eachentrypt.toString()+" "+eachentrypt.getMethods().toString());
+		    System.out.println("\n"+"EntryPoint Details : "+eachentrypt.toString()+" "+eachentrypt.getMethods().toString());
 		    //get the all the methods in these classes, get the CFGs for those classes
 		    for(SootMethod  mdt : mdtsInSootClass)
 		    {    
@@ -570,15 +519,17 @@ public class Test {
 	    System.out.println("mergeCFGs () function called No1 ....");
 	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
 	    //addingDummyTail(sootMethodsObjectList, sootMethodsSignatureList);
-	    mergeCFG102s (sootMethodsObjectList, sootMethodsSignatureList);
+	    mergeCFG102s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
 	    
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
 	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
 	    //System.out.println("sootMethodsSubSignatureList: " + sootMethodsSubSignatureList);
 		//getting the callgraph
-		
-	   //*****added in code3***** 
+	  
+	   
+	   //*****added in code2*****
+      
 	}
 
 	/**
@@ -1297,57 +1248,3 @@ public class Test {
 	}
 
 }
-
-class DummyBlock extends Block
-{
-    DummyBlock(Body body, int indexInMethod)
-    {
-        super(null, null, body, indexInMethod, 0, null);
-    }
-
-    void makeHeadBlock(List<Block> oldHeads)
-    {
-        setPreds(new ArrayList<Block>());
-        setSuccs(new ArrayList<Block>(oldHeads));
-
-        Iterator<Block> headsIt = oldHeads.iterator();
-        while(headsIt.hasNext()){
-            Block oldHead = headsIt.next();
-
-            List<Block> newPreds = new ArrayList<Block>();
-            newPreds.add(this);
-
-            List<Block> oldPreds = oldHead.getPreds();
-            if(oldPreds != null)
-                newPreds.addAll(oldPreds);
-            
-            oldHead.setPreds(newPreds);
-        }
-    }
-
-    void makeTailBlock(List<Block> oldTails)
-    {
-        setSuccs(new ArrayList<Block>());
-        setPreds(new ArrayList<Block>(oldTails));
-
-        Iterator<Block> tailsIt = oldTails.iterator();
-        while(tailsIt.hasNext()){
-            Block oldTail = tailsIt.next();
-
-            List<Block> newSuccs = new ArrayList<Block>();
-            newSuccs.add(this);
-
-            List<Block> oldSuccs = oldTail.getSuccs();
-            if(oldSuccs != null)
-                newSuccs.addAll(oldSuccs);
-
-            oldTail.setSuccs(newSuccs);
-        }
-    }    
-    
-    public Iterator<Unit> iterator()
-    {
-        return Collections.emptyListIterator();
-    }
-}
-
