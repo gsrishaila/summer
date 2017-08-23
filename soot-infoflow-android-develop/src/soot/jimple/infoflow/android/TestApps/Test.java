@@ -45,6 +45,7 @@ import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.Unit;
+import soot.jimple.InvokeExpr;
 import soot.jimple.Jimple;
 import soot.jimple.Stmt;
 import soot.jimple.infoflow.InfoflowConfiguration.AliasingAlgorithm;
@@ -71,6 +72,7 @@ import soot.jimple.infoflow.taintWrappers.ITaintPropagationWrapper;
 import soot.jimple.infoflow.util.SystemClassHandler;
 import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.Edge;
+import soot.jimple.toolkits.callgraph.Units;
 import soot.options.Options;
 import soot.toolkits.graph.Block;
 import soot.toolkits.graph.BlockGraph;
@@ -227,24 +229,59 @@ public class Test {
 	
 	public static void mergeCFG102s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
 	{
+		
 		List<Unit> tailList = new ArrayList();
 		Body body = null ;
 		SootMethod dummyMainMdt = null ;
 		//first get the dummy main mdt and its body
 		for (SootMethod eachMdt:entryPoint)
 		{
-			if (eachMdt.getName().contains(mainMdtName) )
+			//if (eachMdt.getName().contains(mainMdtName) )
+			if (eachMdt.getSignature().contains(mainMdtName) )
 			{
+				System.out.println("\neachMdt : "+ eachMdt.getSignature());
 				body = eachMdt.retrieveActiveBody();
 				dummyMainMdt = eachMdt;//dummyMainMdt refer to the mainMdtName
+				break;
 			}
 		}
 		
 		for (SootMethod eachMdt:entryPoint)
 		{
 			//get the units frm dummy method
+			if(body==null)
+				System.out.println("\nbody is null... ");
 			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
+			System.out.println("\nunitsInDummyMdt: "+ unitsInDummyMdt.size());
+			
 			//*****Recurse this function*****
+			if (eachMdt.getSignature() == mainMdtName )
+				continue;
+		    List<String> sootMethodsSignatureList1 = new ArrayList<String>();
+		    List<SootMethod> sootMethodsObjectList1 = new ArrayList<SootMethod>();
+			
+		    sootMethodsObjectList1.add(eachMdt);
+			System.out.println("\nmainMdtName print: "+eachMdt.getSignature());
+			for (Unit unitInMdt:unitsInDummyMdt)
+			{
+				Stmt stmt = (Stmt)unitInMdt ;
+				if (stmt != null) 
+				{
+		            if (stmt.containsInvokeExpr()) 
+		            {
+		            	System.out.println("stmt: "+stmt.toString());
+		                InvokeExpr invokeExpr = stmt.getInvokeExpr();
+		                SootMethod method = invokeExpr.getMethod();
+		                sootMethodsObjectList1.add(method);
+		                sootMethodsSignatureList1.add(method.getSignature());
+		                //System.out.println("method tostring: "+method.toString());
+		            }
+				}
+			}
+			System.out.println("sootMethodsObjectList1: "+sootMethodsObjectList1.toString());
+			System.out.println("sootMethodsSignatureList1: "+sootMethodsSignatureList1.toString());
+			System.out.println("eachMdt: "+eachMdt.toString());
+			mergeCFG102s (sootMethodsObjectList1, sootMethodsSignatureList1, eachMdt.getSignature());
 			/*System.out.println("mainMdtName : "+mainMdtName.ttoString());
 			Iterator statements = eachMdt.retrieveActiveBody().getUnits().snapshotIterator();
 		    while (statements.hasNext()) 
@@ -348,7 +385,7 @@ public class Test {
 				}
 			}
 		}
-		
+		return;
 	}
 	
 	
@@ -466,6 +503,7 @@ public class Test {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+       //Scene.v().addBasicClass(android.app.Service,SootClass.BODIES);
 	        soot.G.reset();
        Options.v().set_src_prec(Options.src_prec_apk);
 	   Options.v().set_process_dir(Collections.singletonList(appPath));
@@ -519,7 +557,7 @@ public class Test {
 	    System.out.println("mergeCFGs () function called No1 ....");
 	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
 	    //addingDummyTail(sootMethodsObjectList, sootMethodsSignatureList);
-	    mergeCFG102s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
+	    mergeCFG102s (sootMethodsObjectList, sootMethodsSignatureList,"<dummyMainClass: void dummyMainMethod(java.lang.String[])>");
 	    
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
