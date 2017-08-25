@@ -331,6 +331,342 @@ public class Test {
 	    return;
 		//recurse
 	}
+	public static void mergeCFG104s (HashMap<SootMethod,Queue<SootMethod>> subFunctions)
+	{
+		PatchingChain<Unit> unitsInMainMdt = null;
+		for (Entry<SootMethod, Queue<SootMethod>> entry : subFunctions.entrySet())
+		{
+			 SootMethod key = entry.getKey();
+	    	 Queue<SootMethod> value = entry.getValue(); 
+	    	 
+	    	 unitsInMainMdt = key.getActiveBody().getUnits();
+	    	 for (Unit eachUnitInMdt:unitsInMainMdt)
+	    	 {
+		    	 Stmt stmt = (Stmt)eachUnitInMdt ;
+				 if (stmt != null) 
+				 {
+					 if (stmt.containsInvokeExpr()) 
+			         {
+						 System.out.println("stmt333: "+stmt.toString());
+			             InvokeExpr invokeExpr = stmt.getInvokeExpr();
+			             System.out.println("invokeExp: "+invokeExpr.toString());
+			             String between = (String) invokeExpr.toString().substring(invokeExpr.toString().indexOf("<") + 1, invokeExpr.toString().indexOf(">"));
+			             System.out.println("invokeExp substring: "+between);
+			             SootMethod calledMethod = null;
+			             //System.out.println("stmt222: "+stmt.toString());
+			             //find this sootMdt in the Queue
+			             for (SootMethod inQ:value)
+			             {
+			            	 //inQ.getActiveBody();
+			            	 System.out.println("mdtsInQ : "+inQ.getSignature());
+			            	 if(inQ.getSignature().contains(between))
+			            	 {
+			            		 calledMethod = inQ;
+			            		 if(inQ.hasActiveBody())
+			            		 {
+			            			 calledMethod=inQ;
+			            			 break;
+			            		 }
+			            		 else 
+			            		 {
+			            			 calledMethod=null;
+			            			 break;
+			            		 }
+			            	 }
+			             }
+			             if(calledMethod == null)
+			             {
+			            	 System.out.println("Error calledMethod is null...continuing");
+			            	 continue;
+			             }
+			             
+			             Unit successor = key.getActiveBody().getUnits().getSuccOf(eachUnitInMdt);
+			             
+			             calledMethod.getActiveBody().getUnits().removeLast();
+						 //*****get the other tails*****
+						 Unit b4Tail = null;
+						 UnitGraph newone= new ExceptionalUnitGraph (calledMethod.getActiveBody());
+						 
+						 //only if there are other tails
+						 int remainingTails=0;
+						 Stmt nop=Jimple.v().newNopStmt();
+						 Unit cloneNexUnit = (Unit) nop.clone();
+						 List<Unit> clonedTailList = new ArrayList();
+						 List<Unit> tailList = new ArrayList();
+						 remainingTails = newone.getTails().size();
+						 if(remainingTails>0)
+						 {
+							 for (Unit eachTailUnit:newone.getTails())
+							 {
+								 cloneNexUnit = (Unit) nop.clone();
+								 clonedTailList.add(cloneNexUnit);
+								 tailList.add(eachTailUnit);
+								 System.out.println("eachTailUnit : "+eachTailUnit.toString());
+								 b4Tail =newone.getBody().getUnits().getPredOf(eachTailUnit);
+								 System.out.println("eachTailUnit : "+b4Tail.toString());
+								 newone.getBody().getUnits().swapWith(eachTailUnit, cloneNexUnit);
+								 //body.getUnits().remove(eachTailUnit); //added in *****get the other tails***** 
+								 //connect the b4Tail to the successor
+							 }
+							 
+						
+						 }
+						//*****get the other tails*****
+						 System.out.println("eachMdt unit size: "+calledMethod.retrieveActiveBody().getUnits().size());
+						 key.getActiveBody().getUnits().insertOnEdge(calledMethod.retrieveActiveBody().getUnits(),eachUnitInMdt, successor);
+						 if(remainingTails>0)
+						 {
+							 for (Unit clonedRet:clonedTailList)
+							 {
+								 //body.getUnits().remove(successor);
+								 key.getActiveBody().getUnits().insertAfter(successor,clonedRet); //added in *****get the other tails***** 
+								 //body.getUnits().remove(successor);
+							 }
+						 }
+						 
+						 BlockGraph bg = new BriefBlockGraph(key.getActiveBody());
+						 CFGToDotGraph y = new CFGToDotGraph();
+					     DotGraph a1=y.drawCFG(bg,key.getActiveBody());
+					     a1.plot(key.getSignature() +"333.dot");
+			             
+			             
+			            
+			         }
+			     }
+	    	 }
+	    	 
+	    	 
+		}
+	}
+	public static void mergeCFG103s (SootMethod bodyMdt)
+	{
+		//get this sootmdt from the hashmap
+		List<Unit> tailList = new ArrayList();
+		Queue<SootMethod> value = subFunctions.get(bodyMdt);
+		Body mainMdtBody = null;
+	    mainMdtBody = bodyMdt.getActiveBody();
+	    if (mainMdtBody == null)
+	    {
+			System.out.println("Main mdt has no active body ");
+			return;
+	    }
+	    
+	    PatchingChain<Unit> unitsInDummyMdt =  mainMdtBody.getUnits(); //unitsInDummyMdt refer to the mainMdtName
+	    for (Unit unitInMdt:unitsInDummyMdt)
+		{
+			Stmt stmt = (Stmt)unitInMdt ;
+			if (stmt != null) 
+			{
+	            if (stmt.containsInvokeExpr()) 
+	            {
+	            	//System.out.println("stmt111: "+stmt.toString());
+	                InvokeExpr invokeExpr = stmt.getInvokeExpr();
+	                SootMethod method = invokeExpr.getMethod();
+	                
+	                //System.out.println("get methodbody...");
+	                Body calledFuncBody=null;
+	                //if method has an active body, the add in into the newMdtQueue
+	                if (method.hasActiveBody())
+	    			{
+	    				calledFuncBody = method.getActiveBody();
+	    				Unit successor = mainMdtBody.getUnits().getSuccOf(unitInMdt);
+	    				//System.out.println("mdt has active body ");
+	    				
+	    				calledFuncBody.getUnits().removeLast();
+						//*****get the other tails*****
+						Unit b4Tail = null;
+						UnitGraph newone= new ExceptionalUnitGraph (calledFuncBody);
+						 
+						//only if there are other tails
+						int remainingTails=0;
+						Stmt nop=Jimple.v().newNopStmt();
+						Unit cloneNexUnit = (Unit) nop.clone();
+						List<Unit> clonedTailList = new ArrayList();
+						remainingTails = newone.getTails().size();
+						if(remainingTails>0)
+						{
+							for (Unit eachTailUnit:newone.getTails())
+							{
+								 cloneNexUnit = (Unit) nop.clone();
+								 clonedTailList.add(cloneNexUnit);
+								 tailList.add(eachTailUnit);
+								 System.out.println("eachTailUnit : "+eachTailUnit.toString());
+								 b4Tail =newone.getBody().getUnits().getPredOf(eachTailUnit);
+								 System.out.println("eachTailUnit : "+b4Tail.toString());
+								 newone.getBody().getUnits().swapWith(eachTailUnit, cloneNexUnit);
+								 //body.getUnits().remove(eachTailUnit); //added in *****get the other tails***** 
+								 //connect the b4Tail to the successor
+							}
+							 
+						
+						 }
+						//*****get the other tails*****
+						 System.out.println("eachMdt unit size: "+calledFuncBody.getUnits().size());
+						 mainMdtBody.getUnits().insertOnEdge(calledFuncBody.getUnits(),unitInMdt, successor);
+						 if(remainingTails>0)
+						 {
+							 for (Unit clonedRet:clonedTailList)
+							 {
+								 //body.getUnits().remove(successor);
+								 mainMdtBody.getUnits().insertAfter(successor,clonedRet); //added in *****get the other tails***** 
+								 //body.getUnits().remove(successor);
+							 }
+							 mergeCFG103s (method);
+						 }
+	    				
+	    			}//if (method.hasActiveBody())
+	    			
+	    			else
+	    			{
+	    				System.out.println("mdt has no active body ");
+	    				continue;
+	    			}
+	            }
+			}
+		}//end of for loop
+	    BlockGraph bg = new BriefBlockGraph(mainMdtBody);
+		CFGToDotGraph y = new CFGToDotGraph();
+	    DotGraph a1=y.drawCFG(bg,mainMdtBody);
+	    a1.plot(bodyMdt.getSignature() +"333.dot");
+		return;
+		
+	}
+	
+	public static void mergeCFG1021s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
+	{
+		List<Unit> tailList = new ArrayList();
+		Body body = null ;
+		SootMethod dummyMainMdt = null ;
+		//first get the dummy main mdt and its body
+		for (SootMethod eachMdt:entryPoint)
+		{
+			if (eachMdt.getName().contains(mainMdtName) )
+			{
+				body = eachMdt.retrieveActiveBody();
+				dummyMainMdt = eachMdt;//dummyMainMdt refer to the mainMdtName
+				
+			}
+		}
+		
+		for (SootMethod eachMdt:entryPoint)
+		{
+			//get the units frm dummy method
+			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
+			//*****Recurse this function*****
+			/*System.out.println("mainMdtName : "+mainMdtName.ttoString());
+			Iterator statements = eachMdt.retrieveActiveBody().getUnits().snapshotIterator();
+		    while (statements.hasNext()) 
+		    {
+		        Stmt stmt = (Stmt) statements.next();
+		        if (stmt.containsInvokeExpr()) 
+		        {
+		            //IdentityHashSet<SootMethod> called = callGraph.get(method);
+		        	System.out.println("stmt with invoke exp : "+stmt.toString());
+		        }
+		    }*/
+			//*****Recurse this function*****
+			
+			//get the dummymainmdt
+			if (eachMdt.getSignature() == mainMdtName )
+				continue;
+			if(unitsInDummyMdt == null)
+			{
+				System.out.println("unitsInDummyMdt is null");
+			}
+			else
+			{
+				for (Unit unitFrmMdt:unitsInDummyMdt)
+				{
+					Stmt stmt = (Stmt)unitFrmMdt ;
+					//if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")) && (eachMdt.getSignature().contains("onOptionsItemSelected")))
+					
+					//if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")))
+					if (stmt.containsInvokeExpr()) 
+					{
+						
+						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
+						 {
+							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
+							 List<Unit> nonRetUnits = new ArrayList();
+							 /*if(!unitFrmMdt.toString().contains("return"))
+								 nonRetUnits.add(unitFrmMdt);*/ 
+							 //remove all units with return in it
+							 //eachMdt.retrieveActiveBody().getUnits().retainAll(nonRetUnits);
+							 
+							 //removing tails instead
+							 
+							 //removing tails instead
+							 //get the called mdt - each mdt
+							 InvokeExpr invokeExpr = stmt.getInvokeExpr();
+				             eachMdt = invokeExpr.getMethod();
+				             if(!eachMdt.hasActiveBody())
+				            	 continue;
+							 //get the called mdt -each mdt
+							 eachMdt.retrieveActiveBody().getUnits().removeLast();
+							 //*****get the other tails*****
+							 Unit b4Tail = null;
+							 UnitGraph newone= new ExceptionalUnitGraph (eachMdt.getActiveBody());
+							 
+							 //only if there are other tails
+							 int remainingTails=0;
+							 Stmt nop=Jimple.v().newNopStmt();
+							 Unit cloneNexUnit = (Unit) nop.clone();
+							 List<Unit> clonedTailList = new ArrayList();
+							 remainingTails = newone.getTails().size();
+							 if(remainingTails>0)
+							 {
+								 for (Unit eachTailUnit:newone.getTails())
+								 {
+									 cloneNexUnit = (Unit) nop.clone();
+									 clonedTailList.add(cloneNexUnit);
+									 tailList.add(eachTailUnit);
+									 System.out.println("eachTailUnit : "+eachTailUnit.toString());
+									 b4Tail =newone.getBody().getUnits().getPredOf(eachTailUnit);
+									 System.out.println("eachTailUnit : "+b4Tail.toString());
+									 newone.getBody().getUnits().swapWith(eachTailUnit, cloneNexUnit);
+									 //body.getUnits().remove(eachTailUnit); //added in *****get the other tails***** 
+									 //connect the b4Tail to the successor
+								 }
+								 
+							
+							 }
+							//*****get the other tails*****
+							 System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
+							 body.getUnits().insertOnEdge(eachMdt.retrieveActiveBody().getUnits(),unitFrmMdt, successor);
+							 if(remainingTails>0)
+							 {
+								 for (Unit clonedRet:clonedTailList)
+								 {
+									 //body.getUnits().remove(successor);
+									 body.getUnits().insertAfter(successor,clonedRet); //added in *****get the other tails***** 
+									 //body.getUnits().remove(successor);
+								 }
+								 
+							 }
+							 
+							 BlockGraph bg = new BriefBlockGraph(body);
+							 CFGToDotGraph y = new CFGToDotGraph();
+						     DotGraph a1=y.drawCFG(bg,body);
+						     a1.plot(mainMdtName +"333.dot");
+						     //generateCFG (dummyMainMdt);
+						     //System.out.println(body.getUnits().toString());
+						     //******BLOCKDETAILS******
+						     //print basic block info 
+						     //actually it is only 26 blocks 0 to 25 but the number of one of the blk is skipped =)
+							/*for (Block block:bg.getBlocks()){
+								System.out.println("\n"+block.toString());
+							}*/
+							//System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
+							//System.out.println("total number of new blocks in body: "+bg.getBlocks().size());
+							//******BLOCKDETAILS******
+						     break;
+						 }//remove if
+					}
+				}
+			}
+		}
+		
+	}
 	
 	public static void mergeCFG102s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
 	{
@@ -344,6 +680,7 @@ public class Test {
 			{
 				body = eachMdt.retrieveActiveBody();
 				dummyMainMdt = eachMdt;//dummyMainMdt refer to the mainMdtName
+				
 			}
 		}
 		
@@ -659,7 +996,9 @@ public class Test {
 	    	 } 
 	    }
 	    //***
-	    mergeCFG102s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
+	    
+	    //mergeCFG104s (subFunctions);
+	    mergeCFG1021s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
 	    
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
