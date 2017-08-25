@@ -23,7 +23,11 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -72,7 +76,6 @@ import soot.jimple.infoflow.taintWrappers.ITaintPropagationWrapper;
 import soot.jimple.infoflow.util.SystemClassHandler;
 import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.Edge;
-import soot.jimple.toolkits.callgraph.Units;
 import soot.options.Options;
 import soot.toolkits.graph.Block;
 import soot.toolkits.graph.BlockGraph;
@@ -173,9 +176,8 @@ public class Test {
 	static List<String> sootMethodsSignatureList = new ArrayList<String>();
 	static List<String> sootMethodsSubSignatureList = new ArrayList<String>();
 	static List<SootMethod> sootMethodsObjectList = new ArrayList<SootMethod>();
-
-
 	
+	static HashMap<SootMethod,Queue<SootMethod>> subFunctions = new HashMap<SootMethod,Queue<SootMethod>>();
 	private static IIPCManager ipcManager = null;
 	public static void setIPCManager(IIPCManager ipcManager)
 	{
@@ -227,41 +229,64 @@ public class Test {
 		System.out.println("***End of CFG Generation***" + entryPoint.getName()+"\n");
 	}
 	
-	public static void mergeCFG102s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
+	public static void findFunctionsToMerge (Queue<SootMethod> mdtsInBody, SootMethod bodyMdt)
 	{
-		
-		List<Unit> tailList = new ArrayList();
-		Body body = null ;
-		SootMethod dummyMainMdt = null ;
-		//first get the dummy main mdt and its body
-		for (SootMethod eachMdt:entryPoint)
+		//System.out.println("findFunctionsToMerge bodyMdt: "+bodyMdt.getSignature());
+		for (SootMethod mdtFrmQ:mdtsInBody)
 		{
-			//if (eachMdt.getName().contains(mainMdtName) )
-			if (eachMdt.getSignature().contains(mainMdtName) )
-			{
-				System.out.println("\neachMdt : "+ eachMdt.getSignature());
-				body = eachMdt.retrieveActiveBody();
-				dummyMainMdt = eachMdt;//dummyMainMdt refer to the mainMdtName
-				break;
-			}
+			//System.out.println("mdtsInBodyQ: "+mdtFrmQ.getSignature());
 		}
+		List<Unit> tailList = new ArrayList();
+		Body body = null;
 		
-		for (SootMethod eachMdt:entryPoint)
+		SootMethod nextMdt  = null;
+		subFunctions.put(bodyMdt, mdtsInBody);
+	    //while (mdtsInBody.size()>0)
+		for (SootMethod mdtCalled:mdtsInBody)
 		{
-			//get the units frm dummy method
-			if(body==null)
-				System.out.println("\nbody is null... ");
-			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
-			System.out.println("\nunitsInDummyMdt: "+ unitsInDummyMdt.size());
+	    	Queue<SootMethod> newMdtQueue = new LinkedList<SootMethod>();
+			//nextMdt = mdtsInBody.poll();
+	    	nextMdt = mdtCalled;
+			//System.out.println("pop from Q : "+nextMdt.getSignature());
+			/*if (nextMdt.getSignature().contains("android.support.v7.app.AppCompatActivity"))
+			{
+				System.out.println("MdtName111: "+nextMdt.getSignature());
+				System.out.println("android.support.v7.app.AppCompatActivity ret...: ");
+				return;
+			}*/
+		
+			/*if (mdtsInBody.size()==0)
+			{
+				System.out.println("mdtsInBody Q size = 0...: ");
+				return;
+			}*/
+			//no support for android.support.v7.app.AppCompatActivity
 			
-			//*****Recurse this function*****
-			if (eachMdt.getSignature() == mainMdtName )
+			//body = nextMdt.getActiveBody();
+			if (nextMdt.hasActiveBody())
+			{
+				body = nextMdt.getActiveBody();
+				System.out.println("MdtName: "+nextMdt.getSignature());
+				System.out.println("mdt HAS active body ");
+				//System.out.println("mdt has active body ");
+			}
+			else
+			{
+				System.out.println("MdtName: "+nextMdt.getSignature());
+				System.out.println("mdt has no active body ");
 				continue;
-		    List<String> sootMethodsSignatureList1 = new ArrayList<String>();
-		    List<SootMethod> sootMethodsObjectList1 = new ArrayList<SootMethod>();
+			}
+	
 			
-		    sootMethodsObjectList1.add(eachMdt);
-			System.out.println("\nmainMdtName print: "+eachMdt.getSignature());
+			//System.out.println("body info : "+body.toString());
+			
+			if(body==null)
+			{
+				//System.out.println("\nError:body is null... ");
+			}
+			//get the next sootMethod
+			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
+			
 			for (Unit unitInMdt:unitsInDummyMdt)
 			{
 				Stmt stmt = (Stmt)unitInMdt ;
@@ -269,19 +294,64 @@ public class Test {
 				{
 		            if (stmt.containsInvokeExpr()) 
 		            {
-		            	System.out.println("stmt: "+stmt.toString());
+		            	//System.out.println("stmt111: "+stmt.toString());
 		                InvokeExpr invokeExpr = stmt.getInvokeExpr();
 		                SootMethod method = invokeExpr.getMethod();
-		                sootMethodsObjectList1.add(method);
-		                sootMethodsSignatureList1.add(method.getSignature());
-		                //System.out.println("method tostring: "+method.toString());
+		                //System.out.println("stmt222: "+method.getSignature());
+		                newMdtQueue.add(method);
+		                
+		                //System.out.println("get methodbody...");
+		                Body b =null;
+		                //if method has an active body, the add in into the newMdtQueue
+		                if (method.hasActiveBody())
+		    			{
+		    				b = method.getActiveBody();
+		    				//System.out.println("mdt has active body ");
+		    				
+		    			}
+		    			else
+		    			{
+		    				//System.out.println("mdt has no active body ");
+		    				continue;
+		    			}
+		                 
 		            }
 				}
+			}//end of for loop
+			
+			//recurse
+			//System.out.println("nextMdt: "+nextMdt.getSignature());
+			for (SootMethod mdtFrmQ:newMdtQueue)
+			{
+				//System.out.println("mdtFrmQ: "+mdtFrmQ.getSignature());
 			}
-			System.out.println("sootMethodsObjectList1: "+sootMethodsObjectList1.toString());
-			System.out.println("sootMethodsSignatureList1: "+sootMethodsSignatureList1.toString());
-			System.out.println("eachMdt: "+eachMdt.toString());
-			mergeCFG102s (sootMethodsObjectList1, sootMethodsSignatureList1, eachMdt.getSignature());
+			
+			findFunctionsToMerge (newMdtQueue,nextMdt);
+		}
+	    return;
+		//recurse
+	}
+	
+	public static void mergeCFG102s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
+	{
+		List<Unit> tailList = new ArrayList();
+		Body body = null ;
+		SootMethod dummyMainMdt = null ;
+		//first get the dummy main mdt and its body
+		for (SootMethod eachMdt:entryPoint)
+		{
+			if (eachMdt.getName().contains(mainMdtName) )
+			{
+				body = eachMdt.retrieveActiveBody();
+				dummyMainMdt = eachMdt;//dummyMainMdt refer to the mainMdtName
+			}
+		}
+		
+		for (SootMethod eachMdt:entryPoint)
+		{
+			//get the units frm dummy method
+			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
+			//*****Recurse this function*****
 			/*System.out.println("mainMdtName : "+mainMdtName.ttoString());
 			Iterator statements = eachMdt.retrieveActiveBody().getUnits().snapshotIterator();
 		    while (statements.hasNext()) 
@@ -385,7 +455,7 @@ public class Test {
 				}
 			}
 		}
-		return;
+		
 	}
 	
 	
@@ -503,7 +573,6 @@ public class Test {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-       //Scene.v().addBasicClass(android.app.Service,SootClass.BODIES);
 	        soot.G.reset();
        Options.v().set_src_prec(Options.src_prec_apk);
 	   Options.v().set_process_dir(Collections.singletonList(appPath));
@@ -557,7 +626,40 @@ public class Test {
 	    System.out.println("mergeCFGs () function called No1 ....");
 	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
 	    //addingDummyTail(sootMethodsObjectList, sootMethodsSignatureList);
-	    mergeCFG102s (sootMethodsObjectList, sootMethodsSignatureList,"<dummyMainClass: void dummyMainMethod(java.lang.String[])>");
+	    
+	    //***
+	    PatchingChain<Unit> unitsInDummyMdt = entryPoint.retrieveActiveBody().getUnits(); //unitsInDummyMdt refer to the mainMdtName
+        Queue<SootMethod> newMdtQueue = new LinkedList<SootMethod>();
+		for (Unit unitInMdt:unitsInDummyMdt)
+		{
+			Stmt stmt = (Stmt)unitInMdt ;
+			if (stmt != null) 
+			{
+	            if (stmt.containsInvokeExpr()) 
+	            {
+	            	System.out.println("stmt: "+stmt.toString());
+	                InvokeExpr invokeExpr = stmt.getInvokeExpr();
+	                SootMethod method = invokeExpr.getMethod();
+	                System.out.println("method.getActiveBody(); ");
+	                method.getActiveBody();
+	                newMdtQueue.add(method); 
+	            }
+			}
+		}//end of for loop
+	    //Find all the methods called in the dummymain mdt
+	    findFunctionsToMerge (newMdtQueue, entryPoint);
+	    for (Entry<SootMethod, Queue<SootMethod>> entry : subFunctions.entrySet())
+	    {
+	    	 SootMethod key = entry.getKey();
+	    	 Queue<SootMethod> value = entry.getValue(); 
+	    	 System.out.println("key: "+key.getSignature());
+	    	 for (SootMethod frmQ:value)
+	    	 {
+	    		 System.out.println("Value: "+frmQ.getSignature());
+	    	 } 
+	    }
+	    //***
+	    mergeCFG102s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
 	    
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
