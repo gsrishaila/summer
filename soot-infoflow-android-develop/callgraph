@@ -1,43 +1,49 @@
 digraph "call-graph" {
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"
-    "<com.example.gsrishaila.myapplication.MyService: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: void <init>()>";
-    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>";
-    "<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>";
-    "<com.example.gsrishaila.myapplication.MyService: void onDestroy()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: void onDestroy()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.androidexample.broadcastreceiver.IncomingSms: void <init>()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>";
+    "<android.telephony.SmsManager: android.telephony.SmsManager getDefault()>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void <init>()>"->"<android.telephony.SmsManager: android.telephony.SmsManager getDefault()>";
+    "<android.telephony.SmsMessage: android.telephony.SmsMessage createFromPdu(byte[])>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<android.telephony.SmsMessage: android.telephony.SmsMessage createFromPdu(byte[])>";
+    "<android.util.Log: int e(java.lang.String,java.lang.String)>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<android.util.Log: int e(java.lang.String,java.lang.String)>";
     "<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>"
-    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
-    "<android.media.MediaPlayer: android.media.MediaPlayer create(android.content.Context,int)>"
-    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"->"<android.media.MediaPlayer: android.media.MediaPlayer create(android.content.Context,int)>";
-    "<android.util.Log: int d(java.lang.String,java.lang.String)>"
-    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"->"<android.util.Log: int d(java.lang.String,java.lang.String)>";
-    "<com.example.gsrishaila.myapplication.MyService: void onDestroy()>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
-    "<android.app.Service: void onDestroy()>"
-    "<com.example.gsrishaila.myapplication.MyService: void onDestroy()>"->"<android.app.Service: void onDestroy()>";
-    "<android.app.Service: android.content.Context getApplicationContext()>"
-    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"->"<android.app.Service: android.content.Context getApplicationContext()>";
-    "<android.app.Service: void <init>()>"
-    "<com.example.gsrishaila.myapplication.MyService: void <init>()>"->"<android.app.Service: void <init>()>";
-    "<com.example.gsrishaila.myapplication.MainActivity: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: void <init>()>";
-    "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>";
-    "<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
-    "<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>";
-    "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"->"<android.util.Log: int d(java.lang.String,java.lang.String)>";
-    "<android.support.v7.app.AppCompatActivity: android.view.MenuInflater getMenuInflater()>"
-    "<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"->"<android.support.v7.app.AppCompatActivity: android.view.MenuInflater getMenuInflater()>";
-    "<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
-    "<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
-    "<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>"
-    "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"->"<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>";
-    "<android.support.v7.app.AppCompatActivity: void setContentView(int)>"
-    "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"->"<android.support.v7.app.AppCompatActivity: void setContentView(int)>";
-    "<android.support.v7.app.AppCompatActivity: void <init>()>"
-    "<com.example.gsrishaila.myapplication.MainActivity: void <init>()>"->"<android.support.v7.app.AppCompatActivity: void <init>()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
+    "<android.util.Log: int i(java.lang.String,java.lang.String)>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<android.util.Log: int i(java.lang.String,java.lang.String)>";
+    "<java.lang.StringBuilder: void <init>()>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.String toString()>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<android.content.BroadcastReceiver: void <init>()>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void <init>()>"->"<android.content.BroadcastReceiver: void <init>()>";
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.androidexample.broadcastreceiver.BroadcastNewSms: void <init>()>";
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void onCreate(android.os.Bundle)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.androidexample.broadcastreceiver.BroadcastNewSms: void onCreate(android.os.Bundle)>";
+    "<android.app.Activity: void onCreate(android.os.Bundle)>"
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
+    "<android.app.Activity: void setContentView(int)>"
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
+    "<android.app.Activity: void <init>()>"
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void <init>()>"->"<android.app.Activity: void <init>()>";
 }
