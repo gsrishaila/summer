@@ -202,7 +202,11 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 		while (unitIt.hasNext()) {
 			Unit u = unitIt.next();
 			if (leaders.contains(u)) {
-				addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);
+				//*****Added In*****
+				int added=addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);
+				if(added == 0 )
+					--indexInMethod; 
+				//*****Added In*****
 				indexInMethod++;
 				blockHead = u;
 				blockLength = 0;
@@ -340,7 +344,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 	 *            mappings from <code>head</code> and <code>tail</code> to the
 	 *            new block
 	 */
-	private void addBlock(Unit head, Unit tail, int index, int length, List<Block> blockList,
+	private int addBlock(Unit head, Unit tail, int index, int length, List<Block> blockList,
 			Map<Unit, Block> unitToBlock) {
 		Block block = new Block(head, tail, mBody, index, length, this);
 		for (Block inBlkList:blockList)
@@ -351,18 +355,17 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 	        if(blockStr.toString().equals(inBlkListStr))
 			{
 	        	System.out.println("DUPLICATE BLOCK");
-	        	System.out.println("Blk successor :"+block.getSuccs() );
-	        	System.out.println("Blk predecessor :"+block.getPreds() );
+	        	System.out.println("blockStr :"+blockStr);
+	        	System.out.println("inBlkListStr :"+inBlkListStr);
 	        	
-	        	System.out.println("inBlkList successor :"+inBlkList.getSuccs() );
-	        	System.out.println("inBlkList predecessor :"+inBlkList.getPreds() );
 	        	
-		        return;
+		        return 0;
 		     }
 	    }
 		blockList.add(block);
 		unitToBlock.put(tail, block);
 		unitToBlock.put(head, block);
+		return 1;
 	}
 
 	/**
