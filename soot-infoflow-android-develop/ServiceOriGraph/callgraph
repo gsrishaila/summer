@@ -1,7 +1,5 @@
 digraph "call-graph" {
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"
-    "<android.app.Activity: void <clinit>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<android.app.Activity: void <clinit>()>";
     "<com.example.gsrishaila.myapplication.MyService: void <init>()>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: void <init>()>";
     "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"
@@ -27,15 +25,15 @@ digraph "call-graph" {
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: void <init>()>";
     "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>";
-    "<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>";
     "<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
+    "<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>";
     "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"->"<android.util.Log: int d(java.lang.String,java.lang.String)>";
-    "<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
-    "<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
     "<android.support.v7.app.AppCompatActivity: android.view.MenuInflater getMenuInflater()>"
     "<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"->"<android.support.v7.app.AppCompatActivity: android.view.MenuInflater getMenuInflater()>";
+    "<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+    "<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
     "<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>"
     "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"->"<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>";
     "<android.support.v7.app.AppCompatActivity: void setContentView(int)>"

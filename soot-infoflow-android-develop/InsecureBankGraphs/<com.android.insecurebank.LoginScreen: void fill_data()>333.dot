@@ -1,0 +1,5 @@
+digraph "void fill_data()" {
+    label="void fill_data()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 = $r0.getSharedPreferences(\"mySharedPreferences\", 0)\l$r2 = $r1.getString(\"Username\", null)\l$r3 = $r1.getString(\"Password\", null)\l$r4 = $r0.Username_Text\l$r4.setText($r2)\l$r4 = $r0.Password_Text\l$r4.setText($r3)\lreturn\l",];
+}

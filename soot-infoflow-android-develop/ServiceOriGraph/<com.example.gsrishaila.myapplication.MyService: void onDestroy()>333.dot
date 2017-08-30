@@ -1,0 +1,5 @@
+digraph "void onDestroy()" {
+    label="void onDestroy()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\lspecialinvoke $r0.onDestroy()\l$r2 = $r0.mPlayer\l$r2.stop()\l$r2 = $r0.mPlayer\l$r2.release()\l$r1 = android.widget.Toast.makeText($r0, \"Service Destroyed\", 1)\l$r1.show()\lreturn\l",];
+}

@@ -1,0 +1,5 @@
+digraph "void onCreate(android.os.Bundle)" {
+    label="void onCreate(android.os.Bundle)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 := @parameter0\lspecialinvoke $r0.onCreate($r1)\l$r0.setContentView(2130968602)\l$r2 = $r0.msg\landroid.util.Log.d($r2, \"The onCreate() event\")\lreturn\l",];
+}

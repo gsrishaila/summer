@@ -1,0 +1,51 @@
+digraph "call-graph" {
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"
+    "<android.app.Activity: void <clinit>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<android.app.Activity: void <clinit>()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.androidexample.broadcastreceiver.IncomingSms: void <init>()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>";
+    "<android.telephony.SmsManager: android.telephony.SmsManager getDefault()>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void <init>()>"->"<android.telephony.SmsManager: android.telephony.SmsManager getDefault()>";
+    "<android.telephony.SmsMessage: android.telephony.SmsMessage createFromPdu(byte[])>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<android.telephony.SmsMessage: android.telephony.SmsMessage createFromPdu(byte[])>";
+    "<android.util.Log: int e(java.lang.String,java.lang.String)>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<android.util.Log: int e(java.lang.String,java.lang.String)>";
+    "<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
+    "<android.util.Log: int i(java.lang.String,java.lang.String)>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<android.util.Log: int i(java.lang.String,java.lang.String)>";
+    "<java.lang.StringBuilder: void <init>()>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.String toString()>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: void <init>()>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>";
+    "<com.androidexample.broadcastreceiver.IncomingSms: void onReceive(android.content.Context,android.content.Intent)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<android.content.BroadcastReceiver: void <init>()>"
+    "<com.androidexample.broadcastreceiver.IncomingSms: void <init>()>"->"<android.content.BroadcastReceiver: void <init>()>";
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.androidexample.broadcastreceiver.BroadcastNewSms: void <init>()>";
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void onCreate(android.os.Bundle)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.androidexample.broadcastreceiver.BroadcastNewSms: void onCreate(android.os.Bundle)>";
+    "<android.app.Activity: void onCreate(android.os.Bundle)>"
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
+    "<android.app.Activity: void setContentView(int)>"
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
+    "<android.app.Activity: void <init>()>"
+    "<com.androidexample.broadcastreceiver.BroadcastNewSms: void <init>()>"->"<android.app.Activity: void <init>()>";
+}

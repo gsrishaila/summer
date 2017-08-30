@@ -1,0 +1,5 @@
+digraph "void rememberme()" {
+    label="void rememberme()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r3 = $r0.getSharedPreferences(\"mySharedPreferences\", 0)\l$r4 = $r3.edit()\l$r5 = $r0.Username_Text\l$r6 = $r5.getText()\l$r1 = $r6.toString()\l$r0.username_text = $r1\l$r5 = $r0.Password_Text\l$r6 = $r5.getText()\l$r1 = $r6.toString()\l$r0.password_text = $r1\l$r1 = $r0.username_text\l$r4.putString(\"Username\", $r1)\l$r1 = $r0.password_text\l$r4.putString(\"Password\", $r1)\l$r2 = $r0.password_text\l$r1 = new java.lang.String\l$r7 = $r2.getBytes()\l$r2 = android.util.Base64.encodeToString($r7, 4)\lspecialinvoke $r1.<init>($r2)\l$r4.putString(\"encryptedpassword\", $r1)\l$r4.commit()\lreturn\l",];
+}

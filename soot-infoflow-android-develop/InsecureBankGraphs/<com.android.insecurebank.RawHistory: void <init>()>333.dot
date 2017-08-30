@@ -1,0 +1,5 @@
+digraph "void <init>()" {
+    label="void <init>()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\lspecialinvoke $r0.<init>()\l$r1 = new java.lang.StringBuilder\l$r2 = android.os.Environment.getExternalStorageDirectory()\l$r3 = $r2.toString()\l$r3 = java.lang.String.valueOf($r3)\lspecialinvoke $r1.<init>($r3)\l$r1 = $r1.append(\"/statements/\")\l$r3 = $r1.toString()\l$r0.statementdirectory = $r3\lreturn\l",];
+}

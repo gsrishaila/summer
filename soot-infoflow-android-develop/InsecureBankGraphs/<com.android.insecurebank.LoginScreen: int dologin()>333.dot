@@ -1,0 +1,17 @@
+digraph "int dologin()" {
+    label="int dologin()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this\l$r4 = $r0.Username_Text\l$r5 = $r4.getText()\l$r6 = $r5.toString()\l$r0.username_text = $r6\l$r4 = $r0.Password_Text\l$r5 = $r4.getText()\l$r6 = $r5.toString()\l$r0.password_text = $r6\l$r7 = $r0.getBaseContext()\l$r8 = $r7.getSystemService(\"phone\")\l$r9 = (android.telephony.TelephonyManager) $r8\l$r10 = new java.lang.StringBuilder\lspecialinvoke $r10.<init>()\l$r6 = $r9.getDeviceId()\l$r10 = $r10.append($r6)\l$r6 = $r10.toString()\l$r10 = new java.lang.StringBuilder\lspecialinvoke $r10.<init>()\l$r11 = $r9.getSimSerialNumber()\l$r10 = $r10.append($r11)\l$r11 = $r10.toString()\l$r10 = new java.lang.StringBuilder\lspecialinvoke $r10.<init>()\l$r12 = $r0.getContentResolver()\l$r13 = android.provider.Settings$Secure.getString($r12, \"android_id\")\l$r10 = $r10.append($r13)\l$r13 = $r10.toString()\l$r1 = new java.util.UUID\l$i0 = $r13.hashCode()\l$l1 = (long) $i0\l$i0 = $r6.hashCode()\l$l2 = (long) $i0\l$l2 = $l2 << 32\l$i0 = $r11.hashCode()\l$l3 = (long) $i0\l$l2 = $l2 | $l3\lspecialinvoke $r1.<init>($l1, $l2)\l$r1.toString()\l$r7 = $r0.getBaseContext()\l$r8 = $r7.getSystemService(\"phone\")\l$r9 = (android.telephony.TelephonyManager) $r8\l$r9.getLine1Number()\l$r3 = new com.android.insecurebank.RestClient\lspecialinvoke $r3.<init>()\l$i0 = 0\llabel1:\n$r14 = android.preference.PreferenceManager.getDefaultSharedPreferences($r0)\l$r6 = $r14.getString(\"serverip\", null)\l$r11 = $r14.getString(\"serverport\", null)\llabel2:\n$r13 = $r0.username_text\l$r15 = $r0.password_text\llabel3:\n$i0 = $r3.doLogin($r6, $r11, $r13, $r15)\l",];
+    "1" [label="label4:\nif $i0 != -1 goto label8\l",];
+    "0"->"1";
+    "2" [style=filled,fillcolor=lightgray,label="$r14 = android.preference.PreferenceManager.getDefaultSharedPreferences($r0)\l$r6 = $r14.getString(\"serverip\", null)\l$r11 = $r14.getString(\"serverport\", null)\l$r2 = new android.content.Intent\lspecialinvoke $r2.<init>($r0, class \"Lcom/android/insecurebank/PostLogin;\")\l$r13 = $r0.username_text\l$r2.putExtra(\"username\", $r13)\l$r13 = $r0.password_text\l$r2.putExtra(\"password\", $r13)\l$r2.putExtra(\"serverip\", $r6)\l$r2.putExtra(\"serverport\", $r11)\l$r0.startActivity($r2)\lreturn $i0\l",];
+    "1"->"2";
+    "6" [style=filled,fillcolor=lightgray,label="label8:\n$r19 = android.widget.Toast.makeText($r0, \"Login Failed\", 0)\l$r19.show()\lreturn $i0\l",];
+    "1"->"6";
+    "3" [style=filled,fillcolor=gray,label="label5:\n$r16 := @caughtexception\l$r16.printStackTrace()\lgoto label4\l",];
+    "3"->"1";
+    "4" [style=filled,fillcolor=gray,label="label6:\n$r17 := @caughtexception\l$r17.printStackTrace()\lgoto label4\l",];
+    "4"->"1";
+    "5" [style=filled,fillcolor=gray,label="label7:\n$r18 := @caughtexception\l$r18.printStackTrace()\lgoto label4\l",];
+    "5"->"1";
+}

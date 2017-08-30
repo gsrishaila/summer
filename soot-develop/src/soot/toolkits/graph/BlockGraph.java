@@ -202,13 +202,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 		while (unitIt.hasNext()) {
 			Unit u = unitIt.next();
 			if (leaders.contains(u)) {
-				//addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);//original
-				//*****Added In*****
-				//If this blk was not added in then do not increase count
-				int added = addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);
-				if(added == 0 )
-					--indexInMethod;
-				//*****Added In*****
+				addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);
 				indexInMethod++;
 				blockHead = u;
 				blockLength = 0;
@@ -218,11 +212,17 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 		}
 		if (blockLength > 0) {
 			// Add final block.
-			addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock); 
+			addBlock(blockHead, blockTail, indexInMethod, blockLength, blockList, unitToBlock);
 		}
 
 		// The underlying UnitGraph defines heads and tails.
 		for (Iterator<Unit> it = unitGraph.getHeads().iterator(); it.hasNext();) {
+			//Added In
+			/*for (Unit headUnits:unitGraph.getHeads() )
+			{
+				System.out.println("headUnit: " + headUnits.toString());
+			}*/
+			//Added In
 			Unit headUnit = (Unit) it.next();
 			Block headBlock = unitToBlock.get(headUnit);
 			if (headBlock.getHead() == headUnit) {
@@ -306,6 +306,10 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 				block.setSuccs(Collections.unmodifiableList(succBlocks));
 			}
 		}
+		//Added in
+		
+		
+		//Added in
 		mBlocks = Collections.unmodifiableList(blockList);
 		mHeads = Collections.unmodifiableList(mHeads);
 		if (mTails.size() == 0) {
@@ -336,31 +340,29 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 	 *            mappings from <code>head</code> and <code>tail</code> to the
 	 *            new block
 	 */
-	private int addBlock(Unit head, Unit tail, int index, int length, List<Block> blockList,
+	private void addBlock(Unit head, Unit tail, int index, int length, List<Block> blockList,
 			Map<Unit, Block> unitToBlock) {
 		Block block = new Block(head, tail, mBody, index, length, this);
-		//*****AddedIN*****
 		for (Block inBlkList:blockList)
-		{
-			//System.out.println("Curr Blk : "+inBlkList.toString());
-			//if(block.toString().equals(inBlkList.toString()))
+	    {
+	
 			String blockStr = block.toString().substring(10);
 			String inBlkListStr = inBlkList.toString().substring(10);
-			//System.out.println("blockStr : "+blockStr.toString());
-			//System.out.println("inBlkListStr : "+inBlkListStr.toString());
-			if(blockStr.toString().contains(inBlkListStr.toString()))
+	        if(blockStr.toString().equals(inBlkListStr))
 			{
-				//System.out.println("DUPLICATE BLOCK");
-			
-				return 0;
-			}
-		}
-		//return value of this function has been changed from void to int
-		//*****AddedIN*****
+	        	System.out.println("DUPLICATE BLOCK");
+	        	System.out.println("Blk successor :"+block.getSuccs() );
+	        	System.out.println("Blk predecessor :"+block.getPreds() );
+	        	
+	        	System.out.println("inBlkList successor :"+inBlkList.getSuccs() );
+	        	System.out.println("inBlkList predecessor :"+inBlkList.getPreds() );
+	        	
+		        return;
+		     }
+	    }
 		blockList.add(block);
 		unitToBlock.put(tail, block);
 		unitToBlock.put(head, block);
-		return 1;
 	}
 
 	/**
