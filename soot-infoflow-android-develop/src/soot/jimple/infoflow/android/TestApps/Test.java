@@ -593,17 +593,10 @@ public class Test {
 						
 						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
 						 {
+							 System.out.println("got into if : "+stmt.toString());
 							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
 							 List<Unit> nonRetUnits = new ArrayList();
-							 /*if(!unitFrmMdt.toString().contains("return"))
-								 nonRetUnits.add(unitFrmMdt);*/ 
-							 //remove all units with return in it
-							 //eachMdt.retrieveActiveBody().getUnits().retainAll(nonRetUnits);
 							 
-							 //removing tails instead
-							 
-							 //removing tails instead
-							 //get the called mdt - each mdt
 							 InvokeExpr invokeExpr = stmt.getInvokeExpr();
 				             eachMdt = invokeExpr.getMethod();
 				             if(!eachMdt.hasActiveBody())
@@ -653,12 +646,22 @@ public class Test {
 								 
 							 }
 							 
-							 BlockGraph bg = new BriefBlockGraph(body);
+							 Body b = body;
+						     BlockGraph bg = new BriefBlockGraph(b);//this line is needed to remove the duplicate block
+							 //print basic block info 
+							 for (Block block:bg)
+							 {
+								System.out.println("\n"+block.toString());
+							 }//end for 
+								
+							 BlockGraph bg1 = new BriefBlockGraph(b);
 							 CFGToDotGraph y = new CFGToDotGraph();
-						     DotGraph a1=y.drawCFG(bg,body);
-						     a1.plot(mainMdtName +"333.dot");
+							 DotGraph a1=y.drawCFG(bg,b);
+							 a1.plot("dummymain" +"333.dot");
+							 
+							 
 						     //generateCFG()
-						     generateCFG (dummyMainMdt);
+						     //generateCFG (dummyMainMdt); //this line is needed to remove the duplicate block
 						     //System.out.println(body.getUnits().toString());
 						     //******BLOCKDETAILS******
 						     //print basic block info 
@@ -906,9 +909,9 @@ public class Test {
 	   //*****added in code2*****
 	   System.out.println("done done done111...");
 	   String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
-	   //String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
-	   //String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
-	   String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
+	   String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
+	   //tring appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
+	   //String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
 	   SetupApplication app = new SetupApplication
 	                (androidPlatformPath,
 	                        appPath);
@@ -1012,6 +1015,10 @@ public class Test {
 	    mergeCFG1021s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
 	    
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
+	    for (SootMethod mdtInList:sootMethodsObjectList)
+	    {
+	    	System.out.println("mdtInList: " + mdtInList);
+	    }
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
 	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
 	    //System.out.println("sootMethodsSubSignatureList: " + sootMethodsSubSignatureList);
