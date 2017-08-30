@@ -1,5 +1,0 @@
-digraph "int onStartCommand(android.content.Intent,int,int)" {
-    label="int onStartCommand(android.content.Intent,int,int)";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 := @parameter0\l$i0 := @parameter1\l$i1 := @parameter2\l$r2 = android.widget.Toast.makeText($r0, \"Service Started\", 1)\l$r2.show()\landroid.util.Log.d(\"service\", \"onCreate\")\l$r3 = $r0.getApplicationContext()\l$r4 = android.media.MediaPlayer.create($r3, 2131099648)\l$r0.mPlayer = $r4\l$r4 = $r0.mPlayer\l$r4.setAudioStreamType(3)\l$r4 = $r0.mPlayer\l$r4.start()\lreturn 1\l",];
-}

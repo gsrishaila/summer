@@ -1,0 +1,10 @@
+digraph "void onClick(android.view.View)" {
+    label="void onClick(android.view.View)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this\l$r1 := @parameter0\l$r2 = $r0.this$0\l$r3 = $r0.this$0\l$r1 = $r3.findViewById(2131099651)\l$r4 = (android.widget.CheckBox) $r1\lcom.android.insecurebank.LoginScreen.access$0($r2, $r4)\l$r2 = $r0.this$0\l$r4 = com.android.insecurebank.LoginScreen.access$1($r2)\l$z0 = $r4.isChecked()\lif $z0 == 0 goto label1\l",];
+    "1" [label="$r2 = $r0.this$0\l$r2.rememberme()\l",];
+    "0"->"1";
+    "2" [style=filled,fillcolor=lightgray,label="label1:\n$r2 = $r0.this$0\l$r2.dologin()\lreturn\l",];
+    "0"->"2";
+    "1"->"2";
+}

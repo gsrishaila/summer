@@ -1,5 +1,0 @@
-digraph "void setpref()" {
-    label="void setpref()";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 = new android.content.Intent\lspecialinvoke $r1.<init>($r0, class \"Lcom/android/insecurebank/Preferences;\")\l$r0.startActivity($r1)\lreturn\l",];
-}

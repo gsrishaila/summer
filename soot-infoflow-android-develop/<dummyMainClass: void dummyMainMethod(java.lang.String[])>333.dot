@@ -49,13 +49,13 @@ digraph "void dummyMainMethod(java.lang.String[])" {
     "15"->"29";
     "17" [label="label11:\nif $i0 == 16 goto label16\l",];
     "16"->"17";
-    "18" [label="label12:\n$r5 = new com.android.insecurebank.LoginScreen$1\lspecialinvoke $r5.<init>($r4)\lif $i0 == 17 goto label13\l",];
+    "18" [label="label12:\n$r5 = new com.android.insecurebank.LoginScreen$3\lspecialinvoke $r5.<init>($r4)\lif $i0 == 17 goto label13\l",];
     "17"->"18";
     "25" [label="label16:\nif $i0 == 21 goto label11\l",];
     "17"->"25";
     "19" [label="$r5.onClick(null)\l",];
     "18"->"19";
-    "20" [label="label13:\n$r5 = null\l$r6 = new com.android.insecurebank.LoginScreen$3\lspecialinvoke $r6.<init>($r4)\lif $i0 == 18 goto label14\l",];
+    "20" [label="label13:\n$r5 = null\l$r6 = new com.android.insecurebank.LoginScreen$1\lspecialinvoke $r6.<init>($r4)\lif $i0 == 18 goto label14\l",];
     "18"->"20";
     "19"->"20";
     "21" [label="$r6.onClick(null)\l",];

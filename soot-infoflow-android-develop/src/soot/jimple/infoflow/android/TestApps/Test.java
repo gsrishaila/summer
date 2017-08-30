@@ -590,7 +590,10 @@ public class Test {
 					//if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")))
 					if (stmt.containsInvokeExpr()) 
 					{
-						
+						 //System.out.println("invoke stmt : "+stmt.toString());
+						 InvokeExpr invokeExpr1 = stmt.getInvokeExpr();
+			             //eachMdt = invokeExpr1.getMethod();
+			             //eachMdt.getActiveBody();
 						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
 						 {
 							 System.out.println("got into if : "+stmt.toString());
@@ -651,7 +654,7 @@ public class Test {
 							 //print basic block info 
 							 for (Block block:bg)
 							 {
-								System.out.println("\n"+block.toString());
+								//System.out.println("\n"+block.toString());
 							 }//end for 
 								
 							 BlockGraph bg1 = new BriefBlockGraph(b);
@@ -910,7 +913,7 @@ public class Test {
 	   System.out.println("done done done111...");
 	   String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
 	   String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
-	   //tring appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
+	   //String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
 	   //String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
 	   SetupApplication app = new SetupApplication
 	                (androidPlatformPath,
@@ -954,7 +957,7 @@ public class Test {
 	    //getting the entrypoint classes from the DummyMainMethod
 	    Set <SootClass> entryPoint1 =  app.getEntrypointClasses();
 	    System.out.println(entryPoint1);
-	    for (SootClass eachentrypt:entryPoint1){
+	    /*for (SootClass eachentrypt:entryPoint1){
 		    List <SootMethod> mdtsInSootClass = eachentrypt.getMethods();
 		    System.out.println("\n"+"EntryPoint Details : "+eachentrypt.toString()+" "+eachentrypt.getMethods().toString());
 		    //get the all the methods in these classes, get the CFGs for those classes
@@ -965,15 +968,8 @@ public class Test {
 		         sootMethodsObjectList.add(mdt);
 		         sootMethodsSignatureList.add(mdt.getSignature());
 		     	 sootMethodsSubSignatureList.add(mdt.getSubSignature());
-		        
-		         //trying to generate the ExceptionalUnitGraph
-		         /*DirectedGraph<Unit> x = new ExceptionalUnitGraph(mdt.getActiveBody());
-		         CFGToDotGraph y = new CFGToDotGraph();
-		         DotGraph a=y.drawCFG(x,mdt.getActiveBody());
-		         a.plot("cfg.dot");*/ 
-		     	 
 		    }
-	    }
+	    }*/
 	    System.out.println("mergeCFGs () function called No1 ....");
 	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
 	    //addingDummyTail(sootMethodsObjectList, sootMethodsSignatureList);
@@ -1011,14 +1007,40 @@ public class Test {
 	    }
 	    //***
 	    
+	    //***Adding all methods to sootMethodsObjectList 
+	    for (Unit unitInMdt:unitsInDummyMdt)
+		{
+			Stmt stmt = (Stmt)unitInMdt ;
+			if (stmt != null) 
+			{
+	            if (stmt.containsInvokeExpr()) 
+	            {
+	            	//System.out.println("stmt: "+stmt.toString());
+	                InvokeExpr invokeExpr = stmt.getInvokeExpr();
+	                SootMethod method = invokeExpr.getMethod();
+	                if(method.hasActiveBody())
+	                {
+	                	if(!sootMethodsObjectList.contains(method))
+	                	{
+	                		sootMethodsObjectList.add(method);
+	                		sootMethodsSignatureList.add(method.getSignature());
+	                		generateCFG (method);
+	                	}
+	                }
+	                //System.out.println("method.getActiveBody(); ");
+	                //newMdtQueue.add(method); 
+	            }
+			}
+		}//end of for loop
+	    //***Adding all methods to sootMethodsObjectList 
 	    //mergeCFG104s (subFunctions);
 	    mergeCFG1021s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
-	    
-	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    for (SootMethod mdtInList:sootMethodsObjectList)
 	    {
 	    	System.out.println("mdtInList: " + mdtInList);
 	    }
+	    
+	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
 	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
 	    //System.out.println("sootMethodsSubSignatureList: " + sootMethodsSubSignatureList);
