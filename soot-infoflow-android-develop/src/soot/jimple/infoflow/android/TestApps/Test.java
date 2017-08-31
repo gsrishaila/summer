@@ -176,6 +176,8 @@ public class Test {
 	static List<String> sootMethodsSignatureList = new ArrayList<String>();
 	static List<String> sootMethodsSubSignatureList = new ArrayList<String>();
 	static List<SootMethod> sootMethodsObjectList = new ArrayList<SootMethod>();
+	
+	static List<SootMethod> mergedMethodsList = new ArrayList<SootMethod>();
 	static int currNoUnits=0;
 	
 	static HashMap<SootMethod,Queue<SootMethod>> subFunctions = new HashMap<SootMethod,Queue<SootMethod>>();
@@ -559,7 +561,6 @@ public class Test {
 		
 		for (SootMethod eachMdt:entryPoint)
 		{
-			
 			//get the units frm dummy method
 			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
 			
@@ -573,6 +574,11 @@ public class Test {
 			}
 			else
 			{
+				System.out.println("ToMerge : "+eachMdt.getSignature());
+				//if (eachMdt.getSignature() == "<com.android.insecurebank.PostLogin: void dotransfer()>")
+				//	continue;
+				if (eachMdt.getSignature() == "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>")
+					continue;
 				for (Unit unitFrmMdt:unitsInDummyMdt)
 				{
 					Stmt stmt = (Stmt)unitFrmMdt ;
@@ -651,7 +657,8 @@ public class Test {
 								//System.out.println("\n"+block.toString());
 							 }//end for 
 							 //*****solve error*****
-							 System.out.println("blockGraph111..."+eachMdt.getSignature());
+							 System.out.println("mergedMtd : "+eachMdt.getSignature());
+							 mergedMethodsList.add(eachMdt);
 							 
 							 //*****solve error*****
 							 BlockGraph bg1 = new BriefBlockGraph(b);
@@ -951,7 +958,7 @@ public class Test {
 	   File graph =serializeCallGraph(appCallGraph, "callgraph");
 	   
 	   System.out.println("hhhh");
-	    System.out.println(entryPoint.getActiveBody());
+	   System.out.println(entryPoint.getActiveBody());
 	    
 	    //getting the CFG of the DummyMainMethod
 	    generateCFG (entryPoint);
@@ -1026,6 +1033,11 @@ public class Test {
 	            	//System.out.println("stmt: "+stmt.toString());
 	                InvokeExpr invokeExpr = stmt.getInvokeExpr();
 	                SootMethod method = invokeExpr.getMethod();
+	                if(mergedMethodsList.contains(method))
+	                {
+	                	System.out.println("continued...");
+	                	continue;
+	                }
 	                if(method.hasActiveBody())
 	                {
 	                	if(!sootMethodsObjectList.contains(method))
@@ -1047,7 +1059,7 @@ public class Test {
 	    unitsInDummyMdt = newOne.getActiveBody().getUnits();
 	    for (SootMethod mdtInList:sootMethodsObjectList)
 	    {
-	    	//System.out.println("mdtInList: " + mdtInList);
+	    	System.out.println("mdtInList: " + mdtInList);
 	    }
 	    //print currNoUnits
 	    System.out.println("origNoUnits: "+origNoUnits);
@@ -1055,13 +1067,18 @@ public class Test {
 	    System.out.println("newOne.noUnits: " +newOne.getActiveBody().getUnits().size() ); //seems updated
 	    if(currNoUnits==origNoUnits)
 	    	break;
+	    sootMethodsObjectList.clear();
+	    sootMethodsObjectList.add(entryPoint); //add the dummymain mdt
+		sootMethodsSignatureList.clear();
 	    //break;//for test
 	    }//end of while
 	    
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
 	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
-	    //System.out.println("sootMethodsSubSignatureList: " + sootMethodsSubSignatureList);
+	    
+		
+		//System.out.println("sootMethodsSubSignatureList: " + sootMethodsSubSignatureList);
 		//getting the callgraph
 	  
 	   

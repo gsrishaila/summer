@@ -1,0 +1,5 @@
+digraph "int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)" {
+    label="int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 := @parameter0\l$r2 := @parameter1\l$r3 := @parameter2\l$r4 := @parameter3\l$r6 = new java.lang.StringBuilder\l$r7 = java.lang.String.valueOf(\"http://\")\lspecialinvoke $r6.<init>($r7)\l$r6 = $r6.append($r1)\l$r6 = $r6.append(\":\")\l$r6 = $r6.append($r2)\l$r6 = $r6.append(\"/login\")\l$r1 = $r6.toString()\l$r5 = new java.util.HashMap\lspecialinvoke $r5.<init>()\l$r5.put(\"username\", $r3)\l$r5.put(\"password\", $r4)\l$r1 = $r0.postHttpContent($r1, $r5)\l$r6 = new java.lang.StringBuilder\lspecialinvoke $r6.<init>(\"Login tried as: \")\l$r6 = $r6.append($r3)\l$r6 = $r6.append(\" with password: \")\l$r6 = $r6.append($r4)\l$r2 = $r6.toString()\landroid.util.Log.e(\"RestClient.java\", $r2)\l$r8 = java.lang.System.out\l$r2 = $r5.toString()\l$r8.println($r2)\l$i0 = $r0.parseError($r1)\lreturn $i0\l",];
+}

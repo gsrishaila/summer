@@ -1,0 +1,23 @@
+digraph "java.lang.String postHttpContent(java.lang.String,java.util.Map)" {
+    label="java.lang.String postHttpContent(java.lang.String,java.util.Map)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this\l$r1 := @parameter0\l$r2 := @parameter1\l$r6 = \"\"\l$r5 = new java.net.URL\lspecialinvoke $r5.<init>($r1)\l$r7 = $r5.openConnection()\l$r8 = (java.net.HttpURLConnection) $r7\l$r8.setDoInput(1)\l$r8.setDoOutput(1)\l$r8.setUseCaches(0)\l$r8.setRequestProperty(\"Content-Type\", \"application/x-www-form-urlencoded\")\l$r9 = \"\"\l$r10 = $r2.keySet()\l$r11 = $r10.iterator()\l",];
+    "1" [label="label1:\n$z0 = $r11.hasNext()\lif $z0 != 0 goto label3\l",];
+    "0"->"1";
+    "2" [label="$r12 = $r9.substring(1)\l$r4 = new java.io.DataOutputStream\l$r13 = $r8.getOutputStream()\lspecialinvoke $r4.<init>($r13)\l$r4.writeBytes($r12)\l$r4.flush()\l$r4.close()\l$i0 = $r8.getResponseCode()\lif $i0 != 200 goto label5\l",];
+    "1"->"2";
+    "6" [label="label3:\n$r16 = $r11.next()\l$r12 = (java.lang.String) $r16\l$r17 = new java.lang.StringBuilder\l$r9 = java.lang.String.valueOf($r9)\lspecialinvoke $r17.<init>($r9)\l$r17 = $r17.append(\"&\")\l$r17 = $r17.append($r12)\l$r17 = $r17.append(\"=\")\l$r16 = $r2.get($r12)\l$r12 = (java.lang.String) $r16\l$r17 = $r17.append($r12)\l$r9 = $r17.toString()\lgoto label1\l",];
+    "1"->"6";
+    "3" [label="$r3 = new java.io.BufferedReader\l$r14 = new java.io.InputStreamReader\l$r15 = $r8.getInputStream()\lspecialinvoke $r14.<init>($r15)\lspecialinvoke $r3.<init>($r14)\l",];
+    "2"->"3";
+    "8" [style=filled,fillcolor=lightgray,label="label5:\n$r17 = new java.lang.StringBuilder\lspecialinvoke $r17.<init>(\"HTTP request failed on: \")\l$r17 = $r17.append($r1)\l$r17 = $r17.append(\" With error code: \")\l$r17 = $r17.append($i0)\l$r1 = $r17.toString()\landroid.util.Log.e(\"RestClient.java\", $r1)\lreturn \"\"\l",];
+    "2"->"8";
+    "4" [label="label2:\n$r1 = $r3.readLine()\lif $r1 != null goto label4\l",];
+    "3"->"4";
+    "5" [style=filled,fillcolor=lightgray,label="return $r6\l",];
+    "4"->"5";
+    "7" [label="label4:\n$r17 = new java.lang.StringBuilder\l$r6 = java.lang.String.valueOf($r6)\lspecialinvoke $r17.<init>($r6)\l$r17 = $r17.append($r1)\l$r6 = $r17.toString()\lgoto label2\l",];
+    "4"->"7";
+    "6"->"1";
+    "7"->"4";
+}
