@@ -940,6 +940,10 @@ public class Test {
 
 	   //SootMethod entryPoint = app.getEntryPointCreator().createDummyMain();
 	   SootMethod entryPoint = app.getDummyMainMethod();
+	   BlockGraph bg1 = new BriefBlockGraph(entryPoint.getActiveBody());
+	   CFGToDotGraph y = new CFGToDotGraph();
+	   DotGraph a1=y.drawCFG(bg1,entryPoint.getActiveBody());
+	   a1.plot("original_dummymain");
 	   sootMethodsObjectList.add(entryPoint);
 	   Options.v().set_main_class(entryPoint.getSignature());
 	   Scene.v().setEntryPoints(Collections.singletonList(entryPoint));
