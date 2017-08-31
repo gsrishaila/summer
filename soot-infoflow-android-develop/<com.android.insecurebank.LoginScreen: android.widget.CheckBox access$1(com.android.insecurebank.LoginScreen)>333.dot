@@ -1,0 +1,5 @@
+digraph "android.widget.CheckBox access$1(com.android.insecurebank.LoginScreen)" {
+    label="android.widget.CheckBox access$1(com.android.insecurebank.LoginScreen)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @parameter0\lr1 = $r0.remember\lreturn r1\l",];
+}

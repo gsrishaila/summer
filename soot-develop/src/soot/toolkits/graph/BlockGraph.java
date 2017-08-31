@@ -287,6 +287,9 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 			for (Iterator<Unit> succIt = succUnits.iterator(); succIt.hasNext();) {
 				Unit succUnit = succIt.next();
 				Block succBlock = unitToBlock.get(succUnit);
+				//Added In
+				//System.out.println("succUnit : "+succUnit.toString());
+				//Added In
 				if (succBlock == null) {
 					throw new RuntimeException("BlockGraph(): block tail mapped to null block!");
 				}
