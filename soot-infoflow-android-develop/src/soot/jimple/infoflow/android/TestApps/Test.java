@@ -564,6 +564,7 @@ public class Test {
 							 //only if there are other tails
 							 int remainingTails=0;
 							 Stmt nop=Jimple.v().newNopStmt();
+						
 							 Unit cloneNexUnit = (Unit) nop.clone();
 							 List<Unit> clonedTailList = new ArrayList();
 							 
@@ -597,7 +598,7 @@ public class Test {
 								 {
 									 body.getUnits().remove(successor);
 									 body.getUnits().insertAfter(successor,clonedRet); //added in *****get the other tails***** 
-									
+									 //body.getUnits().insertBefore(clonedRet,successor);
 									 //body.getUnits().remove(successor);
 								 }
 								 

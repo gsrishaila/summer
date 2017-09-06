@@ -46,12 +46,12 @@ digraph "call-graph" {
     "<com.android.insecurebank.RawHistory: void <init>()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
     "<android.app.Activity: void <init>()>"
     "<com.android.insecurebank.RawHistory: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>";
+    "<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>";
+    "<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>";
     "<java.lang.Object: void <init>()>"
-    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
+    "<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
     "<java.lang.Object: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
     "<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>";
@@ -62,11 +62,11 @@ digraph "call-graph" {
     "<com.android.insecurebank.LoginScreen: android.widget.CheckBox access$1(com.android.insecurebank.LoginScreen)>"
     "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: android.widget.CheckBox access$1(com.android.insecurebank.LoginScreen)>";
     "<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
-    "<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>";
-    "<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
+    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>";
+    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>";
+    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
     "<com.android.insecurebank.LoginScreen: void <init>()>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen: void <init>()>";
     "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"
@@ -311,10 +311,10 @@ digraph "call-graph" {
     "<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>"->"<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>";
     "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
     "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
-    "<com.android.insecurebank.LoginScreen: void fill_data()>"
-    "<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void fill_data()>";
-    "<android.view.ContextThemeWrapper: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>"
-    "<com.android.insecurebank.LoginScreen: void fill_data()>"->"<android.view.ContextThemeWrapper: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>";
+    "<com.android.insecurebank.LoginScreen: void setpref()>"
+    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void setpref()>";
+    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
+    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
     "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<android.app.Activity: android.view.View findViewById(int)>";
     "<com.android.insecurebank.LoginScreen: void rememberme()>"
     "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void rememberme()>";
@@ -379,14 +379,14 @@ digraph "call-graph" {
     "<com.android.insecurebank.LoginScreen: void rememberme()>"->"<java.lang.String: void <init>(java.lang.String)>";
     "<java.lang.String: void <init>(java.lang.String)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
     "<java.lang.String: void <init>(java.lang.String)>"->"<java.lang.Object: void <init>()>";
+    "<android.view.ContextThemeWrapper: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>"
     "<com.android.insecurebank.LoginScreen: void rememberme()>"->"<android.view.ContextThemeWrapper: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>";
     "<java.lang.String: byte[] getBytes()>"
     "<com.android.insecurebank.LoginScreen: void rememberme()>"->"<java.lang.String: byte[] getBytes()>";
     "<java.lang.String: byte[] getBytes()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: void setpref()>"
-    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void setpref()>";
-    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
+    "<com.android.insecurebank.LoginScreen: void fill_data()>"
+    "<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void fill_data()>";
+    "<com.android.insecurebank.LoginScreen: void fill_data()>"->"<android.view.ContextThemeWrapper: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>";
     "<java.lang.String: int hashCode()>"
     "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.String: int hashCode()>";
     "<java.lang.String: int hashCode()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
