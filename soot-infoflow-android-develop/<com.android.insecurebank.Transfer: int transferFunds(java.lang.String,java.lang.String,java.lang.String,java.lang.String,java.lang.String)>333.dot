@@ -1,0 +1,10 @@
+digraph "int transferFunds(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)" {
+    label="int transferFunds(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 := @parameter0\l$r2 := @parameter1\l$r3 := @parameter2\l$r4 := @parameter3\l$r5 := @parameter4\l$r6 = new com.android.insecurebank.RestClient\lspecialinvoke $r6.<init>()\llabel1:\n$i0 = $r6.dotransfer($r4, $r5, $r1, $r2, $r3)\llabel2:\n$r0.statusCode = $i0\l$i0 = $r0.statusCode\lreturn $i0\l",];
+    "1" [style=filled,fillcolor=gray,label="label3:\n$r7 := @caughtexception\l$r7.printStackTrace()\l",];
+    "2" [style=filled,fillcolor=lightgray,label="label4:\n$i0 = $r0.statusCode\lreturn $i0\l",];
+    "1"->"2";
+    "3" [style=filled,fillcolor=gray,label="label5:\n$r8 := @caughtexception\l$r8.printStackTrace()\lgoto label4\l",];
+    "3"->"2";
+}

@@ -358,6 +358,7 @@ public class Test {
 		UnitGraph calledMdtUnitGraph = null;
 		List<Unit> tailList = new ArrayList();
 		List<Unit> headList = new ArrayList();
+		List<Unit> newTailList = new ArrayList();
 		Unit successor = null;
 		Unit predecessor = null;
 		int firstTail =0;
@@ -375,8 +376,9 @@ public class Test {
 				
 			}
 		}
-		
-		while (currNoUnits>initNoUnits)
+		int loopcnt =0;
+		//while (currNoUnits>initNoUnits)
+		while (loopcnt<15)
 		{
 			//get the units for this body
 			unitsInDummyMdt = body.getUnits();
@@ -386,10 +388,12 @@ public class Test {
 				Stmt stmt = (Stmt)eachUnitInDummy ;
 				if (stmt.containsInvokeExpr()) 
 				{
+					
 					invokeExpr = stmt.getInvokeExpr();
 					calledMdt  = invokeExpr.getMethod();
 		            if(!calledMdt.hasActiveBody() || mergedMdts.contains(calledMdt.getSignature()))
 		            	 continue;
+		            loopcnt++;
 		            //if(calledMdt.getSignature().equals("<com.android.insecurebank.PostLogin: void dotransfer()>"))
 		            	//break;
 		            System.out.println("calledMdt : "+calledMdt.getSignature());
@@ -401,18 +405,29 @@ public class Test {
 		            predecessor = body.getUnits().getPredOf(eachUnitInDummy);
 		            
 		            //connect each head to the predecessor
-		            for (Unit headUnit:headList )
-		            {
-		            	//body.getUnits().insertAfter(headUnit,predecessor);//works
-		            	body.getUnits().insertAfter(calledMdt.retrieveActiveBody().getUnits(),predecessor);//works
-		            }
-		            
 		            for (Unit tailUnit:tailList )
 		            {
 		            	Stmt nopStmt=Jimple.v().newNopStmt();
 		            	calledMdt.retrieveActiveBody().getUnits().swapWith(tailUnit,nopStmt);
-		            	body.getUnits().insertBefore(nopStmt,successor);
+		            	//body.getUnits().insertBefore(nopStmt,successor);
+		            	newTailList.add(nopStmt);
 		            	
+		            }
+		            for (Unit headUnit:headList )
+		            {
+		            	//body.getUnits().insertAfter(headUnit,predecessor);//works
+		            	body.getUnits().insertAfter(calledMdt.retrieveActiveBody().getUnits(),eachUnitInDummy);//works
+		            }
+		            
+		            //check if all the nop has a successor
+		            for (Unit nopUnits:newTailList)
+		            {
+		            	Unit nopSucc= null;
+		            	nopSucc = body.getUnits().getSuccOf(nopUnits);
+		            	if(nopSucc!=null)
+		            		System.out.println("nopSucc : "+nopSucc.toString());
+		            	else
+		            		System.out.println("nopUnits is NULL");
 		            }
 		            
 		            //connect each tail to the successor
@@ -446,6 +461,7 @@ public class Test {
 		            	
 		            }
 		            firstTail=0;*/
+		            newTailList.clear();
 		            mergedMdts.add(calledMdt.getSignature());
 		            //create the graph
 		            Body b = body;
@@ -503,8 +519,8 @@ public class Test {
 				//if (eachMdt.getSignature() == "<com.android.insecurebank.PostLogin: void dotransfer()>")
 				//	continue;
 				
-				if (eachMdt.getSignature() == "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>")
-					continue;
+				//if (eachMdt.getSignature() == "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>")
+					//continue;
 				for (Unit unitFrmMdt:unitsInDummyMdt)
 				{
 					Stmt stmt = (Stmt)unitFrmMdt ;
@@ -538,7 +554,7 @@ public class Test {
 				             System.out.println("successor of the last unit : "+eachMdt.retrieveActiveBody().getUnits().getSuccOf(lastUnit));
 				             //if(lastUnit.toString().contains("return") || lastUnit.toString().contains("throw"))
 				             //if(!lastUnitStmt.branches())//if last unit is a branch, then we dont do this
-				            	 eachMdt.retrieveActiveBody().getUnits().swapWith(eachMdt.retrieveActiveBody().getUnits().getLast(), nop1);
+				             	//eachMdt.retrieveActiveBody().getUnits().swapWith(eachMdt.retrieveActiveBody().getUnits().getLast(), nop1);
 				             
 							 //eachMdt.retrieveActiveBody().getUnits().removeLast();
 							 //*****get the other tails*****
@@ -550,6 +566,9 @@ public class Test {
 							 Stmt nop=Jimple.v().newNopStmt();
 							 Unit cloneNexUnit = (Unit) nop.clone();
 							 List<Unit> clonedTailList = new ArrayList();
+							 
+							 eachMdt.retrieveActiveBody().getUnits().swapWith(newone.getTails().get(0), nop1);
+							 newone.getTails().remove(0);
 							 remainingTails = newone.getTails().size();
 							 if(remainingTails>0)
 							 {
@@ -576,8 +595,9 @@ public class Test {
 							 {
 								 for (Unit clonedRet:clonedTailList)
 								 {
-									 //body.getUnits().remove(successor);
+									 body.getUnits().remove(successor);
 									 body.getUnits().insertAfter(successor,clonedRet); //added in *****get the other tails***** 
+									
 									 //body.getUnits().remove(successor);
 								 }
 								 
@@ -1022,7 +1042,7 @@ public class Test {
 	    //***Adding all methods to sootMethodsObjectList 
 	    //mergeCFG104s (subFunctions);
 	    System.out.println("calling the mergeCFG1021s method...\n");
-	    SootMethod newOne=mergeCFG1023s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
+	    SootMethod newOne=mergeCFG1021s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
 	    unitsInDummyMdt = newOne.getActiveBody().getUnits();
 	    for (SootMethod mdtInList:sootMethodsObjectList)
 	    {
@@ -1037,7 +1057,7 @@ public class Test {
 	    sootMethodsObjectList.clear();
 	    sootMethodsObjectList.add(entryPoint); //add the dummymain mdt
 		sootMethodsSignatureList.clear();
-	    break;//for test
+	    //break;//for test
 		
 	    }//end of while
 	    //original while loop
