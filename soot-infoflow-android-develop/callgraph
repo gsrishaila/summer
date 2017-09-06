@@ -1,15 +1,5 @@
 digraph "call-graph" {
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"
-    "<com.android.insecurebank.Preferences: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.Preferences: void <init>()>";
-    "<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>";
-    "<android.preference.PreferenceActivity: void onCreate(android.os.Bundle)>"
-    "<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>"->"<android.preference.PreferenceActivity: void onCreate(android.os.Bundle)>";
-    "<android.preference.PreferenceActivity: void addPreferencesFromResource(int)>"
-    "<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>"->"<android.preference.PreferenceActivity: void addPreferencesFromResource(int)>";
-    "<android.preference.PreferenceActivity: void <init>()>"
-    "<com.android.insecurebank.Preferences: void <init>()>"->"<android.preference.PreferenceActivity: void <init>()>";
     "<com.android.insecurebank.RawHistory: void <init>()>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.RawHistory: void <init>()>";
     "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"
@@ -46,27 +36,28 @@ digraph "call-graph" {
     "<com.android.insecurebank.RawHistory: void <init>()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
     "<android.app.Activity: void <init>()>"
     "<com.android.insecurebank.RawHistory: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>";
-    "<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>";
-    "<java.lang.Object: void <init>()>"
-    "<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>"->"<java.lang.Object: void <init>()>";
-    "<java.lang.Object: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.InsecureBankActivity: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity: void <init>()>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.InsecureBankActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
+    "<com.android.insecurebank.Preferences: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.Preferences: void <init>()>";
+    "<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>";
+    "<android.preference.PreferenceActivity: void onCreate(android.os.Bundle)>"
+    "<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>"->"<android.preference.PreferenceActivity: void onCreate(android.os.Bundle)>";
+    "<android.preference.PreferenceActivity: void addPreferencesFromResource(int)>"
+    "<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>"->"<android.preference.PreferenceActivity: void addPreferencesFromResource(int)>";
+    "<android.preference.PreferenceActivity: void <init>()>"
+    "<com.android.insecurebank.Preferences: void <init>()>"->"<android.preference.PreferenceActivity: void <init>()>";
     "<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>";
     "<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>";
+    "<java.lang.Object: void <init>()>"
     "<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
+    "<java.lang.Object: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
+    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>";
+    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>";
+    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
     "<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>";
     "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"
@@ -76,11 +67,6 @@ digraph "call-graph" {
     "<com.android.insecurebank.LoginScreen: android.widget.CheckBox access$1(com.android.insecurebank.LoginScreen)>"
     "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: android.widget.CheckBox access$1(com.android.insecurebank.LoginScreen)>";
     "<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
-    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>";
-    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
     "<com.android.insecurebank.LoginScreen: void <init>()>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen: void <init>()>";
     "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"
@@ -96,16 +82,30 @@ digraph "call-graph" {
     "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
     "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
     "<com.android.insecurebank.LoginScreen: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>";
-    "<com.android.insecurebank.PostLogin$1: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$1: void onClick(android.view.View)>";
-    "<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>"->"<java.lang.Object: void <init>()>";
+    "<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>";
+    "<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>";
+    "<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.android.insecurebank.InsecureBankActivity: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity: void <init>()>";
+    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>";
+    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>";
+    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
+    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
+    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.android.insecurebank.InsecureBankActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
     "<com.android.insecurebank.PostLogin$2: void <init>(com.android.insecurebank.PostLogin)>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$2: void <init>(com.android.insecurebank.PostLogin)>";
     "<com.android.insecurebank.PostLogin$2: void onClick(android.view.View)>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$2: void onClick(android.view.View)>";
     "<com.android.insecurebank.PostLogin$2: void <init>(com.android.insecurebank.PostLogin)>"->"<java.lang.Object: void <init>()>";
+    "<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>";
+    "<com.android.insecurebank.PostLogin$1: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$1: void onClick(android.view.View)>";
+    "<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>"->"<java.lang.Object: void <init>()>";
     "<com.android.insecurebank.PostLogin: void <init>()>"
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin: void <init>()>";
     "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"
@@ -129,12 +129,6 @@ digraph "call-graph" {
     "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
     "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
     "<com.android.insecurebank.PostLogin: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.android.insecurebank.PostLogin: void showstatement()>"
-    "<com.android.insecurebank.PostLogin$2: void onClick(android.view.View)>"->"<com.android.insecurebank.PostLogin: void showstatement()>";
-    "<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>"
-    "<com.android.insecurebank.PostLogin: void showstatement()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<android.app.Activity: void startActivity(android.content.Intent)>"
-    "<com.android.insecurebank.PostLogin: void showstatement()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
     "<com.android.insecurebank.PostLogin: void dotransfer()>"
     "<com.android.insecurebank.PostLogin$1: void onClick(android.view.View)>"->"<com.android.insecurebank.PostLogin: void dotransfer()>";
     "<java.lang.Integer: int parseInt(java.lang.String)>"
@@ -307,10 +301,16 @@ digraph "call-graph" {
     "<com.android.insecurebank.Transfer: void <init>()>"->"<android.app.Application: void <init>()>";
     "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<android.app.Activity: android.content.Intent getIntent()>";
     "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.LoginScreen: void setpref()>"
-    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void setpref()>";
-    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
+    "<com.android.insecurebank.PostLogin: void showstatement()>"
+    "<com.android.insecurebank.PostLogin$2: void onClick(android.view.View)>"->"<com.android.insecurebank.PostLogin: void showstatement()>";
+    "<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>"
+    "<com.android.insecurebank.PostLogin: void showstatement()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
+    "<android.app.Activity: void startActivity(android.content.Intent)>"
+    "<com.android.insecurebank.PostLogin: void showstatement()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
+    "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"
+    "<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>"->"<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>";
+    "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
+    "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
     "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<android.app.Activity: android.view.View findViewById(int)>";
     "<com.android.insecurebank.LoginScreen: void rememberme()>"
     "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void rememberme()>";
@@ -380,13 +380,13 @@ digraph "call-graph" {
     "<java.lang.String: byte[] getBytes()>"
     "<com.android.insecurebank.LoginScreen: void rememberme()>"->"<java.lang.String: byte[] getBytes()>";
     "<java.lang.String: byte[] getBytes()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
+    "<com.android.insecurebank.LoginScreen: void setpref()>"
+    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void setpref()>";
+    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
+    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
     "<com.android.insecurebank.LoginScreen: void fill_data()>"
     "<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void fill_data()>";
     "<com.android.insecurebank.LoginScreen: void fill_data()>"->"<android.view.ContextThemeWrapper: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>";
-    "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"
-    "<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>"->"<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>";
-    "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
     "<java.lang.String: int hashCode()>"
     "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.String: int hashCode()>";
     "<java.lang.String: int hashCode()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";

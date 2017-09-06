@@ -403,7 +403,8 @@ public class Test {
 		            //connect each head to the predecessor
 		            for (Unit headUnit:headList )
 		            {
-		            	body.getUnits().insertAfter(headUnit,predecessor);//works
+		            	//body.getUnits().insertAfter(headUnit,predecessor);//works
+		            	body.getUnits().insertAfter(calledMdt.retrieveActiveBody().getUnits(),predecessor);//works
 		            }
 		            
 		            for (Unit tailUnit:tailList )
@@ -1025,7 +1026,7 @@ public class Test {
 	    unitsInDummyMdt = newOne.getActiveBody().getUnits();
 	    for (SootMethod mdtInList:sootMethodsObjectList)
 	    {
-	    	System.out.println("mdtInList: " + mdtInList);
+	    	//System.out.println("mdtInList: " + mdtInList);
 	    }
 	    //print currNoUnits
 	    System.out.println("origNoUnits: "+origNoUnits);
