@@ -1,0 +1,2417 @@
+done done done111...
+Warning: java.lang.invoke.LambdaMetafactory is a phantom class!
+Warning: java.lang.ref.Finalizer is a phantom class!
+[Call Graph] For information on where the call graph may be incomplete, use the verbose option to the cg phase.
+jjjjjjsource-oldvalueslen :32851 destination-valueslen:33000
+[Spark] Pointer Assignment Graph in 0.0 seconds.
+jjjjjjsource-oldvalueslen :3489 destination-valueslen:33000
+[Spark] Type masks in 0.0 seconds.
+[Spark] Pointer Graph simplified in 0.0 seconds.
+jjjjjjsource-oldvalueslen :36 destination-valueslen:33000
+jjjjjjsource-oldvalueslen :36 destination-valueslen:33000
+[Spark] Propagation in 0.1 seconds.
+[Spark] Solution found in 0.1 seconds.
+Callback analysis done.
+Warning: view is a phantom class!
+Warning: com.example.gsrishaila.myapplication.view is a phantom class!
+Warning: android.view.view is a phantom class!
+Warning: android.widget.view is a phantom class!
+Warning: android.webkit.view is a phantom class!
+Warning: FrameLayout is a phantom class!
+Warning: com.example.gsrishaila.myapplication.FrameLayout is a phantom class!
+Warning: android.view.FrameLayout is a phantom class!
+Warning: ImageView is a phantom class!
+Warning: com.example.gsrishaila.myapplication.ImageView is a phantom class!
+Warning: android.view.ImageView is a phantom class!
+Warning: LinearLayout is a phantom class!
+Warning: com.example.gsrishaila.myapplication.LinearLayout is a phantom class!
+Warning: android.view.LinearLayout is a phantom class!
+Warning: ViewStub is a phantom class!
+Warning: com.example.gsrishaila.myapplication.ViewStub is a phantom class!
+Warning: TextView is a phantom class!
+Warning: com.example.gsrishaila.myapplication.TextView is a phantom class!
+Warning: android.view.TextView is a phantom class!
+Found 1 layout controls in file res/layout-v16/notification_template_custom_big.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.ActionBarOverlayLayout is a phantom class!
+Warning: android.view.android.support.v7.widget.ActionBarOverlayLayout is a phantom class!
+Warning: android.widget.android.support.v7.widget.ActionBarOverlayLayout is a phantom class!
+Warning: android.webkit.android.support.v7.widget.ActionBarOverlayLayout is a phantom class!
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.ActionBarContainer is a phantom class!
+Warning: android.view.android.support.v7.widget.ActionBarContainer is a phantom class!
+Warning: android.widget.android.support.v7.widget.ActionBarContainer is a phantom class!
+Warning: android.webkit.android.support.v7.widget.ActionBarContainer is a phantom class!
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.Toolbar is a phantom class!
+Warning: android.view.android.support.v7.widget.Toolbar is a phantom class!
+Warning: android.widget.android.support.v7.widget.Toolbar is a phantom class!
+Warning: android.webkit.android.support.v7.widget.Toolbar is a phantom class!
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.ActionBarContextView is a phantom class!
+Warning: android.view.android.support.v7.widget.ActionBarContextView is a phantom class!
+Warning: android.widget.android.support.v7.widget.ActionBarContextView is a phantom class!
+Warning: android.webkit.android.support.v7.widget.ActionBarContextView is a phantom class!
+Found 1 layout controls in file res/layout-v21/abc_screen_toolbar.xml
+Found 2 layout controls in file res/layout-v21/notification_action.xml
+Found 3 layout controls in file res/layout-v21/notification_action_tombstone.xml
+Found 4 layout controls in file res/layout-v21/notification_template_custom_big.xml
+Found 5 layout controls in file res/layout-v21/notification_template_icon_group.xml
+Found 6 layout controls in file res/layout/abc_action_bar_title_item.xml
+Found 7 layout controls in file res/layout/abc_action_bar_up_container.xml
+Found 8 layout controls in file res/layout/abc_action_bar_view_list_nav_layout.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.view.menu.ActionMenuItemView is a phantom class!
+Warning: android.view.android.support.v7.view.menu.ActionMenuItemView is a phantom class!
+Warning: android.widget.android.support.v7.view.menu.ActionMenuItemView is a phantom class!
+Warning: android.webkit.android.support.v7.view.menu.ActionMenuItemView is a phantom class!
+Found 8 layout controls in file res/layout/abc_action_menu_item_layout.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.ActionMenuView is a phantom class!
+Warning: android.view.android.support.v7.widget.ActionMenuView is a phantom class!
+Warning: android.widget.android.support.v7.widget.ActionMenuView is a phantom class!
+Warning: android.webkit.android.support.v7.widget.ActionMenuView is a phantom class!
+Found 8 layout controls in file res/layout/abc_action_menu_layout.xml
+Found 8 layout controls in file res/layout/abc_action_mode_bar.xml
+Found 9 layout controls in file res/layout/abc_action_mode_close_item_material.xml
+Found 10 layout controls in file res/layout/abc_activity_chooser_view.xml
+Found 11 layout controls in file res/layout/abc_activity_chooser_view_list_item.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.ButtonBarLayout is a phantom class!
+Warning: android.view.android.support.v7.widget.ButtonBarLayout is a phantom class!
+Warning: android.widget.android.support.v7.widget.ButtonBarLayout is a phantom class!
+Warning: android.webkit.android.support.v7.widget.ButtonBarLayout is a phantom class!
+Warning: Button is a phantom class!
+Warning: com.example.gsrishaila.myapplication.Button is a phantom class!
+Warning: android.view.Button is a phantom class!
+Warning: com.example.gsrishaila.myapplication.android.support.v4.widget.Space is a phantom class!
+Warning: android.view.android.support.v4.widget.Space is a phantom class!
+Warning: android.widget.android.support.v4.widget.Space is a phantom class!
+Warning: android.webkit.android.support.v4.widget.Space is a phantom class!
+Found 12 layout controls in file res/layout/abc_alert_dialog_button_bar_material.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.DialogTitle is a phantom class!
+Warning: android.view.android.support.v7.widget.DialogTitle is a phantom class!
+Warning: android.widget.android.support.v7.widget.DialogTitle is a phantom class!
+Warning: android.webkit.android.support.v7.widget.DialogTitle is a phantom class!
+Warning: View is a phantom class!
+Warning: com.example.gsrishaila.myapplication.View is a phantom class!
+Warning: com.example.gsrishaila.myapplication.android.support.v4.widget.NestedScrollView is a phantom class!
+Warning: android.view.android.support.v4.widget.NestedScrollView is a phantom class!
+Warning: android.widget.android.support.v4.widget.NestedScrollView is a phantom class!
+Warning: android.webkit.android.support.v4.widget.NestedScrollView is a phantom class!
+Found 13 layout controls in file res/layout/abc_alert_dialog_material.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.FitWindowsLinearLayout is a phantom class!
+Warning: android.view.android.support.v7.widget.FitWindowsLinearLayout is a phantom class!
+Warning: android.widget.android.support.v7.widget.FitWindowsLinearLayout is a phantom class!
+Warning: android.webkit.android.support.v7.widget.FitWindowsLinearLayout is a phantom class!
+Found 14 layout controls in file res/layout/abc_dialog_title_material.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.view.menu.ExpandedMenuView is a phantom class!
+Warning: android.view.android.support.v7.view.menu.ExpandedMenuView is a phantom class!
+Warning: android.widget.android.support.v7.view.menu.ExpandedMenuView is a phantom class!
+Warning: android.webkit.android.support.v7.view.menu.ExpandedMenuView is a phantom class!
+Found 14 layout controls in file res/layout/abc_expanded_menu_layout.xml
+Warning: CheckBox is a phantom class!
+Warning: com.example.gsrishaila.myapplication.CheckBox is a phantom class!
+Warning: android.view.CheckBox is a phantom class!
+Found 15 layout controls in file res/layout/abc_list_menu_item_checkbox.xml
+Found 16 layout controls in file res/layout/abc_list_menu_item_icon.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.view.menu.ListMenuItemView is a phantom class!
+Warning: android.view.android.support.v7.view.menu.ListMenuItemView is a phantom class!
+Warning: android.widget.android.support.v7.view.menu.ListMenuItemView is a phantom class!
+Warning: android.webkit.android.support.v7.view.menu.ListMenuItemView is a phantom class!
+Warning: RelativeLayout is a phantom class!
+Warning: com.example.gsrishaila.myapplication.RelativeLayout is a phantom class!
+Warning: android.view.RelativeLayout is a phantom class!
+Found 17 layout controls in file res/layout/abc_list_menu_item_layout.xml
+Warning: RadioButton is a phantom class!
+Warning: com.example.gsrishaila.myapplication.RadioButton is a phantom class!
+Warning: android.view.RadioButton is a phantom class!
+Found 18 layout controls in file res/layout/abc_list_menu_item_radio.xml
+Found 19 layout controls in file res/layout/abc_popup_menu_header_item_layout.xml
+Found 20 layout controls in file res/layout/abc_popup_menu_item_layout.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.ContentFrameLayout is a phantom class!
+Warning: android.view.android.support.v7.widget.ContentFrameLayout is a phantom class!
+Warning: android.widget.android.support.v7.widget.ContentFrameLayout is a phantom class!
+Warning: android.webkit.android.support.v7.widget.ContentFrameLayout is a phantom class!
+Found 20 layout controls in file res/layout/abc_screen_content_include.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.ViewStubCompat is a phantom class!
+Warning: android.view.android.support.v7.widget.ViewStubCompat is a phantom class!
+Warning: android.widget.android.support.v7.widget.ViewStubCompat is a phantom class!
+Warning: android.webkit.android.support.v7.widget.ViewStubCompat is a phantom class!
+Found 20 layout controls in file res/layout/abc_screen_simple.xml
+Warning: com.example.gsrishaila.myapplication.android.support.v7.widget.FitWindowsFrameLayout is a phantom class!
+Warning: android.view.android.support.v7.widget.FitWindowsFrameLayout is a phantom class!
+Warning: android.widget.android.support.v7.widget.FitWindowsFrameLayout is a phantom class!
+Warning: android.webkit.android.support.v7.widget.FitWindowsFrameLayout is a phantom class!
+Found 20 layout controls in file res/layout/abc_screen_simple_overlay_action_mode.xml
+Found 20 layout controls in file res/layout/abc_screen_toolbar.xml
+Found 21 layout controls in file res/layout/abc_search_dropdown_item_icons_2line.xml
+Found 22 layout controls in file res/layout/abc_search_view.xml
+Warning: ListView is a phantom class!
+Warning: com.example.gsrishaila.myapplication.ListView is a phantom class!
+Warning: android.view.ListView is a phantom class!
+Found 23 layout controls in file res/layout/abc_select_dialog_material.xml
+Warning: ImageButton is a phantom class!
+Warning: com.example.gsrishaila.myapplication.ImageButton is a phantom class!
+Warning: android.view.ImageButton is a phantom class!
+Found 24 layout controls in file res/layout/activity_main.xml
+Found 25 layout controls in file res/layout/content_main.xml
+Warning: com.example.gsrishaila.myapplication.android.support.design.internal.BaselineLayout is a phantom class!
+Warning: android.view.android.support.design.internal.BaselineLayout is a phantom class!
+Warning: android.widget.android.support.design.internal.BaselineLayout is a phantom class!
+Warning: android.webkit.android.support.design.internal.BaselineLayout is a phantom class!
+Found 26 layout controls in file res/layout/design_bottom_navigation_item.xml
+Warning: com.example.gsrishaila.myapplication.android.support.design.widget.CoordinatorLayout is a phantom class!
+Warning: android.view.android.support.design.widget.CoordinatorLayout is a phantom class!
+Warning: android.widget.android.support.design.widget.CoordinatorLayout is a phantom class!
+Warning: android.webkit.android.support.design.widget.CoordinatorLayout is a phantom class!
+Found 27 layout controls in file res/layout/design_bottom_sheet_dialog.xml
+Found 27 layout controls in file res/layout/design_layout_snackbar.xml
+Found 28 layout controls in file res/layout/design_layout_snackbar_include.xml
+Found 29 layout controls in file res/layout/design_layout_tab_icon.xml
+Found 30 layout controls in file res/layout/design_layout_tab_text.xml
+Found 31 layout controls in file res/layout/design_menu_item_action_area.xml
+Warning: com.example.gsrishaila.myapplication.android.support.design.internal.NavigationMenuItemView is a phantom class!
+Warning: android.view.android.support.design.internal.NavigationMenuItemView is a phantom class!
+Warning: android.widget.android.support.design.internal.NavigationMenuItemView is a phantom class!
+Warning: android.webkit.android.support.design.internal.NavigationMenuItemView is a phantom class!
+Found 31 layout controls in file res/layout/design_navigation_item.xml
+Found 32 layout controls in file res/layout/design_navigation_item_header.xml
+Found 33 layout controls in file res/layout/design_navigation_item_separator.xml
+Found 34 layout controls in file res/layout/design_navigation_item_subheader.xml
+Warning: com.example.gsrishaila.myapplication.android.support.design.internal.NavigationMenuView is a phantom class!
+Warning: android.view.android.support.design.internal.NavigationMenuView is a phantom class!
+Warning: android.widget.android.support.design.internal.NavigationMenuView is a phantom class!
+Warning: android.webkit.android.support.design.internal.NavigationMenuView is a phantom class!
+Found 34 layout controls in file res/layout/design_navigation_menu.xml
+Warning: CheckedTextView is a phantom class!
+Warning: com.example.gsrishaila.myapplication.CheckedTextView is a phantom class!
+Warning: android.view.CheckedTextView is a phantom class!
+Found 35 layout controls in file res/layout/design_navigation_menu_item.xml
+Warning: com.example.gsrishaila.myapplication.android.support.design.widget.CheckableImageButton is a phantom class!
+Warning: android.view.android.support.design.widget.CheckableImageButton is a phantom class!
+Warning: android.widget.android.support.design.widget.CheckableImageButton is a phantom class!
+Warning: android.webkit.android.support.design.widget.CheckableImageButton is a phantom class!
+Found 35 layout controls in file res/layout/design_text_input_password_icon.xml
+Found 36 layout controls in file res/layout/notification_action.xml
+Found 37 layout controls in file res/layout/notification_action_tombstone.xml
+Found 38 layout controls in file res/layout/notification_media_action.xml
+Found 39 layout controls in file res/layout/notification_media_cancel_action.xml
+Found 40 layout controls in file res/layout/notification_template_big_media.xml
+Warning: DateTimeView is a phantom class!
+Warning: com.example.gsrishaila.myapplication.DateTimeView is a phantom class!
+Warning: android.view.DateTimeView is a phantom class!
+Warning: android.widget.DateTimeView is a phantom class!
+Warning: android.webkit.DateTimeView is a phantom class!
+Warning: Chronometer is a phantom class!
+Warning: com.example.gsrishaila.myapplication.Chronometer is a phantom class!
+Warning: android.view.Chronometer is a phantom class!
+Found 41 layout controls in file res/layout/notification_template_big_media_custom.xml
+Found 42 layout controls in file res/layout/notification_template_big_media_narrow.xml
+Found 43 layout controls in file res/layout/notification_template_big_media_narrow_custom.xml
+Found 44 layout controls in file res/layout/notification_template_icon_group.xml
+Found 45 layout controls in file res/layout/notification_template_lines_media.xml
+Found 46 layout controls in file res/layout/notification_template_media.xml
+Found 47 layout controls in file res/layout/notification_template_media_custom.xml
+Found 48 layout controls in file res/layout/notification_template_part_chronometer.xml
+Found 48 layout controls in file res/layout/notification_template_part_time.xml
+Found 49 layout controls in file res/layout/select_dialog_item_material.xml
+Found 50 layout controls in file res/layout/select_dialog_multichoice_material.xml
+Found 51 layout controls in file res/layout/select_dialog_singlechoice_material.xml
+Found 52 layout controls in file res/layout/support_simple_spinner_dropdown_item.xml
+[Call Graph] For information on where the call graph may be incomplete, use the verbose option to the cg phase.
+jjjjjjsource-oldvalueslen :32904 destination-valueslen:33000
+[Spark] Pointer Assignment Graph in 0.0 seconds.
+jjjjjjsource-oldvalueslen :3637 destination-valueslen:33000
+[Spark] Type masks in 0.0 seconds.
+[Spark] Pointer Graph simplified in 0.0 seconds.
+jjjjjjsource-oldvalueslen :130 destination-valueslen:33000
+[Spark] Propagation in 0.0 seconds.
+[Spark] Solution found in 0.0 seconds.
+Running incremental callback analysis for 2 components...
+Incremental callback analysis done.
+Created a SourceSinkManager with 46 sources, 122 sinks, and 6 callback methods.
+Maximum memory consumption: 141.428896 MB
+Using '/home/shaila/Android/Sdk/platforms/android-25/android.jar' as android.jar
+Warning: java.lang.invoke.LambdaMetafactory is a phantom class!
+Warning: java.lang.ref.Finalizer is a phantom class!
+[Call Graph] For information on where the call graph may be incomplete, use the verbose option to the cg phase.
+jjjjjjsource-oldvalueslen :8 destination-valueslen:33000
+jjjjjjsource-oldvalueslen :32849 destination-valueslen:33000
+jjjjjjsource-oldvalueslen :8 destination-valueslen:33000
+[Spark] Pointer Assignment Graph in 0.0 seconds.
+jjjjjjsource-oldvalueslen :3484 destination-valueslen:33000
+[Spark] Type masks in 0.0 seconds.
+[Spark] Pointer Graph simplified in 0.0 seconds.
+[Spark] Propagation in 0.0 seconds.
+[Spark] Solution found in 0.0 seconds.
+hhhh
+    public static void dummyMainMethod(java.lang.String[])
+    {
+        java.lang.String[] $r0;
+        int $i0, $i1;
+        com.example.gsrishaila.myapplication.MainActivity $r1;
+        boolean $z0, $z1;
+        com.example.gsrishaila.myapplication.MyService $r2;
+        android.os.IBinder $r3;
+
+        $r0 := @parameter0: java.lang.String[];
+
+        $i0 = 0;
+
+     label01:
+        if $i0 == 0 goto label09;
+
+     label02:
+        $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+        specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+
+        if $i0 == 1 goto label09;
+
+        virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+
+     label03:
+        if $i0 == 3 goto label07;
+
+     label04:
+        if $i0 == 4 goto label05;
+
+        $z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+
+     label05:
+        if $i0 == 5 goto label06;
+
+        $z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+     label06:
+        if $i0 == 6 goto label04;
+
+     label07:
+        if $i0 == 7 goto label03;
+
+        if $i0 == 8 goto label08;
+
+        if $i0 == 9 goto label03;
+
+     label08:
+        $r1 = null;
+
+        if $i0 == 10 goto label02;
+
+     label09:
+        if $i0 == 11 goto label14;
+
+        $r2 = new com.example.gsrishaila.myapplication.MyService;
+
+        specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+
+     label10:
+        if $i0 == 12 goto label11;
+
+        virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+
+        if $i0 == 13 goto label10;
+
+     label11:
+        $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+     label12:
+        if $i0 == 15 goto label13;
+
+        if $i0 == 16 goto label12;
+
+     label13:
+        virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+        $r2 = null;
+
+     label14:
+        if $i0 == 17 goto label01;
+
+        return;
+    }
+
+***CFG Generation***dummyMainMethod
+Method Sig : <dummyMainClass: void dummyMainMethod(java.lang.String[])>
+
+Block 0:
+[preds: ] [succs: 1 ]
+$r0 := @parameter0: java.lang.String[];
+$i0 = 0;
+
+
+Block 1:
+[preds: 0 22 ] [succs: 2 14 ]
+if $i0 == 0 goto (branch);
+
+
+Block 2:
+[preds: 1 13 ] [succs: 3 14 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+if $i0 == 1 goto (branch);
+
+
+Block 3:
+[preds: 2 ] [succs: 4 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+
+
+Block 4:
+[preds: 3 10 12 ] [succs: 5 10 ]
+if $i0 == 3 goto (branch);
+
+
+Block 5:
+[preds: 4 9 ] [succs: 6 7 ]
+if $i0 == 4 goto (branch);
+
+
+Block 6:
+[preds: 5 ] [succs: 7 ]
+$z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+
+
+Block 7:
+[preds: 5 6 ] [succs: 8 9 ]
+if $i0 == 5 goto (branch);
+
+
+Block 8:
+[preds: 7 ] [succs: 9 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 9:
+[preds: 7 8 ] [succs: 10 5 ]
+if $i0 == 6 goto (branch);
+
+
+Block 10:
+[preds: 4 9 ] [succs: 11 4 ]
+if $i0 == 7 goto (branch);
+
+
+Block 11:
+[preds: 10 ] [succs: 12 13 ]
+if $i0 == 8 goto $r1 = null;
+
+
+Block 12:
+[preds: 11 ] [succs: 13 4 ]
+if $i0 == 9 goto (branch);
+
+
+Block 13:
+[preds: 11 12 ] [succs: 14 2 ]
+$r1 = null;
+if $i0 == 10 goto $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+
+Block 14:
+[preds: 1 2 13 ] [succs: 15 22 ]
+if $i0 == 11 goto (branch);
+
+
+Block 15:
+[preds: 14 ] [succs: 16 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+
+
+Block 16:
+[preds: 15 17 ] [succs: 17 18 ]
+if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 17:
+[preds: 16 ] [succs: 18 16 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+if $i0 == 13 goto (branch);
+
+
+Block 18:
+[preds: 16 17 ] [succs: 19 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 19:
+[preds: 18 20 ] [succs: 20 21 ]
+if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+
+Block 20:
+[preds: 19 ] [succs: 21 19 ]
+if $i0 == 16 goto (branch);
+
+
+Block 21:
+[preds: 19 20 ] [succs: 22 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r2 = null;
+
+
+Block 22:
+[preds: 14 21 ] [succs: 23 1 ]
+if $i0 == 17 goto (branch);
+
+
+Block 23:
+[preds: 22 ] [succs: ]
+return;
+
+***End of CFG Generation***dummyMainMethod
+
+[com.example.gsrishaila.myapplication.MyService, com.example.gsrishaila.myapplication.MainActivity]
+mergeCFGs () function called No1 ....
+origNoUnits: 31
+***CFG Generation***<init>
+Method Sig : <com.example.gsrishaila.myapplication.MainActivity: void <init>()>
+
+Block 0:
+[preds: ] [succs: ]
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+return;
+
+***End of CFG Generation***<init>
+
+***CFG Generation***onCreate
+Method Sig : <com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>
+
+Block 0:
+[preds: ] [succs: ]
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.os.Bundle;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: void setContentView(int)>(2130968602);
+$r2 = $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg>;
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event");
+return;
+
+***End of CFG Generation***onCreate
+
+***CFG Generation***onOptionsItemSelected
+Method Sig : <com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>
+
+Block 0:
+[preds: ] [succs: 1 2 ]
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.MenuItem;
+$i0 = interfaceinvoke $r1.<android.view.MenuItem: int getItemId()>();
+if $i0 != 2131558552 goto $z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+
+
+Block 1:
+[preds: 0 ] [succs: ]
+return 1;
+
+
+Block 2:
+[preds: 0 ] [succs: ]
+$z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+return $z0;
+
+***End of CFG Generation***onOptionsItemSelected
+
+***CFG Generation***onCreateOptionsMenu
+Method Sig : <com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>
+
+Block 0:
+[preds: ] [succs: ]
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.Menu;
+$r2 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: android.view.MenuInflater getMenuInflater()>();
+virtualinvoke $r2.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131623936, $r1);
+return 1;
+
+***End of CFG Generation***onCreateOptionsMenu
+
+***CFG Generation***<init>
+Method Sig : <com.example.gsrishaila.myapplication.MyService: void <init>()>
+
+Block 0:
+[preds: ] [succs: ]
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r0.<android.app.Service: void <init>()>();
+return;
+
+***End of CFG Generation***<init>
+
+***CFG Generation***onStartCommand
+Method Sig : <com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>
+
+Block 0:
+[preds: ] [succs: ]
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+$r1 := @parameter0: android.content.Intent;
+$i0 := @parameter1: int;
+$i1 := @parameter2: int;
+$r2 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Service Started", 1);
+virtualinvoke $r2.<android.widget.Toast: void show()>();
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("service", "onCreate");
+$r3 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MyService: android.content.Context getApplicationContext()>();
+$r4 = staticinvoke <android.media.MediaPlayer: android.media.MediaPlayer create(android.content.Context,int)>($r3, 2131099648);
+$r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer> = $r4;
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void setAudioStreamType(int)>(3);
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void start()>();
+return 1;
+
+***End of CFG Generation***onStartCommand
+
+***CFG Generation***onBind
+Method Sig : <com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>
+
+Block 0:
+[preds: ] [succs: ]
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+$r1 := @parameter0: android.content.Intent;
+return null;
+
+***End of CFG Generation***onBind
+
+***CFG Generation***onDestroy
+Method Sig : <com.example.gsrishaila.myapplication.MyService: void onDestroy()>
+
+Block 0:
+[preds: ] [succs: ]
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r0.<android.app.Service: void onDestroy()>();
+$r2 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r2.<android.media.MediaPlayer: void stop()>();
+$r2 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r2.<android.media.MediaPlayer: void release()>();
+$r1 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Service Destroyed", 1);
+virtualinvoke $r1.<android.widget.Toast: void show()>();
+return;
+
+***End of CFG Generation***onDestroy
+
+calling the mergeCFG1021s method...
+
+ToMerge : <dummyMainClass: void dummyMainMethod(java.lang.String[])>
+ToMerge : <com.example.gsrishaila.myapplication.MainActivity: void <init>()>
+lastUnitStmt.branches() : false
+getLast() unit : return
+predecessor of last unit : $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : "
+successor of the last unit : null
+successor unit : if $i0 == 1 goto (branch)
+tail unit*** : nop
+tail unit : nop
+tailBlk : Block 2:
+[preds: ] [succs: 3 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+nop;
+
+
+Block 0:
+[preds: ] [succs: 1 ]
+$r0 := @parameter0: java.lang.String[];
+$i0 = 0;
+
+
+Block 1:
+[preds: 0 23 ] [succs: 2 15 ]
+if $i0 == 0 goto (branch);
+
+
+Block 2:
+[preds: 1 14 ] [succs: 3 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+nop;
+
+
+Block 3:
+[preds: 2 ] [succs: 4 15 ]
+if $i0 == 1 goto (branch);
+
+
+Block 4:
+[preds: 3 ] [succs: 5 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+
+
+Block 5:
+[preds: 4 11 13 ] [succs: 6 11 ]
+if $i0 == 3 goto (branch);
+
+
+Block 6:
+[preds: 5 10 ] [succs: 7 8 ]
+if $i0 == 4 goto (branch);
+
+
+Block 7:
+[preds: 6 ] [succs: 8 ]
+$z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+
+
+Block 8:
+[preds: 6 7 ] [succs: 9 10 ]
+if $i0 == 5 goto (branch);
+
+
+Block 9:
+[preds: 8 ] [succs: 10 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 10:
+[preds: 8 9 ] [succs: 11 6 ]
+if $i0 == 6 goto (branch);
+
+
+Block 11:
+[preds: 5 10 ] [succs: 12 5 ]
+if $i0 == 7 goto (branch);
+
+
+Block 12:
+[preds: 11 ] [succs: 13 14 ]
+if $i0 == 8 goto $r1 = null;
+
+
+Block 13:
+[preds: 12 ] [succs: 14 5 ]
+if $i0 == 9 goto (branch);
+
+
+Block 14:
+[preds: 12 13 ] [succs: 15 2 ]
+$r1 = null;
+if $i0 == 10 goto $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+
+Block 15:
+[preds: 1 3 14 ] [succs: 16 23 ]
+if $i0 == 11 goto (branch);
+
+
+Block 16:
+[preds: 15 ] [succs: 17 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+
+
+Block 17:
+[preds: 16 18 ] [succs: 18 19 ]
+if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 18:
+[preds: 17 ] [succs: 19 17 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+if $i0 == 13 goto (branch);
+
+
+Block 19:
+[preds: 17 18 ] [succs: 20 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 20:
+[preds: 19 21 ] [succs: 21 22 ]
+if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+
+Block 21:
+[preds: 20 ] [succs: 22 20 ]
+if $i0 == 16 goto (branch);
+
+
+Block 22:
+[preds: 20 21 ] [succs: 23 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r2 = null;
+
+
+Block 23:
+[preds: 15 22 ] [succs: 24 1 ]
+if $i0 == 17 goto (branch);
+
+
+Block 24:
+[preds: 23 ] [succs: ]
+return;
+
+mergedMtd : <com.example.gsrishaila.myapplication.MainActivity: void <init>()>
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_0]
+
+eachUnit : if $i0 == 1 goto (branch)
+
+eachUnit Tags : [oldsuccessor_0]
+
+ToMerge : <com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>
+lastUnitStmt.branches() : false
+getLast() unit : return
+predecessor of last unit : staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event")
+successor of the last unit : null
+successor unit : if $i0 == 3 goto (branch)
+tail unit*** : nop
+tail unit : nop
+tailBlk : Block 4:
+[preds: ] [succs: 5 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.os.Bundle;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: void setContentView(int)>(2130968602);
+$r2 = $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg>;
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event");
+nop;
+
+
+Block 0:
+[preds: ] [succs: 1 ]
+$r0 := @parameter0: java.lang.String[];
+$i0 = 0;
+
+
+Block 1:
+[preds: 0 23 ] [succs: 2 15 ]
+if $i0 == 0 goto (branch);
+
+
+Block 2:
+[preds: 1 14 ] [succs: 3 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+nop;
+
+
+Block 3:
+[preds: 2 ] [succs: 4 15 ]
+if $i0 == 1 goto (branch);
+
+
+Block 4:
+[preds: 3 ] [succs: 5 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.os.Bundle;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: void setContentView(int)>(2130968602);
+$r2 = $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg>;
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event");
+nop;
+
+
+Block 5:
+[preds: 4 11 13 ] [succs: 6 11 ]
+if $i0 == 3 goto (branch);
+
+
+Block 6:
+[preds: 5 10 ] [succs: 7 8 ]
+if $i0 == 4 goto (branch);
+
+
+Block 7:
+[preds: 6 ] [succs: 8 ]
+$z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+
+
+Block 8:
+[preds: 6 7 ] [succs: 9 10 ]
+if $i0 == 5 goto (branch);
+
+
+Block 9:
+[preds: 8 ] [succs: 10 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 10:
+[preds: 8 9 ] [succs: 11 6 ]
+if $i0 == 6 goto (branch);
+
+
+Block 11:
+[preds: 5 10 ] [succs: 12 5 ]
+if $i0 == 7 goto (branch);
+
+
+Block 12:
+[preds: 11 ] [succs: 13 14 ]
+if $i0 == 8 goto $r1 = null;
+
+
+Block 13:
+[preds: 12 ] [succs: 14 5 ]
+if $i0 == 9 goto (branch);
+
+
+Block 14:
+[preds: 12 13 ] [succs: 15 2 ]
+$r1 = null;
+if $i0 == 10 goto $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+
+Block 15:
+[preds: 1 3 14 ] [succs: 16 23 ]
+if $i0 == 11 goto (branch);
+
+
+Block 16:
+[preds: 15 ] [succs: 17 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+
+
+Block 17:
+[preds: 16 18 ] [succs: 18 19 ]
+if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 18:
+[preds: 17 ] [succs: 19 17 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+if $i0 == 13 goto (branch);
+
+
+Block 19:
+[preds: 17 18 ] [succs: 20 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 20:
+[preds: 19 21 ] [succs: 21 22 ]
+if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+
+Block 21:
+[preds: 20 ] [succs: 22 20 ]
+if $i0 == 16 goto (branch);
+
+
+Block 22:
+[preds: 20 21 ] [succs: 23 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r2 = null;
+
+
+Block 23:
+[preds: 15 22 ] [succs: 24 1 ]
+if $i0 == 17 goto (branch);
+
+
+Block 24:
+[preds: 23 ] [succs: ]
+return;
+
+mergedMtd : <com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_0]
+
+eachUnit : if $i0 == 1 goto (branch)
+
+eachUnit Tags : [oldsuccessor_0]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_1]
+
+eachUnit : if $i0 == 3 goto (branch)
+
+eachUnit Tags : [oldsuccessor_1]
+
+ToMerge : <com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>
+lastUnitStmt.branches() : false
+getLast() unit : return $z0
+predecessor of last unit : $z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1)
+successor of the last unit : null
+eachTailUnit : return $z0
+b4Tail.toString() : $z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1)
+successor: if $i0 == 5 goto (branch)
+clonedRet: nop
+successor unit : if $i0 == 5 goto (branch)
+tail unit*** : nop
+tail unit : nop
+tailBlk : Block 8:
+[preds: ] [succs: 10 ]
+nop;
+
+tail unit*** : nop
+tail unit : nop
+tailBlk : Block 9:
+[preds: ] [succs: 10 ]
+$z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+nop;
+
+
+Block 0:
+[preds: ] [succs: 1 ]
+$r0 := @parameter0: java.lang.String[];
+$i0 = 0;
+
+
+Block 1:
+[preds: 0 25 ] [succs: 2 17 ]
+if $i0 == 0 goto (branch);
+
+
+Block 2:
+[preds: 1 16 ] [succs: 3 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+nop;
+
+
+Block 3:
+[preds: 2 ] [succs: 4 17 ]
+if $i0 == 1 goto (branch);
+
+
+Block 4:
+[preds: 3 ] [succs: 5 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.os.Bundle;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: void setContentView(int)>(2130968602);
+$r2 = $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg>;
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event");
+nop;
+
+
+Block 5:
+[preds: 4 13 15 ] [succs: 6 13 ]
+if $i0 == 3 goto (branch);
+
+
+Block 6:
+[preds: 5 12 ] [succs: 7 11 ]
+if $i0 == 4 goto $z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 7:
+[preds: 6 ] [succs: 8 9 ]
+$z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.MenuItem;
+$i0 = interfaceinvoke $r1.<android.view.MenuItem: int getItemId()>();
+if $i0 != 2131558552 goto $z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+
+
+Block 8:
+[preds: 7 ] [succs: 10 ]
+nop;
+
+
+Block 9:
+[preds: 7 8 ] [succs: 10 ]
+$z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+nop;
+
+
+Block 10:
+[preds: 9 ] [succs: 11 12 ]
+if $i0 == 5 goto (branch);
+
+
+Block 11:
+[preds: 6 10 ] [succs: 12 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 12:
+[preds: 10 11 ] [succs: 13 6 ]
+if $i0 == 6 goto (branch);
+
+
+Block 13:
+[preds: 5 12 ] [succs: 14 5 ]
+if $i0 == 7 goto (branch);
+
+
+Block 14:
+[preds: 13 ] [succs: 15 16 ]
+if $i0 == 8 goto $r1 = null;
+
+
+Block 15:
+[preds: 14 ] [succs: 16 5 ]
+if $i0 == 9 goto (branch);
+
+
+Block 16:
+[preds: 14 15 ] [succs: 17 2 ]
+$r1 = null;
+if $i0 == 10 goto $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+
+Block 17:
+[preds: 1 3 16 ] [succs: 18 25 ]
+if $i0 == 11 goto (branch);
+
+
+Block 18:
+[preds: 17 ] [succs: 19 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+
+
+Block 19:
+[preds: 18 20 ] [succs: 20 21 ]
+if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 20:
+[preds: 19 ] [succs: 21 19 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+if $i0 == 13 goto (branch);
+
+
+Block 21:
+[preds: 19 20 ] [succs: 22 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 22:
+[preds: 21 23 ] [succs: 23 24 ]
+if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+
+Block 23:
+[preds: 22 ] [succs: 24 22 ]
+if $i0 == 16 goto (branch);
+
+
+Block 24:
+[preds: 22 23 ] [succs: 25 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r2 = null;
+
+
+Block 25:
+[preds: 17 24 ] [succs: 26 1 ]
+if $i0 == 17 goto (branch);
+
+
+Block 26:
+[preds: 25 ] [succs: ]
+return;
+
+mergedMtd : <com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_0]
+
+eachUnit : if $i0 == 1 goto (branch)
+
+eachUnit Tags : [oldsuccessor_0]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_1]
+
+eachUnit : if $i0 == 3 goto (branch)
+
+eachUnit Tags : [oldsuccessor_1]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : if $i0 == 5 goto (branch)
+
+eachUnit Tags : [oldsuccessor_2]
+
+ToMerge : <com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>
+lastUnitStmt.branches() : false
+getLast() unit : return 1
+predecessor of last unit : virtualinvoke $r2.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131623936, $r1)
+successor of the last unit : null
+successor unit : if $i0 == 6 goto (branch)
+tail unit*** : nop
+tail unit : nop
+tailBlk : Block 11:
+[preds: ] [succs: 12 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.Menu;
+$r2 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: android.view.MenuInflater getMenuInflater()>();
+virtualinvoke $r2.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131623936, $r1);
+nop;
+
+
+Block 0:
+[preds: ] [succs: 1 ]
+$r0 := @parameter0: java.lang.String[];
+$i0 = 0;
+
+
+Block 1:
+[preds: 0 25 ] [succs: 2 17 ]
+if $i0 == 0 goto (branch);
+
+
+Block 2:
+[preds: 1 16 ] [succs: 3 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+nop;
+
+
+Block 3:
+[preds: 2 ] [succs: 4 17 ]
+if $i0 == 1 goto (branch);
+
+
+Block 4:
+[preds: 3 ] [succs: 5 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.os.Bundle;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: void setContentView(int)>(2130968602);
+$r2 = $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg>;
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event");
+nop;
+
+
+Block 5:
+[preds: 4 13 15 ] [succs: 6 13 ]
+if $i0 == 3 goto (branch);
+
+
+Block 6:
+[preds: 5 12 ] [succs: 7 11 ]
+if $i0 == 4 goto $z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 7:
+[preds: 6 ] [succs: 8 9 ]
+$z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.MenuItem;
+$i0 = interfaceinvoke $r1.<android.view.MenuItem: int getItemId()>();
+if $i0 != 2131558552 goto $z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+
+
+Block 8:
+[preds: 7 ] [succs: 9 ]
+nop;
+
+
+Block 9:
+[preds: 7 8 ] [succs: 10 ]
+$z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+nop;
+
+
+Block 10:
+[preds: 9 ] [succs: 11 12 ]
+if $i0 == 5 goto (branch);
+
+
+Block 11:
+[preds: 6 10 ] [succs: 12 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.Menu;
+$r2 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: android.view.MenuInflater getMenuInflater()>();
+virtualinvoke $r2.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131623936, $r1);
+nop;
+
+
+Block 12:
+[preds: 10 11 ] [succs: 13 6 ]
+if $i0 == 6 goto (branch);
+
+
+Block 13:
+[preds: 5 12 ] [succs: 14 5 ]
+if $i0 == 7 goto (branch);
+
+
+Block 14:
+[preds: 13 ] [succs: 15 16 ]
+if $i0 == 8 goto $r1 = null;
+
+
+Block 15:
+[preds: 14 ] [succs: 16 5 ]
+if $i0 == 9 goto (branch);
+
+
+Block 16:
+[preds: 14 15 ] [succs: 17 2 ]
+$r1 = null;
+if $i0 == 10 goto $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+
+Block 17:
+[preds: 1 3 16 ] [succs: 18 25 ]
+if $i0 == 11 goto (branch);
+
+
+Block 18:
+[preds: 17 ] [succs: 19 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+
+
+Block 19:
+[preds: 18 20 ] [succs: 20 21 ]
+if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 20:
+[preds: 19 ] [succs: 21 19 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+if $i0 == 13 goto (branch);
+
+
+Block 21:
+[preds: 19 20 ] [succs: 22 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 22:
+[preds: 21 23 ] [succs: 23 24 ]
+if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+
+Block 23:
+[preds: 22 ] [succs: 24 22 ]
+if $i0 == 16 goto (branch);
+
+
+Block 24:
+[preds: 22 23 ] [succs: 25 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r2 = null;
+
+
+Block 25:
+[preds: 17 24 ] [succs: 26 1 ]
+if $i0 == 17 goto (branch);
+
+
+Block 26:
+[preds: 25 ] [succs: ]
+return;
+
+mergedMtd : <com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_0]
+
+eachUnit : if $i0 == 1 goto (branch)
+
+eachUnit Tags : [oldsuccessor_0]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_1]
+
+eachUnit : if $i0 == 3 goto (branch)
+
+eachUnit Tags : [oldsuccessor_1]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : if $i0 == 5 goto (branch)
+
+eachUnit Tags : [oldsuccessor_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_3]
+
+eachUnit : if $i0 == 6 goto (branch)
+
+eachUnit Tags : [oldsuccessor_3]
+
+ToMerge : <com.example.gsrishaila.myapplication.MyService: void <init>()>
+lastUnitStmt.branches() : false
+getLast() unit : return
+predecessor of last unit : specialinvoke $r0.<android.app.Service: void <init>()>()
+successor of the last unit : null
+successor unit : if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null)
+tail unit*** : nop
+tail unit : nop
+tailBlk : Block 18:
+[preds: ] [succs: 19 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r0.<android.app.Service: void <init>()>();
+nop;
+
+
+Block 0:
+[preds: ] [succs: 1 ]
+$r0 := @parameter0: java.lang.String[];
+$i0 = 0;
+
+
+Block 1:
+[preds: 0 25 ] [succs: 2 17 ]
+if $i0 == 0 goto (branch);
+
+
+Block 2:
+[preds: 1 16 ] [succs: 3 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+nop;
+
+
+Block 3:
+[preds: 2 ] [succs: 4 17 ]
+if $i0 == 1 goto (branch);
+
+
+Block 4:
+[preds: 3 ] [succs: 5 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.os.Bundle;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: void setContentView(int)>(2130968602);
+$r2 = $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg>;
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event");
+nop;
+
+
+Block 5:
+[preds: 4 13 15 ] [succs: 6 13 ]
+if $i0 == 3 goto (branch);
+
+
+Block 6:
+[preds: 5 12 ] [succs: 7 11 ]
+if $i0 == 4 goto $z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 7:
+[preds: 6 ] [succs: 8 9 ]
+$z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.MenuItem;
+$i0 = interfaceinvoke $r1.<android.view.MenuItem: int getItemId()>();
+if $i0 != 2131558552 goto $z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+
+
+Block 8:
+[preds: 7 ] [succs: 9 ]
+nop;
+
+
+Block 9:
+[preds: 7 8 ] [succs: 10 ]
+$z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+nop;
+
+
+Block 10:
+[preds: 9 ] [succs: 11 12 ]
+if $i0 == 5 goto (branch);
+
+
+Block 11:
+[preds: 6 10 ] [succs: 12 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.Menu;
+$r2 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: android.view.MenuInflater getMenuInflater()>();
+virtualinvoke $r2.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131623936, $r1);
+nop;
+
+
+Block 12:
+[preds: 10 11 ] [succs: 13 6 ]
+if $i0 == 6 goto (branch);
+
+
+Block 13:
+[preds: 5 12 ] [succs: 14 5 ]
+if $i0 == 7 goto (branch);
+
+
+Block 14:
+[preds: 13 ] [succs: 15 16 ]
+if $i0 == 8 goto $r1 = null;
+
+
+Block 15:
+[preds: 14 ] [succs: 16 5 ]
+if $i0 == 9 goto (branch);
+
+
+Block 16:
+[preds: 14 15 ] [succs: 17 2 ]
+$r1 = null;
+if $i0 == 10 goto $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+
+Block 17:
+[preds: 1 3 16 ] [succs: 18 25 ]
+if $i0 == 11 goto (branch);
+
+
+Block 18:
+[preds: 17 ] [succs: 19 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r0.<android.app.Service: void <init>()>();
+nop;
+
+
+Block 19:
+[preds: 18 20 ] [succs: 20 21 ]
+if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 20:
+[preds: 19 ] [succs: 21 19 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+if $i0 == 13 goto (branch);
+
+
+Block 21:
+[preds: 19 20 ] [succs: 22 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 22:
+[preds: 21 23 ] [succs: 23 24 ]
+if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+
+Block 23:
+[preds: 22 ] [succs: 24 22 ]
+if $i0 == 16 goto (branch);
+
+
+Block 24:
+[preds: 22 23 ] [succs: 25 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r2 = null;
+
+
+Block 25:
+[preds: 17 24 ] [succs: 26 1 ]
+if $i0 == 17 goto (branch);
+
+
+Block 26:
+[preds: 25 ] [succs: ]
+return;
+
+mergedMtd : <com.example.gsrishaila.myapplication.MyService: void <init>()>
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_0]
+
+eachUnit : if $i0 == 1 goto (branch)
+
+eachUnit Tags : [oldsuccessor_0]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_1]
+
+eachUnit : if $i0 == 3 goto (branch)
+
+eachUnit Tags : [oldsuccessor_1]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : if $i0 == 5 goto (branch)
+
+eachUnit Tags : [oldsuccessor_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_3]
+
+eachUnit : if $i0 == 6 goto (branch)
+
+eachUnit Tags : [oldsuccessor_3]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_4]
+
+eachUnit : if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null)
+
+eachUnit Tags : [oldsuccessor_4]
+
+ToMerge : <com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>
+lastUnitStmt.branches() : false
+getLast() unit : return 1
+predecessor of last unit : virtualinvoke $r4.<android.media.MediaPlayer: void start()>()
+successor of the last unit : null
+successor unit : if $i0 == 13 goto (branch)
+tail unit*** : nop
+tail unit : nop
+tailBlk : Block 20:
+[preds: ] [succs: 21 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+$r1 := @parameter0: android.content.Intent;
+$i0 := @parameter1: int;
+$i1 := @parameter2: int;
+$r2 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Service Started", 1);
+virtualinvoke $r2.<android.widget.Toast: void show()>();
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("service", "onCreate");
+$r3 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MyService: android.content.Context getApplicationContext()>();
+$r4 = staticinvoke <android.media.MediaPlayer: android.media.MediaPlayer create(android.content.Context,int)>($r3, 2131099648);
+$r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer> = $r4;
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void setAudioStreamType(int)>(3);
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void start()>();
+nop;
+
+
+Block 0:
+[preds: ] [succs: 1 ]
+$r0 := @parameter0: java.lang.String[];
+$i0 = 0;
+
+
+Block 1:
+[preds: 0 26 ] [succs: 2 17 ]
+if $i0 == 0 goto (branch);
+
+
+Block 2:
+[preds: 1 16 ] [succs: 3 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+nop;
+
+
+Block 3:
+[preds: 2 ] [succs: 4 17 ]
+if $i0 == 1 goto (branch);
+
+
+Block 4:
+[preds: 3 ] [succs: 5 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.os.Bundle;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: void setContentView(int)>(2130968602);
+$r2 = $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg>;
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event");
+nop;
+
+
+Block 5:
+[preds: 4 13 15 ] [succs: 6 13 ]
+if $i0 == 3 goto (branch);
+
+
+Block 6:
+[preds: 5 12 ] [succs: 7 11 ]
+if $i0 == 4 goto $z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 7:
+[preds: 6 ] [succs: 8 9 ]
+$z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.MenuItem;
+$i0 = interfaceinvoke $r1.<android.view.MenuItem: int getItemId()>();
+if $i0 != 2131558552 goto $z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+
+
+Block 8:
+[preds: 7 ] [succs: 9 ]
+nop;
+
+
+Block 9:
+[preds: 7 8 ] [succs: 10 ]
+$z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+nop;
+
+
+Block 10:
+[preds: 9 ] [succs: 11 12 ]
+if $i0 == 5 goto (branch);
+
+
+Block 11:
+[preds: 6 10 ] [succs: 12 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.Menu;
+$r2 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: android.view.MenuInflater getMenuInflater()>();
+virtualinvoke $r2.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131623936, $r1);
+nop;
+
+
+Block 12:
+[preds: 10 11 ] [succs: 13 6 ]
+if $i0 == 6 goto (branch);
+
+
+Block 13:
+[preds: 5 12 ] [succs: 14 5 ]
+if $i0 == 7 goto (branch);
+
+
+Block 14:
+[preds: 13 ] [succs: 15 16 ]
+if $i0 == 8 goto $r1 = null;
+
+
+Block 15:
+[preds: 14 ] [succs: 16 5 ]
+if $i0 == 9 goto (branch);
+
+
+Block 16:
+[preds: 14 15 ] [succs: 17 2 ]
+$r1 = null;
+if $i0 == 10 goto $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+
+Block 17:
+[preds: 1 3 16 ] [succs: 18 26 ]
+if $i0 == 11 goto (branch);
+
+
+Block 18:
+[preds: 17 ] [succs: 19 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r0.<android.app.Service: void <init>()>();
+nop;
+
+
+Block 19:
+[preds: 18 21 ] [succs: 20 22 ]
+if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 20:
+[preds: 19 ] [succs: 21 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+$r1 := @parameter0: android.content.Intent;
+$i0 := @parameter1: int;
+$i1 := @parameter2: int;
+$r2 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Service Started", 1);
+virtualinvoke $r2.<android.widget.Toast: void show()>();
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("service", "onCreate");
+$r3 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MyService: android.content.Context getApplicationContext()>();
+$r4 = staticinvoke <android.media.MediaPlayer: android.media.MediaPlayer create(android.content.Context,int)>($r3, 2131099648);
+$r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer> = $r4;
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void setAudioStreamType(int)>(3);
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void start()>();
+nop;
+
+
+Block 21:
+[preds: 20 ] [succs: 22 19 ]
+if $i0 == 13 goto (branch);
+
+
+Block 22:
+[preds: 19 21 ] [succs: 23 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 23:
+[preds: 22 24 ] [succs: 24 25 ]
+if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+
+Block 24:
+[preds: 23 ] [succs: 25 23 ]
+if $i0 == 16 goto (branch);
+
+
+Block 25:
+[preds: 23 24 ] [succs: 26 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r2 = null;
+
+
+Block 26:
+[preds: 17 25 ] [succs: 27 1 ]
+if $i0 == 17 goto (branch);
+
+
+Block 27:
+[preds: 26 ] [succs: ]
+return;
+
+mergedMtd : <com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_0]
+
+eachUnit : if $i0 == 1 goto (branch)
+
+eachUnit Tags : [oldsuccessor_0]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_1]
+
+eachUnit : if $i0 == 3 goto (branch)
+
+eachUnit Tags : [oldsuccessor_1]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : if $i0 == 5 goto (branch)
+
+eachUnit Tags : [oldsuccessor_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_3]
+
+eachUnit : if $i0 == 6 goto (branch)
+
+eachUnit Tags : [oldsuccessor_3]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_4]
+
+eachUnit : if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null)
+
+eachUnit Tags : [oldsuccessor_4]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_5]
+
+eachUnit : if $i0 == 13 goto (branch)
+
+eachUnit Tags : [oldsuccessor_5]
+
+ToMerge : <com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>
+lastUnitStmt.branches() : false
+getLast() unit : return null
+predecessor of last unit : $r1 := @parameter0: android.content.Intent
+successor of the last unit : null
+successor unit : if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>()
+tail unit*** : nop
+tail unit : nop
+tailBlk : Block 22:
+[preds: ] [succs: 23 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+$r1 := @parameter0: android.content.Intent;
+nop;
+
+
+Block 0:
+[preds: ] [succs: 1 ]
+$r0 := @parameter0: java.lang.String[];
+$i0 = 0;
+
+
+Block 1:
+[preds: 0 26 ] [succs: 2 17 ]
+if $i0 == 0 goto (branch);
+
+
+Block 2:
+[preds: 1 16 ] [succs: 3 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+nop;
+
+
+Block 3:
+[preds: 2 ] [succs: 4 17 ]
+if $i0 == 1 goto (branch);
+
+
+Block 4:
+[preds: 3 ] [succs: 5 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.os.Bundle;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: void setContentView(int)>(2130968602);
+$r2 = $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg>;
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event");
+nop;
+
+
+Block 5:
+[preds: 4 13 15 ] [succs: 6 13 ]
+if $i0 == 3 goto (branch);
+
+
+Block 6:
+[preds: 5 12 ] [succs: 7 11 ]
+if $i0 == 4 goto $z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 7:
+[preds: 6 ] [succs: 8 9 ]
+$z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.MenuItem;
+$i0 = interfaceinvoke $r1.<android.view.MenuItem: int getItemId()>();
+if $i0 != 2131558552 goto $z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+
+
+Block 8:
+[preds: 7 ] [succs: 9 ]
+nop;
+
+
+Block 9:
+[preds: 7 8 ] [succs: 10 ]
+$z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+nop;
+
+
+Block 10:
+[preds: 9 ] [succs: 11 12 ]
+if $i0 == 5 goto (branch);
+
+
+Block 11:
+[preds: 6 10 ] [succs: 12 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.Menu;
+$r2 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: android.view.MenuInflater getMenuInflater()>();
+virtualinvoke $r2.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131623936, $r1);
+nop;
+
+
+Block 12:
+[preds: 10 11 ] [succs: 13 6 ]
+if $i0 == 6 goto (branch);
+
+
+Block 13:
+[preds: 5 12 ] [succs: 14 5 ]
+if $i0 == 7 goto (branch);
+
+
+Block 14:
+[preds: 13 ] [succs: 15 16 ]
+if $i0 == 8 goto $r1 = null;
+
+
+Block 15:
+[preds: 14 ] [succs: 16 5 ]
+if $i0 == 9 goto (branch);
+
+
+Block 16:
+[preds: 14 15 ] [succs: 17 2 ]
+$r1 = null;
+if $i0 == 10 goto $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+
+Block 17:
+[preds: 1 3 16 ] [succs: 18 26 ]
+if $i0 == 11 goto (branch);
+
+
+Block 18:
+[preds: 17 ] [succs: 19 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r0.<android.app.Service: void <init>()>();
+nop;
+
+
+Block 19:
+[preds: 18 21 ] [succs: 20 22 ]
+if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 20:
+[preds: 19 ] [succs: 21 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+$r1 := @parameter0: android.content.Intent;
+$i0 := @parameter1: int;
+$i1 := @parameter2: int;
+$r2 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Service Started", 1);
+virtualinvoke $r2.<android.widget.Toast: void show()>();
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("service", "onCreate");
+$r3 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MyService: android.content.Context getApplicationContext()>();
+$r4 = staticinvoke <android.media.MediaPlayer: android.media.MediaPlayer create(android.content.Context,int)>($r3, 2131099648);
+$r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer> = $r4;
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void setAudioStreamType(int)>(3);
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void start()>();
+nop;
+
+
+Block 21:
+[preds: 20 ] [succs: 22 19 ]
+if $i0 == 13 goto (branch);
+
+
+Block 22:
+[preds: 19 21 ] [succs: 23 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+$r1 := @parameter0: android.content.Intent;
+nop;
+
+
+Block 23:
+[preds: 22 24 ] [succs: 24 25 ]
+if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+
+Block 24:
+[preds: 23 ] [succs: 25 23 ]
+if $i0 == 16 goto (branch);
+
+
+Block 25:
+[preds: 23 24 ] [succs: 26 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r2 = null;
+
+
+Block 26:
+[preds: 17 25 ] [succs: 27 1 ]
+if $i0 == 17 goto (branch);
+
+
+Block 27:
+[preds: 26 ] [succs: ]
+return;
+
+mergedMtd : <com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_0]
+
+eachUnit : if $i0 == 1 goto (branch)
+
+eachUnit Tags : [oldsuccessor_0]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_1]
+
+eachUnit : if $i0 == 3 goto (branch)
+
+eachUnit Tags : [oldsuccessor_1]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : if $i0 == 5 goto (branch)
+
+eachUnit Tags : [oldsuccessor_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_3]
+
+eachUnit : if $i0 == 6 goto (branch)
+
+eachUnit Tags : [oldsuccessor_3]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_4]
+
+eachUnit : if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null)
+
+eachUnit Tags : [oldsuccessor_4]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_5]
+
+eachUnit : if $i0 == 13 goto (branch)
+
+eachUnit Tags : [oldsuccessor_5]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_6]
+
+eachUnit : if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>()
+
+eachUnit Tags : [oldsuccessor_6]
+
+ToMerge : <com.example.gsrishaila.myapplication.MyService: void onDestroy()>
+lastUnitStmt.branches() : false
+getLast() unit : return
+predecessor of last unit : virtualinvoke $r1.<android.widget.Toast: void show()>()
+successor of the last unit : null
+successor unit : $r2 = null
+tail unit*** : nop
+tail unit : nop
+tailBlk : Block 25:
+[preds: ] [succs: 26 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r0.<android.app.Service: void onDestroy()>();
+$r2 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r2.<android.media.MediaPlayer: void stop()>();
+$r2 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r2.<android.media.MediaPlayer: void release()>();
+$r1 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Service Destroyed", 1);
+virtualinvoke $r1.<android.widget.Toast: void show()>();
+nop;
+
+
+Block 0:
+[preds: ] [succs: 1 ]
+$r0 := @parameter0: java.lang.String[];
+$i0 = 0;
+
+
+Block 1:
+[preds: 0 27 ] [succs: 2 17 ]
+if $i0 == 0 goto (branch);
+
+
+Block 2:
+[preds: 1 16 ] [succs: 3 ]
+$r1 = new com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void <init>()>();
+$r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg> = "Android : ";
+nop;
+
+
+Block 3:
+[preds: 2 ] [succs: 4 17 ]
+if $i0 == 1 goto (branch);
+
+
+Block 4:
+[preds: 3 ] [succs: 5 ]
+virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.os.Bundle;
+specialinvoke $r0.<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: void setContentView(int)>(2130968602);
+$r2 = $r0.<com.example.gsrishaila.myapplication.MainActivity: java.lang.String msg>;
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>($r2, "The onCreate() event");
+nop;
+
+
+Block 5:
+[preds: 4 13 15 ] [succs: 6 13 ]
+if $i0 == 3 goto (branch);
+
+
+Block 6:
+[preds: 5 12 ] [succs: 7 11 ]
+if $i0 == 4 goto $z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+
+
+Block 7:
+[preds: 6 ] [succs: 8 9 ]
+$z0 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.MenuItem;
+$i0 = interfaceinvoke $r1.<android.view.MenuItem: int getItemId()>();
+if $i0 != 2131558552 goto $z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+
+
+Block 8:
+[preds: 7 ] [succs: 9 ]
+nop;
+
+
+Block 9:
+[preds: 7 8 ] [succs: 10 ]
+$z0 = specialinvoke $r0.<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+nop;
+
+
+Block 10:
+[preds: 9 ] [succs: 11 12 ]
+if $i0 == 5 goto (branch);
+
+
+Block 11:
+[preds: 6 10 ] [succs: 12 ]
+$z1 = virtualinvoke $r1.<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MainActivity;
+$r1 := @parameter0: android.view.Menu;
+$r2 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MainActivity: android.view.MenuInflater getMenuInflater()>();
+virtualinvoke $r2.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131623936, $r1);
+nop;
+
+
+Block 12:
+[preds: 10 11 ] [succs: 13 6 ]
+if $i0 == 6 goto (branch);
+
+
+Block 13:
+[preds: 5 12 ] [succs: 14 5 ]
+if $i0 == 7 goto (branch);
+
+
+Block 14:
+[preds: 13 ] [succs: 15 16 ]
+if $i0 == 8 goto $r1 = null;
+
+
+Block 15:
+[preds: 14 ] [succs: 16 5 ]
+if $i0 == 9 goto (branch);
+
+
+Block 16:
+[preds: 14 15 ] [succs: 17 2 ]
+$r1 = null;
+if $i0 == 10 goto $r1 = new com.example.gsrishaila.myapplication.MainActivity;
+
+
+Block 17:
+[preds: 1 3 16 ] [succs: 18 27 ]
+if $i0 == 11 goto (branch);
+
+
+Block 18:
+[preds: 17 ] [succs: 19 ]
+$r2 = new com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void <init>()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r0.<android.app.Service: void <init>()>();
+nop;
+
+
+Block 19:
+[preds: 18 21 ] [succs: 20 22 ]
+if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+
+
+Block 20:
+[preds: 19 ] [succs: 21 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+$r1 := @parameter0: android.content.Intent;
+$i0 := @parameter1: int;
+$i1 := @parameter2: int;
+$r2 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Service Started", 1);
+virtualinvoke $r2.<android.widget.Toast: void show()>();
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("service", "onCreate");
+$r3 = virtualinvoke $r0.<com.example.gsrishaila.myapplication.MyService: android.content.Context getApplicationContext()>();
+$r4 = staticinvoke <android.media.MediaPlayer: android.media.MediaPlayer create(android.content.Context,int)>($r3, 2131099648);
+$r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer> = $r4;
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void setAudioStreamType(int)>(3);
+$r4 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r4.<android.media.MediaPlayer: void start()>();
+nop;
+
+
+Block 21:
+[preds: 20 ] [succs: 22 19 ]
+if $i0 == 13 goto (branch);
+
+
+Block 22:
+[preds: 19 21 ] [succs: 23 ]
+$r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null);
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+$r1 := @parameter0: android.content.Intent;
+nop;
+
+
+Block 23:
+[preds: 22 24 ] [succs: 24 25 ]
+if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+
+
+Block 24:
+[preds: 23 ] [succs: 25 23 ]
+if $i0 == 16 goto (branch);
+
+
+Block 25:
+[preds: 23 24 ] [succs: 26 ]
+virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>();
+$r0 := @this: com.example.gsrishaila.myapplication.MyService;
+specialinvoke $r0.<android.app.Service: void onDestroy()>();
+$r2 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r2.<android.media.MediaPlayer: void stop()>();
+$r2 = $r0.<com.example.gsrishaila.myapplication.MyService: android.media.MediaPlayer mPlayer>;
+virtualinvoke $r2.<android.media.MediaPlayer: void release()>();
+$r1 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Service Destroyed", 1);
+virtualinvoke $r1.<android.widget.Toast: void show()>();
+nop;
+
+
+Block 26:
+[preds: 25 ] [succs: 27 ]
+$r2 = null;
+
+
+Block 27:
+[preds: 17 26 ] [succs: 28 1 ]
+if $i0 == 17 goto (branch);
+
+
+Block 28:
+[preds: 27 ] [succs: ]
+return;
+
+mergedMtd : <com.example.gsrishaila.myapplication.MyService: void onDestroy()>
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_0]
+
+eachUnit : if $i0 == 1 goto (branch)
+
+eachUnit Tags : [oldsuccessor_0]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_1]
+
+eachUnit : if $i0 == 3 goto (branch)
+
+eachUnit Tags : [oldsuccessor_1]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_2]
+
+eachUnit : if $i0 == 5 goto (branch)
+
+eachUnit Tags : [oldsuccessor_2]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_3]
+
+eachUnit : if $i0 == 6 goto (branch)
+
+eachUnit Tags : [oldsuccessor_3]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_4]
+
+eachUnit : if $i0 == 12 goto $r3 = virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>(null)
+
+eachUnit Tags : [oldsuccessor_4]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_5]
+
+eachUnit : if $i0 == 13 goto (branch)
+
+eachUnit Tags : [oldsuccessor_5]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_6]
+
+eachUnit : if $i0 == 15 goto virtualinvoke $r2.<com.example.gsrishaila.myapplication.MyService: void onDestroy()>()
+
+eachUnit Tags : [oldsuccessor_6]
+
+eachUnit : nop
+
+eachUnit Tags : [oldtail_7]
+
+eachUnit : $r2 = null
+
+eachUnit Tags : [oldsuccessor_7]
+
+origNoUnits: 31
+currNoUnits: 84
+newOne.noUnits: 84
+origNoUnits: 84
+calling the mergeCFG1021s method...
+
+ToMerge : <dummyMainClass: void dummyMainMethod(java.lang.String[])>
+origNoUnits: 84
+currNoUnits: 84
+newOne.noUnits: 84
+sootMethodsObjectList: [<dummyMainClass: void dummyMainMethod(java.lang.String[])>]
+sootMethodsNameList: []
+sootMethodsSignatureList: []
