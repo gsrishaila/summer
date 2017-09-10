@@ -27,9 +27,9 @@ digraph "void dummyMainMethod(java.lang.String[])" {
     "7"->"8";
     "9" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="label05:\n$z0 = specialinvoke $r0.onOptionsItemSelected($r1)\lnop\l",];
     "7"->"9";
-    "8"->"9";
+    "8"->"5";
+    "9"->"5";
     "10" [label="if $i0 == 5 goto label07\l",];
-    "9"->"10";
     "10"->"11";
     "12" [label="label07:\nif $i0 == 6 goto label04\l",];
     "10"->"12";

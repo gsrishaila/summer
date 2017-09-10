@@ -627,10 +627,7 @@ public class Test {
 						     //***checking the tag***
 						     
 						     //print basic block info 
-							 for (Block block:bg)
-							 {
-								System.out.println("\n"+block.toString());
-							 }//end for 
+							 
 							 //*****solve error*****
 							 System.out.println("mergedMtd : "+eachMdt.getSignature()+"\n");
 							 mergedMethodsList.add(eachMdt);
@@ -674,19 +671,25 @@ public class Test {
 						    			 }
 						    		 }
 						    	 }
-						    	 
+						     
 						    	 if(eachUnit.getTags().size()>0)
 						    	 {
 						    		 System.out.println("eachUnit : "+eachUnit.toString()+"\n");
 						    		 System.out.println("eachUnit Tags : "+eachUnit.getTags()+"\n");
 						    	 }
+						     }
 						    	 //BlockGraph bg1 = new BriefBlockGraph(b);
-						    	 /*BlockGraph bg1 = new BriefBlockGraph(b);
+						    	 BlockGraph bg1 = new BriefBlockGraph(b);
 						    	 CFGToDotGraph y1 = new CFGToDotGraph();
 								 DotGraph a11=y.drawCFG(bg1,b);
 								 if(eachMdt.getSignature().toString().equals("<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"))
 									 a11.plot("dummymain" +"334.dot"); 
-								 a11.plot("dummymain" +"333.dot");*/
+								 a11.plot("dummymain" +"333.dot");
+								 
+								 for (Block block:bg1)
+								 {
+									System.out.println("\n"+block.toString());
+								 }//end for 
 						    	 //eachUnit.getTags().clear();
 						    	 /*System.out.println("tagsInUnit : "+eachUnit.getTags());
 						    	 if(eachUnit.getTags().size()>0)
@@ -716,7 +719,7 @@ public class Test {
 								 //eachUnit.getTags().clear();
 						    	 //System.out.println("unit : "+eachUnit.toString());
 						    	 //System.out.println("tag of this unit : "+eachUnit.getTags());  
-						     }
+						     
 						     //***clear all the tags***
 							 
 							 
