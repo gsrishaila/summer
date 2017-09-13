@@ -573,7 +573,15 @@ public class Test {
 							 
 							 //add tag
 							 nop1.addTag(new StringTag("tail"));
-							 eachMdt.retrieveActiveBody().getUnits().swapWith(newone.getTails().get(0), nop1);
+							 //get predecessor unit
+							 Unit firstTail = newone.getTails().get(0);
+							 /*List<Unit> predecessorUnit = newone.getPredsOf(firstTail);
+							 for (Unit eachPredecessor:predecessorUnit)
+							 {
+								 eachPredecessor.addTag(new StringTag("predecessor"));
+							 }*/
+							 //get predecessor unit
+							 eachMdt.retrieveActiveBody().getUnits().swapWith(firstTail, nop1);
 							 newone.getTails().remove(0);
 							 remainingTails = newone.getTails().size();
 							 if(remainingTails>0)
@@ -661,6 +669,13 @@ public class Test {
 						    				 eachUnit.addTag(new StringTag(tailString));
 						    				 //eachUnit.removeTag("tail"); 
 						    			 }
+						    			 /*if(tagVal1.toString() =="predecessor")
+						    			 {
+						    				 eachUnit.getTags().clear();
+						    				 String predString = "oldpredecessor_"+ tailCnt;
+						    				 //System.out.println("tailString : "+tailString.toString()+"\n");
+						    				 eachUnit.addTag(new StringTag(predString));
+						    			 }*/
 						    			 if(tagVal1.toString() =="successor")
 						    			 {
 						    				 eachUnit.getTags().clear();
@@ -680,16 +695,17 @@ public class Test {
 						     }
 						    	 //BlockGraph bg1 = new BriefBlockGraph(b);
 						    	 BlockGraph bg1 = new BriefBlockGraph(b);
+						    	 for (Block block:bg1)
+								 {
+									System.out.println("\n"+block.toString());
+								 }
 						    	 CFGToDotGraph y1 = new CFGToDotGraph();
 								 DotGraph a11=y.drawCFG(bg1,b);
 								 if(eachMdt.getSignature().toString().equals("<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"))
 									 a11.plot("dummymain" +"334.dot"); 
 								 a11.plot("dummymain" +"333.dot");
 								 
-								 for (Block block:bg1)
-								 {
-									System.out.println("\n"+block.toString());
-								 }//end for 
+								//end for 
 						    	 //eachUnit.getTags().clear();
 						    	 /*System.out.println("tagsInUnit : "+eachUnit.getTags());
 						    	 if(eachUnit.getTags().size()>0)
@@ -746,6 +762,19 @@ public class Test {
 				}
 			}
 		}
+		//******
+		System.out.println("last blockgraph...\n");
+		BlockGraph bg1 = new BriefBlockGraph(body);
+		System.out.println("after blockgraph...\n");
+		for (Block block:bg1)
+		 {
+			System.out.println("\n"+block.toString());
+		 }
+		CFGToDotGraph y = new CFGToDotGraph();
+		DotGraph a1=y.drawCFG(bg1,body); 
+		a1.plot("dummymain" +"335.dot");
+		//******
+		
 		return dummyMainMdt;
 	}
 	
