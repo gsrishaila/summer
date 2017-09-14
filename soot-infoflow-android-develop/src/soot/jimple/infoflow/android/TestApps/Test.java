@@ -518,8 +518,8 @@ public class Test {
 			else
 			{
 				System.out.println("ToMerge : "+eachMdt.getSignature());
-				//if (eachMdt.getSignature() == "<com.android.insecurebank.PostLogin: void dotransfer()>")
-				//	continue;
+				//if (eachMdt.getSignature() == "<java.lang.Object: void <init>()>")
+					//continue;
 				
 				//if (eachMdt.getSignature() == "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>")
 					//continue;
@@ -538,8 +538,11 @@ public class Test {
 						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
 						 {
 							 //System.out.println("got into if : "+stmt.toString());
+							 if (eachMdt.getSignature() == "<java.lang.Object: void <init>()>")
+								 System.out.println("llll:::<java.lang.Object: void <init>()>");
 							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
 							 body.getUnits().getSuccOf(unitFrmMdt).addTag(new StringTag("successor"));
+							 System.out.println("added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
 							 List<Unit> nonRetUnits = new ArrayList();
 							 
 							 InvokeExpr invokeExpr = stmt.getInvokeExpr();
@@ -550,11 +553,11 @@ public class Test {
 				             Stmt nop1=Jimple.v().newNopStmt();
 				             Unit lastUnit =eachMdt.retrieveActiveBody().getUnits().getLast();
 				             Stmt lastUnitStmt =(Stmt) eachMdt.retrieveActiveBody().getUnits().getLast();
-				             System.out.println("lastUnitStmt.branches() : "+ lastUnitStmt.branches());
+				             //System.out.println("lastUnitStmt.branches() : "+ lastUnitStmt.branches());
 				             Unit preLast = eachMdt.getActiveBody().getUnits().getPredOf(eachMdt.retrieveActiveBody().getUnits().getLast());
-				             System.out.println("getLast() unit : "+ lastUnit.toString());
-				             System.out.println("predecessor of last unit : "+preLast.toString());
-				             System.out.println("successor of the last unit : "+eachMdt.retrieveActiveBody().getUnits().getSuccOf(lastUnit));
+				             //System.out.println("getLast() unit : "+ lastUnit.toString());
+				             //System.out.println("predecessor of last unit : "+preLast.toString());
+				             //System.out.println("successor of the last unit : "+eachMdt.retrieveActiveBody().getUnits().getSuccOf(lastUnit));
 				             //if(lastUnit.toString().contains("return") || lastUnit.toString().contains("throw"))
 				             //if(!lastUnitStmt.branches())//if last unit is a branch, then we dont do this
 				             	//eachMdt.retrieveActiveBody().getUnits().swapWith(eachMdt.retrieveActiveBody().getUnits().getLast(), nop1);
@@ -660,8 +663,9 @@ public class Test {
 						    	 {
 						    		 if(eachUnit.getTags().size()==1)
 						    		 {
-						    			 tagVal1 =  (StringTag) eachUnit.getTags().get(0);
-						    			 if(tagVal1.toString() =="tail")
+						    			 //tagVal1 =  (StringTag) eachUnit.getTags().get(0);
+						    			 //if(tagVal1.toString() =="tail")
+						    			 if(eachUnit.getTags().get(0).toString() =="tail")
 						    			 {
 						    				 eachUnit.getTags().clear();
 						    				 String tailString = "oldtail_"+ tailCnt;
@@ -676,7 +680,8 @@ public class Test {
 						    				 //System.out.println("tailString : "+tailString.toString()+"\n");
 						    				 eachUnit.addTag(new StringTag(predString));
 						    			 }*/
-						    			 if(tagVal1.toString() =="successor")
+						    			 //if(tagVal1.toString() =="successor")
+						    			 if(eachUnit.getTags().get(0).toString() =="successor")
 						    			 {
 						    				 eachUnit.getTags().clear();
 						    				 String successorString = "oldsuccessor_"+ tailCnt;
@@ -1032,13 +1037,13 @@ public class Test {
 		}
 		
 	   //*****added in code2*****
-	   PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
-	   System.setOut(out);
+	   //PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
+	   //System.setOut(out);
 	   System.out.println("done done done111...");
 	   String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
-	   //String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
+	   String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
 	   //String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
-	   String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
+	   //String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
 	   SetupApplication app = new SetupApplication
 	                (androidPlatformPath,
 	                        appPath);
