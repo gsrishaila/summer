@@ -303,6 +303,7 @@ public class CFGToDotGraph {
 
     for (Iterator<N> nodesIt = graph.iterator(); nodesIt.hasNext(); ) {
       N node = nodesIt.next();
+      System.out.println("Node : "+node.toString()+"\n");
       canvas.drawNode(namer.getName(node));
       for (Iterator<N> succsIt = sortedIterator(graph.getSuccsOf(node), comparator);
 	   succsIt.hasNext(); ) {
@@ -490,6 +491,10 @@ public class CFGToDotGraph {
     for (Iterator<N> nodesIt = namer.keySet().iterator();
 	 nodesIt.hasNext(); ) {
       N node = nodesIt.next();
+      //added in
+      if(node==null)
+    	  continue;
+      //added in
       DotGraphNode dotnode = canvas.getNode(namer.getName(node));
       String nodeLabel = null;
       
@@ -514,7 +519,13 @@ public class CFGToDotGraph {
 	  StringBuffer buffer = new StringBuffer();
 	  while (units.hasNext()) {
 	    Unit unit = units.next();
+	    //*****Added line*****
+	    //System.out.println("CFGToDotGraph : "+unit.toString());
+	    //*****Added line*****
 	    String targetLabel = (String) printer.labels().get(unit);
+	    //*****Added line*****
+	    //System.out.println("CFGToDotGraph : "+targetLabel);
+	    //*****Added line*****
 	    if (targetLabel != null) {
 	      buffer.append(targetLabel)
 		.append(":\\n");
@@ -526,6 +537,9 @@ public class CFGToDotGraph {
 	  nodeLabel = buffer.toString();
 	} else {
 	  nodeLabel = node.toString();
+	//*****Added line*****
+	System.out.println("CFGToDotGraph : "+nodeLabel);
+	//*****Added line*****
 	}
       }
       dotnode.setLabel(nodeLabel);

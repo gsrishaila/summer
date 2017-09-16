@@ -50,6 +50,7 @@ public class BriefBlockGraph extends BlockGraph
      *
      *  @param body the {@link Body} for which to build a graph.
      */
+	//parameter Unit succUnit was added in
     public  BriefBlockGraph(Body body) {
         this(new BriefUnitGraph(body));
     }
@@ -60,8 +61,9 @@ public class BriefBlockGraph extends BlockGraph
      *  <tt>Unit</tt>-level control flow represented by the passed
      *  {@link BriefUnitGraph}.
      *
-     *  @param unitGraph the {@link Body} for which to build a graph.
+     *  @param b the {@link Body} for which to build a graph.
      */
+    //parameter Unit succUnit was added in
     public  BriefBlockGraph(BriefUnitGraph unitGraph) {
         super(unitGraph);
 

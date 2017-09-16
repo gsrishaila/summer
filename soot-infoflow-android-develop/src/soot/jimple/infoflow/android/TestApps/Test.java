@@ -518,7 +518,10 @@ public class Test {
 			else
 			{
 				System.out.println("ToMerge : "+eachMdt.getSignature());
-				//if (eachMdt.getSignature() == "<java.lang.Object: void <init>()>")
+				if (eachMdt.getSignature() == "<com.android.insecurebank.PostLogin: void dotransfer()>")
+				{
+					System.out.println("debug here...");
+				}
 					//continue;
 				
 				//if (eachMdt.getSignature() == "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>")
@@ -538,11 +541,30 @@ public class Test {
 						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
 						 {
 							 //System.out.println("got into if : "+stmt.toString());
-							 if (eachMdt.getSignature() == "<java.lang.Object: void <init>()>")
-								 System.out.println("llll:::<java.lang.Object: void <init>()>");
+							 if (eachMdt.getSignature() == "<com.android.insecurebank.PostLogin: void dotransfer()>")
+								 System.out.println("llll:::<com.android.insecurebank.PostLogin: void dotransfer()>");
 							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
 							 body.getUnits().getSuccOf(unitFrmMdt).addTag(new StringTag("successor"));
-							 System.out.println("added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
+							 System.out.println("successor unit : "+body.getUnits().getSuccOf(unitFrmMdt));
+							 for (Unit eachUnit :body.getUnits() )
+							 {
+								 if(eachUnit.getTags().size()>0)
+								 {
+									 System.out.println("0ll.unit with tail tag : "+eachUnit.getTags().toString());
+									 System.out.println("0ll.unit with tail tag : "+eachUnit.toString());
+								 }
+							 }
+							 System.out.println("0.added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
+							 System.out.println("0.tags:"+body.getUnits().getSuccOf(unitFrmMdt).getTags());
+							 if(body.getUnits().getSuccOf(unitFrmMdt).getTags().size()>0)
+							 {
+								 System.out.println("size : "+body.getUnits().getSuccOf(unitFrmMdt).getTags().size());
+								 System.out.println("0ll.unit with tail tag : "+body.getUnits().getSuccOf(unitFrmMdt).getTags().toString());
+								 if (body.getUnits().getSuccOf(unitFrmMdt).getTags().toString().contains("successor"))
+									 System.out.println("successor found...");
+								 //System.out.println("0ll.unit with tail tag : "+body.getUnits().getSuccOf(unitFrmMdt).getTags().get(1).toString());
+								 System.out.println("0ll.unit with tail tag : "+body.getUnits().getSuccOf(unitFrmMdt).toString());
+							 }
 							 List<Unit> nonRetUnits = new ArrayList();
 							 
 							 InvokeExpr invokeExpr = stmt.getInvokeExpr();
@@ -551,18 +573,6 @@ public class Test {
 				            	 continue;
 							 //get the called mdt -each mdt
 				             Stmt nop1=Jimple.v().newNopStmt();
-				             Unit lastUnit =eachMdt.retrieveActiveBody().getUnits().getLast();
-				             Stmt lastUnitStmt =(Stmt) eachMdt.retrieveActiveBody().getUnits().getLast();
-				             //System.out.println("lastUnitStmt.branches() : "+ lastUnitStmt.branches());
-				             Unit preLast = eachMdt.getActiveBody().getUnits().getPredOf(eachMdt.retrieveActiveBody().getUnits().getLast());
-				             //System.out.println("getLast() unit : "+ lastUnit.toString());
-				             //System.out.println("predecessor of last unit : "+preLast.toString());
-				             //System.out.println("successor of the last unit : "+eachMdt.retrieveActiveBody().getUnits().getSuccOf(lastUnit));
-				             //if(lastUnit.toString().contains("return") || lastUnit.toString().contains("throw"))
-				             //if(!lastUnitStmt.branches())//if last unit is a branch, then we dont do this
-				             	//eachMdt.retrieveActiveBody().getUnits().swapWith(eachMdt.retrieveActiveBody().getUnits().getLast(), nop1);
-				             
-							 //eachMdt.retrieveActiveBody().getUnits().removeLast();
 							 //*****get the other tails*****
 							 Unit b4Tail = null;
 							 UnitGraph newone= new ExceptionalUnitGraph (eachMdt.getActiveBody());
@@ -577,14 +587,37 @@ public class Test {
 							 //add tag
 							 nop1.addTag(new StringTag("tail"));
 							 //get predecessor unit
-							 Unit firstTail = newone.getTails().get(0);
+							
 							 /*List<Unit> predecessorUnit = newone.getPredsOf(firstTail);
 							 for (Unit eachPredecessor:predecessorUnit)
 							 {
 								 eachPredecessor.addTag(new StringTag("predecessor"));
 							 }*/
 							 //get predecessor unit
+							 Unit firstTail = newone.getTails().get(0);
+							 for (Unit eachUnit :body.getUnits() )
+							 {
+								 if(eachUnit.getTags().size()>0)
+								 {
+									 if(eachUnit.getTags().get(0).toString() =="tail")
+										System.out.println("1.unit with tail tag : "+eachUnit.toString());
+									 if(eachUnit.getTags().get(0).toString() =="successor")
+											System.out.println("1.unit with tail tag : "+eachUnit.toString());
+								 }
+							 }
 							 eachMdt.retrieveActiveBody().getUnits().swapWith(firstTail, nop1);
+							 System.out.println("1.added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
+							 System.out.println("1.tags:"+body.getUnits().getSuccOf(unitFrmMdt).getTags());
+							 /*for (Unit eachUnit :body.getUnits() )
+							 {
+								 if(eachUnit.getTags().size()>0)
+								 {
+									 if(eachUnit.getTags().get(0).toString() =="tail")
+										System.out.println("2.unit with tail tag : "+eachUnit.toString());
+									 if(eachUnit.getTags().get(0).toString() =="successor")
+											System.out.println("2.unit with tail tag : "+eachUnit.toString());
+								 }
+							 }*/
 							 newone.getTails().remove(0);
 							 remainingTails = newone.getTails().size();
 							 if(remainingTails>0)
@@ -604,12 +637,37 @@ public class Test {
 									 //connect the b4Tail to the successor
 									 
 								 }
-								 
-							
 							 }
+							 System.out.println("2.added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
+							 System.out.println("2.tags:"+body.getUnits().getSuccOf(unitFrmMdt).getTags());
 							//*****get the other tails*****
 							//System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
 							 body.getUnits().insertOnEdge(eachMdt.retrieveActiveBody().getUnits(),unitFrmMdt, successor);
+							 /*for (Unit eachUnit :body.getUnits() )
+							 {
+								 if(eachUnit.getTags().size()>0)
+								 {
+									 if(eachUnit.getTags().get(0).toString() =="tail")
+										System.out.println("3.unit with tail tag : "+eachUnit.toString());
+									 if(eachUnit.getTags().get(0).toString() =="successor")
+											System.out.println("3.unit with tail tag : "+eachUnit.toString());
+								 }
+							 }*/
+							 System.out.println("3.added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
+							 System.out.println("3.tags:"+body.getUnits().getSuccOf(unitFrmMdt).getTags());	
+							 for (Unit eachUnit:body.getUnits())
+							 {
+								 if(eachUnit.getTags().size()>0)
+								 {
+									 Tag tagVal2 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
+									 if(tagVal2.toString().equals("successor"))
+									 {
+										 System.out.println("3.successor found : "+eachUnit.toString());
+										 System.out.println("3.successor tags : "+eachUnit.getTags().toString());
+									 }
+								 }
+								 
+							 }
 							 if(remainingTails>0)
 							 {
 								 for (Unit clonedRet:clonedTailList)
@@ -620,14 +678,50 @@ public class Test {
 									 body.getUnits().insertAfter(successor,clonedRet); //added in *****get the other tails***** 
 									 //body.getUnits().insertBefore(clonedRet,successor);
 									 //body.getUnits().remove(successor);
-								 }
-								 
+								 } 
 							 }
-					
+							 
+							 for (Unit eachUnit:body.getUnits())
+							 {
+								 if(eachUnit.getTags().size()>0)
+								 {
+									 Tag tagVal2 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
+									 if(tagVal2.toString().equals("successor"))
+									 {
+										 System.out.println("4.successor found : "+eachUnit.toString());
+										 System.out.println("4.successor tags : "+eachUnit.getTags().toString());
+									 }
+								 }
+							 }
 							 Body b = body;
+							 for (Unit eachUnit:b.getUnits())
+							 {
+								 if(eachUnit.getTags().size()>0)
+								 {
+									 Tag tagVal2 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
+									 if(tagVal2.toString().equals("successor"))
+									 {
+										 System.out.println("5.successor found : "+eachUnit.toString());
+										 System.out.println("5.successor tags : "+eachUnit.getTags().toString());
+									 }
+								 }
+							 }
                              //added tag for the successor unit
 							 //successor.addTag(new StringTag("successor"));
 						     BlockGraph bg = new BriefBlockGraph(b);//this line is needed to remove the duplicate block
+						     
+						     for (Unit eachUnit:b.getUnits())
+							 {
+								 if(eachUnit.getTags().size()>0)
+								 {
+									 Tag tagVal2 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
+									 if(tagVal2.toString().equals("successor"))
+									 {
+										 System.out.println("6.successor found : "+eachUnit.toString());
+										 System.out.println("6.successor tags : "+eachUnit.getTags().toString());
+									 }
+								 }
+							 }
 						     //***checking the tag***
 						     PatchingChain<Unit> unitsInDummyMdt1 = body.getUnits();
 						     for (Unit eachUnit:unitsInDummyMdt1)
@@ -638,7 +732,7 @@ public class Test {
 						     //***checking the tag***
 						     
 						     //print basic block info 
-							 
+						     
 							 //*****solve error*****
 							 System.out.println("mergedMtd : "+eachMdt.getSignature()+"\n");
 							 mergedMethodsList.add(eachMdt);
@@ -650,7 +744,7 @@ public class Test {
 								 a1.plot("dummymain" +"334.dot"); 
 							 a1.plot("dummymain" +"333.dot");
 							//***clear all the tags***
-							 StringTag tagVal1;
+							 Tag tagVal1;
 						     for (Unit eachUnit:unitsInDummyMdt1)
 						     {
 						    	 /*if(eachUnit.getTags().size()>0)
@@ -661,13 +755,16 @@ public class Test {
 						    	 //eachUnit.getTags().clear();
 						    	 if(eachUnit.getTags().size()>0)
 						    	 {
-						    		 if(eachUnit.getTags().size()==1)
-						    		 {
+						    		 //if(eachUnit.getTags().size()==1)
+						    		 //{
 						    			 //tagVal1 =  (StringTag) eachUnit.getTags().get(0);
 						    			 //if(tagVal1.toString() =="tail")
-						    			 if(eachUnit.getTags().get(0).toString() =="tail")
+						    			 tagVal1 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
+						    			 if(tagVal1.toString() =="tail")
 						    			 {
-						    				 eachUnit.getTags().clear();
+						    				 //eachUnit.getTags().clear();
+						    				 //eachUnit.removeTag("tail");
+						    				 eachUnit.getTags().remove(eachUnit.getTags().size()-1);
 						    				 String tailString = "oldtail_"+ tailCnt;
 						    				 //System.out.println("tailString : "+tailString.toString()+"\n");
 						    				 eachUnit.addTag(new StringTag(tailString));
@@ -681,15 +778,19 @@ public class Test {
 						    				 eachUnit.addTag(new StringTag(predString));
 						    			 }*/
 						    			 //if(tagVal1.toString() =="successor")
-						    			 if(eachUnit.getTags().get(0).toString() =="successor")
+						    			 //if(eachUnit.getTags().get(0).toString() =="successor")
+						    			 if(tagVal1.toString() =="successor")
 						    			 {
-						    				 eachUnit.getTags().clear();
+						    				 //eachUnit.getTags().clear();
+						    				 //eachUnit.removeTag(tagVal1.toString());
+						    				 eachUnit.getTags().remove(eachUnit.getTags().size()-1);
+						    				 System.out.println("successor removed!!!");
 						    				 String successorString = "oldsuccessor_"+ tailCnt;
 						    				 eachUnit.addTag(new StringTag(successorString));
 						    				 tailCnt++;
 						    				 //eachUnit.removeTag("successor"); 
 						    			 }
-						    		 }
+						    		 //}
 						    	 }
 						     
 						    	 if(eachUnit.getTags().size()>0)
@@ -1041,9 +1142,9 @@ public class Test {
 	   //System.setOut(out);
 	   System.out.println("done done done111...");
 	   String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
-	   String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
+	   //String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
 	   //String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
-	   //String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
+	   String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
 	   SetupApplication app = new SetupApplication
 	                (androidPlatformPath,
 	                        appPath);

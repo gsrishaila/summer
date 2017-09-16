@@ -56,6 +56,7 @@ import soot.util.Chain;
 public abstract class UnitGraph implements DirectedGraph<Unit> {
 	protected List<Unit> heads;
 	protected List<Unit> tails;
+	protected List<Unit> transferredTails;
 
 	protected Map<Unit, List<Unit>> unitToSuccs;
 	protected Map<Unit, List<Unit>> unitToPreds;
@@ -376,6 +377,20 @@ public abstract class UnitGraph implements DirectedGraph<Unit> {
 	public List<Unit> getTails() {
 		return tails;
 	}
+	
+	//added in function to transfer tail units to another list
+	//clear the tail list
+	public List<Unit> transferTails() {
+		if(tails.size()>0)
+		{
+		for (Unit tail:tails)
+		{
+			transferredTails.add(tail);
+		}
+		tails.clear();
+		}
+		return transferredTails;
+	}
 
 	public List<Unit> getPredsOf(Unit u) {
 		List<Unit> l = unitToPreds.get(u);
@@ -392,7 +407,22 @@ public abstract class UnitGraph implements DirectedGraph<Unit> {
 
 		return l;
 	}
-
+    //Added in
+	public List<Unit> setSuccsOf(Unit u,List<Unit> succList) {
+		//clear list
+		unitToSuccs.remove(u);
+		unitToSuccs.put(u,succList);
+		List<Unit> l = unitToSuccs.get(u);
+		if (l == null)
+			return Collections.emptyList();
+		return l;
+	}
+	
+	public Map<Unit,List<Unit>> getSuccMap() {
+		//clear list
+		return unitToSuccs;
+	}
+	//Added in
 	public int size() {
 		return unitChain.size();
 	}

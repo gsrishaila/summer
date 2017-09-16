@@ -40,6 +40,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import soot.Unit;
 import soot.UnitBox;
 import soot.jimple.GotoStmt;
+import soot.jimple.Jimple;
+import soot.jimple.Stmt;
 import soot.jimple.internal.JGotoStmt;
 
 /**
@@ -658,6 +660,9 @@ public class HashChain<E> extends AbstractCollection<E> implements Chain<E> {
 		// (in accordance w/ iterator semantics)
 
 		private X destination;
+		//*****Added in*****
+		private X old_temp;
+		//*****Added in*****
 		private long iteratorStateCount;
 
 		public LinkIterator(X item) {
@@ -697,10 +702,26 @@ public class HashChain<E> extends AbstractCollection<E> implements Chain<E> {
 				throw new ConcurrentModificationException();
 
 			Link<E> temp = currentLink.getNext();
+			//*****Added IN*****
+			//if (temp != null)
+				//System.out.println("temp : "+temp.toString());
+			//*****Added IN*****
 			if (temp == null) {
 				String exceptionMsg;
 				if (destination != null && destination != currentLink.getItem())
+				{
+					//*****Added IN*****
+					//System.out.println("destination : "+destination.toString());
+					//System.out.println("old_temp : "+old_temp.toString());
+					//System.out.println("currentLink : "+currentLink.toString());
+					/*Stmt nop=Jimple.v().newNopStmt();
+					destination =(X) nop;
+					return (E) nop;
+					System.out.println("currentLink.getNext() : "+temp.toString());*/
+					//*****Added IN*****
+					//was there initially
 					exceptionMsg = "HashChain.LinkIterator.next() reached end of chain without reaching specified tail unit";
+				}
 				else
 					exceptionMsg = "HashChain.LinkIterator.next() called past the end of the Chain";
 				throw new NoSuchElementException(exceptionMsg);
@@ -708,6 +729,10 @@ public class HashChain<E> extends AbstractCollection<E> implements Chain<E> {
 			currentLink = temp;
 
 			state = true;
+			//*****Added IN*****
+			//System.out.println("currentLink.getItem() : "+currentLink.getItem());
+			old_temp =(X) temp;
+			//*****Added IN*****
 			return currentLink.getItem();
 		}
 

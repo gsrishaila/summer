@@ -334,8 +334,23 @@ public class Block implements Iterable<Unit>
             strBuf.append(someUnit.toString() + ";" + System.getProperty("line.separator"));
             while(basicBlockIt.hasNext()){
                 someUnit = (Unit) basicBlockIt.next();
-                if(someUnit == mTail)
-                    break;
+                //*****Added In
+                //System.out.println("someUnit : "+someUnit.toString());
+                //System.out.println("mTail : "+mTail.toString());
+                //System.out.println("lastUnit : "+methodUnits.getLast());
+                //System.out.println("class : "+basicBlockIt.getClass());
+              
+                //*****Added In
+                if(someUnit == mTail) //original
+                	break;
+               //*****Added In
+                /*if(someUnit == mTail ||someUnit == methodUnits.getLast() ) //edited
+                {
+                	if(someUnit == methodUnits.getLast())
+                		mTail = methodUnits.getLast();
+                	break;
+                }*/
+              //*****Added In
                 strBuf.append(someUnit.toString() + ";" + System.getProperty("line.separator"));        
             }
             someUnit = mTail;
