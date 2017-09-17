@@ -492,6 +492,7 @@ public class Test {
 		Body body = null ;
 		SootMethod dummyMainMdt = null ;
 		int tailCnt=0,headCnt=0;
+		int noMdtsMerged =0;
 		//first get the dummy main mdt and its body
 		for (SootMethod eachMdt:entryPoint)
 		{
@@ -504,10 +505,10 @@ public class Test {
 		
 		for (SootMethod eachMdt:entryPoint)
 		{
+			//if(noMdtsMerged>45)
+				//return eachMdt;
 			//get the units frm dummy method
 			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
-			
-			
 			//get the dummymainmdt
 			if (eachMdt.getSignature() == mainMdtName )
 				continue;
@@ -526,8 +527,9 @@ public class Test {
 				
 				//if (eachMdt.getSignature() == "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>")
 					//continue;
+				
 				for (Unit unitFrmMdt:unitsInDummyMdt)
-				{
+				{	
 					Stmt stmt = (Stmt)unitFrmMdt ;
 					//if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")) && (eachMdt.getSignature().contains("onOptionsItemSelected")))
 					
@@ -735,6 +737,7 @@ public class Test {
 						     
 							 //*****solve error*****
 							 System.out.println("mergedMtd : "+eachMdt.getSignature()+"\n");
+							 noMdtsMerged++;
 							 mergedMethodsList.add(eachMdt);
 							 //*****solve error*****
 							 //BlockGraph bg1 = new BriefBlockGraph(b);
@@ -865,7 +868,8 @@ public class Test {
 						     break;
 						 }//remove if
 					}
-				}
+					
+				}//eachmdtloop
 			}
 		}
 		//******
@@ -1138,13 +1142,13 @@ public class Test {
 		}
 		
 	   //*****added in code2*****
-	   //PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
-	   //System.setOut(out);
+	   PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
+	   System.setOut(out);
 	   System.out.println("done done done111...");
 	   String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
-	   //String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
+	   String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
 	   //String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
-	   String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
+	   //String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
 	   SetupApplication app = new SetupApplication
 	                (androidPlatformPath,
 	                        appPath);
@@ -1244,7 +1248,7 @@ public class Test {
 	    //original while loop
 	    //***Adding all methods to sootMethodsObjectList 
 	    int origNoUnits = unitsInDummyMdt.size();
-	    
+	    int noOfLoops=0;
 	    while (true)
 	    {
 	    origNoUnits = unitsInDummyMdt.size(); //get initial number of units
@@ -1298,6 +1302,9 @@ public class Test {
 	    sootMethodsObjectList.clear();
 	    sootMethodsObjectList.add(entryPoint); //add the dummymain mdt
 		sootMethodsSignatureList.clear();
+		noOfLoops++;
+		if(noOfLoops==2)
+			break;
 	    //break;//for test
 		
 	    }//end of while

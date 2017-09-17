@@ -521,7 +521,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 		for (Iterator<Block> blockIt = blockList.iterator(); blockIt.hasNext();) {
 			succ_added=0;
 			Block block = blockIt.next();
-			if(blockList.size()==93 && block.toString().contains("Block 16:"))
+			if(blockList.size()==71 && block.toString().contains("Block 4:"))
 				System.out.println("forloop..."+ block.toString());
 			//get the tag of the tail unit of the block
 			Unit blkTailUnit = block.getTail();
@@ -652,9 +652,11 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 			//Added in to correct the successor units for the tails
 			else { //else was added after if*/
 			succUnits = unitGraph.getSuccsOf(block.getTail());
+			System.out.println("succUnits : "+succUnits.toString());
 			succBlocks = new ArrayList<Block>(succUnits.size());
 			for (Iterator<Unit> succIt = succUnits.iterator(); succIt.hasNext();) {
 				Unit succUnit = succIt.next();
+				//System.out.println("succUnit :"+succUnit);
 				Block succBlock = unitToBlock.get(succUnit);
 				//Added In
 				
@@ -735,6 +737,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 						String[] parts = tagVal1.toString().split("_");
 						//find the unit which is the successor of this with oldsuccessor_number
 						String succUnitTag = "oldsuccessor_" + parts[1];
+						System.out.println("succUnitTag : "+succUnitTag.toString());
 						for (Unit unitInChain:mUnits)
 						{
 							if(unitInChain.getTags().size()>0)
@@ -743,8 +746,10 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 								//if(tagVal2.toString().equals(succUnitTag))
 								//if(unitInChain.getTags().get(0).toString().equals(succUnitTag))
 								Tag unitInChainTag = unitInChain.getTags().get(unitInChain.getTags().size()-1);
+								System.out.println("unitInChainTag : "+unitInChainTag.toString());
 								//if(unitInChain.getTags().toString().contains(succUnitTag))
-								if(unitInChainTag.toString().contains(succUnitTag))
+								//if(unitInChainTag.toString().contains(succUnitTag))
+								if(unitInChainTag.toString().equals(succUnitTag))
 								{
 									List<Block> succBlocks2 = new ArrayList<Block>();
 									//System.out.println("tail found : "+block.getTail());
