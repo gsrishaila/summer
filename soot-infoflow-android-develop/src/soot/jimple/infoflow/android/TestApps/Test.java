@@ -169,6 +169,9 @@ public class Test {
 	private static int repeatCount = 1;
 	private static int timeout = -1;
 	private static int sysTimeout = -1;
+	//Added in for testing
+	static int noOfLoops=0;
+	//Added in for testing
 	
 	private static boolean aggressiveTaintWrapper = false;
 	private static boolean noTaintWrapper = false;
@@ -505,7 +508,7 @@ public class Test {
 		
 		for (SootMethod eachMdt:entryPoint)
 		{
-			//if(noMdtsMerged>45)
+			//if(noOfLoops==1&&noMdtsMerged>10)
 				//return eachMdt;
 			//get the units frm dummy method
 			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
@@ -1248,7 +1251,7 @@ public class Test {
 	    //original while loop
 	    //***Adding all methods to sootMethodsObjectList 
 	    int origNoUnits = unitsInDummyMdt.size();
-	    int noOfLoops=0;
+	    
 	    while (true)
 	    {
 	    origNoUnits = unitsInDummyMdt.size(); //get initial number of units
@@ -1303,8 +1306,8 @@ public class Test {
 	    sootMethodsObjectList.add(entryPoint); //add the dummymain mdt
 		sootMethodsSignatureList.clear();
 		noOfLoops++;
-		if(noOfLoops==2)
-			break;
+		//if(noOfLoops==2)
+			//break;
 	    //break;//for test
 		
 	    }//end of while

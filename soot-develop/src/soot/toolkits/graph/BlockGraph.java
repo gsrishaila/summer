@@ -731,6 +731,7 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 					
 					//if(tagVal1.toString().contains("oldtail"))
 					//if(block.getTail().getTags().toString().contains("oldtail"))
+					List<Block> succBlocks2 = new ArrayList<Block>();
 					if(tagVal1.toString().contains("oldtail"))
 					{
 						//get the number of the tail
@@ -751,7 +752,6 @@ public abstract class BlockGraph implements DirectedGraph<Block> {
 								//if(unitInChainTag.toString().contains(succUnitTag))
 								if(unitInChainTag.toString().equals(succUnitTag))
 								{
-									List<Block> succBlocks2 = new ArrayList<Block>();
 									//System.out.println("tail found : "+block.getTail());
 									//System.out.println("successor found : "+unitInChain.toString());
 									successorBlk = unitToBlock.get(unitInChain);
