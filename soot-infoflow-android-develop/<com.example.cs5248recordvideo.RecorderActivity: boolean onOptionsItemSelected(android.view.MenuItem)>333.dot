@@ -1,0 +1,13 @@
+digraph "boolean onOptionsItemSelected(android.view.MenuItem)" {
+    label="boolean onOptionsItemSelected(android.view.MenuItem)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this\l$r1 := @parameter0\l$i0 = $r1.getItemId()\llookupswitch($i0)\n        {\n            case 0: goto label2;\n            case 1: goto label3;\n            default: goto label1;\n        }\l",];
+    "1" [style=filled,fillcolor=lightgray,label="label1:\n$z0 = specialinvoke $r0.onOptionsItemSelected($r1)\lreturn $z0\l",];
+    "0"->"1";
+    "2" [label="label2:\n$r0.startedRecording = 1\l$r0.startRecording()\lgoto label1\l",];
+    "0"->"2";
+    "3" [label="label3:\n$r0.stoppedRecording = 1\l$r0.stopRecording()\l$r2 = new android.content.Intent\lspecialinvoke $r2.<init>($r0, class \"Lcom/example/cs5248recordvideo/UploaderActivity;\")\l$r0.startActivity($r2)\l$r0.finish()\lgoto label1\l",];
+    "0"->"3";
+    "2"->"1";
+    "3"->"1";
+}

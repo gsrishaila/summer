@@ -1,0 +1,13 @@
+digraph "void onDestroy()" {
+    label="void onDestroy()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this\lspecialinvoke $r0.onDestroy()\l$r1 = $r0.progDailog2\lif $r1 == null goto label1\l",];
+    "1" [label="$r1 = $r0.progDailog2\l$z0 = $r1.isShowing()\lif $z0 == 0 goto label1\l",];
+    "0"->"1";
+    "3" [style=filled,fillcolor=lightgray,label="label1:\nreturn\l",];
+    "0"->"3";
+    "2" [label="$r1 = $r0.progDailog2\l$r1.cancel()\l",];
+    "1"->"2";
+    "1"->"3";
+    "2"->"3";
+}

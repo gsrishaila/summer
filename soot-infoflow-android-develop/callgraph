@@ -1,393 +1,399 @@
 digraph "call-graph" {
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"
-    "<com.android.insecurebank.RawHistory: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.RawHistory: void <init>()>";
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>";
-    "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
-    "<com.android.insecurebank.RawHistory: void <init>()>"->"<android.os.Environment: java.io.File getExternalStorageDirectory()>";
-    "<java.lang.String: java.lang.String valueOf(java.lang.Object)>"
-    "<com.android.insecurebank.RawHistory: void <init>()>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
+    "<com.example.cs5248recordvideo.MainActivity$2: void <init>(com.example.cs5248recordvideo.MainActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$2: void <init>(com.example.cs5248recordvideo.MainActivity)>";
+    "<com.example.cs5248recordvideo.MainActivity$2: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$2: void onClick(android.view.View)>";
+    "<java.lang.Object: void <init>()>"
+    "<com.example.cs5248recordvideo.MainActivity$2: void <init>(com.example.cs5248recordvideo.MainActivity)>"->"<java.lang.Object: void <init>()>";
     "<java.lang.RuntimeException: void <init>(java.lang.String)>"
-    "<java.lang.String: java.lang.String valueOf(java.lang.Object)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
+    "<java.lang.Object: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
     "<java.lang.RuntimeException: void <init>(java.lang.String)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
     "<java.lang.Exception: void <init>()>"
     "<java.lang.RuntimeException: void <init>(java.lang.String)>"->"<java.lang.Exception: void <init>()>";
-    "<java.lang.StringBuilder: void <init>(java.lang.String)>"
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<java.lang.StringBuilder: java.lang.String toString()>"
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<android.webkit.WebChromeClient: void <init>()>"
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<android.webkit.WebChromeClient: void <init>()>";
-    "<android.app.Activity: void onCreate(android.os.Bundle)>"
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
-    "<android.app.Activity: void setContentView(int)>"
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
-    "<android.app.Activity: android.view.View findViewById(int)>"
-    "<com.android.insecurebank.RawHistory: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.RawHistory: void <init>()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.RawHistory: void <init>()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RawHistory: void <init>()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<android.app.Activity: void <init>()>"
-    "<com.android.insecurebank.RawHistory: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.android.insecurebank.Preferences: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.Preferences: void <init>()>";
-    "<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>";
-    "<android.preference.PreferenceActivity: void onCreate(android.os.Bundle)>"
-    "<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>"->"<android.preference.PreferenceActivity: void onCreate(android.os.Bundle)>";
-    "<android.preference.PreferenceActivity: void addPreferencesFromResource(int)>"
-    "<com.android.insecurebank.Preferences: void onCreate(android.os.Bundle)>"->"<android.preference.PreferenceActivity: void addPreferencesFromResource(int)>";
-    "<android.preference.PreferenceActivity: void <init>()>"
-    "<com.android.insecurebank.Preferences: void <init>()>"->"<android.preference.PreferenceActivity: void <init>()>";
-    "<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>";
-    "<java.lang.Object: void <init>()>"
-    "<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
-    "<java.lang.Object: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>";
-    "<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
-    "<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>";
-    "<com.android.insecurebank.LoginScreen: void access$0(com.android.insecurebank.LoginScreen,android.widget.CheckBox)>"
-    "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void access$0(com.android.insecurebank.LoginScreen,android.widget.CheckBox)>";
-    "<com.android.insecurebank.LoginScreen: android.widget.CheckBox access$1(com.android.insecurebank.LoginScreen)>"
-    "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: android.widget.CheckBox access$1(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>"->"<java.lang.Object: void <init>()>";
-    "<com.android.insecurebank.LoginScreen: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen: void <init>()>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<com.android.insecurebank.LoginScreen$3: void <init>(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<com.android.insecurebank.LoginScreen$2: void <init>(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<com.android.insecurebank.LoginScreen$1: void <init>(com.android.insecurebank.LoginScreen)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.LoginScreen: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.LoginScreen: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>";
-    "<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>";
-    "<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.android.insecurebank.InsecureBankActivity: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity: void <init>()>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<com.android.insecurebank.InsecureBankActivity$1: void <init>(com.android.insecurebank.InsecureBankActivity)>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
-    "<com.android.insecurebank.InsecureBankActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.InsecureBankActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>";
-    "<com.android.insecurebank.PostLogin$1: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$1: void onClick(android.view.View)>";
-    "<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>"->"<java.lang.Object: void <init>()>";
-    "<com.android.insecurebank.PostLogin$2: void <init>(com.android.insecurebank.PostLogin)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$2: void <init>(com.android.insecurebank.PostLogin)>";
-    "<com.android.insecurebank.PostLogin$2: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin$2: void onClick(android.view.View)>";
-    "<com.android.insecurebank.PostLogin$2: void <init>(com.android.insecurebank.PostLogin)>"->"<java.lang.Object: void <init>()>";
-    "<com.android.insecurebank.PostLogin: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin: void <init>()>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.os.Environment: java.io.File getExternalStorageDirectory()>";
-    "<android.util.Log: int i(java.lang.String,java.lang.String)>"
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.util.Log: int i(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<com.android.insecurebank.PostLogin$2: void <init>(com.android.insecurebank.PostLogin)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<com.android.insecurebank.PostLogin$1: void <init>(com.android.insecurebank.PostLogin)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<android.app.Activity: android.content.Intent getIntent()>"
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.content.Intent getIntent()>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.PostLogin: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.PostLogin: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.android.insecurebank.PostLogin: void showstatement()>"
-    "<com.android.insecurebank.PostLogin$2: void onClick(android.view.View)>"->"<com.android.insecurebank.PostLogin: void showstatement()>";
+    "<com.example.cs5248recordvideo.MainActivity$3: void <init>(com.example.cs5248recordvideo.MainActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$3: void <init>(com.example.cs5248recordvideo.MainActivity)>";
+    "<com.example.cs5248recordvideo.MainActivity$3: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$3: void onClick(android.view.View)>";
     "<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>"
-    "<com.android.insecurebank.PostLogin: void showstatement()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<android.app.Activity: void startActivity(android.content.Intent)>"
-    "<com.android.insecurebank.PostLogin: void showstatement()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"
-    "<com.android.insecurebank.PostLogin$1: void onClick(android.view.View)>"->"<com.android.insecurebank.PostLogin: void dotransfer()>";
-    "<java.lang.Integer: int parseInt(java.lang.String)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.Integer: int parseInt(java.lang.String)>";
-    "<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<android.util.Log: int d(java.lang.String,java.lang.String)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<android.util.Log: int d(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<android.util.Log: int i(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.Integer: int parseInt(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.Integer: int parseInt(java.lang.String)>";
-    "<java.lang.Integer: int parseInt(java.lang.String)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.MainActivity$3: void onClick(android.view.View)>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
+    "<com.example.cs5248recordvideo.MainActivity$3: void <init>(com.example.cs5248recordvideo.MainActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.MainActivity$1: void <init>(com.example.cs5248recordvideo.MainActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$1: void <init>(com.example.cs5248recordvideo.MainActivity)>";
+    "<com.example.cs5248recordvideo.MainActivity$1: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$1: void onClick(android.view.View)>";
+    "<com.example.cs5248recordvideo.MainActivity$1: void onClick(android.view.View)>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
+    "<com.example.cs5248recordvideo.MainActivity$1: void <init>(com.example.cs5248recordvideo.MainActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.MainActivity: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity: void <init>()>";
+    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>";
+    "<com.example.cs5248recordvideo.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>";
+    "<android.app.Activity: android.view.MenuInflater getMenuInflater()>"
+    "<com.example.cs5248recordvideo.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"->"<android.app.Activity: android.view.MenuInflater getMenuInflater()>";
+    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.MainActivity$3: void <init>(com.example.cs5248recordvideo.MainActivity)>";
+    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.MainActivity$2: void <init>(com.example.cs5248recordvideo.MainActivity)>";
+    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.MainActivity$1: void <init>(com.example.cs5248recordvideo.MainActivity)>";
+    "<android.app.Activity: void onCreate(android.os.Bundle)>"
+    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
+    "<android.app.Activity: void setContentView(int)>"
+    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
+    "<android.app.Activity: android.view.View findViewById(int)>"
+    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<android.app.Activity: void <init>()>"
+    "<com.example.cs5248recordvideo.MainActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2$1: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2$2: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<android.net.Uri: android.net.Uri parse(java.lang.String)>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<android.net.Uri: android.net.Uri parse(java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<java.lang.StringBuilder: void <init>(java.lang.String)>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
     "<java.lang.StringBuilder: java.lang.StringBuilder append(int)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.DataHelper: void <init>(android.content.Context)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<com.android.insecurebank.DataHelper: void <init>(android.content.Context)>";
-    "<com.android.insecurebank.DataHelper: void deleteAll()>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<com.android.insecurebank.DataHelper: void deleteAll()>";
-    "<com.android.insecurebank.DataHelper: long insert(java.lang.String)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<com.android.insecurebank.DataHelper: long insert(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<com.android.insecurebank.DataHelper: long insert(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<com.android.insecurebank.DataHelper: long insert(java.lang.String)>";
-    "<com.android.insecurebank.DataHelper: java.util.List selectAll()>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<com.android.insecurebank.DataHelper: java.util.List selectAll()>";
-    "<java.util.ArrayList: void <init>()>"
-    "<com.android.insecurebank.DataHelper: java.util.List selectAll()>"->"<java.util.ArrayList: void <init>()>";
-    "<java.util.ArrayList: boolean add(java.lang.Object)>"
-    "<com.android.insecurebank.DataHelper: java.util.List selectAll()>"->"<java.util.ArrayList: boolean add(java.lang.Object)>";
-    "<com.android.insecurebank.DataHelper$OpenHelper: void <init>(android.content.Context)>"
-    "<com.android.insecurebank.DataHelper: void <init>(android.content.Context)>"->"<com.android.insecurebank.DataHelper$OpenHelper: void <init>(android.content.Context)>";
-    "<android.database.sqlite.SQLiteOpenHelper: android.database.sqlite.SQLiteDatabase getWritableDatabase()>"
-    "<com.android.insecurebank.DataHelper: void <init>(android.content.Context)>"->"<android.database.sqlite.SQLiteOpenHelper: android.database.sqlite.SQLiteDatabase getWritableDatabase()>";
-    "<android.database.sqlite.SQLiteOpenHelper: void <init>(android.content.Context,java.lang.String,android.database.sqlite.SQLiteDatabase$CursorFactory,int)>"
-    "<com.android.insecurebank.DataHelper$OpenHelper: void <init>(android.content.Context)>"->"<android.database.sqlite.SQLiteOpenHelper: void <init>(android.content.Context,java.lang.String,android.database.sqlite.SQLiteDatabase$CursorFactory,int)>";
-    "<com.android.insecurebank.DataHelper: void <init>(android.content.Context)>"->"<java.lang.Object: void <init>()>";
-    "<java.io.FileWriter: void <init>(java.lang.String,boolean)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.io.FileWriter: void <init>(java.lang.String,boolean)>";
-    "<java.io.BufferedWriter: void <init>(java.io.Writer)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.io.BufferedWriter: void <init>(java.io.Writer)>";
-    "<java.io.BufferedWriter: void write(java.lang.String)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.io.BufferedWriter: void write(java.lang.String)>";
-    "<java.io.BufferedWriter: void newLine()>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.io.BufferedWriter: void newLine()>";
-    "<java.io.BufferedWriter: void flush()>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.io.BufferedWriter: void flush()>";
-    "<java.io.BufferedWriter: void close()>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.io.BufferedWriter: void close()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.io.BufferedWriter: void close()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.io.BufferedWriter: void close()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<java.lang.StringBuilder: void <init>()>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: void <init>()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.Transfer: void <init>()>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<com.android.insecurebank.Transfer: void <init>()>";
-    "<com.android.insecurebank.Transfer: int transferFunds(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<com.android.insecurebank.Transfer: int transferFunds(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.RestClient: void <init>()>"
-    "<com.android.insecurebank.Transfer: int transferFunds(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<com.android.insecurebank.RestClient: void <init>()>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"
-    "<com.android.insecurebank.Transfer: int transferFunds(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<java.lang.StringBuilder: java.lang.String toString()>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>"->"<java.lang.Object: void <init>()>";
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void access$0(com.example.cs5248recordvideo.PlayerActivity)>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity: void access$0(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: java.lang.Runnable access$1(com.example.cs5248recordvideo.PlayerActivity)>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity: java.lang.Runnable access$1(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<android.os.Handler: void <init>()>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<android.os.Handler: void <init>()>";
+    "<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity$2$2: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity$2$1: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$3: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$3: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$3: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$3: void onClick(android.view.View)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void access$2(com.example.cs5248recordvideo.PlayerActivity,java.lang.String)>"
+    "<com.example.cs5248recordvideo.PlayerActivity$3: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity: void access$2(com.example.cs5248recordvideo.PlayerActivity,java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$3: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity: void <init>()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>";
+    "<java.lang.String: void <init>()>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: void <init>()>";
+    "<java.lang.String: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
+    "<java.lang.String: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.PlayerActivity$3: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
+    "<android.app.Activity: void setRequestedOrientation(int)>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setRequestedOrientation(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$4: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>"->"<com.example.cs5248recordvideo.PlayerActivity$4: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$4: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<java.lang.Object: void <init>()>";
+    "<java.lang.Thread: void <init>(java.lang.Runnable)>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>"->"<java.lang.Thread: void <init>(java.lang.Runnable)>";
+    "<java.lang.Thread: void start()>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>"->"<java.lang.Thread: void start()>";
+    "<java.lang.Thread: void start()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$1: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void <init>()>"->"<com.example.cs5248recordvideo.PlayerActivity$1: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$1: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
+    "<com.example.cs5248recordvideo.RecorderActivity$1: void <init>(com.example.cs5248recordvideo.RecorderActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity$1: void <init>(com.example.cs5248recordvideo.RecorderActivity)>";
+    "<com.example.cs5248recordvideo.RecorderActivity$1: void surfaceChanged(android.view.SurfaceHolder,int,int,int)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity$1: void surfaceChanged(android.view.SurfaceHolder,int,int,int)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void access$0(com.example.cs5248recordvideo.RecorderActivity,int,int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity$1: void surfaceChanged(android.view.SurfaceHolder,int,int,int)>"->"<com.example.cs5248recordvideo.RecorderActivity: void access$0(com.example.cs5248recordvideo.RecorderActivity,int,int)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void access$1(com.example.cs5248recordvideo.RecorderActivity)>"
+    "<com.example.cs5248recordvideo.RecorderActivity$1: void surfaceChanged(android.view.SurfaceHolder,int,int,int)>"->"<com.example.cs5248recordvideo.RecorderActivity: void access$1(com.example.cs5248recordvideo.RecorderActivity)>";
+    "<com.example.cs5248recordvideo.RecorderActivity$1: void <init>(com.example.cs5248recordvideo.RecorderActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: void <init>()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void onResume()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: void onResume()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean onPrepareOptionsMenu(android.view.Menu)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: boolean onPrepareOptionsMenu(android.view.Menu)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void onPause()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: void onPause()>";
+    "<android.hardware.Camera: android.hardware.Camera open()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void onResume()>"->"<android.hardware.Camera: android.hardware.Camera open()>";
+    "<android.app.Activity: void onPause()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void onPause()>"->"<android.app.Activity: void onPause()>";
+    "<android.app.Activity: boolean onPrepareOptionsMenu(android.view.Menu)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean onPrepareOptionsMenu(android.view.Menu)>"->"<android.app.Activity: boolean onPrepareOptionsMenu(android.view.Menu)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
+    "<android.app.Activity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.app.Activity: boolean onOptionsItemSelected(android.view.MenuItem)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void stopRecording()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<com.example.cs5248recordvideo.RecorderActivity: void stopRecording()>";
+    "<android.app.Activity: void startActivity(android.content.Intent)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
+    "<android.app.Activity: void finish()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.app.Activity: void finish()>";
     "<android.util.Log: int e(java.lang.String,java.lang.String)>"
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<android.util.Log: int e(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<java.util.HashMap: void <init>()>"
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.util.HashMap: void <init>()>";
-    "<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>"
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>";
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>";
-    "<java.util.AbstractMap: java.lang.String toString()>"
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.util.AbstractMap: java.lang.String toString()>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>";
-    "<com.android.insecurebank.RestClient: int parseError(java.lang.String)>"
-    "<com.android.insecurebank.RestClient: int dotransfer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<com.android.insecurebank.RestClient: int parseError(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<android.util.Log: int e(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<com.android.insecurebank.RestClient: int parseError(java.lang.String)>"->"<java.lang.Integer: int parseInt(java.lang.String)>";
-    "<org.json.JSONObject: void <init>(java.lang.String)>"
-    "<com.android.insecurebank.RestClient: int parseError(java.lang.String)>"->"<org.json.JSONObject: void <init>(java.lang.String)>";
-    "<org.json.JSONObject: java.lang.String getString(java.lang.String)>"
-    "<com.android.insecurebank.RestClient: int parseError(java.lang.String)>"->"<org.json.JSONObject: java.lang.String getString(java.lang.String)>";
-    "<org.json.JSONObject: java.lang.String getString(java.lang.String)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<org.json.JSONObject: void <init>(java.lang.String)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<org.json.JSONObject: void <init>(java.lang.String)>"->"<java.lang.Object: void <init>()>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<java.io.InputStreamReader: void <init>(java.io.InputStream)>"
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.io.InputStreamReader: void <init>(java.io.InputStream)>";
-    "<java.io.BufferedReader: void <init>(java.io.Reader)>"
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.io.BufferedReader: void <init>(java.io.Reader)>";
-    "<java.io.BufferedReader: java.lang.String readLine()>"
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.io.BufferedReader: java.lang.String readLine()>";
-    "<java.io.DataOutputStream: void <init>(java.io.OutputStream)>"
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.io.DataOutputStream: void <init>(java.io.OutputStream)>";
-    "<java.io.DataOutputStream: void writeBytes(java.lang.String)>"
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.io.DataOutputStream: void writeBytes(java.lang.String)>";
-    "<java.io.DataOutputStream: void flush()>"
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.io.DataOutputStream: void flush()>";
-    "<java.io.DataOutputStream: void close()>"
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.io.DataOutputStream: void close()>";
-    "<java.net.URL: void <init>(java.lang.String)>"
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.net.URL: void <init>(java.lang.String)>";
-    "<java.net.URL: java.net.URLConnection openConnection()>"
-    "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>"->"<java.net.URL: java.net.URLConnection openConnection()>";
-    "<com.android.insecurebank.RestClient: void <init>()>"->"<java.lang.Object: void <init>()>";
-    "<android.app.Application: void <init>()>"
-    "<com.android.insecurebank.Transfer: void <init>()>"->"<android.app.Application: void <init>()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<android.app.Activity: android.content.Intent getIntent()>";
-    "<com.android.insecurebank.PostLogin: void dotransfer()>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"
-    "<com.android.insecurebank.InsecureBankActivity$1: void onClick(android.view.View)>"->"<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>";
-    "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<com.android.insecurebank.InsecureBankActivity: void goto_loginscreen()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
-    "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.android.insecurebank.LoginScreen: void rememberme()>"
-    "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void rememberme()>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"
-    "<com.android.insecurebank.LoginScreen$1: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: int dologin()>";
-    "<android.util.Base64: java.lang.String encodeToString(byte[],int)>"
-    "<com.android.insecurebank.LoginScreen: void rememberme()>"->"<android.util.Base64: java.lang.String encodeToString(byte[],int)>";
-    "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
-    "<android.preference.PreferenceManager: android.content.SharedPreferences getDefaultSharedPreferences(android.content.Context)>"
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.preference.PreferenceManager: android.content.SharedPreferences getDefaultSharedPreferences(android.content.Context)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.preference.PreferenceManager: android.content.SharedPreferences getDefaultSharedPreferences(android.content.Context)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>"
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<com.android.insecurebank.RestClient: void <init>()>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<android.util.Log: int e(java.lang.String,java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.util.HashMap: void <init>()>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.util.AbstractMap: java.lang.String toString()>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>";
-    "<com.android.insecurebank.RestClient: int doLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"->"<com.android.insecurebank.RestClient: int parseError(java.lang.String)>";
-    "<java.util.UUID: void <init>(long,long)>"
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.util.UUID: void <init>(long,long)>";
-    "<java.util.UUID: java.lang.String toString()>"
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.util.UUID: java.lang.String toString()>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.StringBuilder: void <init>()>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.StringBuilder: void <init>()>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.StringBuilder: void <init>()>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<android.view.ContextThemeWrapper: android.content.Context getBaseContext()>"
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.view.ContextThemeWrapper: android.content.Context getBaseContext()>";
-    "<android.view.ContextThemeWrapper: android.content.ContentResolver getContentResolver()>"
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.view.ContextThemeWrapper: android.content.ContentResolver getContentResolver()>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.view.ContextThemeWrapper: android.content.Context getBaseContext()>";
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
-    "<java.lang.String: void <init>(java.lang.String)>"
-    "<com.android.insecurebank.LoginScreen: void rememberme()>"->"<java.lang.String: void <init>(java.lang.String)>";
-    "<java.lang.String: void <init>(java.lang.String)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<java.lang.String: void <init>(java.lang.String)>"->"<java.lang.Object: void <init>()>";
-    "<android.view.ContextThemeWrapper: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>"
-    "<com.android.insecurebank.LoginScreen: void rememberme()>"->"<android.view.ContextThemeWrapper: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>";
-    "<java.lang.String: byte[] getBytes()>"
-    "<com.android.insecurebank.LoginScreen: void rememberme()>"->"<java.lang.String: byte[] getBytes()>";
-    "<java.lang.String: byte[] getBytes()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<com.android.insecurebank.LoginScreen: void setpref()>"
-    "<com.android.insecurebank.LoginScreen$3: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void setpref()>";
-    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<com.android.insecurebank.LoginScreen: void setpref()>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
-    "<com.android.insecurebank.LoginScreen: void fill_data()>"
-    "<com.android.insecurebank.LoginScreen$2: void onClick(android.view.View)>"->"<com.android.insecurebank.LoginScreen: void fill_data()>";
-    "<com.android.insecurebank.LoginScreen: void fill_data()>"->"<android.view.ContextThemeWrapper: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>";
-    "<java.lang.String: int hashCode()>"
-    "<com.android.insecurebank.LoginScreen: int dologin()>"->"<java.lang.String: int hashCode()>";
-    "<java.lang.String: int hashCode()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.util.Log: int e(java.lang.String,java.lang.String)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.util.Log: int e(java.lang.String,java.lang.String)>";
+    "<java.io.IOException: java.lang.String getMessage()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.IOException: java.lang.String getMessage()>";
+    "<java.io.IOException: void printStackTrace()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.IOException: void printStackTrace()>";
+    "<java.io.IOException: void <init>(java.lang.String)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.IOException: void <init>(java.lang.String)>";
+    "<java.io.File: java.io.File getParentFile()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.File: java.io.File getParentFile()>";
+    "<java.io.File: boolean exists()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.File: boolean exists()>";
+    "<java.io.File: boolean mkdirs()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.File: boolean mkdirs()>";
+    "<java.io.File: void <init>(java.lang.String)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.File: void <init>(java.lang.String)>";
+    "<android.media.MediaRecorder: void <init>()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void <init>()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void startTimer()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<com.example.cs5248recordvideo.RecorderActivity: void startTimer()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.app.Activity: void finish()>";
+    "<com.example.cs5248recordvideo.RecorderActivity$2: void <init>(com.example.cs5248recordvideo.RecorderActivity)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void startTimer()>"->"<com.example.cs5248recordvideo.RecorderActivity$2: void <init>(com.example.cs5248recordvideo.RecorderActivity)>";
+    "<com.example.cs5248recordvideo.RecorderActivity$2: void <init>(com.example.cs5248recordvideo.RecorderActivity)>"->"<java.lang.Object: void <init>()>";
+    "<android.app.Activity: void runOnUiThread(java.lang.Runnable)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void startTimer()>"->"<android.app.Activity: void runOnUiThread(java.lang.Runnable)>";
+    "<android.media.MediaRecorder: void setCamera(android.hardware.Camera)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setCamera(android.hardware.Camera)>";
+    "<android.media.MediaRecorder: void setAudioSource(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioSource(int)>";
+    "<android.media.MediaRecorder: void setVideoSource(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoSource(int)>";
+    "<android.media.MediaRecorder: void setOutputFormat(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setOutputFormat(int)>";
+    "<android.media.MediaRecorder: void setAudioEncodingBitRate(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioEncodingBitRate(int)>";
+    "<android.media.MediaRecorder: void setAudioChannels(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioChannels(int)>";
+    "<android.media.MediaRecorder: void setAudioSamplingRate(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioSamplingRate(int)>";
+    "<android.media.MediaRecorder: void setVideoSize(int,int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoSize(int,int)>";
+    "<android.media.MediaRecorder: void setVideoEncodingBitRate(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoEncodingBitRate(int)>";
+    "<android.media.MediaRecorder: void setOutputFile(java.lang.String)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setOutputFile(java.lang.String)>";
+    "<android.media.MediaRecorder: void setVideoFrameRate(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoFrameRate(int)>";
+    "<android.media.MediaRecorder: void setAudioEncoder(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioEncoder(int)>";
+    "<android.media.MediaRecorder: void setVideoEncoder(int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoEncoder(int)>";
+    "<android.media.MediaRecorder: void setPreviewDisplay(android.view.Surface)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setPreviewDisplay(android.view.Surface)>";
+    "<android.media.MediaRecorder: void setMaxFileSize(long)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setMaxFileSize(long)>";
+    "<android.media.MediaRecorder: void prepare()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void prepare()>";
+    "<android.media.MediaRecorder: void start()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void start()>";
+    "<android.app.Activity: void onResume()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void onResume()>"->"<android.app.Activity: void onResume()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void startPreview()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void onResume()>"->"<com.example.cs5248recordvideo.RecorderActivity: void startPreview()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void <init>()>"->"<com.example.cs5248recordvideo.RecorderActivity$1: void <init>(com.example.cs5248recordvideo.RecorderActivity)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$1: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$1: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$1: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$1: void onClick(android.view.View)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$1: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$4: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$4: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>";
+    "<android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean,boolean)>"
+    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean,boolean)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void access$3(com.example.cs5248recordvideo.UploaderActivity,android.app.ProgressDialog)>"
+    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity: void access$3(com.example.cs5248recordvideo.UploaderActivity,android.app.ProgressDialog)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$4$2: void <init>(com.example.cs5248recordvideo.UploaderActivity$4,android.os.Handler)>"
+    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity$4$2: void <init>(com.example.cs5248recordvideo.UploaderActivity$4,android.os.Handler)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<java.lang.Thread: void start()>";
+    "<java.lang.Thread: void <init>()>"
+    "<com.example.cs5248recordvideo.UploaderActivity$4$2: void <init>(com.example.cs5248recordvideo.UploaderActivity$4,android.os.Handler)>"->"<java.lang.Thread: void <init>()>";
+    "<java.lang.Thread: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<android.os.Handler: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$4$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$4)>"
+    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity$4$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$4)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$4$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$4)>"->"<android.os.Handler: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$4: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$3: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$3: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void access$1(com.example.cs5248recordvideo.UploaderActivity,java.lang.String[])>"
+    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity: void access$1(com.example.cs5248recordvideo.UploaderActivity,java.lang.String[])>";
+    "<com.example.cs5248recordvideo.UploaderActivity: java.lang.String[] access$2(com.example.cs5248recordvideo.UploaderActivity)>"
+    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity: java.lang.String[] access$2(com.example.cs5248recordvideo.UploaderActivity)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<java.lang.String: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$3$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$3)>"
+    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity$3$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$3)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$3$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$3)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<java.lang.Thread: void <init>(java.lang.Runnable)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<java.lang.Thread: void start()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$3: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$2: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$2: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>";
+    "<android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean)>"
+    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$2$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$2,android.app.ProgressDialog,android.os.Handler)>"
+    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity$2$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$2,android.app.ProgressDialog,android.os.Handler)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$2$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$2,android.app.ProgressDialog,android.os.Handler)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<java.lang.Thread: void <init>(java.lang.Runnable)>";
+    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<java.lang.Thread: void start()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<android.os.Handler: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$2: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"->"<java.lang.Object: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onDestroy()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity: void onDestroy()>";
+    "<java.util.Calendar: java.util.Calendar getInstance()>"
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.util.Calendar: java.util.Calendar getInstance()>";
+    "<java.lang.String: java.lang.String valueOf(java.lang.Object)>"
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
+    "<java.lang.String: java.lang.String valueOf(int)>"
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(int)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
+    "<java.lang.String: java.lang.String valueOf(int)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
+    "<java.lang.String: java.lang.String valueOf(java.lang.Object)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
+    "<android.app.Activity: void onDestroy()>"
+    "<com.example.cs5248recordvideo.UploaderActivity: void onDestroy()>"->"<android.app.Activity: void onDestroy()>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.UploaderActivity$4: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.UploaderActivity$3: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.UploaderActivity$2: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.UploaderActivity$1: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.io.File: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.io.File: boolean mkdirs()>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<java.text.SimpleDateFormat: void <init>(java.lang.String)>"
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.text.SimpleDateFormat: void <init>(java.lang.String)>";
+    "<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>"
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
+    "<com.example.cs5248recordvideo.UploaderActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
+    "<com.example.cs5248recordvideo.UploaderActivity$1: void onClick(android.view.View)>"->"<android.app.Activity: void finish()>";
+    "<android.media.MediaRecorder: void stop()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void stopRecording()>"->"<android.media.MediaRecorder: void stop()>";
+    "<android.media.MediaRecorder: void release()>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void stopRecording()>"->"<android.media.MediaRecorder: void release()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void access$1(com.example.cs5248recordvideo.RecorderActivity)>"->"<com.example.cs5248recordvideo.RecorderActivity: void startPreview()>";
+    "<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void access$0(com.example.cs5248recordvideo.RecorderActivity,int,int)>"->"<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>";
+    "<android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>"->"<android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>";
+    "<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
+    "<com.example.cs5248recordvideo.RecorderActivity: android.hardware.Camera$Size getBestPreviewSize(int,int,android.hardware.Camera$Parameters)>"
+    "<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>"->"<com.example.cs5248recordvideo.RecorderActivity: android.hardware.Camera$Size getBestPreviewSize(int,int,android.hardware.Camera$Parameters)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload(java.lang.String)>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void access$2(com.example.cs5248recordvideo.PlayerActivity,java.lang.String)>"->"<com.example.cs5248recordvideo.PlayerActivity: void startDownload(java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload(java.lang.String)>"->"<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<android.os.AsyncTask: android.os.AsyncTask execute(java.lang.Object[])>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload(java.lang.String)>"->"<android.os.AsyncTask: android.os.AsyncTask execute(java.lang.Object[])>";
+    "<android.os.AsyncTask: void <init>()>"
+    "<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<android.os.AsyncTask: void <init>()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload2()>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void access$0(com.example.cs5248recordvideo.PlayerActivity)>"->"<com.example.cs5248recordvideo.PlayerActivity: void startDownload2()>";
+    "<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
+    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload2()>"->"<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload2()>"->"<android.os.AsyncTask: android.os.AsyncTask execute(java.lang.Object[])>";
+    "<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<android.os.AsyncTask: void <init>()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"
+    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
+    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
+    "<com.example.cs5248recordvideo.MainActivity$1: void onClick(android.view.View)>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
+    "<com.example.cs5248recordvideo.MainActivity$3: void onClick(android.view.View)>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
+    "<com.example.cs5248recordvideo.MainActivity$2: void onClick(android.view.View)>"->"<android.app.Activity: void finish()>";
 }

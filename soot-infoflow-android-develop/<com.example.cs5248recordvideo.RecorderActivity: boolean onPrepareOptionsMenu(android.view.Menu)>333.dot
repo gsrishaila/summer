@@ -1,0 +1,17 @@
+digraph "boolean onPrepareOptionsMenu(android.view.Menu)" {
+    label="boolean onPrepareOptionsMenu(android.view.Menu)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this\l$r1 := @parameter0\lspecialinvoke $r0.onPrepareOptionsMenu($r1)\l$r1.clear()\l$r1.add(0, 0, 0, \"Start Recording\")\l$r1.add(1, 1, 0, \"Stop Recording\")\l$r1.setGroupVisible(0, 0)\l$r1.setGroupVisible(1, 0)\l$z0 = $r0.startedRecording\lif $z0 != 0 goto label1\l",];
+    "1" [style=filled,fillcolor=lightgray,label="$r1.setGroupVisible(0, 1)\lreturn 1\l",];
+    "0"->"1";
+    "2" [label="label1:\n$z0 = $r0.startedRecording\lif $z0 == 0 goto label2\l",];
+    "0"->"2";
+    "3" [label="$z0 = $r0.stoppedRecording\lif $z0 != 0 goto label2\l",];
+    "2"->"3";
+    "5" [style=filled,fillcolor=lightgray,label="label2:\nreturn 1\l",];
+    "2"->"5";
+    "4" [label="$r1.setGroupVisible(1, 1)\l",];
+    "3"->"4";
+    "3"->"5";
+    "4"->"5";
+}

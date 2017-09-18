@@ -1,0 +1,18 @@
+digraph "boolean startRecording()" {
+    label="boolean startRecording()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 := @this\l$r1 = $r0.camera\llabel01:\n$r1.unlock()\llabel02:\nr11 = new android.media.MediaRecorder\llabel03:\nspecialinvoke r11.<init>()\llabel04:\n$r0.mediaRecorder = r11\l$r2 = $r0.mediaRecorder\l$r1 = $r0.camera\llabel05:\n$r2.setCamera($r1)\llabel06:\n$r2 = $r0.mediaRecorder\llabel07:\n$r2.setAudioSource(1)\llabel08:\n$r2 = $r0.mediaRecorder\llabel09:\n$r2.setVideoSource(1)\llabel10:\n$r2 = $r0.mediaRecorder\llabel11:\n$r2.setOutputFormat(2)\llabel12:\n$r2 = $r0.mediaRecorder\llabel13:\n$r2.setAudioEncodingBitRate(160000)\llabel14:\n$r2 = $r0.mediaRecorder\llabel15:\n$r2.setAudioChannels(2)\llabel16:\n$r2 = $r0.mediaRecorder\llabel17:\n$r2.setAudioSamplingRate(48000)\llabel18:\n$r2 = $r0.mediaRecorder\llabel19:\n$r2.setVideoSize(720, 480)\llabel20:\n$r2 = $r0.mediaRecorder\llabel21:\n$r2.setVideoEncodingBitRate(3145728)\llabel22:\nr12 = new java.io.File\l$r3 = r12\llabel23:\nspecialinvoke r12.<init>(\"/sdcard/Client/Input/file.mp4\")\l$r3 = $r3.getParentFile()\l$z0 = $r3.exists()\llabel24:\nif $z0 != 0 goto label30\l",];
+    "1" [label="label25:\n$z0 = $r3.mkdirs()\llabel26:\nif $z0 != 0 goto label30\l",];
+    "0"->"1";
+    "4" [label="label30:\n$r2 = $r0.mediaRecorder\llabel31:\n$r2.setOutputFile(\"/sdcard/Client/Input/file.mp4\")\llabel32:\n$r2 = $r0.mediaRecorder\llabel33:\n$r2.setVideoFrameRate(24)\l",];
+    "0"->"4";
+    "2" [style=filled,fillcolor=lightgray,label="r13 = new java.io.IOException\l$r4 = r13\llabel27:\nspecialinvoke r13.<init>(\"Directory Doesn\'t exist\")\llabel28:\nthrow $r4\l",];
+    "1"->"2";
+    "1"->"4";
+    "3" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="label29:\n$r5 := @caughtexception\lr14 = (java.lang.IllegalStateException) $r5\l$r6 = r14.getMessage()\landroid.util.Log.e(null, $r6)\lr14 = (java.lang.IllegalStateException) $r5\lr14.printStackTrace()\lreturn 0\l",];
+    "5" [style=filled,fillcolor=lightgray,label="label34:\n$r2 = $r0.mediaRecorder\llabel35:\n$r2.setAudioEncoder(3)\llabel36:\n$r2 = $r0.mediaRecorder\llabel37:\n$r2.setVideoEncoder(2)\llabel38:\n$r2 = $r0.mediaRecorder\l$r7 = $r0.surfaceholder\llabel39:\n$r8 = $r7.getSurface()\l$r2.setPreviewDisplay($r8)\llabel40:\n$r2 = $r0.mediaRecorder\llabel41:\n$r2.setMaxFileSize(900000000L)\llabel42:\n$r2 = $r0.mediaRecorder\llabel43:\n$r2.prepare()\l$r0.startTimer()\llabel44:\n$r2 = $r0.mediaRecorder\llabel45:\n$r2.start()\llabel46:\nreturn 1\l",];
+    "4"->"5";
+    "6" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="label47:\n$r9 := @caughtexception\l$r4 = (java.io.IOException) $r9\l$r6 = $r4.getMessage()\landroid.util.Log.e(null, $r6)\l$r4 = (java.io.IOException) $r9\l$r4.printStackTrace()\lreturn 0\l",];
+    "7" [style=filled,fillcolor=gray,label="label48:\n$r10 := @caughtexception\llabel49:\n$r0.finish()\llabel50:\ngoto label34\l",];
+    "7"->"5";
+}

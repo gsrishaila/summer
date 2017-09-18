@@ -1,0 +1,5 @@
+digraph "void access$0(com.example.cs5248recordvideo.RecorderActivity,int,int)" {
+    label="void access$0(com.example.cs5248recordvideo.RecorderActivity,int,int)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @parameter0\l$i0 := @parameter1\l$i1 := @parameter2\lspecialinvoke $r0.initPreview($i0, $i1)\lreturn\l",];
+}

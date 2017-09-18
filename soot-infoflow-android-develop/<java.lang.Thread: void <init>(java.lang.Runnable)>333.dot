@@ -1,0 +1,5 @@
+digraph "void <init>(java.lang.Runnable)" {
+    label="void <init>(java.lang.Runnable)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="this := @this\lp0 := @parameter0\lthis.target0 = p0\lreturn\l",];
+}

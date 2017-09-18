@@ -1,0 +1,5 @@
+digraph "void onClick(android.view.View)" {
+    label="void onClick(android.view.View)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 := @parameter0\l$r4 = $r0.this$0\l$r5 = $r0.this$0\l$r3 = android.app.ProgressDialog.show($r5, \"Uploader \", \"Uploading....May the force be with you\", 1, 0)\lcom.example.cs5248recordvideo.UploaderActivity.access$3($r4, $r3)\l$r4 = $r0.this$0\l$r6 = new com.example.cs5248recordvideo.UploaderActivity$4$1\lspecialinvoke $r6.<init>($r0)\l$r4.myHandler2 = $r6\l$r2 = new android.os.Handler\lspecialinvoke $r2.<init>()\l$r7 = new com.example.cs5248recordvideo.UploaderActivity$4$2\lspecialinvoke $r7.<init>($r0, $r2)\l$r7.start()\lreturn\l",];
+}

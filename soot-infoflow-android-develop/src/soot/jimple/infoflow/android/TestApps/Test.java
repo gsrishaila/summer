@@ -171,6 +171,7 @@ public class Test {
 	private static int sysTimeout = -1;
 	//Added in for testing
 	static int noOfLoops=0;
+	static int tailCnt=0,headCnt=0;
 	//Added in for testing
 	
 	private static boolean aggressiveTaintWrapper = false;
@@ -494,7 +495,7 @@ public class Test {
 		List<Unit> tailList = new ArrayList();
 		Body body = null ;
 		SootMethod dummyMainMdt = null ;
-		int tailCnt=0,headCnt=0;
+		
 		int noMdtsMerged =0;
 		//first get the dummy main mdt and its body
 		for (SootMethod eachMdt:entryPoint)
@@ -508,7 +509,7 @@ public class Test {
 		
 		for (SootMethod eachMdt:entryPoint)
 		{
-			//if(noOfLoops==1&&noMdtsMerged>10)
+			//if(noOfLoops==1&&noMdtsMerged>0)
 				//return eachMdt;
 			//get the units frm dummy method
 			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
@@ -555,8 +556,8 @@ public class Test {
 							 {
 								 if(eachUnit.getTags().size()>0)
 								 {
-									 System.out.println("0ll.unit with tail tag : "+eachUnit.getTags().toString());
-									 System.out.println("0ll.unit with tail tag : "+eachUnit.toString());
+									 System.out.println("EachUnit : "+eachUnit.toString());
+									 System.out.println("Tags of the unit : "+eachUnit.getTags().toString());
 								 }
 							 }
 							 System.out.println("0.added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
@@ -1149,9 +1150,10 @@ public class Test {
 	   System.setOut(out);
 	   System.out.println("done done done111...");
 	   String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
-	   String appPath = "/home/shaila/Desktop/flowdroid2/soot-infoflow-android-develop/insecureBank/InsecureBank.apk";
+	   
 	   //String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
 	   //String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
+	   String appPath = "/home/shaila/Desktop/MyDPT12.apk";
 	   SetupApplication app = new SetupApplication
 	                (androidPlatformPath,
 	                        appPath);

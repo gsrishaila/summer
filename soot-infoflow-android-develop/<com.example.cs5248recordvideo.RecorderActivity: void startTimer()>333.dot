@@ -1,0 +1,5 @@
+digraph "void startTimer()" {
+    label="void startTimer()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 = new com.example.cs5248recordvideo.RecorderActivity$2\lspecialinvoke $r1.<init>($r0)\l$r0.runOnUiThread($r1)\lreturn\l",];
+}

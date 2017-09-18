@@ -1,0 +1,5 @@
+digraph "void <init>(com.example.cs5248recordvideo.PlayerActivity$2)" {
+    label="void <init>(com.example.cs5248recordvideo.PlayerActivity$2)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 := @parameter0\l$r0.this$1 = $r1\lspecialinvoke $r0.<init>()\lreturn\l",];
+}
