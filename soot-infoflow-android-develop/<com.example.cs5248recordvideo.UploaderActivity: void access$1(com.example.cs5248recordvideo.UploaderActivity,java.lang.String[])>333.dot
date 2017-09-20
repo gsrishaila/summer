@@ -1,5 +1,0 @@
-digraph "void access$1(com.example.cs5248recordvideo.UploaderActivity,java.lang.String[])" {
-    label="void access$1(com.example.cs5248recordvideo.UploaderActivity,java.lang.String[])";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @parameter0\l$r1 := @parameter1\l$r0.values = $r1\lreturn\l",];
-}

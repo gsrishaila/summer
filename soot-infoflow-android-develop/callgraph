@@ -1,399 +1,43 @@
 digraph "call-graph" {
     "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"
-    "<com.example.cs5248recordvideo.MainActivity$2: void <init>(com.example.cs5248recordvideo.MainActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$2: void <init>(com.example.cs5248recordvideo.MainActivity)>";
-    "<com.example.cs5248recordvideo.MainActivity$2: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$2: void onClick(android.view.View)>";
-    "<java.lang.Object: void <init>()>"
-    "<com.example.cs5248recordvideo.MainActivity$2: void <init>(com.example.cs5248recordvideo.MainActivity)>"->"<java.lang.Object: void <init>()>";
-    "<java.lang.RuntimeException: void <init>(java.lang.String)>"
-    "<java.lang.Object: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<java.lang.RuntimeException: void <init>(java.lang.String)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<java.lang.Exception: void <init>()>"
-    "<java.lang.RuntimeException: void <init>(java.lang.String)>"->"<java.lang.Exception: void <init>()>";
-    "<com.example.cs5248recordvideo.MainActivity$3: void <init>(com.example.cs5248recordvideo.MainActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$3: void <init>(com.example.cs5248recordvideo.MainActivity)>";
-    "<com.example.cs5248recordvideo.MainActivity$3: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$3: void onClick(android.view.View)>";
-    "<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>"
-    "<com.example.cs5248recordvideo.MainActivity$3: void onClick(android.view.View)>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<com.example.cs5248recordvideo.MainActivity$3: void <init>(com.example.cs5248recordvideo.MainActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.MainActivity$1: void <init>(com.example.cs5248recordvideo.MainActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$1: void <init>(com.example.cs5248recordvideo.MainActivity)>";
-    "<com.example.cs5248recordvideo.MainActivity$1: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity$1: void onClick(android.view.View)>";
-    "<com.example.cs5248recordvideo.MainActivity$1: void onClick(android.view.View)>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<com.example.cs5248recordvideo.MainActivity$1: void <init>(com.example.cs5248recordvideo.MainActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.MainActivity: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity: void <init>()>";
-    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>";
-    "<com.example.cs5248recordvideo.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>";
-    "<android.app.Activity: android.view.MenuInflater getMenuInflater()>"
-    "<com.example.cs5248recordvideo.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"->"<android.app.Activity: android.view.MenuInflater getMenuInflater()>";
-    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.MainActivity$3: void <init>(com.example.cs5248recordvideo.MainActivity)>";
-    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.MainActivity$2: void <init>(com.example.cs5248recordvideo.MainActivity)>";
-    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.MainActivity$1: void <init>(com.example.cs5248recordvideo.MainActivity)>";
-    "<android.app.Activity: void onCreate(android.os.Bundle)>"
-    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
-    "<android.app.Activity: void setContentView(int)>"
-    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
-    "<android.app.Activity: android.view.View findViewById(int)>"
-    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.MainActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<android.app.Activity: void <init>()>"
-    "<com.example.cs5248recordvideo.MainActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2$1: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void onPrepared(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$1: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2$2: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<android.net.Uri: android.net.Uri parse(java.lang.String)>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<android.net.Uri: android.net.Uri parse(java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: com.example.cs5248recordvideo.PlayerActivity access$0(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<java.lang.StringBuilder: void <init>(java.lang.String)>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<java.lang.StringBuilder: java.lang.StringBuilder append(int)>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<java.lang.StringBuilder: java.lang.String toString()>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>"->"<java.lang.Object: void <init>()>";
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void access$0(com.example.cs5248recordvideo.PlayerActivity)>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity: void access$0(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: java.lang.Runnable access$1(com.example.cs5248recordvideo.PlayerActivity)>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity: java.lang.Runnable access$1(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<android.os.Handler: void <init>()>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<android.os.Handler: void <init>()>";
-    "<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity$2$2: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity$2$1: void <init>(com.example.cs5248recordvideo.PlayerActivity$2)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$3: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$3: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$3: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity$3: void onClick(android.view.View)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void access$2(com.example.cs5248recordvideo.PlayerActivity,java.lang.String)>"
-    "<com.example.cs5248recordvideo.PlayerActivity$3: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.PlayerActivity: void access$2(com.example.cs5248recordvideo.PlayerActivity,java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$3: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity: void <init>()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>";
-    "<java.lang.String: void <init>()>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: void <init>()>";
-    "<java.lang.String: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<java.lang.String: void <init>()>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.PlayerActivity$3: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.PlayerActivity$2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
-    "<android.app.Activity: void setRequestedOrientation(int)>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setRequestedOrientation(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$4: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>"->"<com.example.cs5248recordvideo.PlayerActivity$4: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$4: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<java.lang.Object: void <init>()>";
-    "<java.lang.Thread: void <init>(java.lang.Runnable)>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>"->"<java.lang.Thread: void <init>(java.lang.Runnable)>";
-    "<java.lang.Thread: void start()>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void selectPlaylist()>"->"<java.lang.Thread: void start()>";
-    "<java.lang.Thread: void start()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$1: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void <init>()>"->"<com.example.cs5248recordvideo.PlayerActivity$1: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$1: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.example.cs5248recordvideo.RecorderActivity$1: void <init>(com.example.cs5248recordvideo.RecorderActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity$1: void <init>(com.example.cs5248recordvideo.RecorderActivity)>";
-    "<com.example.cs5248recordvideo.RecorderActivity$1: void surfaceChanged(android.view.SurfaceHolder,int,int,int)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity$1: void surfaceChanged(android.view.SurfaceHolder,int,int,int)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void access$0(com.example.cs5248recordvideo.RecorderActivity,int,int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity$1: void surfaceChanged(android.view.SurfaceHolder,int,int,int)>"->"<com.example.cs5248recordvideo.RecorderActivity: void access$0(com.example.cs5248recordvideo.RecorderActivity,int,int)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void access$1(com.example.cs5248recordvideo.RecorderActivity)>"
-    "<com.example.cs5248recordvideo.RecorderActivity$1: void surfaceChanged(android.view.SurfaceHolder,int,int,int)>"->"<com.example.cs5248recordvideo.RecorderActivity: void access$1(com.example.cs5248recordvideo.RecorderActivity)>";
-    "<com.example.cs5248recordvideo.RecorderActivity$1: void <init>(com.example.cs5248recordvideo.RecorderActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: void <init>()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void onResume()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: void onResume()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean onPrepareOptionsMenu(android.view.Menu)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: boolean onPrepareOptionsMenu(android.view.Menu)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void onPause()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.RecorderActivity: void onPause()>";
-    "<android.hardware.Camera: android.hardware.Camera open()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void onResume()>"->"<android.hardware.Camera: android.hardware.Camera open()>";
-    "<android.app.Activity: void onPause()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void onPause()>"->"<android.app.Activity: void onPause()>";
-    "<android.app.Activity: boolean onPrepareOptionsMenu(android.view.Menu)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean onPrepareOptionsMenu(android.view.Menu)>"->"<android.app.Activity: boolean onPrepareOptionsMenu(android.view.Menu)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>";
-    "<android.app.Activity: boolean onOptionsItemSelected(android.view.MenuItem)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.app.Activity: boolean onOptionsItemSelected(android.view.MenuItem)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void stopRecording()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<com.example.cs5248recordvideo.RecorderActivity: void stopRecording()>";
-    "<android.app.Activity: void startActivity(android.content.Intent)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
-    "<android.app.Activity: void finish()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.app.Activity: void finish()>";
-    "<android.util.Log: int e(java.lang.String,java.lang.String)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.util.Log: int e(java.lang.String,java.lang.String)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.util.Log: int e(java.lang.String,java.lang.String)>";
-    "<java.io.IOException: java.lang.String getMessage()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.IOException: java.lang.String getMessage()>";
-    "<java.io.IOException: void printStackTrace()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.IOException: void printStackTrace()>";
-    "<java.io.IOException: void <init>(java.lang.String)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.IOException: void <init>(java.lang.String)>";
-    "<java.io.File: java.io.File getParentFile()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.File: java.io.File getParentFile()>";
-    "<java.io.File: boolean exists()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.File: boolean exists()>";
-    "<java.io.File: boolean mkdirs()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.File: boolean mkdirs()>";
-    "<java.io.File: void <init>(java.lang.String)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<java.io.File: void <init>(java.lang.String)>";
-    "<android.media.MediaRecorder: void <init>()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void <init>()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void startTimer()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<com.example.cs5248recordvideo.RecorderActivity: void startTimer()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.app.Activity: void finish()>";
-    "<com.example.cs5248recordvideo.RecorderActivity$2: void <init>(com.example.cs5248recordvideo.RecorderActivity)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void startTimer()>"->"<com.example.cs5248recordvideo.RecorderActivity$2: void <init>(com.example.cs5248recordvideo.RecorderActivity)>";
-    "<com.example.cs5248recordvideo.RecorderActivity$2: void <init>(com.example.cs5248recordvideo.RecorderActivity)>"->"<java.lang.Object: void <init>()>";
-    "<android.app.Activity: void runOnUiThread(java.lang.Runnable)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void startTimer()>"->"<android.app.Activity: void runOnUiThread(java.lang.Runnable)>";
-    "<android.media.MediaRecorder: void setCamera(android.hardware.Camera)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setCamera(android.hardware.Camera)>";
-    "<android.media.MediaRecorder: void setAudioSource(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioSource(int)>";
-    "<android.media.MediaRecorder: void setVideoSource(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoSource(int)>";
-    "<android.media.MediaRecorder: void setOutputFormat(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setOutputFormat(int)>";
-    "<android.media.MediaRecorder: void setAudioEncodingBitRate(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioEncodingBitRate(int)>";
-    "<android.media.MediaRecorder: void setAudioChannels(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioChannels(int)>";
-    "<android.media.MediaRecorder: void setAudioSamplingRate(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioSamplingRate(int)>";
-    "<android.media.MediaRecorder: void setVideoSize(int,int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoSize(int,int)>";
-    "<android.media.MediaRecorder: void setVideoEncodingBitRate(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoEncodingBitRate(int)>";
-    "<android.media.MediaRecorder: void setOutputFile(java.lang.String)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setOutputFile(java.lang.String)>";
-    "<android.media.MediaRecorder: void setVideoFrameRate(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoFrameRate(int)>";
-    "<android.media.MediaRecorder: void setAudioEncoder(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setAudioEncoder(int)>";
-    "<android.media.MediaRecorder: void setVideoEncoder(int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setVideoEncoder(int)>";
-    "<android.media.MediaRecorder: void setPreviewDisplay(android.view.Surface)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setPreviewDisplay(android.view.Surface)>";
-    "<android.media.MediaRecorder: void setMaxFileSize(long)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void setMaxFileSize(long)>";
-    "<android.media.MediaRecorder: void prepare()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void prepare()>";
-    "<android.media.MediaRecorder: void start()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: boolean startRecording()>"->"<android.media.MediaRecorder: void start()>";
-    "<android.app.Activity: void onResume()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void onResume()>"->"<android.app.Activity: void onResume()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void startPreview()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void onResume()>"->"<com.example.cs5248recordvideo.RecorderActivity: void startPreview()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void <init>()>"->"<com.example.cs5248recordvideo.RecorderActivity$1: void <init>(com.example.cs5248recordvideo.RecorderActivity)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$1: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$1: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$1: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$1: void onClick(android.view.View)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$1: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$4: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$4: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>";
-    "<android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean,boolean)>"
-    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean,boolean)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void access$3(com.example.cs5248recordvideo.UploaderActivity,android.app.ProgressDialog)>"
-    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity: void access$3(com.example.cs5248recordvideo.UploaderActivity,android.app.ProgressDialog)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$4$2: void <init>(com.example.cs5248recordvideo.UploaderActivity$4,android.os.Handler)>"
-    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity$4$2: void <init>(com.example.cs5248recordvideo.UploaderActivity$4,android.os.Handler)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<java.lang.Thread: void start()>";
-    "<java.lang.Thread: void <init>()>"
-    "<com.example.cs5248recordvideo.UploaderActivity$4$2: void <init>(com.example.cs5248recordvideo.UploaderActivity$4,android.os.Handler)>"->"<java.lang.Thread: void <init>()>";
-    "<java.lang.Thread: void <init>()>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<android.os.Handler: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$4$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$4)>"
-    "<com.example.cs5248recordvideo.UploaderActivity$4: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity$4$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$4)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$4$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$4)>"->"<android.os.Handler: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$4: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$3: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$3: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void access$1(com.example.cs5248recordvideo.UploaderActivity,java.lang.String[])>"
-    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity: void access$1(com.example.cs5248recordvideo.UploaderActivity,java.lang.String[])>";
-    "<com.example.cs5248recordvideo.UploaderActivity: java.lang.String[] access$2(com.example.cs5248recordvideo.UploaderActivity)>"
-    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity: java.lang.String[] access$2(com.example.cs5248recordvideo.UploaderActivity)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<java.lang.String: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$3$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$3)>"
-    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity$3$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$3)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$3$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$3)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<java.lang.Thread: void <init>(java.lang.Runnable)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$3: void onClick(android.view.View)>"->"<java.lang.Thread: void start()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$3: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$2: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$2: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>";
-    "<android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean)>"
-    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$2$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$2,android.app.ProgressDialog,android.os.Handler)>"
-    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<com.example.cs5248recordvideo.UploaderActivity$2$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$2,android.app.ProgressDialog,android.os.Handler)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$2$1: void <init>(com.example.cs5248recordvideo.UploaderActivity$2,android.app.ProgressDialog,android.os.Handler)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<java.lang.Thread: void <init>(java.lang.Runnable)>";
-    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<java.lang.Thread: void start()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$2: void onClick(android.view.View)>"->"<android.os.Handler: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$2: void <init>(com.example.cs5248recordvideo.UploaderActivity)>"->"<java.lang.Object: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void <init>()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onDestroy()>"
-    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.cs5248recordvideo.UploaderActivity: void onDestroy()>";
-    "<java.util.Calendar: java.util.Calendar getInstance()>"
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.util.Calendar: java.util.Calendar getInstance()>";
-    "<java.lang.String: java.lang.String valueOf(java.lang.Object)>"
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<java.lang.String: java.lang.String valueOf(int)>"
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(int)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.String: java.lang.String valueOf(java.lang.Object)>";
-    "<java.lang.String: java.lang.String valueOf(int)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<java.lang.String: java.lang.String valueOf(java.lang.Object)>"->"<java.lang.RuntimeException: void <init>(java.lang.String)>";
-    "<android.app.Activity: void onDestroy()>"
-    "<com.example.cs5248recordvideo.UploaderActivity: void onDestroy()>"->"<android.app.Activity: void onDestroy()>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.UploaderActivity$4: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.UploaderActivity$3: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.UploaderActivity$2: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<com.example.cs5248recordvideo.UploaderActivity$1: void <init>(com.example.cs5248recordvideo.UploaderActivity)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.io.File: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.io.File: boolean mkdirs()>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<java.text.SimpleDateFormat: void <init>(java.lang.String)>"
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.text.SimpleDateFormat: void <init>(java.lang.String)>";
-    "<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>"
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void onCreate(android.os.Bundle)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: void setContentView(int)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void onCreate(android.os.Bundle)>"->"<android.app.Activity: android.view.View findViewById(int)>";
-    "<com.example.cs5248recordvideo.UploaderActivity: void <init>()>"->"<android.app.Activity: void <init>()>";
-    "<com.example.cs5248recordvideo.UploaderActivity$1: void onClick(android.view.View)>"->"<android.app.Activity: void finish()>";
-    "<android.media.MediaRecorder: void stop()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void stopRecording()>"->"<android.media.MediaRecorder: void stop()>";
-    "<android.media.MediaRecorder: void release()>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void stopRecording()>"->"<android.media.MediaRecorder: void release()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void access$1(com.example.cs5248recordvideo.RecorderActivity)>"->"<com.example.cs5248recordvideo.RecorderActivity: void startPreview()>";
-    "<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void access$0(com.example.cs5248recordvideo.RecorderActivity,int,int)>"->"<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>";
-    "<android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>"->"<android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>";
+    "<com.example.gsrishaila.myapplication.MyService: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: void <init>()>";
+    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>";
+    "<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: android.os.IBinder onBind(android.content.Intent)>";
+    "<com.example.gsrishaila.myapplication.MyService: void onDestroy()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MyService: void onDestroy()>";
     "<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
-    "<com.example.cs5248recordvideo.RecorderActivity: android.hardware.Camera$Size getBestPreviewSize(int,int,android.hardware.Camera$Parameters)>"
-    "<com.example.cs5248recordvideo.RecorderActivity: void initPreview(int,int)>"->"<com.example.cs5248recordvideo.RecorderActivity: android.hardware.Camera$Size getBestPreviewSize(int,int,android.hardware.Camera$Parameters)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload(java.lang.String)>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void access$2(com.example.cs5248recordvideo.PlayerActivity,java.lang.String)>"->"<com.example.cs5248recordvideo.PlayerActivity: void startDownload(java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload(java.lang.String)>"->"<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<android.os.AsyncTask: android.os.AsyncTask execute(java.lang.Object[])>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload(java.lang.String)>"->"<android.os.AsyncTask: android.os.AsyncTask execute(java.lang.Object[])>";
-    "<android.os.AsyncTask: void <init>()>"
-    "<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<android.os.AsyncTask: void <init>()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload2()>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void access$0(com.example.cs5248recordvideo.PlayerActivity)>"->"<com.example.cs5248recordvideo.PlayerActivity: void startDownload2()>";
-    "<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"
-    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload2()>"->"<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void startDownload2()>"->"<android.os.AsyncTask: android.os.AsyncTask execute(java.lang.Object[])>";
-    "<com.example.cs5248recordvideo.PlayerActivity$DownloadFileAsync2: void <init>(com.example.cs5248recordvideo.PlayerActivity)>"->"<android.os.AsyncTask: void <init>()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"
-    "<com.example.cs5248recordvideo.PlayerActivity$2$2: void onCompletion(android.media.MediaPlayer)>"->"<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: void <init>(java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.StringBuilder append(int)>";
-    "<com.example.cs5248recordvideo.PlayerActivity: void displaytext()>"->"<java.lang.StringBuilder: java.lang.String toString()>";
-    "<com.example.cs5248recordvideo.MainActivity$1: void onClick(android.view.View)>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
-    "<com.example.cs5248recordvideo.MainActivity$3: void onClick(android.view.View)>"->"<android.app.Activity: void startActivity(android.content.Intent)>";
-    "<com.example.cs5248recordvideo.MainActivity$2: void onClick(android.view.View)>"->"<android.app.Activity: void finish()>";
+    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
+    "<android.media.MediaPlayer: android.media.MediaPlayer create(android.content.Context,int)>"
+    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"->"<android.media.MediaPlayer: android.media.MediaPlayer create(android.content.Context,int)>";
+    "<android.util.Log: int d(java.lang.String,java.lang.String)>"
+    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"->"<android.util.Log: int d(java.lang.String,java.lang.String)>";
+    "<com.example.gsrishaila.myapplication.MyService: void onDestroy()>"->"<android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>";
+    "<android.app.Service: void onDestroy()>"
+    "<com.example.gsrishaila.myapplication.MyService: void onDestroy()>"->"<android.app.Service: void onDestroy()>";
+    "<android.app.Service: android.content.Context getApplicationContext()>"
+    "<com.example.gsrishaila.myapplication.MyService: int onStartCommand(android.content.Intent,int,int)>"->"<android.app.Service: android.content.Context getApplicationContext()>";
+    "<android.app.Service: void <init>()>"
+    "<com.example.gsrishaila.myapplication.MyService: void <init>()>"->"<android.app.Service: void <init>()>";
+    "<com.example.gsrishaila.myapplication.MainActivity: void <init>()>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: void <init>()>";
+    "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>";
+    "<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
+    "<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>"->"<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>";
+    "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"->"<android.util.Log: int d(java.lang.String,java.lang.String)>";
+    "<android.support.v7.app.AppCompatActivity: android.view.MenuInflater getMenuInflater()>"
+    "<com.example.gsrishaila.myapplication.MainActivity: boolean onCreateOptionsMenu(android.view.Menu)>"->"<android.support.v7.app.AppCompatActivity: android.view.MenuInflater getMenuInflater()>";
+    "<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+    "<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"->"<android.support.v7.app.AppCompatActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
+    "<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>"
+    "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"->"<android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)>";
+    "<android.support.v7.app.AppCompatActivity: void setContentView(int)>"
+    "<com.example.gsrishaila.myapplication.MainActivity: void onCreate(android.os.Bundle)>"->"<android.support.v7.app.AppCompatActivity: void setContentView(int)>";
+    "<android.support.v7.app.AppCompatActivity: void <init>()>"
+    "<com.example.gsrishaila.myapplication.MainActivity: void <init>()>"->"<android.support.v7.app.AppCompatActivity: void <init>()>";
 }

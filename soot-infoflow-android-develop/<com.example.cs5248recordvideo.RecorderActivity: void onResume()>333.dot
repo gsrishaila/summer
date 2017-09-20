@@ -1,5 +1,0 @@
-digraph "void onResume()" {
-    label="void onResume()";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\lspecialinvoke $r0.onResume()\l$r1 = android.hardware.Camera.open()\l$r0.camera = $r1\lspecialinvoke $r0.startPreview()\lreturn\l",];
-}

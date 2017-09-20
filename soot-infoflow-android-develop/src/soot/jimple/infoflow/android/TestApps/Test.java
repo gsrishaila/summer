@@ -246,250 +246,7 @@ public class Test {
 	    
 		System.out.println("***End of CFG Generation***" + entryPoint.getName()+"\n");
 	}
-	
-	public static void findFunctionsToMerge (Queue<SootMethod> mdtsInBody, SootMethod bodyMdt)
-	{
-		//System.out.println("findFunctionsToMerge bodyMdt: "+bodyMdt.getSignature());
-		for (SootMethod mdtFrmQ:mdtsInBody)
-		{
-			//System.out.println("mdtsInBodyQ: "+mdtFrmQ.getSignature());
-		}
-		List<Unit> tailList = new ArrayList();
-		Body body = null;
-		
-		SootMethod nextMdt  = null;
-		subFunctions.put(bodyMdt, mdtsInBody);
-	    //while (mdtsInBody.size()>0)
-		for (SootMethod mdtCalled:mdtsInBody)
-		{
-	    	Queue<SootMethod> newMdtQueue = new LinkedList<SootMethod>();
-			//nextMdt = mdtsInBody.poll();
-	    	nextMdt = mdtCalled;
-			//System.out.println("pop from Q : "+nextMdt.getSignature());
-			/*if (nextMdt.getSignature().contains("android.support.v7.app.AppCompatActivity"))
-			{
-				System.out.println("MdtName111: "+nextMdt.getSignature());
-				System.out.println("android.support.v7.app.AppCompatActivity ret...: ");
-				return;
-			}*/
-		
-			/*if (mdtsInBody.size()==0)
-			{
-				System.out.println("mdtsInBody Q size = 0...: ");
-				return;
-			}*/
-			//no support for android.support.v7.app.AppCompatActivity
-			
-			//body = nextMdt.getActiveBody();
-			if (nextMdt.hasActiveBody())
-			{
-				body = nextMdt.getActiveBody();
-				System.out.println("MdtName: "+nextMdt.getSignature());
-				System.out.println("mdt HAS active body ");
-				//System.out.println("mdt has active body ");
-			}
-			else
-			{
-				System.out.println("MdtName: "+nextMdt.getSignature());
-				System.out.println("mdt has no active body ");
-				continue;
-			}
-	
-			
-			//System.out.println("body info : "+body.toString());
-			
-			if(body==null)
-			{
-				//System.out.println("\nError:body is null... ");
-			}
-			//get the next sootMethod
-			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
-			
-			for (Unit unitInMdt:unitsInDummyMdt)
-			{
-				Stmt stmt = (Stmt)unitInMdt ;
-				if (stmt != null) 
-				{
-		            if (stmt.containsInvokeExpr()) 
-		            {
-		            	//System.out.println("stmt111: "+stmt.toString());
-		                InvokeExpr invokeExpr = stmt.getInvokeExpr();
-		                SootMethod method = invokeExpr.getMethod();
-		                //System.out.println("stmt222: "+method.getSignature());
-		                newMdtQueue.add(method);
-		                
-		                //System.out.println("get methodbody...");
-		                Body b =null;
-		                //if method has an active body, the add in into the newMdtQueue
-		                if (method.hasActiveBody())
-		    			{
-		    				b = method.getActiveBody();
-		    				//System.out.println("mdt has active body ");
-		    				
-		    			}
-		    			else
-		    			{
-		    				//System.out.println("mdt has no active body ");
-		    				continue;
-		    			}
-		                 
-		            }
-				}
-			}//end of for loop
-			
-			//recurse
-			//System.out.println("nextMdt: "+nextMdt.getSignature());
-			for (SootMethod mdtFrmQ:newMdtQueue)
-			{
-				//System.out.println("mdtFrmQ: "+mdtFrmQ.getSignature());
-			}
-			
-			findFunctionsToMerge (newMdtQueue,nextMdt);
-		}
-	    return;
-		//recurse
-	}
-	
-	
-	public static SootMethod mergeCFG1023s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
-	{
-		Body body = null ;
-		SootMethod dummyMainMdt = null ;
-		int initNoUnits=0;
-		int currNoUnits=0;
-		PatchingChain<Unit> unitsInDummyMdt = null;
-		//for called Mdt
-		InvokeExpr invokeExpr = null;
-		SootMethod calledMdt  = null;
-		UnitGraph calledMdtUnitGraph = null;
-		List<Unit> tailList = new ArrayList();
-		List<Unit> headList = new ArrayList();
-		List<Unit> newTailList = new ArrayList();
-		Unit successor = null;
-		Unit predecessor = null;
-		int firstTail =0;
-		//collect the list of merged Mdt Sig
-		List<String> mergedMdts = new ArrayList();
-		
-		//first get the dummy main mdt and its body
-		for (SootMethod eachMdt:entryPoint)
-		{
-			if (eachMdt.getName().contains(mainMdtName) )
-			{
-				body = eachMdt.retrieveActiveBody();
-				dummyMainMdt = eachMdt;//dummyMainMdt refer to the mainMdtName
-				currNoUnits = body.getUnits().size();
-				
-			}
-		}
-		int loopcnt =0;
-		//while (currNoUnits>initNoUnits)
-		while (loopcnt<15)
-		{
-			//get the units for this body
-			unitsInDummyMdt = body.getUnits();
-			//go through the units in this chain
-			for (Unit eachUnitInDummy:unitsInDummyMdt)
-			{
-				Stmt stmt = (Stmt)eachUnitInDummy ;
-				if (stmt.containsInvokeExpr()) 
-				{
-					
-					invokeExpr = stmt.getInvokeExpr();
-					calledMdt  = invokeExpr.getMethod();
-		            if(!calledMdt.hasActiveBody() || mergedMdts.contains(calledMdt.getSignature()))
-		            	 continue;
-		            loopcnt++;
-		            //if(calledMdt.getSignature().equals("<com.android.insecurebank.PostLogin: void dotransfer()>"))
-		            	//break;
-		            System.out.println("calledMdt : "+calledMdt.getSignature());
-		            calledMdtUnitGraph = new ExceptionalUnitGraph (calledMdt.retrieveActiveBody());
-		            //get all the tails
-		            tailList = calledMdtUnitGraph.getTails();
-		            headList = calledMdtUnitGraph.getHeads();
-		            successor = body.getUnits().getSuccOf(eachUnitInDummy);
-		            predecessor = body.getUnits().getPredOf(eachUnitInDummy);
-		            
-		            //connect each head to the predecessor
-		            for (Unit tailUnit:tailList )
-		            {
-		            	Stmt nopStmt=Jimple.v().newNopStmt();
-		            	calledMdt.retrieveActiveBody().getUnits().swapWith(tailUnit,nopStmt);
-		            	//body.getUnits().insertBefore(nopStmt,successor);
-		            	newTailList.add(nopStmt);
-		            	
-		            }
-		            for (Unit headUnit:headList )
-		            {
-		            	//body.getUnits().insertAfter(headUnit,predecessor);//works
-		            	body.getUnits().insertAfter(calledMdt.retrieveActiveBody().getUnits(),eachUnitInDummy);//works
-		            }
-		            
-		            //check if all the nop has a successor
-		            for (Unit nopUnits:newTailList)
-		            {
-		            	Unit nopSucc= null;
-		            	nopSucc = body.getUnits().getSuccOf(nopUnits);
-		            	if(nopSucc!=null)
-		            		System.out.println("nopSucc : "+nopSucc.toString());
-		            	else
-		            		System.out.println("nopUnits is NULL");
-		            }
-		            
-		            //connect each tail to the successor
-		            
-		            
-		            /*for (Unit tailUnit:tailList )
-		            {
-		            	Stmt nopStmt=Jimple.v().newNopStmt();
-		            	//original condition
-		            	if(firstTail==0)
-		            	//if(tailList.size()==1)//will work with no errors
-		            	{
-		            		calledMdt.retrieveActiveBody().getUnits().swapWith(tailUnit,nopStmt);
-		            		body.getUnits().insertOnEdge(calledMdt.retrieveActiveBody().getUnits(),eachUnitInDummy, successor);
-		            		System.out.println("eachUnitInDummy : "+eachUnitInDummy.toString());
-		            		System.out.println("successor : "+successor.toString());
-		            		System.out.println("calledMdt : "+calledMdt.getSignature());
-		            		System.out.println("\n");
-		            		++firstTail;
-		            	}	
-		            	else
-		            	{
-		            		Stmt nopStmt1=Jimple.v().newNopStmt();
-		            		//there is more than one tail
-		            		System.out.println("another tail : "+tailUnit.toString());
-		            		
-		            		calledMdt.retrieveActiveBody().getUnits().swapWith(tailUnit,nopStmt1);
-		            		body.getUnits().insertAfter(nopStmt1,predecessor);//works
-		            		body.getUnits().insertBefore(nopStmt1,successor);
-		            	}
-		            	
-		            }
-		            firstTail=0;*/
-		            newTailList.clear();
-		            mergedMdts.add(calledMdt.getSignature());
-		            //create the graph
-		            Body b = body;
-		    	    BlockGraph bg = new BriefBlockGraph(b);
-		    	    CFGToDotGraph y = new CFGToDotGraph();
-		    		DotGraph a1=y.drawCFG(bg,b);
-		    		a1.plot("dummymain" +"333.dot");
-		            break;
-				}
-				
-			}//end of the for loop
-			initNoUnits = currNoUnits;
-			currNoUnits = body.getUnits().size();
-		}//while loop
-		
-		
-		return dummyMainMdt;
-	}	
-	
-	
-	
-	//public static void mergeCFG1021s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
+
 	public static SootMethod mergeCFG1021s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
 	{
 		List<Unit> tailList = new ArrayList();
@@ -509,8 +266,6 @@ public class Test {
 		
 		for (SootMethod eachMdt:entryPoint)
 		{
-			//if(noOfLoops==1&&noMdtsMerged>0)
-				//return eachMdt;
 			//get the units frm dummy method
 			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
 			//get the dummymainmdt
@@ -522,62 +277,24 @@ public class Test {
 			}
 			else
 			{
-				System.out.println("ToMerge : "+eachMdt.getSignature());
-				if (eachMdt.getSignature() == "<com.android.insecurebank.PostLogin: void dotransfer()>")
-				{
-					System.out.println("debug here...");
-				}
-					//continue;
-				
-				//if (eachMdt.getSignature() == "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>")
-					//continue;
-				
+				System.out.println("ToMerge : "+eachMdt.getSignature());		
 				for (Unit unitFrmMdt:unitsInDummyMdt)
 				{	
 					Stmt stmt = (Stmt)unitFrmMdt ;
-					//if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")) && (eachMdt.getSignature().contains("onOptionsItemSelected")))
-					
-					//if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")))
 					if (stmt.containsInvokeExpr()) 
 					{
-						 //System.out.println("invoke stmt : "+stmt.toString());
 						 InvokeExpr invokeExpr1 = stmt.getInvokeExpr();
-			             //eachMdt = invokeExpr1.getMethod();
-			             //eachMdt.getActiveBody();
 						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
 						 {
-							 //System.out.println("got into if : "+stmt.toString());
-							 if (eachMdt.getSignature() == "<com.android.insecurebank.PostLogin: void dotransfer()>")
-								 System.out.println("llll:::<com.android.insecurebank.PostLogin: void dotransfer()>");
 							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
 							 body.getUnits().getSuccOf(unitFrmMdt).addTag(new StringTag("successor"));
-							 System.out.println("successor unit : "+body.getUnits().getSuccOf(unitFrmMdt));
-							 for (Unit eachUnit :body.getUnits() )
-							 {
-								 if(eachUnit.getTags().size()>0)
-								 {
-									 System.out.println("EachUnit : "+eachUnit.toString());
-									 System.out.println("Tags of the unit : "+eachUnit.getTags().toString());
-								 }
-							 }
-							 System.out.println("0.added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
-							 System.out.println("0.tags:"+body.getUnits().getSuccOf(unitFrmMdt).getTags());
-							 if(body.getUnits().getSuccOf(unitFrmMdt).getTags().size()>0)
-							 {
-								 System.out.println("size : "+body.getUnits().getSuccOf(unitFrmMdt).getTags().size());
-								 System.out.println("0ll.unit with tail tag : "+body.getUnits().getSuccOf(unitFrmMdt).getTags().toString());
-								 if (body.getUnits().getSuccOf(unitFrmMdt).getTags().toString().contains("successor"))
-									 System.out.println("successor found...");
-								 //System.out.println("0ll.unit with tail tag : "+body.getUnits().getSuccOf(unitFrmMdt).getTags().get(1).toString());
-								 System.out.println("0ll.unit with tail tag : "+body.getUnits().getSuccOf(unitFrmMdt).toString());
-							 }
 							 List<Unit> nonRetUnits = new ArrayList();
 							 
 							 InvokeExpr invokeExpr = stmt.getInvokeExpr();
 				             eachMdt = invokeExpr.getMethod();
 				             if(!eachMdt.hasActiveBody())
 				            	 continue;
-							 //get the called mdt -each mdt
+	
 				             Stmt nop1=Jimple.v().newNopStmt();
 							 //*****get the other tails*****
 							 Unit b4Tail = null;
@@ -590,40 +307,13 @@ public class Test {
 							 Unit cloneNexUnit = (Unit) nop.clone();
 							 List<Unit> clonedTailList = new ArrayList();
 							 
-							 //add tag
 							 nop1.addTag(new StringTag("tail"));
-							 //get predecessor unit
 							
-							 /*List<Unit> predecessorUnit = newone.getPredsOf(firstTail);
-							 for (Unit eachPredecessor:predecessorUnit)
-							 {
-								 eachPredecessor.addTag(new StringTag("predecessor"));
-							 }*/
-							 //get predecessor unit
 							 Unit firstTail = newone.getTails().get(0);
-							 for (Unit eachUnit :body.getUnits() )
-							 {
-								 if(eachUnit.getTags().size()>0)
-								 {
-									 if(eachUnit.getTags().get(0).toString() =="tail")
-										System.out.println("1.unit with tail tag : "+eachUnit.toString());
-									 if(eachUnit.getTags().get(0).toString() =="successor")
-											System.out.println("1.unit with tail tag : "+eachUnit.toString());
-								 }
-							 }
+							
 							 eachMdt.retrieveActiveBody().getUnits().swapWith(firstTail, nop1);
-							 System.out.println("1.added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
-							 System.out.println("1.tags:"+body.getUnits().getSuccOf(unitFrmMdt).getTags());
-							 /*for (Unit eachUnit :body.getUnits() )
-							 {
-								 if(eachUnit.getTags().size()>0)
-								 {
-									 if(eachUnit.getTags().get(0).toString() =="tail")
-										System.out.println("2.unit with tail tag : "+eachUnit.toString());
-									 if(eachUnit.getTags().get(0).toString() =="successor")
-											System.out.println("2.unit with tail tag : "+eachUnit.toString());
-								 }
-							 }*/
+							 
+						
 							 newone.getTails().remove(0);
 							 remainingTails = newone.getTails().size();
 							 if(remainingTails>0)
@@ -639,41 +329,12 @@ public class Test {
 									 b4Tail =newone.getBody().getUnits().getPredOf(eachTailUnit);
 									 System.out.println("b4Tail.toString() : "+b4Tail.toString());
 									 newone.getBody().getUnits().swapWith(eachTailUnit, cloneNexUnit);
-									 //body.getUnits().remove(eachTailUnit); //added in *****get the other tails***** 
-									 //connect the b4Tail to the successor
-									 
 								 }
 							 }
-							 System.out.println("2.added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
-							 System.out.println("2.tags:"+body.getUnits().getSuccOf(unitFrmMdt).getTags());
 							//*****get the other tails*****
 							//System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
 							 body.getUnits().insertOnEdge(eachMdt.retrieveActiveBody().getUnits(),unitFrmMdt, successor);
-							 /*for (Unit eachUnit :body.getUnits() )
-							 {
-								 if(eachUnit.getTags().size()>0)
-								 {
-									 if(eachUnit.getTags().get(0).toString() =="tail")
-										System.out.println("3.unit with tail tag : "+eachUnit.toString());
-									 if(eachUnit.getTags().get(0).toString() =="successor")
-											System.out.println("3.unit with tail tag : "+eachUnit.toString());
-								 }
-							 }*/
-							 System.out.println("3.added tag:"+body.getUnits().getSuccOf(unitFrmMdt).toString());
-							 System.out.println("3.tags:"+body.getUnits().getSuccOf(unitFrmMdt).getTags());	
-							 for (Unit eachUnit:body.getUnits())
-							 {
-								 if(eachUnit.getTags().size()>0)
-								 {
-									 Tag tagVal2 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
-									 if(tagVal2.toString().equals("successor"))
-									 {
-										 System.out.println("3.successor found : "+eachUnit.toString());
-										 System.out.println("3.successor tags : "+eachUnit.getTags().toString());
-									 }
-								 }
-								 
-							 }
+							
 							 if(remainingTails>0)
 							 {
 								 for (Unit clonedRet:clonedTailList)
@@ -682,69 +343,15 @@ public class Test {
 									 System.out.println("successor: "+successor.toString());
 									 System.out.println("clonedRet: "+clonedRet.toString());
 									 body.getUnits().insertAfter(successor,clonedRet); //added in *****get the other tails***** 
-									 //body.getUnits().insertBefore(clonedRet,successor);
-									 //body.getUnits().remove(successor);
 								 } 
 							 }
 							 
-							 for (Unit eachUnit:body.getUnits())
-							 {
-								 if(eachUnit.getTags().size()>0)
-								 {
-									 Tag tagVal2 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
-									 if(tagVal2.toString().equals("successor"))
-									 {
-										 System.out.println("4.successor found : "+eachUnit.toString());
-										 System.out.println("4.successor tags : "+eachUnit.getTags().toString());
-									 }
-								 }
-							 }
 							 Body b = body;
-							 for (Unit eachUnit:b.getUnits())
-							 {
-								 if(eachUnit.getTags().size()>0)
-								 {
-									 Tag tagVal2 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
-									 if(tagVal2.toString().equals("successor"))
-									 {
-										 System.out.println("5.successor found : "+eachUnit.toString());
-										 System.out.println("5.successor tags : "+eachUnit.getTags().toString());
-									 }
-								 }
-							 }
-                             //added tag for the successor unit
-							 //successor.addTag(new StringTag("successor"));
 						     BlockGraph bg = new BriefBlockGraph(b);//this line is needed to remove the duplicate block
 						     
-						     for (Unit eachUnit:b.getUnits())
-							 {
-								 if(eachUnit.getTags().size()>0)
-								 {
-									 Tag tagVal2 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
-									 if(tagVal2.toString().equals("successor"))
-									 {
-										 System.out.println("6.successor found : "+eachUnit.toString());
-										 System.out.println("6.successor tags : "+eachUnit.getTags().toString());
-									 }
-								 }
-							 }
-						     //***checking the tag***
 						     PatchingChain<Unit> unitsInDummyMdt1 = body.getUnits();
-						     for (Unit eachUnit:unitsInDummyMdt1)
-						     {
-						    	 //System.out.println("unit : "+eachUnit.toString());
-						    	 //System.out.println("tag of this unit : "+eachUnit.getTags());  
-						     }
-						     //***checking the tag***
-						     
-						     //print basic block info 
-						     
-							 //*****solve error*****
-							 System.out.println("mergedMtd : "+eachMdt.getSignature()+"\n");
 							 noMdtsMerged++;
 							 mergedMethodsList.add(eachMdt);
-							 //*****solve error*****
-							 //BlockGraph bg1 = new BriefBlockGraph(b);
 							 CFGToDotGraph y = new CFGToDotGraph();
 							 DotGraph a1=y.drawCFG(bg,b);
 							 if(eachMdt.getSignature().toString().equals("<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"))
@@ -754,59 +361,25 @@ public class Test {
 							 Tag tagVal1;
 						     for (Unit eachUnit:unitsInDummyMdt1)
 						     {
-						    	 /*if(eachUnit.getTags().size()>0)
-						    	 {
-						    		 System.out.println("eachUnit : "+eachUnit.toString()+"\n");
-						    		 System.out.println("eachUnit Tags : "+eachUnit.getTags()+"\n");
-						    	 }*/
-						    	 //eachUnit.getTags().clear();
 						    	 if(eachUnit.getTags().size()>0)
 						    	 {
-						    		 //if(eachUnit.getTags().size()==1)
-						    		 //{
-						    			 //tagVal1 =  (StringTag) eachUnit.getTags().get(0);
-						    			 //if(tagVal1.toString() =="tail")
 						    			 tagVal1 = eachUnit.getTags().get(eachUnit.getTags().size()-1);
 						    			 if(tagVal1.toString() =="tail")
 						    			 {
-						    				 //eachUnit.getTags().clear();
-						    				 //eachUnit.removeTag("tail");
 						    				 eachUnit.getTags().remove(eachUnit.getTags().size()-1);
 						    				 String tailString = "oldtail_"+ tailCnt;
-						    				 //System.out.println("tailString : "+tailString.toString()+"\n");
-						    				 eachUnit.addTag(new StringTag(tailString));
-						    				 //eachUnit.removeTag("tail"); 
+						    				 eachUnit.addTag(new StringTag(tailString)); 
 						    			 }
-						    			 /*if(tagVal1.toString() =="predecessor")
-						    			 {
-						    				 eachUnit.getTags().clear();
-						    				 String predString = "oldpredecessor_"+ tailCnt;
-						    				 //System.out.println("tailString : "+tailString.toString()+"\n");
-						    				 eachUnit.addTag(new StringTag(predString));
-						    			 }*/
-						    			 //if(tagVal1.toString() =="successor")
-						    			 //if(eachUnit.getTags().get(0).toString() =="successor")
 						    			 if(tagVal1.toString() =="successor")
 						    			 {
-						    				 //eachUnit.getTags().clear();
-						    				 //eachUnit.removeTag(tagVal1.toString());
 						    				 eachUnit.getTags().remove(eachUnit.getTags().size()-1);
 						    				 System.out.println("successor removed!!!");
 						    				 String successorString = "oldsuccessor_"+ tailCnt;
 						    				 eachUnit.addTag(new StringTag(successorString));
 						    				 tailCnt++;
-						    				 //eachUnit.removeTag("successor"); 
 						    			 }
-						    		 //}
-						    	 }
-						     
-						    	 if(eachUnit.getTags().size()>0)
-						    	 {
-						    		 System.out.println("eachUnit : "+eachUnit.toString()+"\n");
-						    		 System.out.println("eachUnit Tags : "+eachUnit.getTags()+"\n");
 						    	 }
 						     }
-						    	 //BlockGraph bg1 = new BriefBlockGraph(b);
 						    	 BlockGraph bg1 = new BriefBlockGraph(b);
 						    	 for (Block block:bg1)
 								 {
@@ -817,58 +390,8 @@ public class Test {
 								 if(eachMdt.getSignature().toString().equals("<com.example.gsrishaila.myapplication.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"))
 									 a11.plot("dummymain" +"334.dot"); 
 								 a11.plot("dummymain" +"333.dot");
-								 
-								//end for 
-						    	 //eachUnit.getTags().clear();
-						    	 /*System.out.println("tagsInUnit : "+eachUnit.getTags());
-						    	 if(eachUnit.getTags().size()>0)
-						    	 {
-						    		 if(eachUnit.getTags().size()==1)
-						    		 {
-						    			 tagVal1 =  (StringTag) eachUnit.getTags().get(0);
-						    			 if(tagVal1.toString() =="tail")
-						    				 eachUnit.removeTag("tail"); 
-						    			 if(tagVal1.toString() =="successor")
-						    				 eachUnit.removeTag("successor"); 
-						    		 }
-						    	 }*/
-						    	 /*if(eachUnit.getTags().size()>0)
-								 {
-						    		 tagVal1 =  (StringTag) eachUnit.getTags().get(0);
-									 if(tagVal1.toString() =="tail")
-									 {
-										 eachUnit.removeTag("tail");
-										 eachUnit.addTag(new StringTag("oldtail"));
-											//continue;
-									 }
-									 else
-										 eachUnit.getTags().clear(); 
-								 }
-						    	 else*/
-								 //eachUnit.getTags().clear();
-						    	 //System.out.println("unit : "+eachUnit.toString());
-						    	 //System.out.println("tag of this unit : "+eachUnit.getTags());  
-						     
-						     //***clear all the tags***
 							 
-							 
-							 
-							 
-							 currNoUnits = body.getUnits().size(); //update global units count for recursive while loop
-						     //generateCFG()
-						     //generateCFG (dummyMainMdt); //this line is needed to remove the duplicate block
-						     //System.out.println(body.getUnits().toString());
-						     //******BLOCKDETAILS******
-						     //print basic block info 
-						     //actually it is only 26 blocks 0 to 25 but the number of one of the blk is skipped =)
-							/*for (Block block:bg.getBlocks()){
-								System.out.println("\n"+block.toString());
-							}*/
-							//System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
-							//System.out.println("total number of new blocks in body: "+bg.getBlocks().size());
-							//******BLOCKDETAILS******
-							 
-								 
+							 currNoUnits = body.getUnits().size(); //update global units count for recursive while loop	 
 						     break;
 						 }//remove if
 					}
@@ -877,9 +400,7 @@ public class Test {
 			}
 		}
 		//******
-		System.out.println("last blockgraph...\n");
 		BlockGraph bg1 = new BriefBlockGraph(body);
-		System.out.println("after blockgraph...\n");
 		for (Block block:bg1)
 		 {
 			System.out.println("\n"+block.toString());
@@ -890,162 +411,6 @@ public class Test {
 		//******
 		
 		return dummyMainMdt;
-	}
-	
-	
-	public static SootMethod mergeCFG1022s (List <SootMethod> entryPoint, List <String> sootMethodsSignatureList, String mainMdtName)
-	{
-		List<Unit> tailList = new ArrayList();
-		Body body = null ;
-		SootMethod dummyMainMdt = null ;
-		//first get the dummy main mdt and its body
-		for (SootMethod eachMdt:entryPoint)
-		{
-			if (eachMdt.getName().contains(mainMdtName) )
-			{
-				body = eachMdt.retrieveActiveBody();
-				dummyMainMdt = eachMdt;//dummyMainMdt refer to the mainMdtName
-				
-			}
-		}
-		
-		for (SootMethod eachMdt:entryPoint)
-		{
-			//get the units frm dummy method
-			PatchingChain<Unit> unitsInDummyMdt = body.getUnits(); //unitsInDummyMdt refer to the mainMdtName
-			
-			
-			//get the dummymainmdt
-			if (eachMdt.getSignature() == mainMdtName )
-				continue;
-			if(unitsInDummyMdt == null)
-			{
-				System.out.println("unitsInDummyMdt is null");
-			}
-			else
-			{
-				System.out.println("ToMerge : "+eachMdt.getSignature());
-				//if (eachMdt.getSignature() == "<com.android.insecurebank.PostLogin: void dotransfer()>")
-				//	continue;
-				
-				if (eachMdt.getSignature() == "<com.android.insecurebank.RestClient: java.lang.String postHttpContent(java.lang.String,java.util.Map)>")
-					continue;
-				for (Unit unitFrmMdt:unitsInDummyMdt)
-				{
-					Stmt stmt = (Stmt)unitFrmMdt ;
-					//if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")) && (eachMdt.getSignature().contains("onOptionsItemSelected")))
-					
-					//if (unitFrmMdt.toString().contains("invoke") && (!unitFrmMdt.toString().contains("if")))
-					if (stmt.containsInvokeExpr()) 
-					{
-						 //System.out.println("invoke stmt : "+stmt.toString());
-						 InvokeExpr invokeExpr1 = stmt.getInvokeExpr();
-			             //eachMdt = invokeExpr1.getMethod();
-			             //eachMdt.getActiveBody();
-						 if (unitFrmMdt.toString().contains(eachMdt.getSignature()))
-						 {
-							 //System.out.println("got into if : "+stmt.toString());
-							 Unit successor = body.getUnits().getSuccOf(unitFrmMdt);
-							 List<Unit> nonRetUnits = new ArrayList();
-							 
-							 InvokeExpr invokeExpr = stmt.getInvokeExpr();
-				             eachMdt = invokeExpr.getMethod();
-				             if(!eachMdt.hasActiveBody())
-				            	 continue;
-							 //get the called mdt -each mdt
-				             Stmt nop1=Jimple.v().newNopStmt();
-				             Unit lastUnit =eachMdt.retrieveActiveBody().getUnits().getLast();
-				             Stmt lastUnitStmt =(Stmt) eachMdt.retrieveActiveBody().getUnits().getLast();
-				             System.out.println("lastUnitStmt.branches() : "+ lastUnitStmt.branches());
-				             Unit preLast = eachMdt.getActiveBody().getUnits().getPredOf(eachMdt.retrieveActiveBody().getUnits().getLast());
-				             System.out.println("getLast() unit : "+ lastUnit.toString());
-				             System.out.println("predecessor of last unit : "+preLast.toString());
-				             System.out.println("successor of the last unit : "+eachMdt.retrieveActiveBody().getUnits().getSuccOf(lastUnit));
-				             //if(lastUnit.toString().contains("return") || lastUnit.toString().contains("throw"))
-				             //if(!lastUnitStmt.branches())//if last unit is a branch, then we dont do this
-				             	 eachMdt.retrieveActiveBody().getUnits().swapWith(eachMdt.retrieveActiveBody().getUnits().getLast(), nop1);
-				             //eachMdt.retrieveActiveBody().getUnits().removeLast();
-							 //eachMdt.retrieveActiveBody().getUnits().removeLast();
-							 //*****get the other tails*****
-							 Unit b4Tail = null;
-							 UnitGraph newone= new ExceptionalUnitGraph (eachMdt.getActiveBody());
-							 System.out.println("tail units : "+ newone.getTails());
-							 //only if there are other tails
-							 int remainingTails=0;
-							 /*Stmt nop=Jimple.v().newNopStmt();
-							 Unit cloneNexUnit = (Unit) nop.clone();
-							 List<Unit> clonedTailList = new ArrayList();
-							 remainingTails = newone.getTails().size();
-							 if(remainingTails>0)
-							 {
-								 for (Unit eachTailUnit:newone.getTails())
-								 {
-									 cloneNexUnit = (Unit) nop.clone();
-									 clonedTailList.add(cloneNexUnit);
-									 tailList.add(eachTailUnit);
-									 System.out.println("eachTailUnit : "+eachTailUnit.toString());
-									 b4Tail =newone.getBody().getUnits().getPredOf(eachTailUnit);
-									 System.out.println("b4Tail.toString() : "+b4Tail.toString());
-									 newone.getBody().getUnits().swapWith(eachTailUnit, cloneNexUnit);
-									 //body.getUnits().remove(eachTailUnit); //added in *****get the other tails***** 
-									 //connect the b4Tail to the successor
-									 
-								 }
-								 
-							
-							 }*/
-							//*****get the other tails*****
-							//System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
-							 body.getUnits().insertOnEdge(eachMdt.retrieveActiveBody().getUnits(),unitFrmMdt, successor);
-							 /*if(remainingTails>0)
-							 {
-								 for (Unit clonedRet:clonedTailList)
-								 {
-									 //body.getUnits().remove(successor);
-									 body.getUnits().insertAfter(successor,clonedRet); //added in *****get the other tails***** 
-									 //body.getUnits().remove(successor);
-								 }
-								 
-							 }*/
-							 
-							 Body b = body;
-						     BlockGraph bg = new BriefBlockGraph(b);//this line is needed to remove the duplicate block
-							 //print basic block info 
-							 for (Block block:bg)
-							 {
-								//System.out.println("\n"+block.toString());
-							 }//end for 
-							 //*****solve error*****
-							 System.out.println("mergedMtd : "+eachMdt.getSignature());
-							 mergedMethodsList.add(eachMdt);
-							 
-							 //*****solve error*****
-							 BlockGraph bg1 = new BriefBlockGraph(b);
-							 CFGToDotGraph y = new CFGToDotGraph();
-							 DotGraph a1=y.drawCFG(bg,b);
-							 a1.plot("dummymain" +"333.dot");
-							 
-							 currNoUnits = body.getUnits().size(); //update global units count for recursive while loop
-						     //generateCFG()
-						     //generateCFG (dummyMainMdt); //this line is needed to remove the duplicate block
-						     //System.out.println(body.getUnits().toString());
-						     //******BLOCKDETAILS******
-						     //print basic block info 
-						     //actually it is only 26 blocks 0 to 25 but the number of one of the blk is skipped =)
-							/*for (Block block:bg.getBlocks()){
-								System.out.println("\n"+block.toString());
-							}*/
-							//System.out.println("eachMdt unit size: "+eachMdt.retrieveActiveBody().getUnits().size());
-							//System.out.println("total number of new blocks in body: "+bg.getBlocks().size());
-							//******BLOCKDETAILS******
-						     break;
-						 }//remove if
-					}
-				}
-			}
-		}
-		return dummyMainMdt;
-		
 	}
 	
 	/**
@@ -1148,12 +513,11 @@ public class Test {
 	   //*****added in code2*****
 	   PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
 	   System.setOut(out);
-	   System.out.println("done done done111...");
 	   String androidPlatformPath = "/home/shaila/Android/Sdk/platforms";
 	   
 	   //String appPath = "/home/shaila/Desktop/NewAPKs2/Broadcast/BroadcastReceiver/OriginalAPK/BroadcastReceiverNewSms-debug.apk";
-	   //String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
-	   String appPath = "/home/shaila/Desktop/MyDPT12.apk";
+	   String appPath = "/home/shaila/Desktop/NewAPKs2/ServiceComponent/OriginalAPK/ServiceOriginalApk.apk";
+	   //String appPath = "/home/shaila/Desktop/MyDPT12.apk";
 	   SetupApplication app = new SetupApplication
 	                (androidPlatformPath,
 	                        appPath);
@@ -1175,8 +539,6 @@ public class Test {
 
 	   Scene.v().loadNecessaryClasses();
 	   
-	   
-
 	   //SootMethod entryPoint = app.getEntryPointCreator().createDummyMain();
 	   SootMethod entryPoint = app.getDummyMainMethod();
 	   BlockGraph bg1 = new BriefBlockGraph(entryPoint.getActiveBody());
@@ -1191,7 +553,6 @@ public class Test {
 	   CallGraph appCallGraph = Scene.v().getCallGraph();
 	   File graph =serializeCallGraph(appCallGraph, "callgraph");
 	   
-	   System.out.println("hhhh");
 	   System.out.println(entryPoint.getActiveBody());
 	    
 	    //getting the CFG of the DummyMainMethod
@@ -1200,24 +561,7 @@ public class Test {
 	    //getting the entrypoint classes from the DummyMainMethod
 	    Set <SootClass> entryPoint1 =  app.getEntrypointClasses();
 	    System.out.println(entryPoint1);
-	    /*for (SootClass eachentrypt:entryPoint1){
-		    List <SootMethod> mdtsInSootClass = eachentrypt.getMethods();
-		    System.out.println("\n"+"EntryPoint Details : "+eachentrypt.toString()+" "+eachentrypt.getMethods().toString());
-		    //get the all the methods in these classes, get the CFGs for those classes
-		    for(SootMethod  mdt : mdtsInSootClass)
-		    {    
-		    	 generateCFG (mdt);
-		         sootMethodsNameList.add(mdt.getName());
-		         sootMethodsObjectList.add(mdt);
-		         sootMethodsSignatureList.add(mdt.getSignature());
-		     	 sootMethodsSubSignatureList.add(mdt.getSubSignature());
-		    }
-	    }*/
-	    System.out.println("mergeCFGs () function called No1 ....");
-	    //mergeCFGs (sootMethodsObjectList, sootMethodsNameList);
-	    //addingDummyTail(sootMethodsObjectList, sootMethodsSignatureList);
 	    
-	    //***
 	    PatchingChain<Unit> unitsInDummyMdt = entryPoint.retrieveActiveBody().getUnits(); //unitsInDummyMdt refer to the mainMdtName
         Queue<SootMethod> newMdtQueue = new LinkedList<SootMethod>();
 		for (Unit unitInMdt:unitsInDummyMdt)
@@ -1227,10 +571,8 @@ public class Test {
 			{
 	            if (stmt.containsInvokeExpr()) 
 	            {
-	            	//System.out.println("stmt: "+stmt.toString());
 	                InvokeExpr invokeExpr = stmt.getInvokeExpr();
 	                SootMethod method = invokeExpr.getMethod();
-	                //System.out.println("method.getActiveBody(); ");
 	                method.getActiveBody();
 	                newMdtQueue.add(method); 
 	            }
@@ -1253,7 +595,6 @@ public class Test {
 	    //original while loop
 	    //***Adding all methods to sootMethodsObjectList 
 	    int origNoUnits = unitsInDummyMdt.size();
-	    
 	    while (true)
 	    {
 	    origNoUnits = unitsInDummyMdt.size(); //get initial number of units
@@ -1266,13 +607,11 @@ public class Test {
 			{
 	            if (stmt.containsInvokeExpr()) 
 	            {
-	            	//System.out.println("stmt: "+stmt.toString());
 	                InvokeExpr invokeExpr = stmt.getInvokeExpr();
 	                SootMethod method = invokeExpr.getMethod();
 					
 	                if(mergedMethodsList.contains(method))
 	                {
-	                	//System.out.println("continued...");
 	                	continue;
 	                }
 	                if(method.hasActiveBody())
@@ -1283,21 +622,18 @@ public class Test {
 	                		sootMethodsSignatureList.add(method.getSignature());
 	                		generateCFG (method);
 	                	}
-	                }
-	                //System.out.println("method.getActiveBody(); ");
-	                //newMdtQueue.add(method); 
+	                } 
 	            }
 			}
 		}//end of for loop
 	    //***Adding all methods to sootMethodsObjectList 
-	    //mergeCFG104s (subFunctions);
 	    System.out.println("calling the mergeCFG1021s method...\n");
 	    SootMethod newOne=mergeCFG1021s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
 	    unitsInDummyMdt = newOne.getActiveBody().getUnits();
-	    for (SootMethod mdtInList:sootMethodsObjectList)
+	    /*for (SootMethod mdtInList:sootMethodsObjectList)
 	    {
-	    	//System.out.println("mdtInList: " + mdtInList);
-	    }
+	    	System.out.println("mdtInList: " + mdtInList);
+	    }*/
 	    //print currNoUnits
 	    System.out.println("origNoUnits: "+origNoUnits);
 	    System.out.println("currNoUnits: " + currNoUnits);
@@ -1313,88 +649,10 @@ public class Test {
 	    //break;//for test
 		
 	    }//end of while
-	    //original while loop
-	    
-	    //debugging while loop
-	    /*int loopcnt=0;
-	    while (loopcnt<2)
-	    {
-	    origNoUnits = unitsInDummyMdt.size(); //get initial number of units
-	    
-	    System.out.println("origNoUnits: "+origNoUnits);
-	    for (Unit unitInMdt:unitsInDummyMdt)
-		{
-			Stmt stmt = (Stmt)unitInMdt ;
-			if (stmt != null) 
-			{
-	            if (stmt.containsInvokeExpr()) 
-	            {
-	            	//System.out.println("stmt: "+stmt.toString());
-	                InvokeExpr invokeExpr = stmt.getInvokeExpr();
-	                SootMethod method = invokeExpr.getMethod();
-					
-	                if(mergedMethodsList.contains(method))
-	                {
-	                	System.out.println("continued...");
-	                	continue;
-	                }
-	                if(method.hasActiveBody())
-	                {
-	                	if(!sootMethodsObjectList.contains(method))
-	                	{
-	                		if(method.getSignature().contains("com.android.insecurebank.PostLogin$1: void onClick"))
-	                		{	
-	                			System.out.println("one...");
-	                			sootMethodsObjectList.add(method);
-	                			sootMethodsSignatureList.add(method.getSignature());
-	                			generateCFG (method);
-	                		}
-	                		if(method.getSignature().contains("com.android.insecurebank.PostLogin: void dotransfer"))
-	                		{	
-	                			System.out.println("two...");
-	                			sootMethodsObjectList.add(method);
-	                			sootMethodsSignatureList.add(method.getSignature());
-	                			generateCFG (method);
-	                		}
-	                	}
-	                }
-	                //System.out.println("method.getActiveBody(); ");
-	                //newMdtQueue.add(method); 
-	            }
-			}
-		}//end of for loop
-	    //***Adding all methods to sootMethodsObjectList 
-	    //mergeCFG104s (subFunctions);
-	    System.out.println("calling the mergeCFG1022s method...\n");
-	    SootMethod newOne=mergeCFG1022s (sootMethodsObjectList, sootMethodsSignatureList,"dummyMainMethod");
-	    unitsInDummyMdt = newOne.getActiveBody().getUnits();
-	    for (SootMethod mdtInList:sootMethodsObjectList)
-	    {
-	    	System.out.println("mdtInList: " + mdtInList);
-	    }
-	    //print currNoUnits
-	    System.out.println("origNoUnits: "+origNoUnits);
-	    System.out.println("currNoUnits: " + currNoUnits);
-	    System.out.println("newOne.noUnits: " +newOne.getActiveBody().getUnits().size() ); //seems updated
-	    if(currNoUnits==origNoUnits)
-	    	break;
-	    sootMethodsObjectList.clear();
-	    sootMethodsObjectList.add(entryPoint); //add the dummymain mdt
-		sootMethodsSignatureList.clear();
-	    //break;//for test
-		
-	    }//end of while*/
-	  //debugging while loop
-	    
+	    //original while loop	    
 	    System.out.println("sootMethodsObjectList: " + sootMethodsObjectList);
 	    System.out.println("sootMethodsNameList: " + sootMethodsNameList);
 	    System.out.println("sootMethodsSignatureList: " + sootMethodsSignatureList);
-	    
-		
-		//System.out.println("sootMethodsSubSignatureList: " + sootMethodsSubSignatureList);
-		//getting the callgraph
-	  
-	   
 	   //*****added in code2*****
       
 	}

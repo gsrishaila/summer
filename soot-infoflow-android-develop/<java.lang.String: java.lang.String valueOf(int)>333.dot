@@ -1,5 +1,0 @@
-digraph "java.lang.String valueOf(int)" {
-    label="java.lang.String valueOf(int)";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="i0 := @parameter0\l$r0 = new java.lang.RuntimeException\lspecialinvoke $r0.<init>(\"Stub!\")\lthrow $r0\l",];
-}

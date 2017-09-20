@@ -1,5 +1,0 @@
-digraph "java.lang.Runnable access$1(com.example.cs5248recordvideo.PlayerActivity)" {
-    label="java.lang.Runnable access$1(com.example.cs5248recordvideo.PlayerActivity)";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @parameter0\lr1 = $r0.mMyRunnable\lreturn r1\l",];
-}

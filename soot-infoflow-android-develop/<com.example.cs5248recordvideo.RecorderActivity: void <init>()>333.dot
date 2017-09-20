@@ -1,5 +1,0 @@
-digraph "void <init>()" {
-    label="void <init>()";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\lspecialinvoke $r0.<init>()\l$r0.surfaceview = null\l$r0.surfaceholder = null\l$r0.camera = null\l$r0.inPreview = 0\l$r0.cameraConfigured = 0\l$r0.startedRecording = 0\l$r0.stoppedRecording = 0\l$r1 = new com.example.cs5248recordvideo.RecorderActivity$1\lspecialinvoke $r1.<init>($r0)\l$r0.surfaceCallback = $r1\lreturn\l",];
-}

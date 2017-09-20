@@ -1,5 +1,0 @@
-digraph "java.lang.String trim()" {
-    label="java.lang.String trim()";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="r0 := @this\l$r1 = new java.lang.RuntimeException\lspecialinvoke $r1.<init>(\"Stub!\")\lthrow $r1\l",];
-}

@@ -1,5 +1,0 @@
-digraph "void deleteAll()" {
-    label="void deleteAll()";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 = $r0.db\l$r1.delete(\"trx\", null, null)\lreturn\l",];
-}

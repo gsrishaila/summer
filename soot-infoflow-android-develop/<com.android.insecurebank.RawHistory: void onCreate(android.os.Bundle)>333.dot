@@ -1,5 +1,0 @@
-digraph "void onCreate(android.os.Bundle)" {
-    label="void onCreate(android.os.Bundle)";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,style=filled,fillcolor=lightgray,label="$r0 := @this\l$r1 := @parameter0\lspecialinvoke $r0.onCreate($r1)\l$r0.setContentView(2130903040)\l$r3 = $r0.findViewById(2131099648)\l$r4 = (android.webkit.WebView) $r3\l$r5 = $r4.getSettings()\l$r5.setJavaScriptEnabled(1)\l$r2 = new android.webkit.WebChromeClient\lspecialinvoke $r2.<init>()\l$r4.setWebChromeClient($r2)\l$r6 = new java.lang.StringBuilder\l$r7 = $r0.statementdirectory\l$r7 = java.lang.String.valueOf($r7)\lspecialinvoke $r6.<init>($r7)\l$r6 = $r6.append(\"/rawhistory.html\")\l$r7 = $r6.toString()\l$r6 = new java.lang.StringBuilder\lspecialinvoke $r6.<init>(\"file://\")\l$r6 = $r6.append($r7)\l$r7 = $r6.toString()\l$r4.loadUrl($r7)\lreturn\l",];
-}
